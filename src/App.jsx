@@ -3057,7 +3057,7 @@ const TicketsSection = () => {
                         Regular Admission Pass
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
-                        Official all-access pass — includes High Tea, Lunch &amp; Exciting Goodies.
+                        Official all-access pass — includes High Tea, Lunch &amp; Exciting Swags / Goodies.
                       </p>
                     </div>
                   </div>
@@ -3092,7 +3092,7 @@ const TicketsSection = () => {
                         <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Lunch
                       </span>
                       <span className="inline-flex items-center gap-1 bg-stone-100 px-2.5 py-1 rounded-lg">
-                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Exciting Goodies
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Exciting Swags / Goodies
                       </span>
                     </div>
                     <a
@@ -3155,7 +3155,7 @@ const TicketsSection = () => {
 
                   <div className="mt-4 text-center">
                     <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-slate-500 bg-white px-2.5 py-1.5 rounded-lg border border-stone-200/80 shadow-xs">
-                      <Sparkles className="w-3 h-3 text-yellow-500" /> Hover to preview Exciting Goodies
+                      <Sparkles className="w-3 h-3 text-yellow-500" /> Hover to preview Exciting Swags / Goodies
                     </span>
                   </div>
                 </div>
@@ -3171,10 +3171,10 @@ const TicketsSection = () => {
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="bg-emerald-400 text-slate-950 font-black px-3 py-1 rounded-full text-[10px] uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
-                          <Sparkles className="w-3 h-3 text-slate-950" /> GOODIES UNLOCKED
+                          <Sparkles className="w-3 h-3 text-slate-950" /> PERKS UNLOCKED
                         </span>
                         <span className="text-xs font-black tracking-widest text-slate-400 uppercase hidden sm:inline">
-                          OFFICIAL MERCH PASS
+                          OFFICIAL ATTENDEE PASS
                         </span>
                       </div>
                       <span className="font-mono text-[11px] font-bold text-emerald-400">
@@ -3184,7 +3184,7 @@ const TicketsSection = () => {
 
                     <div className="mt-3">
                       <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                        Exciting Goodies &amp; Attendee Kit
+                        Exciting Swags / Goodies &amp; Inclusions
                       </h3>
                       <p className="text-xs sm:text-sm text-yellow-300 font-bold uppercase tracking-wider mt-0.5">
                         Collect at Event Registration Desk · SNU Campus
@@ -3193,33 +3193,26 @@ const TicketsSection = () => {
                   </div>
 
                   {/* Swag Perks Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-4 py-3 border-y border-slate-800">
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">👕</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4 py-3 border-y border-slate-800">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                      <span className="text-2xl">☕</span>
                       <div>
-                        <div className="text-xs font-black text-white leading-tight">Event T-Shirt</div>
-                        <div className="text-[10px] text-slate-400">Size XS–XXL on KonfHub</div>
+                        <div className="text-sm font-black text-white leading-tight">High Tea</div>
+                        <div className="text-[10px] text-slate-400">Included with Ticket</div>
                       </div>
                     </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">🎒</span>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                      <span className="text-2xl">🍱</span>
                       <div>
-                        <div className="text-xs font-black text-white leading-tight">Canvas Tote</div>
-                        <div className="text-[10px] text-slate-400">Eco Material</div>
+                        <div className="text-sm font-black text-white leading-tight">Lunch</div>
+                        <div className="text-[10px] text-slate-400">Included with Ticket</div>
                       </div>
                     </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">🏷️</span>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                      <span className="text-2xl">🎁</span>
                       <div>
-                        <div className="text-xs font-black text-white leading-tight">Sticker Pack</div>
-                        <div className="text-[10px] text-slate-400">Kolkata &amp; SAP</div>
-                      </div>
-                    </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">☕</span>
-                      <div>
-                        <div className="text-xs font-black text-white leading-tight">High Tea &amp; Lunch</div>
-                        <div className="text-[10px] text-slate-400">Full Day Catering</div>
+                        <div className="text-sm font-black text-white leading-tight">Exciting Swags / Goodies</div>
+                        <div className="text-[10px] text-slate-400">Included with Ticket</div>
                       </div>
                     </div>
                   </div>
