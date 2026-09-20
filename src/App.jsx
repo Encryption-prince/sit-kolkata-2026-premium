@@ -1203,29 +1203,29 @@ const AboutSection = () => {
           <div className="w-full lg:w-1/2">
             <Reveal direction="left">
               <div className="inline-flex items-center gap-2 mb-4 border-2 border-yellow-400 bg-yellow-50 px-4 py-1.5 rounded-full font-black text-xs uppercase tracking-widest text-slate-900 transform -rotate-1 shadow-sm">
-                <Landmark className="w-4 h-4 text-yellow-600" />
-                The Kolkata Edition
+                <Sparkles className="w-4 h-4 text-amber-500" />
+                THE KOLKATA EDITION • MAIN THEME: SAP BUSINESS AI
               </div>
               <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
-                Where Enterprise <br />
+                Where Enterprise AI <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Meets Culture.</span>
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                SAP Inside Track Kolkata is a grassroots community event, bringing together developers, consultants, architects, and industry leaders under one roof in the vibrant City of Joy.
+                SAP Inside Track Kolkata 2026 is Eastern India’s flagship community tech conference, bringing together developers, architects, consultants, and enterprise leaders to explore the transformational power of <strong className="text-slate-900 font-extrabold">SAP Business AI</strong> in the vibrant City of Joy.
               </p>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Experience a unique blend of high-tech enterprise solutions and authentic Kolkata hospitality. Expect deep-dive tech sessions, brilliant networking, and the charm of iconic yellow taxis and historic streets.
+                Experience a high-energy fusion of enterprise innovation and legendary Kolkata hospitality. Dive deep into real-world AI use cases, Joule copilots, and Clean Core architectures while networking with industry pioneers.
               </p>
               
               <ul className="space-y-4">
                 {[
-                  { icon: <Zap className="w-5 h-5 text-yellow-500" />, text: "Cutting-edge sessions on SAP BTP, AI, and S/4HANA." },
-                  { icon: <Train className="w-5 h-5 text-blue-500" />, text: "Connect with local experts while celebrating the city's heritage." },
-                  { icon: <Star className="w-5 h-5 text-orange-500" />, text: "Enjoy authentic local cuisine and cultural experiences." },
+                  { icon: <BrainCircuit className="w-5 h-5 text-blue-600" />, text: "SAP Business AI & Joule Copilots: Embedding generative AI across enterprise workflows." },
+                  { icon: <Zap className="w-5 h-5 text-yellow-500" />, text: "Clean Core & BTP Architecture: Decoupled extensions, RAP models & event-driven mesh." },
+                  { icon: <Landmark className="w-5 h-5 text-amber-600" />, text: "Heritage & Connections: High-octane peer networking paired with Kolkata culture." },
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100 shadow-sm hover:border-yellow-200 transition-colors">
-                    <div className="bg-white p-2 rounded-lg shadow-sm border border-slate-200">{item.icon}</div>
-                    <span className="text-slate-800 font-semibold">{item.text}</span>
+                  <li key={idx} className="flex items-center gap-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 shadow-sm hover:border-yellow-300 transition-all">
+                    <div className="bg-white p-2.5 rounded-xl shadow-sm border border-slate-200 shrink-0">{item.icon}</div>
+                    <span className="text-slate-800 font-bold text-sm sm:text-base leading-snug">{item.text}</span>
                   </li>
                 ))}
               </ul>
