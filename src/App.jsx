@@ -45,7 +45,7 @@ const useScrollReveal = (options = {}) => {
 // Wrapper Component for Reveal Animations
 const Reveal = ({ children, className = '', delay = 'delay-0', direction = 'up', retrigger = false }) => {
   const [ref, isVisible] = useScrollReveal({ retrigger });
-  
+
   const baseClasses = "transition-all duration-1000 ease-out";
   const directionClasses = {
     up: isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12",
@@ -223,15 +223,14 @@ const CustomCursor = () => {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.12, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 w-8 h-8 rounded-full border flex items-center justify-center pointer-events-none transition-[border-color,background-color,box-shadow] duration-150 ${
-          isDarkArea
+        className={`fixed top-0 left-0 w-8 h-8 rounded-full border flex items-center justify-center pointer-events-none transition-[border-color,background-color,box-shadow] duration-150 ${isDarkArea
             ? isHovered
               ? 'border-white bg-white/20 shadow-[0_0_16px_rgba(255,255,255,0.4)]'
               : 'border-white/80 bg-transparent'
             : isHovered
-            ? 'border-slate-950 bg-slate-950/15 shadow-[0_0_16px_rgba(0,0,0,0.18)]'
-            : 'border-slate-950/80 bg-transparent'
-        }`}
+              ? 'border-slate-950 bg-slate-950/15 shadow-[0_0_16px_rgba(0,0,0,0.18)]'
+              : 'border-slate-950/80 bg-transparent'
+          }`}
       />
 
       {/* Inner Precision Dot */}
@@ -247,11 +246,10 @@ const CustomCursor = () => {
           opacity: isVisible ? 1 : 0,
         }}
         transition={{ duration: 0.08 }}
-        className={`fixed top-0 left-0 w-2 h-2 rounded-full transition-colors duration-200 ${
-          isDarkArea
+        className={`fixed top-0 left-0 w-2 h-2 rounded-full transition-colors duration-200 ${isDarkArea
             ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]'
             : 'bg-slate-950 shadow-[0_0_4px_rgba(0,0,0,0.4)]'
-        }`}
+          }`}
       />
     </div>
   );
@@ -264,7 +262,7 @@ const KolkataBackground = () => (
     <div className="absolute top-20 left-10 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-30 animate-pulse"></div>
     <div className="absolute top-40 right-20 w-72 h-72 bg-yellow-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-30"></div>
     <div className="absolute -bottom-32 left-1/2 w-[40rem] h-[40rem] bg-yellow-300 rounded-full mix-blend-multiply filter blur-[150px] opacity-20"></div>
-    
+
     {/* SVG Graffiti Splatters */}
     <svg className="absolute top-1/4 right-10 opacity-10" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <path d="M45,-78C56.5,-69.5,63,-51.5,70.5,-35C78,-18.5,86.5,-3.5,84.5,10.5C82.5,24.5,70,37.5,58,48.5C46,59.5,34.5,68.5,20.5,72.5C6.5,76.5,-9.5,75.5,-23.5,70.5C-37.5,65.5,-49.5,56.5,-59,44.5C-68.5,32.5,-75.5,17.5,-77.5,2C-79.5,-13.5,-76.5,-29.5,-67.5,-42.5C-58.5,-55.5,-43.5,-65.5,-29,-73C-14.5,-80.5,33.5,-86.5,45,-78Z" transform="translate(100 100)" fill="#eab308" />
@@ -275,9 +273,9 @@ const KolkataBackground = () => (
 
     {/* Abstract Howrah Bridge Silhouette */}
     <div className="absolute bottom-0 w-full h-64 opacity-[0.03] flex justify-center items-end" style={{
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 200 L200 50 L250 50 L350 200 Z" fill="black"/><path d="M650 200 L750 50 L800 50 L900 200 Z" fill="black"/><path d="M150 120 C 300 0, 700 0, 850 120" stroke="black" stroke-width="10" fill="none"/></svg>')`,
-        backgroundSize: '100% 100%',
-        backgroundRepeat: 'no-repeat'
+      backgroundImage: `url('data:image/svg+xml;utf8,<svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg"><path d="M100 200 L200 50 L250 50 L350 200 Z" fill="black"/><path d="M650 200 L750 50 L800 50 L900 200 Z" fill="black"/><path d="M150 120 C 300 0, 700 0, 850 120" stroke="black" stroke-width="10" fill="none"/></svg>')`,
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat'
     }}></div>
   </div>
 );
@@ -465,11 +463,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
           ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm py-2.5 border-b border-stone-200/70'
           : 'bg-[#FAF8F5] py-3.5'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-10 flex justify-between items-center">
         {/* Logo */}
@@ -500,11 +497,10 @@ const Navbar = () => {
                 <a
                   href={item.href}
                   onClick={() => setActiveSection(sectionId)}
-                  className={`py-1 transition-colors duration-200 ${
-                    isActive
+                  className={`py-1 transition-colors duration-200 ${isActive
                       ? 'text-slate-950 font-bold'
                       : 'text-slate-600 hover:text-[#0070F2]'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </a>
@@ -565,11 +561,10 @@ const Navbar = () => {
                       setActiveSection(sectionId);
                       setMobileMenuOpen(false);
                     }}
-                    className={`flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold transition-colors ${
-                      isActive
+                    className={`flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold transition-colors ${isActive
                         ? 'bg-blue-50 text-[#0070F2] font-bold'
                         : 'text-slate-700 hover:bg-stone-100 hover:text-slate-950'
-                    }`}
+                      }`}
                   >
                     <span>{item.label}</span>
                     {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#0070F2]" />}
@@ -1072,7 +1067,7 @@ const InteractivePhotoStack = () => {
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-full h-full min-h-[540px] md:min-h-[580px] p-6 sm:p-8 flex flex-col justify-between select-none"
     >
-      
+
       {/* ── TOP HEADER BAR INSIDE BOX ── */}
       <div className="relative z-30 flex items-center justify-between gap-3">
         {/* Left: Vintage / Live event pill */}
@@ -1086,9 +1081,8 @@ const InteractivePhotoStack = () => {
 
         {/* Right: The Dynamic Tag that updates with front photo */}
         <div
-          className={`bg-yellow-400 text-slate-950 border-2 border-slate-950 font-black px-4 py-1.5 rounded-xl transform shadow-[4px_4px_0px_rgba(15,23,42,1)] cursor-pointer select-none transition-all duration-300 hover:translate-x-0.5 hover:-translate-y-0.5 ${
-            tagPop ? 'scale-115 rotate-6' : 'scale-100 rotate-12'
-          }`}
+          className={`bg-yellow-400 text-slate-950 border-2 border-slate-950 font-black px-4 py-1.5 rounded-xl transform shadow-[4px_4px_0px_rgba(15,23,42,1)] cursor-pointer select-none transition-all duration-300 hover:translate-x-0.5 hover:-translate-y-0.5 ${tagPop ? 'scale-115 rotate-6' : 'scale-100 rotate-12'
+            }`}
           onClick={sendToBack}
           title="Click to cycle next photo"
         >
@@ -1126,7 +1120,7 @@ const InteractivePhotoStack = () => {
 
       {/* ── BOTTOM INFO & CONTROLS RAIL ── */}
       <div className="relative z-30 flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-        
+
         {/* Attendees micro-badge */}
         <div className="hidden sm:flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl border border-stone-200/90 shadow-sm">
           <div className="w-7 h-7 rounded-lg bg-blue-50 text-[#0070F2] flex items-center justify-center">
@@ -1147,7 +1141,7 @@ const InteractivePhotoStack = () => {
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
-          
+
           <div className="flex items-center gap-1.5 px-1">
             {initialPhotos.map((p) => {
               const isActive = p.id === activePhoto.id;
@@ -1155,11 +1149,10 @@ const InteractivePhotoStack = () => {
                 <button
                   key={p.id}
                   onClick={() => bringToFront(photos.findIndex(item => item.id === p.id))}
-                  className={`transition-all duration-300 rounded-full ${
-                    isActive
+                  className={`transition-all duration-300 rounded-full ${isActive
                       ? 'w-5 h-2 bg-[#0070F2]'
                       : 'w-2 h-2 bg-stone-300 hover:bg-stone-400'
-                  }`}
+                    }`}
                   title={p.label}
                 />
               );
@@ -1199,7 +1192,7 @@ const AboutSection = () => {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          
+
           <div className="w-full lg:w-1/2">
             <Reveal direction="left">
               <div className="inline-flex items-center gap-2 mb-4 border-2 border-yellow-400 bg-yellow-50 px-4 py-1.5 rounded-full font-black text-xs uppercase tracking-widest text-slate-900 transform -rotate-1 shadow-sm">
@@ -1216,7 +1209,7 @@ const AboutSection = () => {
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 Experience a high-energy fusion of enterprise innovation and legendary Kolkata hospitality. Dive deep into real-world AI use cases, Joule copilots, and Clean Core architectures while networking with industry pioneers.
               </p>
-              
+
               <ul className="space-y-4">
                 {[
                   { icon: <BrainCircuit className="w-5 h-5 text-blue-600" />, text: "SAP Business AI & Joule Copilots: Embedding generative AI across enterprise workflows." },
@@ -1248,7 +1241,7 @@ const AboutSection = () => {
                 22.5726° N, 88.3639° E • KOLKATA
               </div>
             </div>
-            
+
             <Reveal direction="right" className="relative z-10 w-full h-full">
               <InteractivePhotoStack />
             </Reveal>
@@ -1266,9 +1259,8 @@ const CuratedTag = ({ label, tilt = "-rotate-2", className = "", size = "normal"
 
   return (
     <div
-      className={`inline-flex items-center gap-1.5 ${
-        isSmall ? "px-2.5 py-1 text-[11px]" : "px-3.5 py-1.5 sm:px-4 sm:py-1.5 text-xs font-black"
-      } rounded-full bg-[#FFCE00] border-2 border-black text-black font-black uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:shadow-[4.5px_4.5px_0px_#000000] hover:-translate-y-0.5 hover:rotate-0 transition-all duration-200 cursor-pointer select-none ${tilt} ${className}`}
+      className={`inline-flex items-center gap-1.5 ${isSmall ? "px-2.5 py-1 text-[11px]" : "px-3.5 py-1.5 sm:px-4 sm:py-1.5 text-xs font-black"
+        } rounded-full bg-[#FFCE00] border-2 border-black text-black font-black uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:shadow-[4.5px_4.5px_0px_#000000] hover:-translate-y-0.5 hover:rotate-0 transition-all duration-200 cursor-pointer select-none ${tilt} ${className}`}
     >
       <svg
         viewBox="0 0 24 24"
@@ -1584,11 +1576,10 @@ const PastEventsSection = () => {
                   style={{
                     backgroundColor: idx === currentSlide ? current.theme.accent : 'transparent',
                   }}
-                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                    idx === currentSlide
+                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${idx === currentSlide
                       ? 'text-white shadow-md'
                       : 'text-stone-400 hover:text-white hover:bg-white/5'
-                  }`}
+                    }`}
                 >
                   {s.label}
                 </button>
@@ -1982,7 +1973,7 @@ const SpeakersSection = () => {
     dragStartPosRef.current = scrollPos;
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch (_) {}
+    } catch (_) { }
   };
 
   const handlePointerMove = (e) => {
@@ -1995,7 +1986,7 @@ const SpeakersSection = () => {
     isDraggingRef.current = false;
     try {
       e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch (_) {}
+    } catch (_) { }
   };
 
   const toggleBookmark = (id) => {
@@ -2067,11 +2058,10 @@ const SpeakersSection = () => {
                     key={s.id}
                     onClick={() => goToSpeaker(i)}
                     title={`View ${s.name} (${s.track})`}
-                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === activeIndex
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === activeIndex
                         ? 'w-4 bg-gradient-to-r from-[#0070F2] to-amber-400 shadow-[0_0_6px_rgba(245,158,11,0.5)]'
                         : 'w-1.5 bg-slate-700 hover:bg-slate-500'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -2173,22 +2163,20 @@ const SpeakersSection = () => {
                       opacity,
                       zIndex,
                     }}
-                    className={`absolute left-3 sm:left-8 w-[280px] sm:w-[330px] h-[82px] sm:h-[88px] rounded-2xl p-3 sm:p-3.5 transition-all duration-150 cursor-pointer flex items-center gap-3.5 backdrop-blur-xl border ${
-                      isActive
+                    className={`absolute left-3 sm:left-8 w-[280px] sm:w-[330px] h-[82px] sm:h-[88px] rounded-2xl p-3 sm:p-3.5 transition-all duration-150 cursor-pointer flex items-center gap-3.5 backdrop-blur-xl border ${isActive
                         ? 'bg-gradient-to-r from-slate-900/95 via-blue-950/90 to-slate-900/95 border-[#0070F2] ring-2 ring-amber-400/40 shadow-[0_15px_35px_-5px_rgba(0,112,242,0.45),0_0_20px_rgba(245,158,11,0.25)]'
                         : 'bg-slate-900/80 hover:bg-slate-800 border-slate-800/80 hover:border-slate-700 shadow-md'
-                    }`}
+                      }`}
                   >
                     {/* Speaker Circular Avatar */}
                     <div className="relative shrink-0">
                       <img
                         src={speaker.img}
                         alt={speaker.name}
-                        className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full object-cover border-2 transition-all ${
-                          isActive
+                        className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full object-cover border-2 transition-all ${isActive
                             ? 'border-amber-400 ring-2 ring-blue-500/50 shadow-md'
                             : 'border-slate-700'
-                        }`}
+                          }`}
                       />
                       {isActive && (
                         <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-slate-950 shadow-sm animate-pulse" />
@@ -2198,17 +2186,15 @@ const SpeakersSection = () => {
                     {/* Speaker Basic Info */}
                     <div className="flex-1 min-w-0 pr-1">
                       <div className="flex items-center gap-2 mb-0.5">
-                        <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${
-                          isActive
+                        <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${isActive
                             ? 'bg-amber-400/15 text-amber-300 border border-amber-400/30'
                             : 'bg-slate-800 text-slate-400'
-                        }`}>
+                          }`}>
                           {speaker.track.split(' ')[0]}
                         </span>
                       </div>
-                      <div className={`text-sm sm:text-base font-bold truncate ${
-                        isActive ? 'text-white' : 'text-slate-200'
-                      }`}>
+                      <div className={`text-sm sm:text-base font-bold truncate ${isActive ? 'text-white' : 'text-slate-200'
+                        }`}>
                         {speaker.name}
                       </div>
                       <div className="text-[11px] sm:text-xs text-slate-400 truncate">
@@ -2334,11 +2320,10 @@ const SpeakersSection = () => {
                   <div className="flex items-center gap-3">
                     <button
                       onClick={() => toggleBookmark(activeSpeaker.id)}
-                      className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                        bookmarked[activeSpeaker.id]
+                      className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${bookmarked[activeSpeaker.id]
                           ? 'bg-amber-400 text-slate-950 shadow-md font-black'
                           : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 border border-slate-700'
-                      }`}
+                        }`}
                     >
                       <Bookmark className="w-4 h-4" />
                       <span>{bookmarked[activeSpeaker.id] ? 'Saved to Agenda ★' : 'Save Session'}</span>
@@ -2389,18 +2374,16 @@ const SpeakersSection = () => {
                 <button
                   key={s.id}
                   onClick={() => goToSpeaker(idx)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full shrink-0 transition-all border ${
-                    isActive
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full shrink-0 transition-all border ${isActive
                       ? 'bg-slate-800/90 border-[#0070F2] ring-2 ring-amber-400/50 shadow-md text-white'
                       : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200'
-                  }`}
+                    }`}
                 >
                   <img
                     src={s.img}
                     alt={s.name}
-                    className={`w-6 h-6 rounded-full object-cover border ${
-                      isActive ? 'border-amber-400' : 'border-slate-700'
-                    }`}
+                    className={`w-6 h-6 rounded-full object-cover border ${isActive ? 'border-amber-400' : 'border-slate-700'
+                      }`}
                   />
                   <span className="text-xs font-bold whitespace-nowrap">{s.name.split(' ')[0]}</span>
                   {isActive && <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />}
@@ -2516,11 +2499,10 @@ const SpeakersSection = () => {
                 <div className="flex flex-wrap items-center gap-2">
                   <button
                     onClick={() => toggleBookmark(activeSpeaker.id)}
-                    className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
-                      bookmarked[activeSpeaker.id]
+                    className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${bookmarked[activeSpeaker.id]
                         ? 'bg-amber-400 text-slate-950 font-black'
                         : 'bg-slate-800 text-slate-300 border border-slate-700'
-                    }`}
+                      }`}
                   >
                     <Bookmark className="w-3.5 h-3.5" />
                     <span>{bookmarked[activeSpeaker.id] ? 'Saved ★' : 'Save'}</span>
@@ -2562,9 +2544,8 @@ const SpeakersSection = () => {
                     <button
                       key={i}
                       onClick={() => goToSpeaker(i)}
-                      className={`h-1.5 rounded-full transition-all ${
-                        i === activeIndex ? 'w-4 bg-amber-400' : 'w-1.5 bg-slate-700'
-                      }`}
+                      className={`h-1.5 rounded-full transition-all ${i === activeIndex ? 'w-4 bg-amber-400' : 'w-1.5 bg-slate-700'
+                        }`}
                     />
                   ))}
                 </div>
@@ -2675,7 +2656,7 @@ const VenueSection = () => {
     <section id="venue" className="py-24 bg-slate-900 text-white relative overflow-hidden scroll-mt-16">
       {/* Background Graphic */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-      
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <Reveal direction="up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black mb-4">The <span className="text-yellow-400">Venue</span></h2>
@@ -2685,7 +2666,7 @@ const VenueSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch">
           {/* Left Column: Auto-Scroll Carousel */}
           <Reveal direction="left" className="w-full flex">
-            <div 
+            <div
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               className="rounded-3xl overflow-hidden border-4 border-slate-800 shadow-2xl relative group w-full h-[460px] sm:h-[500px] lg:h-full min-h-[460px] flex flex-col justify-between select-none"
@@ -2694,13 +2675,12 @@ const VenueSection = () => {
               {slides.map((slide, idx) => (
                 <div
                   key={idx}
-                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                    currentSlide === idx ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
-                  }`}
+                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${currentSlide === idx ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                    }`}
                 >
-                  <img 
-                    src={slide.image} 
-                    alt={slide.title} 
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-slate-900/20" />
@@ -2756,11 +2736,10 @@ const VenueSection = () => {
                       key={dotIdx}
                       onClick={() => setCurrentSlide(dotIdx)}
                       aria-label={`Go to slide ${dotIdx + 1}`}
-                      className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                        currentSlide === dotIdx 
-                          ? 'w-8 bg-yellow-400' 
+                      className={`h-1.5 rounded-full transition-all cursor-pointer ${currentSlide === dotIdx
+                          ? 'w-8 bg-yellow-400'
                           : 'w-2 bg-white/30 hover:bg-white/60'
-                      }`}
+                        }`}
                     />
                   ))}
                   <span className="text-[10px] text-slate-400 ml-auto font-mono">
@@ -3036,7 +3015,7 @@ const TicketsSection = () => {
                 {/* Perforated Divider with Circular Ticket Cutouts */}
                 <div className="relative flex md:flex-col items-center justify-center">
                   <div className="w-full md:w-0 md:h-full border-t-2 md:border-t-0 md:border-r-2 border-dashed border-stone-300" />
-                  
+
                   {/* Desktop notches (top & bottom) */}
                   <div className="hidden md:block absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#FAF8F5] border-b-2 border-stone-300 z-10" />
                   <div className="hidden md:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#FAF8F5] border-t-2 border-stone-300 z-10" />
@@ -3169,7 +3148,7 @@ const TicketsSection = () => {
                 {/* Perforated Divider with Circular Ticket Cutouts */}
                 <div className="relative flex md:flex-col items-center justify-center">
                   <div className="w-full md:w-0 md:h-full border-t-2 md:border-t-0 md:border-r-2 border-dashed border-slate-800" />
-                  
+
                   {/* Desktop notches (top & bottom) */}
                   <div className="hidden md:block absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#FAF8F5] border-b-2 border-stone-300 z-10" />
                   <div className="hidden md:block absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#FAF8F5] border-t-2 border-stone-300 z-10" />
@@ -3324,9 +3303,9 @@ const SponsorsSection = () => {
 
 const CommunityPartnersSection = () => {
   const partners = [
-    "Apex Circle", "GDG On Campus", "Digital Dominators", 
-    "EDC", "HITian Inside", "Imperio Coders", "LNC Community", 
-    "Postman Kolkata", "Samarth", "InnovateX", "Wiki Kolkata", 
+    "Apex Circle", "GDG On Campus", "Digital Dominators",
+    "EDC", "HITian Inside", "Imperio Coders", "LNC Community",
+    "Postman Kolkata", "Samarth", "InnovateX", "Wiki Kolkata",
     "AWS Usergroup", "Databricks Usergroup", "Kolkata WordPress"
   ];
 
@@ -3693,7 +3672,7 @@ const ScratchCardCapsule = ({ item, globalResetTrigger }) => {
     setIsScratching(true);
     try {
       e.currentTarget.setPointerCapture(e.pointerId);
-    } catch (_) {}
+    } catch (_) { }
     const rect = canvasRef.current.getBoundingClientRect();
     lastPos.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
     scratch(e.clientX, e.clientY);
@@ -3709,7 +3688,7 @@ const ScratchCardCapsule = ({ item, globalResetTrigger }) => {
     lastPos.current = null;
     try {
       e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch (_) {}
+    } catch (_) { }
   };
 
   const handleUnscratch = () => {
@@ -3785,9 +3764,8 @@ const ScratchCardCapsule = ({ item, globalResetTrigger }) => {
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
         style={{ cursor: coinCursor }}
-        className={`absolute inset-0 z-10 touch-none select-none transition-opacity duration-300 ${
-          isRevealed ? "pointer-events-none opacity-0" : "opacity-100"
-        }`}
+        className={`absolute inset-0 z-10 touch-none select-none transition-opacity duration-300 ${isRevealed ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
       />
 
       {/* Real-time Scratch Progress Badge */}
@@ -4198,7 +4176,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-yellow-300 selection:text-slate-900 overflow-x-hidden">
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (hover: hover) and (pointer: fine) {
           html.custom-cursor-active,
           html.custom-cursor-active body,
@@ -4321,7 +4300,7 @@ export default function App() {
         }
         html { scroll-behavior: smooth; }
       `}} />
-      
+
       <CustomCursor />
       <ScrollProgress />
       <Navbar />
