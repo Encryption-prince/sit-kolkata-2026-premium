@@ -1260,6 +1260,31 @@ const AboutSection = () => {
   );
 };
 
+const CuratedTag = ({ label, tilt = "-rotate-2", className = "", size = "normal" }) => {
+  const isSmall = size === "small";
+  const formattedLabel = label.startsWith("#") ? label : `#${label}`;
+
+  return (
+    <div
+      className={`inline-flex items-center gap-1.5 ${
+        isSmall ? "px-2.5 py-1 text-[11px]" : "px-3.5 py-1.5 sm:px-4 sm:py-1.5 text-xs font-black"
+      } rounded-full bg-[#FFCE00] border-2 border-black text-black font-black uppercase tracking-wider shadow-[3px_3px_0px_#000000] hover:shadow-[4.5px_4.5px_0px_#000000] hover:-translate-y-0.5 hover:rotate-0 transition-all duration-200 cursor-pointer select-none ${tilt} ${className}`}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className={`${isSmall ? "w-3 h-3" : "w-3.5 h-3.5"} shrink-0 text-black fill-none stroke-black stroke-[2.5] stroke-linejoin-round`}
+      >
+        <path d="M12 2.5 L14.5 9.5 L21.5 12 L14.5 14.5 L12 21.5 L9.5 14.5 L2.5 12 L9.5 9.5 Z" />
+        <circle cx="4.5" cy="5.5" r="1" fill="currentColor" stroke="none" />
+        <circle cx="19.5" cy="18.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+      <span className="font-extrabold tracking-wide" style={{ textShadow: "0.5px 0.5px 0px rgba(0,0,0,0.12)" }}>
+        {formattedLabel}
+      </span>
+    </div>
+  );
+};
+
 const PastEventsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -1440,61 +1465,61 @@ const PastEventsSection = () => {
       },
     },
     {
-      id: "kyoto",
-      label: "Kyoto Zen",
+      id: "community-labs",
+      label: "Hands-on Labs",
       theme: {
-        name: "Kyoto Terracotta",
-        sectionBg: "#140c0b",
-        cardBg: "#251816",
-        cardBorder: "border-[#4a261f]/50 hover:border-[#a03e20]/70",
-        accent: "#a03e20",
-        accentHover: "#b84524",
-        badgeBg: "bg-[#a03e20]/15",
-        badgeBorder: "border-[#a03e20]/35",
-        badgeText: "text-[#f87171]",
-        glow1: "bg-[#a03e20]/25",
+        name: "Community Amber",
+        sectionBg: "#161006",
+        cardBg: "#291e0a",
+        cardBorder: "border-[#624410]/50 hover:border-[#f59e0b]/70",
+        accent: "#d97706",
+        accentHover: "#f59e0b",
+        badgeBg: "bg-[#d97706]/15",
+        badgeBorder: "border-[#d97706]/35",
+        badgeText: "text-[#fbbf24]",
+        glow1: "bg-[#d97706]/25",
         glow2: "bg-amber-600/15",
-        prevBtnBg: "#251816",
-        prevBtnHover: "hover:bg-[#34221f]",
+        prevBtnBg: "#291e0a",
+        prevBtnHover: "hover:bg-[#382a0e]",
         prevBtnBorder: "border-white/[0.08]",
-        textMuted: "text-[#e2c1bb]",
-        gradientText: "from-amber-400 via-orange-400 to-amber-200",
+        textMuted: "text-[#fde68a]",
+        gradientText: "from-amber-400 via-yellow-400 to-amber-200",
       },
       hero: {
-        title: "Kyoto",
-        subtitle: "Japan, The Zen Experience",
+        title: "Hands-on Labs",
+        subtitle: "Deep-Dive Architectural Workshops",
         img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       },
       story: {
-        title: "Where History Meets Tranquility",
-        desc: "Wander through centuries-old temples, sip matcha by tranquil gardens, and breathe in the beauty of cherry blossoms and bamboo groves.",
-        cta: "FIND YOUR ZEN",
+        title: "Where Code Meets Real Scale",
+        desc: "Interactive developer workspaces, clean-core implementations, and real-time mentor feedback.",
+        cta: "JOIN THE WORKSHOPS",
       },
       portraitPhoto: {
         img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         alt: "Developer Squad Focused on Code Sprint",
       },
       explore: {
-        title: "Explore",
-        desc: "Fushimi Inari Shrine, with its thousands of red torii gates.",
+        title: "Workshops",
+        desc: "Hands-on deep dives into SAP BTP and Joule AI agent extensibility.",
       },
       streetPhoto: {
         img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         alt: "1-on-1 Mentorship and Code Review",
       },
       stay: {
-        title: "Stay",
-        desc: "Luxury Ryokan with private onsen.",
+        title: "Community",
+        desc: "Connect directly with SAP Champions and Developer Advocates.",
       },
       blossomPhoto: {
         img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         alt: "Celebrating Demo Day Prototype Victory",
       },
       cuisine: {
-        title: "Cuisine",
-        desc: "Traditional kaiseki dining",
+        title: "Networking",
+        desc: "Conversations over artisanal chai and coffee",
         img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Midnight Hackathon Coffee & Refreshments",
+        alt: "Hackathon Coffee & Refreshments",
       },
     },
   ];
@@ -1604,13 +1629,13 @@ const PastEventsSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
 
-                <div className="absolute bottom-4 left-5 right-5 z-10">
-                  <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-white tracking-tight leading-none drop-shadow-md">
-                    {current.hero.title}
-                  </h3>
-                  <p className="text-xs text-white/85 font-medium tracking-wide mt-1.5 truncate">
-                    {current.hero.subtitle}
-                  </p>
+                <div className="absolute bottom-4 left-5 right-5 z-10 flex flex-wrap items-end justify-between gap-3">
+                  <div>
+                    <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-white tracking-tight leading-none drop-shadow-md">
+                      {current.hero.title}
+                    </h3>
+                  </div>
+                  <CuratedTag label="#SITKOL_26" tilt="-rotate-2" />
                 </div>
               </div>
 
@@ -1620,13 +1645,14 @@ const PastEventsSection = () => {
                 <div className="flex flex-col justify-between gap-2.5 h-full">
                   <div
                     style={{ backgroundColor: current.theme.cardBg }}
-                    className={`flex-1 rounded-2xl p-4 sm:p-4.5 flex flex-col justify-center border ${current.theme.cardBorder} shadow-lg transition-colors duration-500`}
+                    className={`flex-1 rounded-2xl p-4 sm:p-4.5 flex flex-col justify-center items-start border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 gap-2.5`}
                   >
-                    <h4 className="text-sm sm:text-base font-bold text-white leading-snug mb-1.5 line-clamp-1">
-                      {current.story.title}
-                    </h4>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <CuratedTag label="#Innovation" tilt="-rotate-2" size="small" />
+                      <CuratedTag label="#CleanCore" tilt="rotate-1" size="small" />
+                    </div>
                     <p className="text-xs text-stone-300/85 leading-relaxed line-clamp-3">
-                      {current.story.desc}
+                      East India&apos;s premier SAP community gathering uniting enterprise innovators, developers, and architects.
                     </p>
                   </div>
 
@@ -1682,17 +1708,12 @@ const PastEventsSection = () => {
                 MIDDLE BLOCK (3 COLS): EXPLORE (84px) + STREET (276px) + STAY (84px) = 480px
             ════════════════════════════════════════════════════════════ */}
             <div className="lg:col-span-3 flex flex-col justify-between gap-3 h-full">
-              {/* Explore Text Card */}
+              {/* Explore Text Card -> Replaced with generic tag #Keynotes */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[84px] rounded-2xl p-3.5 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex flex-col justify-center shrink-0`}
+                className={`h-[84px] rounded-2xl p-3.5 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
               >
-                <h4 className="text-sm sm:text-base font-bold text-white leading-tight line-clamp-1">
-                  {current.explore.title}
-                </h4>
-                <p className="text-[11px] text-stone-300/85 mt-1 leading-snug line-clamp-2">
-                  {current.explore.desc}
-                </p>
+                <CuratedTag label="#Keynotes" tilt="rotate-2" />
               </div>
 
               {/* Lantern Street Portrait Photo Card */}
@@ -1708,17 +1729,12 @@ const PastEventsSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Stay Text Card */}
+              {/* Stay Text Card -> Replaced with generic tag #Networking */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[84px] rounded-2xl p-3.5 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex flex-col justify-center shrink-0`}
+                className={`h-[84px] rounded-2xl p-3.5 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
               >
-                <h4 className="text-sm sm:text-base font-bold text-white leading-tight line-clamp-1">
-                  {current.stay.title}
-                </h4>
-                <p className="text-[11px] text-stone-300/85 mt-1 leading-snug line-clamp-2">
-                  {current.stay.desc}
-                </p>
+                <CuratedTag label="#Networking" tilt="-rotate-2" />
               </div>
             </div>
 
@@ -1744,13 +1760,8 @@ const PastEventsSection = () => {
                 style={{ backgroundColor: current.theme.cardBg }}
                 className={`h-[222px] rounded-2xl p-3.5 flex flex-col justify-between border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 shrink-0`}
               >
-                <div>
-                  <h4 className="text-sm sm:text-base font-bold text-white leading-tight line-clamp-1">
-                    {current.cuisine.title}
-                  </h4>
-                  <p className="text-[11px] text-stone-300/85 mt-0.5 mb-1.5 leading-snug line-clamp-1">
-                    {current.cuisine.desc}
-                  </p>
+                <div className="flex items-center justify-center pt-1 pb-1">
+                  <CuratedTag label="#SAPCommunity" tilt="rotate-1" size="small" />
                 </div>
                 <div
                   onClick={() => setLightboxImage(current.cuisine.img)}
