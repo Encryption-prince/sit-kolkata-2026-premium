@@ -748,8 +748,8 @@ const HeroSection = () => {
           <div className="flex items-center gap-3 text-left">
             <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
             <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">29 August 2026</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">9:00 AM – 5:00 PM</div>
+              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">14 November 2026</div>
+              <div className="text-slate-500 text-xs font-medium mt-0.5">8:00 AM – 5:00 PM IST</div>
             </div>
           </div>
 
@@ -1798,117 +1798,66 @@ const PastEventsSection = () => {
 const speakersData = [
   {
     id: 1,
-    name: "Aditi Sharma",
-    role: "Chief SAP BTP Architect",
-    company: "SAP Labs India",
-    track: "Keynote Session",
-    time: "10:30 AM • Auditorium A",
-    topic: "Building Resilient Clean-Core Extensions with SAP BTP & GenAI",
-    bio: "14+ years architecting enterprise ERP landscapes. Leading Clean Core and SAP Build initiatives at SAP Labs with focus on event-driven microservices, CAP framework, and generative AI copilots.",
+    name: "Sunil Chopra",
+    role: "Director – SAP ALM Global Rollout",
+    company: "SAP",
+    category: "SAP Cloud ALM Roadshow Keynote",
+    track: "SAP Cloud ALM Roadshow",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "SAP Cloud ALM Roadshow: AI-Powered Digital Transformation | Cloud ALM | GTM & Adoption",
+    bio: "Director – SAP ALM Global Rollout at SAP. Spearheading AI-Powered Digital Transformation, SAP Cloud ALM strategy, Go-To-Market (GTM) execution, and enterprise adoption globally.",
     takeaways: [
-      { title: "Clean Core Architecture Principles", desc: "Decoupling custom logic from core ERP for seamless upgrades." },
-      { title: "Live Code: SAP BTP & CAP Walkthrough", desc: "Production-ready CAP extensions with event-mesh triggers." },
-      { title: "Enterprise GenAI with Joule", desc: "Grounding LLMs on enterprise business context securely." },
+      { title: "AI-Powered Digital Transformation", desc: "Unlocking operational excellence & proactive maintenance with SAP Cloud ALM." },
+      { title: "Cloud ALM & Clean Core Alignment", desc: "Strategies for managing modern hybrid SAP software lifecycles." },
+      { title: "GTM & Enterprise Adoption Frameworks", desc: "Scaling digital transformation methodologies across enterprise landscapes." },
     ],
-    tags: ["SAP BTP", "Clean Core", "Generative AI", "CAP Framework"],
+    tags: ["SAP Cloud ALM", "AI Transformation", "Cloud ALM GTM", "Roadshow Keynote"],
     accentColor: "#0070F2",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    linkedin: "https://www.linkedin.com/company/sap-inside-track-kolkata/",
+    img: "/speakers/sunil-chopra-poster.jpg",
+    poster: "/speakers/sunil-chopra-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/sunilchopra-apac-uae/",
   },
   {
     id: 2,
-    name: "Rahul Verma",
-    role: "VP of Cloud Engineering",
-    company: "InnovateSAP Global",
-    track: "Cloud & Hyperscalers",
-    time: "11:45 AM • Auditorium A",
-    topic: "S/4HANA Cloud Modernization: Zero-Downtime Migration At Scale",
-    bio: "Pioneered hyperscaler migrations across Azure and AWS for Fortune 500 enterprises. Specializes in multi-cloud governance, high-availability architecture, and automated devops pipelines for SAP.",
+    name: "Srini Gottimukkula",
+    role: "Vice President - Data & Analytics",
+    company: "SAP Business Data Cloud",
+    category: "Panelist",
+    track: "Data & Analytics Panel",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "Executive Panelist: Data & Analytics Strategy, SAP Business Data Cloud & Product Management",
+    bio: "Vice President - Data & Analytics at SAP Business Data Cloud. Leading product management, strategic data mesh architectures, and analytics innovation across the SAP ecosystem.",
     takeaways: [
-      { title: "Zero-Downtime Migration Playbook", desc: "Cutover strategies and replication patterns for terabyte datasets." },
-      { title: "Hyperscaler Architecture Benchmarks", desc: "Cost, latency, and throughput comparison across clouds." },
-      { title: "Automated CI/CD Transport Systems", desc: "Continuous integration tooling tailored for SAP landscapes." },
+      { title: "SAP Business Data Cloud Strategy", desc: "Enterprise data context, business semantics, and cloud data integration." },
+      { title: "Product Management & Innovation", desc: "Future roadmap of SAP Datasphere & SAP Analytics Cloud capabilities." },
+      { title: "Interactive Executive Panel", desc: "Direct dialogue on enterprise analytics, governance, and AI data strategy." },
     ],
-    tags: ["S/4HANA Cloud", "Hyperscalers", "DevOps", "Clean Core"],
-    accentColor: "#3B82F6",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    linkedin: "https://www.linkedin.com/company/sap-inside-track-kolkata/",
+    tags: ["Data & Analytics", "SAP Business Data Cloud", "Product Strategy", "Panelist"],
+    accentColor: "#F59E0B",
+    img: "/speakers/srini-gottimukkula-poster.jpg",
+    poster: "/speakers/srini-gottimukkula-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/srini-gottimukkula-85b15813/",
   },
   {
     id: 3,
-    name: "Sarah Jenkins",
-    role: "Global UX & Fiori Lead",
-    company: "DesignScale Enterprise",
-    track: "UX & Mobile Design",
-    time: "01:30 PM • Tech Lab 1",
-    topic: "Next-Gen Enterprise UX: SAP Fiori Horizon, Mobile & AI Co-pilots",
-    bio: "Former SAP Design Guild member. Passionate about transforming complex enterprise software into intuitive, accessible workflows using Fiori Horizon design system and conversational UI principles.",
+    name: "Arghadip Kar",
+    role: "SAP S/4HANA Solution Architect",
+    company: "SAP SDN Hall of Fame",
+    category: "Speaker",
+    track: "S/4HANA Architecture",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "20+ Years in SAP: S/4HANA Solution Architecture & Clean Core Innovation",
+    bio: "SAP Developer Network (SDN) Hall of Fame member with 20+ years of SAP expertise. Senior S/4HANA Solution Architect driving enterprise ERP transformations and modern clean code engineering.",
     takeaways: [
-      { title: "Fiori Horizon Design Principles", desc: "Building consistent, delightful enterprise user journeys." },
-      { title: "Mobile Field-Worker Workflows", desc: "Offline-first mobile interfaces with SAP Mobile Services." },
-      { title: "Human-in-the-Loop AI Design", desc: "Conversational UX patterns that build enterprise trust." },
+      { title: "20+ Years SAP Engineering Insights", desc: "Battle-tested architectural wisdom from two decades of enterprise SAP implementations." },
+      { title: "S/4HANA Clean Core Architecture", desc: "Designing upgrade-safe extensions and decoupling custom business logic." },
+      { title: "SDN Hall of Fame Developer Mastery", desc: "Elevating community code standards, modern ABAP RESTful programming (RAP), and CDS." },
     ],
-    tags: ["SAP Fiori", "Joule UI", "Mobile UX", "Design Systems"],
+    tags: ["SAP S/4HANA", "Solution Architect", "SDN Hall of Fame", "20+ Yrs SAP"],
     accentColor: "#10B981",
-    img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    linkedin: "https://www.linkedin.com/company/sap-inside-track-kolkata/",
-  },
-  {
-    id: 4,
-    name: "Vikram Das",
-    role: "SAP Champion & Solutions Director",
-    company: "Kolkata Enterprise Hub",
-    track: "Developer Keynote",
-    time: "02:30 PM • Auditorium A",
-    topic: "Modern ABAP Cloud & RAP: Writing Pristine Clean Code for 2026",
-    bio: "Kolkata-based SAP Champion with 16+ years mentoring developers globally on ABAP RESTful Application Programming Model (RAP), Core Data Services (CDS), and Git-enabled ABAP.",
-    takeaways: [
-      { title: "ABAP Cloud Modernization Matrix", desc: "De-customizing legacy Z-programs with standard extension points." },
-      { title: "Building RAP APIs with CDS Views", desc: "Draft handling, validations, and determinations in action." },
-      { title: "Clean ABAP Linting & Test Suites", desc: "Automated test-driven developer workflows for 2026." },
-    ],
-    tags: ["ABAP Cloud", "RAP", "Clean Code", "CDS Views"],
-    accentColor: "#F59E0B",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    linkedin: "https://www.linkedin.com/company/sap-inside-track-kolkata/",
-  },
-  {
-    id: 5,
-    name: "Neha Gupta",
-    role: "AI & Automation Director",
-    company: "Cognitive Enterprise Systems",
-    track: "AI & Machine Learning",
-    time: "03:45 PM • Auditorium A",
-    topic: "Autonomous Supply Chains with SAP AI Core & Predictive Analytics",
-    bio: "Pioneering LLM integration and autonomous agents in enterprise logistics. Co-authored the 2025 Enterprise AI benchmark for SAP supply chains and inventory planning.",
-    takeaways: [
-      { title: "Enterprise AI Core Deployment", desc: "Running secure ML models alongside operational ERP data." },
-      { title: "Autonomous Demand Forecasting", desc: "Self-correcting replenishment algorithms with real-time telemetry." },
-      { title: "Procurement Agent Workflows", desc: "Autonomous invoice matching and supplier risk scoring." },
-    ],
-    tags: ["SAP AI Core", "GenAI", "Supply Chain", "Automation"],
-    accentColor: "#8B5CF6",
-    img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    linkedin: "https://www.linkedin.com/company/sap-inside-track-kolkata/",
-  },
-  {
-    id: 6,
-    name: "Rohan Chatterjee",
-    role: "Integration Architecture Specialist",
-    company: "NextGen Cloudworks",
-    track: "Integration & Mesh",
-    time: "04:30 PM • Tech Lab 2",
-    topic: "Decoupled Event-Driven Architectures with SAP Event Mesh & Kafka",
-    bio: "Specializes in high-throughput enterprise event streaming solutions for global fintech and supply chain leaders using SAP Integration Suite and Apache Kafka.",
-    takeaways: [
-      { title: "SAP Event Mesh Configuration", desc: "Setting up resilient pub/sub brokers for asynchronous business events." },
-      { title: "Apache Kafka High-Throughput Ingestion", desc: "Connecting enterprise telemetry with real-time stream processing." },
-      { title: "Dead-Letter Queues & Failover", desc: "Zero data-loss topologies during peak transactional load." },
-    ],
-    tags: ["Event Mesh", "Kafka", "Integration Suite", "Microservices"],
-    accentColor: "#EC4899",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    linkedin: "https://www.linkedin.com/company/sap-inside-track-kolkata/",
+    img: "/speakers/arghadip-kar-poster.jpg",
+    poster: "/speakers/arghadip-kar-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/arghadip-kar-23590532/",
   },
 ];
 
@@ -1916,6 +1865,7 @@ const SpeakersSection = () => {
   const [scrollPos, setScrollPos] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [bookmarked, setBookmarked] = useState({});
+  const [posterModalImage, setPosterModalImage] = useState(null);
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
@@ -2383,6 +2333,14 @@ const SpeakersSection = () => {
                       <span>{bookmarked[activeSpeaker.id] ? 'Saved to Agenda ★' : 'Save Session'}</span>
                     </button>
 
+                    <button
+                      onClick={() => setPosterModalImage(activeSpeaker.poster)}
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-[#0070F2]/20 text-blue-300 hover:text-white hover:bg-[#0070F2]/40 border border-[#0070F2]/50 transition-all cursor-pointer shadow-sm"
+                    >
+                      <Sparkles className="w-4 h-4 text-amber-400" />
+                      <span>View Official Poster</span>
+                    </button>
+
                     <a
                       href={activeSpeaker.linkedin}
                       target="_blank"
@@ -2544,17 +2502,25 @@ const SpeakersSection = () => {
 
               {/* Action Controls & Navigation */}
               <div className="pt-3 border-t border-slate-800/90 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <button
                     onClick={() => toggleBookmark(activeSpeaker.id)}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                    className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${
                       bookmarked[activeSpeaker.id]
                         ? 'bg-amber-400 text-slate-950 font-black'
                         : 'bg-slate-800 text-slate-300 border border-slate-700'
                     }`}
                   >
                     <Bookmark className="w-3.5 h-3.5" />
-                    <span>{bookmarked[activeSpeaker.id] ? 'Saved ★' : 'Save Session'}</span>
+                    <span>{bookmarked[activeSpeaker.id] ? 'Saved ★' : 'Save'}</span>
+                  </button>
+
+                  <button
+                    onClick={() => setPosterModalImage(activeSpeaker.poster)}
+                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-[#0070F2]/20 text-blue-300 border border-[#0070F2]/50 cursor-pointer"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Poster</span>
                   </button>
 
                   <a
@@ -2596,6 +2562,38 @@ const SpeakersSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Official Poster Lightbox Modal */}
+      {posterModalImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200"
+          onClick={() => setPosterModalImage(null)}
+        >
+          <div
+            className="relative max-w-2xl w-full max-h-[90vh] bg-slate-900 border border-amber-400/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col items-center p-2 sm:p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="w-full flex items-center justify-between p-2 pb-3 border-b border-slate-800">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-400">
+                <Sparkles className="w-4 h-4" /> OFFICIAL SAP INSIDE TRACK POSTER
+              </div>
+              <button
+                onClick={() => setPosterModalImage(null)}
+                className="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 text-slate-300 hover:text-white flex items-center justify-center hover:bg-rose-600 transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="w-full overflow-auto flex items-center justify-center p-2">
+              <img
+                src={posterModalImage}
+                alt="Official Speaker Poster"
+                className="w-full h-auto max-h-[75vh] object-contain rounded-xl border border-slate-800 shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
@@ -3225,31 +3223,86 @@ const TicketsSection = () => {
 };
 
 const SponsorsSection = () => {
-  const sponsors = [
-    { name: "SAP Press", initials: "SP" },
-    { name: "Linc", initials: "LC" },
-    { name: "Oh Kolkata", initials: "OK" },
-    { name: "S Newz", initials: "SN" }
+  const partnersList = [
+    {
+      role: "Venue Partner",
+      name: "Sister Nivedita University & Techno India Group",
+      logo: "/partners/venue-partner-snu.png",
+      tag: "Academic & Campus Host",
+      description: "Host campus providing world-class auditorium, tech labs, and academic infrastructure for SIT Kolkata 2026."
+    },
+    {
+      role: "SAP Partner",
+      name: "SAP PRESS",
+      logo: "/partners/sap-press-logo.png",
+      tag: "Official SAP Publishing Partner",
+      description: "Leading technical publisher providing authoritative SAP books, e-books, and developer reference guides."
+    },
+    {
+      role: "Media Partner",
+      name: "Wiki Kolkata",
+      logo: "/partners/media-partner-wikikolkata.png",
+      tag: "Official Digital Media Partner",
+      description: "Kolkata's premier digital media network capturing and amplifying tech stories across the region."
+    },
+    {
+      role: "Official Sponsor",
+      name: "We",
+      logo: "/partners/sponsor-we.png",
+      tag: "Ecosystem & Community Sponsor",
+      description: "Supporting community tech initiatives and empowering developer engagement."
+    }
   ];
 
   return (
-    <section id="sponsors" className="py-24 bg-slate-900 text-white relative border-t-8 border-yellow-400 scroll-mt-16">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="sponsors" className="py-24 bg-[#080d1a] text-white relative border-t border-slate-800 scroll-mt-16 overflow-hidden">
+      {/* Background glow effects */}
+      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <Reveal direction="up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">Official <span className="text-yellow-400">Sponsors</span></h2>
-          <p className="text-slate-300 font-medium">A huge thank you to the sponsors who make SIT Kolkata possible.</p>
+          <div className="inline-flex items-center gap-2 mb-3 bg-amber-400/10 border border-amber-400/30 text-amber-400 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-widest">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            EVENT SUPPORTERS & ECOSYSTEM
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
+            Official <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] via-blue-400 to-amber-400">Partners & Sponsors</span>
+          </h2>
+          <p className="text-slate-400 font-medium max-w-2xl mx-auto mt-3 text-base sm:text-lg">
+            Heartfelt gratitude to the visionary partners and sponsors making SAP Inside Track Kolkata 2026 possible.
+          </p>
         </Reveal>
 
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12 max-w-4xl mx-auto">
-          {sponsors.map((sponsor, idx) => (
-            <Reveal key={idx} direction="up" delay={`delay-${idx * 100}`} className="flex flex-col items-center">
-              <div className="w-32 h-32 md:w-40 md:h-40 bg-slate-800 rounded-3xl border-2 border-slate-700 hover:border-yellow-400 hover:bg-slate-700 flex items-center justify-center transition-all duration-300 shadow-lg group cursor-pointer mb-4">
-                {/* Placeholder for Sponsor Logo */}
-                <span className="text-4xl font-black text-slate-600 group-hover:text-yellow-400 transition-colors">
-                  {sponsor.initials}
-                </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {partnersList.map((partner, idx) => (
+            <Reveal key={idx} direction="up" delay={`delay-${idx * 100}`} className="h-full">
+              <div className="h-full bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-amber-400/60 transition-all duration-300 shadow-xl hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-md">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20 mb-4">
+                    {partner.role}
+                  </div>
+
+                  {/* Clean Logo Box with light container for crisp vector contrast */}
+                  <div className="w-full h-36 bg-white rounded-2xl p-4 flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform">
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-h-24 max-w-full object-contain"
+                    />
+                  </div>
+
+                  <h3 className="text-lg font-black text-white leading-snug mb-1 group-hover:text-amber-300 transition-colors">
+                    {partner.name}
+                  </h3>
+                  <div className="text-xs font-mono font-semibold text-blue-400 mb-2">
+                    {partner.tag}
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
+                    {partner.description}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-300">{sponsor.name}</h3>
             </Reveal>
           ))}
         </div>
@@ -3296,42 +3349,74 @@ const faqData = [
   {
     id: 1,
     number: "01",
-    question: "Is registration really 100% free, and what is included?",
-    answer: "Yes, SIT Kolkata 2026 is completely complimentary! Your free pass includes full access to all keynotes and breakout tracks, hands-on labs, a hot networking lunch, authentic Kolkata high tea with snacks, official swag kit, and verified certificate.",
-    tag: "Tickets & Admission",
-    perk: "Zero Registration Fee · Full Hospitality Included"
+    question: "What is SAP Inside Track Kolkata?",
+    answer: "SAP Inside Track Kolkata is a community-driven event where SAP professionals, experts, and enthusiasts come together to share knowledge, insights, and real-world experiences around SAP technologies.",
+    tag: "Event Overview",
+    perk: "Community-Driven · Knowledge Sharing · Networking"
   },
   {
     id: 2,
     number: "02",
-    question: "Who can attend SAP Inside Track Kolkata?",
-    answer: "Everyone passionate about enterprise tech! Developers, SAP consultants (functional & technical), architects, engineering leaders, and students exploring SAP BTP, S/4HANA, and Cloud AI are all warmly welcome.",
+    question: "Who should attend this event?",
+    answer: "This event is ideal for students, developers, SAP professionals, and anyone interested in learning about SAP and enterprise technologies.",
     tag: "Eligibility",
-    perk: "Developers · Consultants · Students · Leaders"
+    perk: "Students · Developers · SAP Professionals"
   },
   {
     id: 3,
     number: "03",
-    question: "Where is the venue and what is the best way to reach it?",
-    answer: "Hosted at Sister Nivedita University (SNU), Action Area II, New Town, Kolkata. Conveniently connected via Salt Lake Sector V Metro, New Town buses, and app cabs (~20 mins from Kolkata International Airport). Free on-campus parking.",
-    tag: "Venue & Travel",
-    perk: "SNU Campus · New Town · Free Parking"
+    question: "How can I register for the event?",
+    answer: "You can register through the official event website using the registration link provided on the homepage. Follow our social media channels to stay updated on upcoming events and announcements.",
+    tag: "Registration",
+    perk: "Online Pass · Instant Confirmation · Event Updates"
   },
   {
     id: 4,
     number: "04",
-    question: "Will food and refreshments be provided throughout the day?",
-    answer: "Yes! Authentic Kolkata hospitality is provided for all attendees: morning welcome chai & breakfast cookies, a hot multi-course buffet lunch, and afternoon high tea with traditional Kolkata sweets and savouries.",
-    tag: "Food & Hospitality",
-    perk: "Hot Buffet Lunch · Kolkata Chai & Snacks"
+    question: "Is the event free or paid?",
+    answer: "SAP Inside Track events usually have a minimal registration fee. Please check the registration page for exact details.",
+    tag: "Ticket Details",
+    perk: "Minimal Registration Fee · Complete Access"
   },
   {
     id: 5,
     number: "05",
-    question: "What should I bring with me on the event day?",
-    answer: "Please bring your digital event ticket QR code on your phone, a valid government or student photo ID for campus entry, and your laptop with charger if you plan to follow along with the hands-on developer workshops.",
-    tag: "Preparation",
-    perk: "Digital Pass · Photo ID · Laptop (optional)"
+    question: "What is the date and venue of the event?",
+    answer: "The event date, time, and venue details are mentioned on the website and will also be shared in your registration confirmation email. For this event, it will be held at Sister Nivedita University.",
+    tag: "Date & Venue",
+    perk: "Sister Nivedita University · 14 Nov 2026"
+  },
+  {
+    id: 6,
+    number: "06",
+    question: "What kind of sessions or topics will be covered?",
+    answer: "The event will feature expert talks, real-world use cases, technical sessions, and discussions on various SAP technologies and industry trends.",
+    tag: "Tracks & Agenda",
+    perk: "Expert Talks · Real-World Use Cases · Tech Sessions"
+  },
+  {
+    id: 7,
+    number: "07",
+    question: "Who are the speakers at the event?",
+    answer: "Speakers are experienced SAP professionals, industry experts, and community leaders who bring practical insights and real-world experience.",
+    tag: "Speakers & Leaders",
+    perk: "SAP Directors · VP Analytics · SDN Hall of Famers"
+  },
+  {
+    id: 8,
+    number: "08",
+    question: "Do I need prior SAP knowledge to attend?",
+    answer: "No, prior SAP knowledge is not mandatory. The event is designed for both beginners and experienced attendees.",
+    tag: "Prerequisites",
+    perk: "Open to All Skill Levels · Beginner Friendly"
+  },
+  {
+    id: 9,
+    number: "09",
+    question: "How can I contact the organizers for queries?",
+    answer: "You can reach out to the organizers through the contact section on the website or via the official email info@sitkolkata.org and social media channels.",
+    tag: "Contact & Support",
+    perk: "info@sitkolkata.org · Social Channels · Direct Support"
   }
 ];
 
@@ -3776,7 +3861,7 @@ const FAQSection = () => {
               <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-slate-500 font-medium">
                 <span>Have an unanswered question?</span>
                 <a
-                  href="mailto:sitkolkata@gmail.com"
+                  href="mailto:info@sitkolkata.org"
                   className="font-bold text-[#0070F2] hover:underline"
                 >
                   Email Team ➔
@@ -3877,7 +3962,7 @@ const Footer = () => {
           <h2 className="mt-2 bg-gradient-to-br from-white via-amber-100 to-amber-300 py-3 bg-clip-text text-center text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-transparent leading-[1.1]">
             See You In Kolkata <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD200] via-yellow-300 to-amber-400">
-              August 29, 2026
+              November 14, 2026
             </span>
           </h2>
           <p className="text-white/50 text-xs sm:text-sm font-medium mt-3 max-w-md mx-auto">
