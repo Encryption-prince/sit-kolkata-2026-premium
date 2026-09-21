@@ -1315,6 +1315,7 @@ const CuratedTag = ({ label, tilt = "-rotate-2", className = "", size = "normal"
 const PastEventsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   const slides = [
     {
@@ -1585,11 +1586,22 @@ const PastEventsSection = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Auto-advance slides every 5 seconds (pauses on hover or when lightbox is open)
+  useEffect(() => {
+    if (isPaused || lightboxImage) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, lightboxImage, slides.length]);
+
   return (
     <section
       id="memory-wall"
       style={{ backgroundColor: current.theme.sectionBg }}
-      className="py-3 sm:py-4 lg:py-4 text-white relative overflow-hidden border-t border-white/10 select-none transition-colors duration-500 scroll-mt-16"
+      className="py-8 sm:py-12 lg:py-16 text-white relative overflow-hidden border-t border-white/10 select-none transition-colors duration-500 scroll-mt-16"
     >
       <div id="events" className="absolute -top-20" />
       {/* Dynamic Ambient Background Glows */}
@@ -1603,20 +1615,20 @@ const PastEventsSection = () => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 max-w-7xl">
-        {/* Compact Header: Title + Theme Tabs inline to ensure screen fit */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 sm:mb-2.5">
-          <div className="flex flex-wrap items-center gap-2">
-            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
-              <Sparkles className="w-3 h-3" />
+        {/* Header: Title + Theme Tabs */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5 sm:mb-7">
+          <div className="flex flex-wrap items-center gap-3">
+            <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
+              <Sparkles className="w-3.5 h-3.5" />
               <span>MEMORY WALL</span>
             </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
               Curated <span className={`text-transparent bg-clip-text bg-gradient-to-r ${current.theme.gradientText}`}>Moments</span>
             </h2>
           </div>
 
           {/* Chapter Selector Tabs & Slide Counter */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <div className="inline-flex p-1 rounded-full bg-black/40 border border-white/10 backdrop-blur-md shadow-inner">
               {slides.map((s, idx) => (
                 <button
@@ -1625,7 +1637,7 @@ const PastEventsSection = () => {
                   style={{
                     backgroundColor: idx === currentSlide ? current.theme.accent : 'transparent',
                   }}
-                  className={`px-3 py-0.5 sm:py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${idx === currentSlide
+                  className={`px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${idx === currentSlide
                       ? 'text-white shadow-md'
                       : 'text-stone-400 hover:text-white hover:bg-white/5'
                     }`}
@@ -1635,7 +1647,7 @@ const PastEventsSection = () => {
               ))}
             </div>
 
-            <div className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 text-xs font-mono font-bold">
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/40 border border-white/10 text-xs font-mono font-bold">
               <span style={{ color: current.theme.accent }}>0{currentSlide + 1}</span>
               <span className="text-stone-600">/</span>
               <span className="text-stone-400">0{slides.length}</span>
@@ -1643,7 +1655,7 @@ const PastEventsSection = () => {
           </div>
         </div>
 
-        {/* ── FIXED-HEIGHT BENTO GRID: EXACT SAME SIZE ACROSS ALL SLIDES, FITS IN SCREEN ── */}
+        {/* ── FIXED-HEIGHT EXPANDED BENTO GRID: EXACT 560PX ACROSS ALL SLIDES WITH ZERO DISTORTION ── */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -1651,16 +1663,18 @@ const PastEventsSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.99 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:h-[390px] xl:h-[420px]"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:h-[560px]"
           >
             {/* ════════════════════════════════════════════════════════════
-                LEFT BLOCK (6 COLS): HERO CARD + 2 SUB-COLS
+                LEFT BLOCK (6 COLS): HERO CARD (272px) + 2 SUB-COLS (272px) = 560px
             ════════════════════════════════════════════════════════════ */}
-            <div className="lg:col-span-6 flex flex-col justify-between gap-2 h-full">
-              {/* 1. Large Landscape Hero Card */}
+            <div className="lg:col-span-6 flex flex-col gap-4 lg:h-full">
+              {/* 1. Large Landscape Hero Card (272px) - Photo + Text */}
               <div
                 onClick={() => current.hero.img && setLightboxImage(current.hero.img)}
-                className={`relative h-[175px] sm:h-[190px] w-full rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-xl shrink-0 ${current.hero.img ? 'cursor-pointer' : ''}`}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className={`relative h-[230px] sm:h-[260px] lg:h-[272px] w-full rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-xl shrink-0 ${current.hero.img ? 'cursor-pointer' : ''}`}
                 style={{ backgroundColor: current.theme.cardBg }}
               >
                 {current.hero.img ? (
@@ -1668,7 +1682,7 @@ const PastEventsSection = () => {
                     <img
                       src={current.hero.img}
                       alt={current.hero.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
                   </>
@@ -1679,45 +1693,39 @@ const PastEventsSection = () => {
                         <Camera className="w-3 h-3" />
                         <span>Featured Gallery</span>
                       </div>
-                      <CuratedTag label="#SITKOL_26" tilt="-rotate-2" size="small" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-none drop-shadow-md">
-                        {current.hero.title}
-                      </h3>
-                      <p className="text-xs text-stone-300 mt-1 font-medium">
-                        {current.hero.subtitle}
-                      </p>
                     </div>
                   </div>
                 )}
 
-                {current.hero.img && (
-                  <div className="absolute bottom-2.5 left-3.5 right-3.5 z-10 flex flex-wrap items-end justify-between gap-2">
-                    <div>
-                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-none drop-shadow-md">
-                        {current.hero.title}
-                      </h3>
-                    </div>
-                    <CuratedTag label="#SITKOL_26" tilt="-rotate-2" size="small" />
+                <div className="absolute bottom-3.5 sm:bottom-4 left-4 sm:left-5 right-4 sm:right-5 z-10 flex flex-wrap items-end justify-between gap-2">
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-none drop-shadow-md">
+                      {current.hero.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/85 font-medium tracking-wide mt-1.5 line-clamp-1">
+                      {current.hero.subtitle}
+                    </p>
                   </div>
-                )}
+                  <CuratedTag label="#SITKOL_26" tilt="-rotate-2" size="small" />
+                </div>
               </div>
 
-              {/* 2. Sub-columns below Hero Card */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1 min-h-[185px]">
+              {/* 2. Sub-columns below Hero Card (272px) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:h-[272px] shrink-0">
                 {/* Sub-column 1: Story Text Card + Action CTA Button */}
-                <div className="flex flex-col justify-between gap-1.5 h-full">
+                <div className="flex flex-col justify-between gap-3 h-full">
                   <div
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
                     style={{ backgroundColor: current.theme.cardBg }}
-                    className={`flex-1 rounded-2xl p-3 flex flex-col justify-center items-start border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 gap-1.5`}
+                    className={`flex-1 rounded-2xl p-4 sm:p-5 flex flex-col justify-center items-start border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 gap-3 min-h-[160px] sm:min-h-0`}
                   >
-                    <div className="flex flex-wrap items-center gap-1.5">
+                    <div className="flex flex-wrap items-center gap-2">
                       <CuratedTag label="#Innovation" tilt="-rotate-2" size="small" />
                       <CuratedTag label="#CleanCore" tilt="rotate-1" size="small" />
                     </div>
-                    <p className="text-[11px] sm:text-xs text-stone-300/85 leading-relaxed line-clamp-3">
-                      East India&apos;s premier SAP community gathering uniting enterprise innovators, developers, and architects.
+                    <p className="text-xs sm:text-sm text-stone-300/90 leading-relaxed line-clamp-3">
+                      {current.story.desc || "East India's premier SAP community gathering uniting enterprise innovators, developers, and architects."}
                     </p>
                   </div>
 
@@ -1727,18 +1735,20 @@ const PastEventsSection = () => {
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
                     style={{ backgroundColor: current.theme.accent }}
-                    className="h-[34px] w-full text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98 shrink-0"
+                    className="h-[44px] w-full text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98 shrink-0"
                   >
-                    {current.story.cta}
+                    {current.story.cta || "EXPLORE HIGHLIGHTS"}
                   </button>
                 </div>
 
                 {/* Sub-column 2: Portrait Photo Card + Prev/Next Buttons */}
-                <div className="flex flex-col justify-between gap-1.5 h-full">
+                <div className="flex flex-col justify-between gap-3 h-full">
                   <div
                     onClick={() => current.portraitPhoto.img && setLightboxImage(current.portraitPhoto.img)}
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
                     style={{ backgroundColor: current.theme.cardBg }}
-                    className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[130px] flex items-center justify-center p-2.5 ${current.portraitPhoto.img ? 'cursor-pointer' : ''}`}
+                    className={`relative flex-1 rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-lg min-h-[170px] sm:min-h-0 ${current.portraitPhoto.img ? 'cursor-pointer' : ''}`}
                   >
                     {current.portraitPhoto.img ? (
                       <>
@@ -1746,12 +1756,19 @@ const PastEventsSection = () => {
                           src={current.portraitPhoto.img}
                           alt={current.portraitPhoto.alt}
                           style={{ objectPosition: current.portraitPhoto.objectPosition || 'center' }}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        {current.portraitPhoto.title && (
+                          <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
+                            <span className="text-[10px] font-mono font-bold text-white/90 bg-black/60 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-white/10">
+                              {current.portraitPhoto.title}
+                            </span>
+                          </div>
+                        )}
                       </>
                     ) : (
-                      <div className="text-center flex flex-col items-center gap-1.5">
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 p-3 text-center">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
                           <Camera className={`w-4 h-4 ${current.theme.badgeText}`} />
                         </div>
@@ -1760,12 +1777,12 @@ const PastEventsSection = () => {
                     )}
                   </div>
 
-                  <div className="h-[34px] flex items-center gap-1.5 shrink-0">
+                  <div className="h-[44px] flex items-center gap-2.5 shrink-0">
                     <button
                       onClick={prevSlide}
                       aria-label="Previous Slide"
                       style={{ backgroundColor: current.theme.prevBtnBg }}
-                      className={`flex-1 h-full ${current.theme.prevBtnHover} text-white/80 hover:text-white font-bold text-[10px] uppercase tracking-wider rounded-xl border ${current.theme.prevBtnBorder} transition-all flex items-center justify-center cursor-pointer active:scale-98 shadow-sm`}
+                      className={`flex-1 h-full ${current.theme.prevBtnHover} text-white/80 hover:text-white font-bold text-xs uppercase tracking-wider rounded-xl border ${current.theme.prevBtnBorder} transition-all flex items-center justify-center cursor-pointer active:scale-98 shadow-sm`}
                     >
                       PREVIOUS
                     </button>
@@ -1773,7 +1790,7 @@ const PastEventsSection = () => {
                       onClick={nextSlide}
                       aria-label="Next Slide"
                       style={{ backgroundColor: current.theme.accent }}
-                      className="flex-1 h-full text-white font-bold text-[10px] uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98"
+                      className="flex-1 h-full text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98"
                     >
                       NEXT
                     </button>
@@ -1783,22 +1800,24 @@ const PastEventsSection = () => {
             </div>
 
             {/* ════════════════════════════════════════════════════════════
-                MIDDLE BLOCK (3 COLS): KEYNOTES + STREET + NETWORKING
+                MIDDLE BLOCK (3 COLS): KEYNOTES (84px) + STREET (360px) + NETWORKING (84px) = 560px
             ════════════════════════════════════════════════════════════ */}
-            <div className="lg:col-span-3 flex flex-col justify-between gap-2 h-full">
-              {/* Explore Text Card -> Replaced with generic tag #Keynotes */}
+            <div className="lg:col-span-3 flex flex-col gap-4 lg:h-full">
+              {/* Explore Tag Card (84px) */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[54px] rounded-2xl p-2 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
+                className={`h-[76px] sm:h-[84px] rounded-2xl p-2 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
               >
                 <CuratedTag label="#Keynotes" tilt="rotate-2" />
               </div>
 
-              {/* Lantern Street Portrait Photo Card */}
+              {/* Lantern Street Portrait Photo Card (360px) - Photo */}
               <div
                 onClick={() => current.streetPhoto.img && setLightboxImage(current.streetPhoto.img)}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[175px] flex items-center justify-center p-2.5 ${current.streetPhoto.img ? 'cursor-pointer' : ''}`}
+                className={`relative h-[250px] sm:h-[300px] lg:h-[360px] rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-lg shrink-0 ${current.streetPhoto.img ? 'cursor-pointer' : ''}`}
               >
                 {current.streetPhoto.img ? (
                   <>
@@ -1806,12 +1825,19 @@ const PastEventsSection = () => {
                       src={current.streetPhoto.img}
                       alt={current.streetPhoto.alt}
                       style={{ objectPosition: current.streetPhoto.objectPosition || 'center' }}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {current.streetPhoto.title && (
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
+                        <span className="text-[10px] font-mono font-bold text-white/90 bg-black/60 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-white/10">
+                          {current.streetPhoto.title}
+                        </span>
+                      </div>
+                    )}
                   </>
                 ) : (
-                  <div className="text-center flex flex-col items-center gap-1.5">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 p-3 text-center">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
                       <ImageIcon className={`w-4 h-4 ${current.theme.badgeText}`} />
                     </div>
@@ -1820,24 +1846,26 @@ const PastEventsSection = () => {
                 )}
               </div>
 
-              {/* Stay Text Card -> Replaced with generic tag #Networking */}
+              {/* Stay Tag Card (84px) */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[54px] rounded-2xl p-2 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
+                className={`h-[76px] sm:h-[84px] rounded-2xl p-2 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
               >
                 <CuratedTag label="#Networking" tilt="-rotate-2" />
               </div>
             </div>
 
             {/* ════════════════════════════════════════════════════════════
-                RIGHT BLOCK (3 COLS): BLOSSOM + CUISINE
+                RIGHT BLOCK (3 COLS): BLOSSOM (284px) + CUISINE (260px) = 560px
             ════════════════════════════════════════════════════════════ */}
-            <div className="lg:col-span-3 flex flex-col justify-between gap-2 h-full">
-              {/* Blossom Portrait Photo Card */}
+            <div className="lg:col-span-3 flex flex-col gap-4 lg:h-full">
+              {/* Blossom Portrait Photo Card (284px) - Photo */}
               <div
                 onClick={() => current.blossomPhoto.img && setLightboxImage(current.blossomPhoto.img)}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[195px] rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-xl shrink-0 flex items-center justify-center p-2.5 ${current.blossomPhoto.img ? 'cursor-pointer' : ''}`}
+                className={`relative h-[240px] sm:h-[260px] lg:h-[284px] rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-xl shrink-0 ${current.blossomPhoto.img ? 'cursor-pointer' : ''}`}
               >
                 {current.blossomPhoto.img ? (
                   <>
@@ -1845,12 +1873,19 @@ const PastEventsSection = () => {
                       src={current.blossomPhoto.img}
                       alt={current.blossomPhoto.alt}
                       style={{ objectPosition: current.blossomPhoto.objectPosition || 'center' }}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {current.blossomPhoto.title && (
+                      <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
+                        <span className="text-[10px] font-mono font-bold text-white/90 bg-black/60 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-white/10">
+                          {current.blossomPhoto.title}
+                        </span>
+                      </div>
+                    )}
                   </>
                 ) : (
-                  <div className="text-center flex flex-col items-center gap-1.5">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 p-3 text-center">
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
                       <Camera className={`w-4 h-4 ${current.theme.badgeText}`} />
                     </div>
@@ -1859,30 +1894,40 @@ const PastEventsSection = () => {
                 )}
               </div>
 
-              {/* Cuisine Card with Text & Ceramic Food Photo */}
+              {/* Cuisine Card with Tag & Image (260px) */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[185px] rounded-2xl p-2.5 flex flex-col justify-between border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 shrink-0`}
+                className={`h-[240px] sm:h-[250px] lg:h-[260px] rounded-2xl p-3.5 flex flex-col justify-between border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 shrink-0`}
               >
-                <div className="flex items-center justify-center pt-0.5 pb-0.5">
+                <div className="flex items-center justify-center pb-1">
                   <CuratedTag label="#SAPCommunity" tilt="rotate-1" size="small" />
                 </div>
+                {/* Cuisine Photo Container */}
                 <div
                   onClick={() => current.cuisine.img && setLightboxImage(current.cuisine.img)}
-                  className={`rounded-xl overflow-hidden relative group h-[115px] w-full border border-white/5 shadow-md shrink-0 flex items-center justify-center ${current.cuisine.img ? 'cursor-pointer' : 'bg-black/20'}`}
+                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseLeave={() => setIsPaused(false)}
+                  className={`relative rounded-xl overflow-hidden group h-[160px] sm:h-[175px] lg:h-[184px] w-full border border-white/5 shadow-md shrink-0 ${current.cuisine.img ? 'cursor-pointer' : 'bg-black/20'}`}
                 >
                   {current.cuisine.img ? (
                     <>
                       <img
                         src={current.cuisine.img}
                         alt={current.cuisine.alt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                      {current.cuisine.title && (
+                        <div className="absolute bottom-2.5 left-2.5 right-2.5 z-10">
+                          <span className="text-[10px] font-mono font-bold text-white/90 bg-black/60 backdrop-blur-sm px-2.5 py-0.5 rounded-md border border-white/10">
+                            {current.cuisine.title}
+                          </span>
+                        </div>
+                      )}
                     </>
                   ) : (
-                    <div className="text-center flex flex-col items-center gap-1 p-2">
-                      <Coffee className={`w-3.5 h-3.5 ${current.theme.badgeText}`} />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-2 text-center">
+                      <Coffee className={`w-4 h-4 ${current.theme.badgeText}`} />
                       <span className="text-[10px] font-medium text-stone-300">Hospitality & Chai</span>
                     </div>
                   )}
