@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
@@ -475,7 +475,11 @@ const Navbar = () => {
           onClick={() => setActiveSection('hero')}
           className="flex items-center gap-2.5 sm:gap-3 shrink-0 group"
         >
-          <HowrahBridgeLogo className="w-10 h-6 sm:w-11 sm:h-7 text-[#0070F2] transition-transform duration-300 group-hover:scale-105" />
+          <img
+            src="/sit-kolkata-logo.png"
+            alt="SAP Inside Track Kolkata"
+            className="w-10 h-10 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105 border border-slate-200/80 shrink-0"
+          />
           <div className="leading-tight">
             <div className="text-[16px] sm:text-[17px] font-black tracking-tight text-slate-950 flex items-center gap-1.5">
               <span className="text-[#0070F2]">SAP</span>
@@ -493,20 +497,18 @@ const Navbar = () => {
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
             return (
-              <div key={item.label} className="relative flex flex-col items-center">
+              <div key={item.label} className="relative py-1">
                 <a
                   href={item.href}
                   onClick={() => setActiveSection(sectionId)}
-                  className={`py-1 transition-colors duration-200 ${isActive
-                      ? 'text-slate-950 font-bold'
-                      : 'text-slate-600 hover:text-[#0070F2]'
+                  className={`transition-colors relative z-10 ${isActive ? 'text-[#0070F2] font-black' : 'hover:text-[#0070F2]'
                     }`}
                 >
                   {item.label}
                 </a>
                 {isActive && (
-                  <motion.span
-                    layoutId="navbar-active-indicator"
+                  <motion.div
+                    layoutId="activeSectionIndicator"
                     className="absolute -bottom-0.5 w-full h-[2.5px] bg-[#0070F2] rounded-full"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
@@ -519,11 +521,12 @@ const Navbar = () => {
         {/* Right CTA + Mobile Toggle */}
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="#tickets"
-            onClick={() => setActiveSection('tickets')}
-            className="bg-slate-950 hover:bg-slate-800 text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full font-bold text-[12px] xl:text-[13px] transition-all shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 shrink-0"
+            href="https://konfhub.com/sap-inside-track-kolkata-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-slate-950 hover:bg-[#0070F2] text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full font-bold text-[12px] xl:text-[13px] transition-all shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 shrink-0"
           >
-            <span>Get Tickets</span>
+            <span>Get Tickets · ₹499</span>
             <ArrowUpRight className="w-3.5 h-3.5 xl:w-4 xl:h-4 stroke-[2.5]" />
           </a>
 
@@ -855,43 +858,43 @@ const InteractivePhotoStack = () => {
   const initialPhotos = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-      alt: "Conference Crowd & Keynote",
-      tag: "#SITKOL_26",
-      label: "Keynote & Community",
-      caption: "Main Keynote & Community Gathering",
+      src: "/gallery/sit_kol_2025_03.jpg",
+      alt: "Keynote Audience Hall at SIT Kolkata 2025",
+      caption: "400+ Enterprise Practitioners & Leaders Converge",
+      tag: "Keynotes",
+      label: "SIT KOL 2025 Keynotes",
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-      alt: "Tech Talk & Cloud Architecture",
-      tag: "#TECH_TRACKS",
-      label: "BTP & Cloud AI",
-      caption: "BTP, Cloud & AI Architecture Sessions",
+      src: "/gallery/sit_kol_2024_01.png",
+      alt: "Lamp Lighting Ceremony at SIT Kolkata 2024",
+      caption: "Auspicious Lamp Lighting & Inauguration",
+      tag: "Inauguration",
+      label: "SIT KOL 2024 Ceremony",
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-      alt: "Community Networking",
-      tag: "#CONNECT_KOLKATA",
-      label: "Networking Track",
-      caption: "Peer Connections & Hallway Conversations",
+      src: "/gallery/sit_kol_mini_01_01.jpg",
+      alt: "Grand Auditorium Crowd at Mini Session 01",
+      caption: "Electrifying Energy Across the Auditorium",
+      tag: "Auditorium",
+      label: "Mini Session 01 Hall",
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1558486012-817176f84c6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-      alt: "Hands-on Coding Workshop",
-      tag: "#HANDS_ON_LAB",
-      label: "Hands-on Demos",
-      caption: "Practical Labs & Interactive Demos",
+      src: "/gallery/sit_kol_2025_01.jpg",
+      alt: "Volunteers and Community Champions",
+      caption: "By the Community, For the Community",
+      tag: "Champions",
+      label: "Community Volunteers",
     },
     {
       id: 5,
-      src: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
-      alt: "Panel Discussion & Speakers",
-      tag: "#EXPERT_PANEL",
-      label: "Expert Panel",
-      caption: "Insights from Community Leaders",
+      src: "/gallery/sit_kol_mini_02_02.jpg",
+      alt: "Hands-on Student Workshop at Mini Session 02",
+      caption: "Next-Gen Enterprise Tech & AI Workshops",
+      tag: "Workshops",
+      label: "Mini Session 02 Labs",
     },
   ];
 
@@ -1283,10 +1286,10 @@ const PastEventsSection = () => {
 
   const slides = [
     {
-      id: "sit-2024",
-      label: "SIT Kolkata '24",
+      id: "sit-kol-2025",
+      label: "SIT KOL 2025",
       theme: {
-        name: "SAP Tech Sapphire",
+        name: "Conference Blue",
         sectionBg: "#070e1e",
         cardBg: "#0f1c3a",
         cardBorder: "border-[#1d3568]/50 hover:border-[#0070F2]/70",
@@ -1304,161 +1307,109 @@ const PastEventsSection = () => {
         gradientText: "from-blue-400 via-cyan-400 to-indigo-300",
       },
       hero: {
-        title: "Kolkata 2024",
-        subtitle: "East India's Flagship SAP Community Gathering",
-        img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        title: "SIT KOL 2025",
+        subtitle: "East India's Flagship SAP Community Conference",
+        img: "/gallery/sit_kol_2025_03.jpg",
       },
       story: {
         title: "Where Passion Meets Community",
-        desc: "Relive the electrifying energy of 500+ SAP practitioners, clean-core pioneers, and enterprise architects converging in the City of Joy.",
-        cta: "RELIVE THE MAGIC",
+        desc: "Relive the electrifying energy of 400+ SAP practitioners, clean-core pioneers, and enterprise architects converging in Kolkata.",
+        cta: "EXPLORE HIGHLIGHTS",
       },
       portraitPhoto: {
-        img: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Community Networking in Hallway",
+        img: "/gallery/sit_kol_2025_04.jpg",
+        alt: "Keynote Session by Mr. Monimoy Kundu at SIT Kolkata 2025",
+        title: "Keynote Speaker",
       },
       explore: {
         title: "Keynotes",
-        desc: "Masterclasses on SAP BTP, Clean Core & S/4HANA Cloud.",
+        desc: "Masterclasses on SAP BTP, Clean Core & SAP Business AI.",
       },
       streetPhoto: {
-        img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Keynote Speaker on Conference Stage",
+        img: "/gallery/sit_kol_2025_02.jpg",
+        alt: "Tech Leaders & Speakers in Hallway Discussion",
+        title: "Hallway Connections",
       },
       stay: {
         title: "Camaraderie",
-        desc: "Hallway conversations, mentor links, and lifelong connections.",
+        desc: "Hallway conversations, mentor links, and community connections.",
       },
       blossomPhoto: {
-        img: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Collaborative Workshop Sprints",
+        img: "/gallery/sit_kol_2025_01.jpg",
+        alt: "Core Volunteer Champions & Organizing Committee",
+        title: "Core Organizers",
       },
       cuisine: {
-        title: "Hospitality",
-        desc: "Authentic clay-pot Bharer Chai & Mishti",
-        img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Authentic Kolkata Bharer Chai & Delicacies",
+        title: "Media Coverage",
+        desc: "Press interviews and broadcast media coverage",
+        img: "/gallery/sit_kol_2025_05.jpg",
+        alt: "Press & TV Media Interview",
       },
     },
     {
-      id: "kolkata-heritage",
-      label: "City of Joy",
+      id: "sit-kol-2024",
+      label: "SIT KOL 2024",
       theme: {
-        name: "Kolkata Golden Hour",
-        sectionBg: "#140f06",
-        cardBg: "#251c0c",
-        cardBorder: "border-[#5c441a]/50 hover:border-[#d97706]/70",
-        accent: "#d97706",
-        accentHover: "#f59e0b",
-        badgeBg: "bg-[#d97706]/15",
-        badgeBorder: "border-[#d97706]/40",
-        badgeText: "text-[#fbbf24]",
-        glow1: "bg-[#d97706]/25",
-        glow2: "bg-[#f59e0b]/15",
-        prevBtnBg: "#251c0c",
-        prevBtnHover: "hover:bg-[#342712]",
-        prevBtnBorder: "border-amber-400/20",
-        textMuted: "text-[#fde68a]",
-        gradientText: "from-amber-400 via-yellow-400 to-amber-200",
+        name: "Inaugural Sapphire",
+        sectionBg: "#090d1f",
+        cardBg: "#131a38",
+        cardBorder: "border-[#26356b]/50 hover:border-[#6366f1]/70",
+        accent: "#4f46e5",
+        accentHover: "#6366f1",
+        badgeBg: "bg-[#4f46e5]/15",
+        badgeBorder: "border-[#4f46e5]/40",
+        badgeText: "text-[#a5b4fc]",
+        glow1: "bg-[#4f46e5]/25",
+        glow2: "bg-[#6366f1]/15",
+        prevBtnBg: "#131a38",
+        prevBtnHover: "hover:bg-[#1c2652]",
+        prevBtnBorder: "border-indigo-400/20",
+        textMuted: "text-[#c7d2fe]",
+        gradientText: "from-indigo-400 via-purple-300 to-sky-300",
       },
       hero: {
-        title: "Kolkata",
-        subtitle: "The City of Joy, Where Heritage Meets Innovation",
-        img: "https://images.unsplash.com/photo-1558486012-817176f84c6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        title: "SIT KOL 2024",
+        subtitle: "The Landmark Inception of SAP Inside Track Kolkata",
+        img: "/gallery/sit_kol_2024_01.png",
       },
       story: {
-        title: "Where History Meets Modernity",
-        desc: "Wander past iconic British-colonial facades, cross the timeless Howrah Bridge at dawn, and experience the cultural heartbeat of India.",
-        cta: "EXPLORE THE CITY",
+        title: "The Historic Inception",
+        desc: "Where the journey began — uniting Eastern India's enterprise ecosystem with visionary keynotes and executive leadership.",
+        cta: "EXPLORE 2024",
       },
       portraitPhoto: {
-        img: "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Iconic Yellow Ambassador Cab in Kolkata",
+        img: "/gallery/sit_kol_2024_02.png",
+        alt: "Executive Panel Discussion",
+        title: "Executive Panel",
       },
       explore: {
-        title: "Landmarks",
-        desc: "Victoria Memorial, Princep Ghat & the historic Hooghly.",
+        title: "Leadership",
+        desc: "Distinguished executive panels and architectural vision.",
       },
       streetPhoto: {
-        img: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Classic Kolkata Tram in Green Maidan",
+        img: "/gallery/sit_kol_2024_03.png",
+        alt: "Ceremonial Stage Lamp Lighting with Dignitaries",
+        title: "Lamp Lighting",
       },
       stay: {
-        title: "Heritage",
-        desc: "Grand Raj-era suites and legendary Bengali hospitality.",
+        title: "Community",
+        desc: "Uniting delegates, champions, and enterprise leaders.",
       },
       blossomPhoto: {
-        img: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Victoria Memorial Grand Marble Architecture",
+        img: "/gallery/sit_kol_2024_04.jpg",
+        alt: "Community Welcome Backdrop at SIT Kolkata 2024",
+        title: "Community Welcome",
       },
       cuisine: {
-        title: "Gastronomy",
-        desc: "World-renowned Bengali mishti & street delicacies",
-        img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Artisanal Bengali Sweets & Culinary Delights",
+        title: "Felicitation",
+        desc: "Celebration of volunteer team & certificates",
+        img: "/gallery/sit_kol_2024_05.jpg",
+        alt: "Felicitation & Community Celebration",
       },
     },
     {
-      id: "dev-labs",
-      label: "Dev Labs",
-      theme: {
-        name: "Cyber Emerald",
-        sectionBg: "#05130d",
-        cardBg: "#0c241a",
-        cardBorder: "border-[#144d37]/50 hover:border-[#10b981]/70",
-        accent: "#059669",
-        accentHover: "#10b981",
-        badgeBg: "bg-[#059669]/15",
-        badgeBorder: "border-[#059669]/40",
-        badgeText: "text-[#34d399]",
-        glow1: "bg-[#059669]/25",
-        glow2: "bg-[#10b981]/15",
-        prevBtnBg: "#0c241a",
-        prevBtnHover: "hover:bg-[#133728]",
-        prevBtnBorder: "border-emerald-400/20",
-        textMuted: "text-[#a7f3d0]",
-        gradientText: "from-emerald-400 via-teal-300 to-cyan-300",
-      },
-      hero: {
-        title: "Dev Labs",
-        subtitle: "Clean Core Hackathons & Rapid Prototyping",
-        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      },
-      story: {
-        title: "Where Code Meets Real Scale",
-        desc: "Intense 24-hour prototypes, Joule AI agent integrations, and RAP frameworks built live on stage by enterprise developer squads.",
-        cta: "JOIN THE SQUAD",
-      },
-      portraitPhoto: {
-        img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Developer Squad Focused on Code Sprint",
-      },
-      explore: {
-        title: "Hackathons",
-        desc: "Real-time architectural challenges judged by SAP Champions.",
-      },
-      streetPhoto: {
-        img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "1-on-1 Mentorship and Code Review",
-      },
-      stay: {
-        title: "Mentorship",
-        desc: "Direct guidance from SAP Developer Advocates.",
-      },
-      blossomPhoto: {
-        img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Celebrating Demo Day Prototype Victory",
-      },
-      cuisine: {
-        title: "Fueling Devs",
-        desc: "Artisanal roast coffee & midnight snacks",
-        img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Midnight Hackathon Coffee & Refreshments",
-      },
-    },
-    {
-      id: "community-labs",
-      label: "Hands-on Labs",
+      id: "mini-session-01",
+      label: "Mini Session 01",
       theme: {
         name: "Community Amber",
         sectionBg: "#161006",
@@ -1478,40 +1429,104 @@ const PastEventsSection = () => {
         gradientText: "from-amber-400 via-yellow-400 to-amber-200",
       },
       hero: {
-        title: "Hands-on Labs",
-        subtitle: "Deep-Dive Architectural Workshops",
-        img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        title: "Mini Session 01",
+        subtitle: "Auditorium Masterclasses & Deep Technical Labs",
+        img: "/gallery/sit_kol_mini_01_01.jpg",
       },
       story: {
-        title: "Where Code Meets Real Scale",
-        desc: "Interactive developer workspaces, clean-core implementations, and real-time mentor feedback.",
-        cta: "JOIN THE WORKSHOPS",
+        title: "Auditorium Tech Sprints",
+        desc: "Interactive developer workspaces, clean-core implementations, and real-time mentor feedback in a packed hall.",
+        cta: "VIEW SESSION LABS",
       },
       portraitPhoto: {
-        img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Developer Squad Focused on Code Sprint",
+        img: "/gallery/sit_kol_mini_01_02.jpg",
+        alt: "Interactive Q&A Session with Attendee",
+        title: "Audience Q&A",
       },
       explore: {
         title: "Workshops",
         desc: "Hands-on deep dives into SAP BTP and Joule AI agent extensibility.",
       },
       streetPhoto: {
-        img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "1-on-1 Mentorship and Code Review",
+        img: "/gallery/sit_kol_mini_01_03.jpg",
+        alt: "Engaged Audience Discussions & Mic Questions",
+        title: "Engaged Discussions",
       },
       stay: {
         title: "Community",
         desc: "Connect directly with SAP Champions and Developer Advocates.",
       },
       blossomPhoto: {
-        img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Celebrating Demo Day Prototype Victory",
+        img: "/gallery/sit_kol_mini_01_04.jpg",
+        alt: "Keynote Address to Grand Auditorium from Podium",
+        title: "Keynote Perspective",
       },
       cuisine: {
-        title: "Networking",
-        desc: "Conversations over artisanal chai and coffee",
-        img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        alt: "Hackathon Coffee & Refreshments",
+        title: "Fellowship",
+        desc: "Speakers & organizers fellowship on stage",
+        img: "/gallery/sit_kol_mini_01_05.jpg",
+        alt: "Speakers & Organizers Stage Group",
+      },
+    },
+    {
+      id: "mini-session-02",
+      label: "Mini Session 02",
+      theme: {
+        name: "Cyber Emerald",
+        sectionBg: "#05130d",
+        cardBg: "#0c241a",
+        cardBorder: "border-[#144d37]/50 hover:border-[#10b981]/70",
+        accent: "#059669",
+        accentHover: "#10b981",
+        badgeBg: "bg-[#059669]/15",
+        badgeBorder: "border-[#059669]/40",
+        badgeText: "text-[#34d399]",
+        glow1: "bg-[#059669]/25",
+        glow2: "bg-[#10b981]/15",
+        prevBtnBg: "#0c241a",
+        prevBtnHover: "hover:bg-[#133728]",
+        prevBtnBorder: "border-emerald-400/20",
+        textMuted: "text-[#a7f3d0]",
+        gradientText: "from-emerald-400 via-teal-300 to-cyan-300",
+      },
+      hero: {
+        title: "Mini Session 02",
+        subtitle: "Interactive Enterprise Labs & Academic Sprints",
+        img: "/gallery/sit_kol_mini_02_02.jpg",
+      },
+      story: {
+        title: "Enterprise Learning & Sprints",
+        desc: "Masterclasses bridging academics and enterprise IT with live demonstrations and real-world architecture.",
+        cta: "EXPLORE SESSIONS",
+      },
+      portraitPhoto: {
+        img: "/gallery/sit_kol_mini_02_01.jpg",
+        alt: "Interactive Q&A on Enterprise Trends",
+        title: "Enterprise Q&A",
+      },
+      explore: {
+        title: "Masterclasses",
+        desc: "Strategic deep-dives on SAP architecture and enterprise solutions.",
+      },
+      streetPhoto: {
+        img: "/gallery/sit_kol_mini_02_03.jpg",
+        alt: "Speaker presenting What is SAP?",
+        title: "SAP Demystified",
+      },
+      stay: {
+        title: "Mentorship",
+        desc: "Direct guidance for students and aspiring SAP consultants.",
+      },
+      blossomPhoto: {
+        img: "/gallery/sit_kol_mini_02_04.jpg",
+        alt: "Attentive Students & Future Tech Innovators",
+        title: "Future Innovators",
+      },
+      cuisine: {
+        title: "Session Team",
+        desc: "Faculty, speaker & student coordinators fellowship",
+        img: "/gallery/sit_kol_mini_02_05.jpg",
+        alt: "Faculty & Student Volunteers Group",
       },
     },
   ];
@@ -1610,24 +1625,49 @@ const PastEventsSection = () => {
             <div className="lg:col-span-6 flex flex-col justify-between gap-3 h-full">
               {/* 1. Large Landscape Hero Card */}
               <div
-                onClick={() => setLightboxImage(current.hero.img)}
-                className="relative h-[220px] sm:h-[240px] w-full rounded-2xl overflow-hidden group cursor-pointer border border-white/[0.08] shadow-xl shrink-0"
+                onClick={() => current.hero.img && setLightboxImage(current.hero.img)}
+                className={`relative h-[220px] sm:h-[240px] w-full rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-xl shrink-0 ${current.hero.img ? 'cursor-pointer' : ''}`}
+                style={{ backgroundColor: current.theme.cardBg }}
               >
-                <img
-                  src={current.hero.img}
-                  alt={current.hero.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
-
-                <div className="absolute bottom-4 left-5 right-5 z-10 flex flex-wrap items-end justify-between gap-3">
-                  <div>
-                    <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-white tracking-tight leading-none drop-shadow-md">
-                      {current.hero.title}
-                    </h3>
+                {current.hero.img ? (
+                  <>
+                    <img
+                      src={current.hero.img}
+                      alt={current.hero.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
+                  </>
+                ) : (
+                  <div className="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-black/40 via-transparent to-black/60">
+                    <div className="flex items-center justify-between">
+                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
+                        <Camera className="w-3.5 h-3.5" />
+                        <span>Featured Gallery</span>
+                      </div>
+                      <CuratedTag label="#SITKOL_26" tilt="-rotate-2" />
+                    </div>
+                    <div>
+                      <h3 className="text-3xl sm:text-4xl lg:text-[38px] font-black text-white tracking-tight leading-none drop-shadow-md">
+                        {current.hero.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-stone-300 mt-2 font-medium">
+                        {current.hero.subtitle}
+                      </p>
+                    </div>
                   </div>
-                  <CuratedTag label="#SITKOL_26" tilt="-rotate-2" />
-                </div>
+                )}
+
+                {current.hero.img && (
+                  <div className="absolute bottom-4 left-5 right-5 z-10 flex flex-wrap items-end justify-between gap-3">
+                    <div>
+                      <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-white tracking-tight leading-none drop-shadow-md">
+                        {current.hero.title}
+                      </h3>
+                    </div>
+                    <CuratedTag label="#SITKOL_26" tilt="-rotate-2" />
+                  </div>
+                )}
               </div>
 
               {/* 2. Sub-columns below Hero Card */}
@@ -1662,15 +1702,27 @@ const PastEventsSection = () => {
                 {/* Sub-column 2: Portrait Photo Card + Prev/Next Buttons */}
                 <div className="flex flex-col justify-between gap-2.5 h-full">
                   <div
-                    onClick={() => setLightboxImage(current.portraitPhoto.img)}
-                    className="flex-1 rounded-2xl overflow-hidden relative group cursor-pointer border border-white/[0.08] shadow-lg min-h-[160px]"
+                    onClick={() => current.portraitPhoto.img && setLightboxImage(current.portraitPhoto.img)}
+                    style={{ backgroundColor: current.theme.cardBg }}
+                    className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[160px] flex items-center justify-center p-4 ${current.portraitPhoto.img ? 'cursor-pointer' : ''}`}
                   >
-                    <img
-                      src={current.portraitPhoto.img}
-                      alt={current.portraitPhoto.alt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {current.portraitPhoto.img ? (
+                      <>
+                        <img
+                          src={current.portraitPhoto.img}
+                          alt={current.portraitPhoto.alt}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </>
+                    ) : (
+                      <div className="text-center flex flex-col items-center gap-2">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
+                          <Camera className={`w-5 h-5 ${current.theme.badgeText}`} />
+                        </div>
+                        <span className="text-xs font-semibold text-white/90">{current.portraitPhoto.title || "Community"}</span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="h-[42px] flex items-center gap-2 shrink-0">
@@ -1709,15 +1761,27 @@ const PastEventsSection = () => {
 
               {/* Lantern Street Portrait Photo Card */}
               <div
-                onClick={() => setLightboxImage(current.streetPhoto.img)}
-                className="flex-1 rounded-2xl overflow-hidden relative group cursor-pointer border border-white/[0.08] shadow-lg min-h-[220px]"
+                onClick={() => current.streetPhoto.img && setLightboxImage(current.streetPhoto.img)}
+                style={{ backgroundColor: current.theme.cardBg }}
+                className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[220px] flex items-center justify-center p-4 ${current.streetPhoto.img ? 'cursor-pointer' : ''}`}
               >
-                <img
-                  src={current.streetPhoto.img}
-                  alt={current.streetPhoto.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {current.streetPhoto.img ? (
+                  <>
+                    <img
+                      src={current.streetPhoto.img}
+                      alt={current.streetPhoto.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
+                ) : (
+                  <div className="text-center flex flex-col items-center gap-2">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
+                      <ImageIcon className={`w-5 h-5 ${current.theme.badgeText}`} />
+                    </div>
+                    <span className="text-xs font-semibold text-white/90">{current.streetPhoto.title || "Keynotes & Labs"}</span>
+                  </div>
+                )}
               </div>
 
               {/* Stay Text Card -> Replaced with generic tag #Networking */}
@@ -1735,15 +1799,27 @@ const PastEventsSection = () => {
             <div className="lg:col-span-3 flex flex-col justify-between gap-3 h-full">
               {/* Blossom Portrait Photo Card */}
               <div
-                onClick={() => setLightboxImage(current.blossomPhoto.img)}
-                className="h-[246px] rounded-2xl overflow-hidden relative group cursor-pointer border border-white/[0.08] shadow-xl shrink-0"
+                onClick={() => current.blossomPhoto.img && setLightboxImage(current.blossomPhoto.img)}
+                style={{ backgroundColor: current.theme.cardBg }}
+                className={`h-[246px] rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-xl shrink-0 flex items-center justify-center p-4 ${current.blossomPhoto.img ? 'cursor-pointer' : ''}`}
               >
-                <img
-                  src={current.blossomPhoto.img}
-                  alt={current.blossomPhoto.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {current.blossomPhoto.img ? (
+                  <>
+                    <img
+                      src={current.blossomPhoto.img}
+                      alt={current.blossomPhoto.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </>
+                ) : (
+                  <div className="text-center flex flex-col items-center gap-2">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
+                      <Camera className={`w-5 h-5 ${current.theme.badgeText}`} />
+                    </div>
+                    <span className="text-xs font-semibold text-white/90">{current.blossomPhoto.title || "Highlights"}</span>
+                  </div>
+                )}
               </div>
 
               {/* Cuisine Card with Text & Ceramic Food Photo */}
@@ -1755,15 +1831,24 @@ const PastEventsSection = () => {
                   <CuratedTag label="#SAPCommunity" tilt="rotate-1" size="small" />
                 </div>
                 <div
-                  onClick={() => setLightboxImage(current.cuisine.img)}
-                  className="rounded-xl overflow-hidden relative group h-[135px] w-full border border-white/5 cursor-pointer shadow-md shrink-0"
+                  onClick={() => current.cuisine.img && setLightboxImage(current.cuisine.img)}
+                  className={`rounded-xl overflow-hidden relative group h-[135px] w-full border border-white/5 shadow-md shrink-0 flex items-center justify-center ${current.cuisine.img ? 'cursor-pointer' : 'bg-black/20'}`}
                 >
-                  <img
-                    src={current.cuisine.img}
-                    alt={current.cuisine.alt}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                  {current.cuisine.img ? (
+                    <>
+                      <img
+                        src={current.cuisine.img}
+                        alt={current.cuisine.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+                    </>
+                  ) : (
+                    <div className="text-center flex flex-col items-center gap-1.5 p-2">
+                      <Coffee className={`w-4 h-4 ${current.theme.badgeText}`} />
+                      <span className="text-[11px] font-medium text-stone-300">Hospitality & Chai</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -2910,15 +2995,15 @@ const TicketsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         {/* Compact Static Section Header */}
         <div className="text-center mb-6 md:mb-8">
-          <div className="inline-flex items-center gap-2 mb-2 bg-yellow-100/90 border border-yellow-300 text-yellow-900 px-3.5 py-1 rounded-full text-[11px] font-black uppercase tracking-widest">
-            <Sparkles className="w-3 h-3 text-yellow-600" />
-            Zero Registration Fee
+          <div className="inline-flex items-center gap-2 mb-2 bg-blue-100/90 border border-blue-300 text-blue-900 px-3.5 py-1 rounded-full text-[11px] font-black uppercase tracking-widest shadow-xs">
+            <Sparkles className="w-3 h-3 text-[#0070F2]" />
+            Official Registration Live on KonfHub
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Spot</span>
+            Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Ticket</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto font-medium mt-1">
-            Join 500+ professionals for Eastern India's largest community-driven SAP gathering.
+            Join 500+ enterprise leaders and developers. All-inclusive pass for keynotes, workshops, networking lunch &amp; official community swag.
           </p>
         </div>
 
@@ -2955,16 +3040,24 @@ const TicketsSection = () => {
                         </span>
                       </div>
                       <span className="font-mono text-[11px] font-bold text-slate-400">
-                        #SITKOL-0829
+                        #SITKOL-1114
                       </span>
                     </div>
 
                     <div className="mt-3">
+                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-[11px] font-extrabold uppercase tracking-wider">
+                          Regular Ticket · ₹499 (Live)
+                        </span>
+                        <span className="px-2.5 py-0.5 rounded-full bg-stone-100 border border-stone-200 text-stone-400 text-[11px] font-medium line-through">
+                          Early Bird · ₹350 (Sold Out)
+                        </span>
+                      </div>
                       <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                         Regular Admission Pass
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
-                        Official all-access pass for keynotes, breakout tracks, and community zones.
+                        Official all-access pass — includes High Tea, Lunch &amp; Exciting Swags / Goodies.
                       </p>
                     </div>
                   </div>
@@ -2973,11 +3066,11 @@ const TicketsSection = () => {
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-4 py-3 border-y border-stone-100">
                     <div>
                       <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider">DATE</div>
-                      <div className="text-xs sm:text-sm font-black text-slate-900 mt-0.5">29 AUG 2026</div>
+                      <div className="text-xs sm:text-sm font-black text-slate-900 mt-0.5">14 NOV 2026</div>
                     </div>
                     <div>
                       <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider">TIME</div>
-                      <div className="text-xs sm:text-sm font-black text-slate-900 mt-0.5">09:00 AM IST</div>
+                      <div className="text-xs sm:text-sm font-black text-slate-900 mt-0.5">08:00 AM IST</div>
                     </div>
                     <div>
                       <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider">VENUE</div>
@@ -2985,7 +3078,7 @@ const TicketsSection = () => {
                     </div>
                     <div>
                       <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider">FEE</div>
-                      <div className="text-xs sm:text-sm font-black text-[#0070F2] mt-0.5">FREE / RSVP</div>
+                      <div className="text-xs sm:text-sm font-black text-[#0070F2] mt-0.5">₹499 (INR)</div>
                     </div>
                   </div>
 
@@ -2993,21 +3086,23 @@ const TicketsSection = () => {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex flex-wrap gap-2 text-xs font-semibold text-slate-600">
                       <span className="inline-flex items-center gap-1 bg-stone-100 px-2.5 py-1 rounded-lg">
-                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> 50+ Talks
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> High Tea
                       </span>
                       <span className="inline-flex items-center gap-1 bg-stone-100 px-2.5 py-1 rounded-lg">
-                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Lunch & High Tea
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Lunch
                       </span>
                       <span className="inline-flex items-center gap-1 bg-stone-100 px-2.5 py-1 rounded-lg">
-                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Official Swag
+                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 shrink-0" /> Exciting Swags / Goodies
                       </span>
                     </div>
                     <a
-                      href="#tickets"
-                      className="inline-flex items-center justify-center gap-2 bg-slate-950 hover:bg-[#0070F2] text-white px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-md hover:scale-105 shrink-0"
+                      href="https://konfhub.com/sap-inside-track-kolkata-2026"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-[#0070F2] hover:bg-blue-600 text-white px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-md hover:scale-105 shrink-0"
                     >
-                      <span>Claim Free Pass</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span>Book on KonfHub — ₹499</span>
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
@@ -3053,14 +3148,14 @@ const TicketsSection = () => {
                     <div className="mt-4">
                       <Barcode className="h-9 w-full text-slate-900" />
                       <p className="text-[9px] font-mono font-bold text-center tracking-[0.25em] text-slate-400 mt-1">
-                        *SIT-KOL-2026-0829*
+                        *SIT-KOL-2026-1114*
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-4 text-center">
                     <span className="inline-flex items-center gap-1.5 text-[10px] font-bold text-slate-500 bg-white px-2.5 py-1.5 rounded-lg border border-stone-200/80 shadow-xs">
-                      <Sparkles className="w-3 h-3 text-yellow-500" /> Hover to preview Swag Pass
+                      <Sparkles className="w-3 h-3 text-yellow-500" /> Hover to preview Exciting Swags / Goodies
                     </span>
                   </div>
                 </div>
@@ -3076,20 +3171,20 @@ const TicketsSection = () => {
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="bg-emerald-400 text-slate-950 font-black px-3 py-1 rounded-full text-[10px] uppercase tracking-wider inline-flex items-center gap-1.5 shadow-sm">
-                          <Sparkles className="w-3 h-3 text-slate-950" /> SWAG UNLOCKED
+                          <Sparkles className="w-3 h-3 text-slate-950" /> PERKS UNLOCKED
                         </span>
                         <span className="text-xs font-black tracking-widest text-slate-400 uppercase hidden sm:inline">
-                          OFFICIAL MERCH PASS
+                          OFFICIAL ATTENDEE PASS
                         </span>
                       </div>
                       <span className="font-mono text-[11px] font-bold text-emerald-400">
-                        STATUS: INCLUDED
+                        INCLUDED WITH ₹499 TICKET
                       </span>
                     </div>
 
                     <div className="mt-3">
                       <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                        Attendee Welcome Kit & Perks
+                        Exciting Swags / Goodies &amp; Inclusions
                       </h3>
                       <p className="text-xs sm:text-sm text-yellow-300 font-bold uppercase tracking-wider mt-0.5">
                         Collect at Event Registration Desk · SNU Campus
@@ -3098,33 +3193,26 @@ const TicketsSection = () => {
                   </div>
 
                   {/* Swag Perks Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-4 py-3 border-y border-slate-800">
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">👕</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4 py-3 border-y border-slate-800">
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                      <span className="text-2xl">☕</span>
                       <div>
-                        <div className="text-xs font-black text-white leading-tight">Event T-Shirt</div>
-                        <div className="text-[10px] text-slate-400">Exclusive 2026</div>
+                        <div className="text-sm font-black text-white leading-tight">High Tea</div>
+                        <div className="text-[10px] text-slate-400">Included with Ticket</div>
                       </div>
                     </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">🎒</span>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                      <span className="text-2xl">🍱</span>
                       <div>
-                        <div className="text-xs font-black text-white leading-tight">Canvas Tote</div>
-                        <div className="text-[10px] text-slate-400">Eco Material</div>
+                        <div className="text-sm font-black text-white leading-tight">Lunch</div>
+                        <div className="text-[10px] text-slate-400">Included with Ticket</div>
                       </div>
                     </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">🏷️</span>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                      <span className="text-2xl">🎁</span>
                       <div>
-                        <div className="text-xs font-black text-white leading-tight">Sticker Pack</div>
-                        <div className="text-[10px] text-slate-400">Kolkata & SAP</div>
-                      </div>
-                    </div>
-                    <div className="bg-white/5 border border-white/10 rounded-xl p-2.5 flex items-center gap-2.5">
-                      <span className="text-xl">☕</span>
-                      <div>
-                        <div className="text-xs font-black text-white leading-tight">High Tea Pass</div>
-                        <div className="text-[10px] text-slate-400">Chai & Snacks</div>
+                        <div className="text-sm font-black text-white leading-tight">Exciting Swags / Goodies</div>
+                        <div className="text-[10px] text-slate-400">Included with Ticket</div>
                       </div>
                     </div>
                   </div>
@@ -3136,11 +3224,13 @@ const TicketsSection = () => {
                       <span>Complimentary for every registered attendee</span>
                     </div>
                     <a
-                      href="#tickets"
+                      href="https://konfhub.com/sap-inside-track-kolkata-2026"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-slate-950 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-md hover:scale-105 shrink-0"
                     >
-                      <span>Claim Spot & Kit</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span>Claim Spot &amp; Kit — ₹499</span>
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
@@ -3173,7 +3263,7 @@ const TicketsSection = () => {
                       </div>
                       <div className="h-6 w-px bg-slate-700" />
                       <div>
-                        <div className="text-[9px] font-bold text-slate-400">BADGE</div>
+                        <div className="text-[9px] font-bold text-slate-400">T-SHIRT</div>
                         <div className="text-xs font-black text-emerald-400">INCL</div>
                       </div>
                       <div className="h-6 w-px bg-slate-700" />
@@ -3969,14 +4059,20 @@ const Footer = () => {
         className="relative z-10 max-w-6xl mx-auto px-6 w-full text-white mb-12 md:mb-16 opacity-0"
       >
         {/* Mobile: logo top-center. Desktop: hidden (logo is in the middle of the row) */}
-        <div className="flex justify-center mb-6 md:hidden">
-          <Image
-            src="/sap-logo.png"
-            alt="SAP Inside Track Kolkata"
-            width={140}
-            height={80}
-            className="object-contain"
+        <div className="flex flex-col items-center gap-3 mb-8 md:hidden">
+          <img
+            src="/sit-kolkata-logo.png"
+            alt="SAP Inside Track Kolkata Logo"
+            className="w-16 h-16 rounded-full object-contain border border-[#FFD200]/40 shadow-[0_0_20px_rgba(255,210,0,0.3)]"
           />
+          <div className="text-center">
+            <div className="font-bebas text-2xl tracking-wider text-white">
+              SAP INSIDE TRACK
+            </div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-[#FFD200] font-mono">
+              KOLKATA · 2026
+            </div>
+          </div>
         </div>
 
         {/* Mobile: contact left + socials right. Desktop: contact | logo | socials */}
@@ -4037,14 +4133,20 @@ const Footer = () => {
           </div>
 
           {/* Logo — center, desktop only */}
-          <div className="hidden md:flex flex-col items-center gap-3 mx-auto mt-6 md:mt-12">
-            <Image
-              src="/sap-logo.png"
-              alt="SAP Inside Track Kolkata"
-              width={160}
-              height={90}
-              className="object-contain md:w-[220px] md:h-[124px]"
+          <div className="hidden md:flex flex-col items-center gap-3 mx-auto mt-4">
+            <img
+              src="/sit-kolkata-logo.png"
+              alt="SAP Inside Track Kolkata Logo"
+              className="w-20 h-20 rounded-full object-contain border-2 border-[#FFD200]/40 shadow-[0_0_25px_rgba(255,210,0,0.3)] hover:scale-105 transition-transform duration-300"
             />
+            <div className="text-center">
+              <div className="font-bebas text-3xl tracking-widest text-white">
+                SAP INSIDE TRACK
+              </div>
+              <div className="text-xs uppercase tracking-[0.35em] text-[#FFD200] font-mono mt-0.5">
+                KOLKATA · 2026 EDITION
+              </div>
+            </div>
           </div>
 
           {/* Socials */}
