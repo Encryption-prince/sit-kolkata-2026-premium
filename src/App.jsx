@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
@@ -795,14 +795,6 @@ const HeroSection = () => {
 };
 
 const AgendaSection = () => {
-  const sessions = [
-    { time: '09:00', title: 'Check-in & coffee', detail: 'Badges, first hellos, and a little Kolkata fuel.', icon: Coffee, tone: 'text-yellow-300' },
-    { time: '10:00', title: 'The opening signal', detail: 'A community-first welcome and the ideas shaping the day.', icon: Sparkles, tone: 'text-cyan-300' },
-    { time: '11:15', title: 'Deep-dive tracks', detail: 'Choose your perspective: architecture, AI, BTP, or S/4HANA.', icon: BrainCircuit, tone: 'text-blue-300' },
-    { time: '14:30', title: 'People, not pitches', detail: 'Roundtables, peer exchange and conversations worth keeping.', icon: Users, tone: 'text-violet-300' },
-    { time: '17:15', title: 'Closing notes', detail: 'Takeaways, new connections and a toast to what is next.', icon: Mic, tone: 'text-rose-300' },
-  ];
-
   return (
     <section id="agenda" className="relative overflow-hidden bg-slate-950 py-24 text-white scroll-mt-16">
       <div id="schedule" className="absolute -top-20" />
@@ -811,38 +803,78 @@ const AgendaSection = () => {
       <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-yellow-400/15 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <Reveal direction="up" className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-yellow-300">
-              <Clock3 className="h-4 w-4" /> One high-energy day
-            </div>
-            <h2 className="text-4xl font-black tracking-tight md:text-5xl">A programme with <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-yellow-300">real momentum.</span></h2>
+        <Reveal direction="up" className="mb-12 text-center max-w-2xl mx-auto">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-yellow-300">
+            <Clock3 className="h-4 w-4" /> ONE HIGH-ENERGY DAY
           </div>
-          <p className="max-w-md text-lg font-medium leading-relaxed text-slate-400">No filler. Just useful ideas, generous people, and enough space for the conversations between sessions.</p>
+          <h2 className="text-4xl font-black tracking-tight md:text-5xl">
+            A programme with <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-yellow-300">real momentum.</span>
+          </h2>
+          <p className="mt-3 text-base sm:text-lg font-medium leading-relaxed text-slate-400">
+            No filler. Just useful ideas, generous people, and enough space for the conversations between sessions.
+          </p>
         </Reveal>
 
-        <div className="relative mx-auto max-w-5xl">
-          <div className="absolute bottom-6 left-[1.7rem] top-6 hidden w-px bg-gradient-to-b from-yellow-400/70 via-blue-400/60 to-transparent md:block" />
-          <div className="space-y-4">
-            {sessions.map(({ time, title, detail, icon: Icon, tone }, index) => (
-              <Reveal key={time} direction={index % 2 === 0 ? 'left' : 'right'} delay={`delay-${(index % 4) * 100}`}>
-                <article className="group relative grid grid-cols-[72px_1fr] gap-5 rounded-3xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-yellow-400/45 hover:bg-white/[0.08] md:grid-cols-[120px_1fr_auto] md:items-center md:gap-8 md:p-6">
-                  <div className="text-xl font-black tracking-tight text-yellow-300 md:text-2xl">{time}</div>
-                  <div>
-                    <div className="mb-2 flex items-center gap-3">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 md:hidden"><Icon className={`h-4 w-4 ${tone}`} /></span>
-                      <h3 className="text-xl font-black text-white md:text-2xl">{title}</h3>
-                    </div>
-                    <p className="max-w-2xl text-sm font-medium leading-relaxed text-slate-400 md:text-base">{detail}</p>
-                  </div>
-                  <div className="hidden h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 md:flex">
-                    <Icon className={`h-6 w-6 ${tone}`} />
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+        {/* ── EXACT AGENDA COMING SOON CARD ── */}
+        <Reveal direction="up" className="relative mx-auto max-w-4xl">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-slate-900/80 p-8 sm:p-12 md:p-14 text-center backdrop-blur-xl shadow-2xl group hover:border-yellow-400/40 transition-all duration-500">
+            {/* Ambient internal glows */}
+            <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-yellow-400/15 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
+              {/* Glowing Clock Icon Badge */}
+              <div className="mb-6 relative">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-yellow-300 shadow-[0_0_30px_rgba(250,204,21,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+                  <Clock3 className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 animate-pulse" />
+                </div>
+                <span className="absolute -top-1 -right-1 flex h-4 w-4">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
+                </span>
+              </div>
+
+              {/* Date pill */}
+              <div className="inline-flex items-center gap-2 mb-3 bg-yellow-400/10 border border-yellow-400/30 text-yellow-300 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-widest">
+                <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+                14 NOVEMBER 2026 • 8:00 AM – 5:00 PM IST
+              </div>
+
+              {/* Exact Tagline requested */}
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+                Exact agenda <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-300 to-cyan-300">coming soon</span>
+              </h3>
+
+              <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-xl mb-8">
+                The comprehensive session timetable, keynote schedules, breakout tracks, and hands-on BTP labs are currently being finalized.
+              </p>
+
+              {/* Highlights sneak peek */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-6 border-t border-white/10">
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
+                  <span className="text-xl mb-1.5">🎤</span>
+                  <div className="text-xs font-black text-white">Keynote Sessions</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">SAP Champions & Leaders</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
+                  <span className="text-xl mb-1.5">⚡</span>
+                  <div className="text-xs font-black text-white">Deep-Dive Tracks</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">AI, BTP, Clean Core</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
+                  <span className="text-xl mb-1.5">☕</span>
+                  <div className="text-xs font-black text-white">Peer Networking</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">High Tea & Lunch</div>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
+                  <span className="text-xl mb-1.5">🎁</span>
+                  <div className="text-xs font-black text-white">Community Swags</div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Official 2026 Kits</div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         <Reveal direction="up" className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400">
           <span className="inline-flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-yellow-400" /> 50+ speakers</span>
@@ -1318,8 +1350,9 @@ const PastEventsSection = () => {
       },
       portraitPhoto: {
         img: "/gallery/sit_kol_2025_04.jpg",
-        alt: "Keynote Session by Mr. Monimoy Kundu at SIT Kolkata 2025",
+        alt: "Keynote Speaker Session at SIT Kolkata 2025",
         title: "Keynote Speaker",
+        objectPosition: "center 22%",
       },
       explore: {
         title: "Keynotes",
@@ -1449,8 +1482,9 @@ const PastEventsSection = () => {
       },
       streetPhoto: {
         img: "/gallery/sit_kol_mini_01_03.jpg",
-        alt: "Engaged Audience Discussions & Mic Questions",
-        title: "Engaged Discussions",
+        alt: "Speaker Keynote Presentation at SIT Kolkata Mini Event 01",
+        title: "Speaker Session",
+        objectPosition: "center 25%",
       },
       stay: {
         title: "Community",
@@ -1555,7 +1589,7 @@ const PastEventsSection = () => {
     <section
       id="memory-wall"
       style={{ backgroundColor: current.theme.sectionBg }}
-      className="py-6 sm:py-8 lg:py-8 text-white relative overflow-hidden border-t border-white/10 select-none transition-colors duration-500 scroll-mt-16"
+      className="py-3 sm:py-4 lg:py-4 text-white relative overflow-hidden border-t border-white/10 select-none transition-colors duration-500 scroll-mt-16"
     >
       <div id="events" className="absolute -top-20" />
       {/* Dynamic Ambient Background Glows */}
@@ -1570,13 +1604,13 @@ const PastEventsSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-10 relative z-10 max-w-7xl">
         {/* Compact Header: Title + Theme Tabs inline to ensure screen fit */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4 sm:mb-5">
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-            <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 sm:mb-2.5">
+          <div className="flex flex-wrap items-center gap-2">
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
               <Sparkles className="w-3 h-3" />
               <span>MEMORY WALL</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight">
               Curated <span className={`text-transparent bg-clip-text bg-gradient-to-r ${current.theme.gradientText}`}>Moments</span>
             </h2>
           </div>
@@ -1591,7 +1625,7 @@ const PastEventsSection = () => {
                   style={{
                     backgroundColor: idx === currentSlide ? current.theme.accent : 'transparent',
                   }}
-                  className={`px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${idx === currentSlide
+                  className={`px-3 py-0.5 sm:py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${idx === currentSlide
                       ? 'text-white shadow-md'
                       : 'text-stone-400 hover:text-white hover:bg-white/5'
                     }`}
@@ -1601,7 +1635,7 @@ const PastEventsSection = () => {
               ))}
             </div>
 
-            <div className="hidden sm:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-black/40 border border-white/10 text-xs font-mono font-bold">
+            <div className="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-black/40 border border-white/10 text-xs font-mono font-bold">
               <span style={{ color: current.theme.accent }}>0{currentSlide + 1}</span>
               <span className="text-stone-600">/</span>
               <span className="text-stone-400">0{slides.length}</span>
@@ -1617,16 +1651,16 @@ const PastEventsSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.99 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:h-[480px]"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:h-[390px] xl:h-[420px]"
           >
             {/* ════════════════════════════════════════════════════════════
-                LEFT BLOCK (6 COLS): HERO CARD (240px) + 2 SUB-COLS (228px) = 480px
+                LEFT BLOCK (6 COLS): HERO CARD + 2 SUB-COLS
             ════════════════════════════════════════════════════════════ */}
-            <div className="lg:col-span-6 flex flex-col justify-between gap-3 h-full">
+            <div className="lg:col-span-6 flex flex-col justify-between gap-2 h-full">
               {/* 1. Large Landscape Hero Card */}
               <div
                 onClick={() => current.hero.img && setLightboxImage(current.hero.img)}
-                className={`relative h-[220px] sm:h-[240px] w-full rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-xl shrink-0 ${current.hero.img ? 'cursor-pointer' : ''}`}
+                className={`relative h-[175px] sm:h-[190px] w-full rounded-2xl overflow-hidden group border ${current.theme.cardBorder} shadow-xl shrink-0 ${current.hero.img ? 'cursor-pointer' : ''}`}
                 style={{ backgroundColor: current.theme.cardBg }}
               >
                 {current.hero.img ? (
@@ -1639,19 +1673,19 @@ const PastEventsSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
                   </>
                 ) : (
-                  <div className="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-br from-black/40 via-transparent to-black/60">
+                  <div className="absolute inset-0 flex flex-col justify-between p-4 bg-gradient-to-br from-black/40 via-transparent to-black/60">
                     <div className="flex items-center justify-between">
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
-                        <Camera className="w-3.5 h-3.5" />
+                      <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold border ${current.theme.badgeBg} ${current.theme.badgeBorder} ${current.theme.badgeText}`}>
+                        <Camera className="w-3 h-3" />
                         <span>Featured Gallery</span>
                       </div>
-                      <CuratedTag label="#SITKOL_26" tilt="-rotate-2" />
+                      <CuratedTag label="#SITKOL_26" tilt="-rotate-2" size="small" />
                     </div>
                     <div>
-                      <h3 className="text-3xl sm:text-4xl lg:text-[38px] font-black text-white tracking-tight leading-none drop-shadow-md">
+                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-none drop-shadow-md">
                         {current.hero.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-stone-300 mt-2 font-medium">
+                      <p className="text-xs text-stone-300 mt-1 font-medium">
                         {current.hero.subtitle}
                       </p>
                     </div>
@@ -1659,30 +1693,30 @@ const PastEventsSection = () => {
                 )}
 
                 {current.hero.img && (
-                  <div className="absolute bottom-4 left-5 right-5 z-10 flex flex-wrap items-end justify-between gap-3">
+                  <div className="absolute bottom-2.5 left-3.5 right-3.5 z-10 flex flex-wrap items-end justify-between gap-2">
                     <div>
-                      <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-black text-white tracking-tight leading-none drop-shadow-md">
+                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-none drop-shadow-md">
                         {current.hero.title}
                       </h3>
                     </div>
-                    <CuratedTag label="#SITKOL_26" tilt="-rotate-2" />
+                    <CuratedTag label="#SITKOL_26" tilt="-rotate-2" size="small" />
                   </div>
                 )}
               </div>
 
               {/* 2. Sub-columns below Hero Card */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1 min-h-[228px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1 min-h-[185px]">
                 {/* Sub-column 1: Story Text Card + Action CTA Button */}
-                <div className="flex flex-col justify-between gap-2.5 h-full">
+                <div className="flex flex-col justify-between gap-1.5 h-full">
                   <div
                     style={{ backgroundColor: current.theme.cardBg }}
-                    className={`flex-1 rounded-2xl p-4 sm:p-4.5 flex flex-col justify-center items-start border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 gap-2.5`}
+                    className={`flex-1 rounded-2xl p-3 flex flex-col justify-center items-start border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 gap-1.5`}
                   >
-                    <div className="flex flex-wrap items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-1.5">
                       <CuratedTag label="#Innovation" tilt="-rotate-2" size="small" />
                       <CuratedTag label="#CleanCore" tilt="rotate-1" size="small" />
                     </div>
-                    <p className="text-xs text-stone-300/85 leading-relaxed line-clamp-3">
+                    <p className="text-[11px] sm:text-xs text-stone-300/85 leading-relaxed line-clamp-3">
                       East India&apos;s premier SAP community gathering uniting enterprise innovators, developers, and architects.
                     </p>
                   </div>
@@ -1693,44 +1727,45 @@ const PastEventsSection = () => {
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
                     style={{ backgroundColor: current.theme.accent }}
-                    className="h-[42px] w-full text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98 shrink-0"
+                    className="h-[34px] w-full text-white font-bold text-[11px] uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98 shrink-0"
                   >
                     {current.story.cta}
                   </button>
                 </div>
 
                 {/* Sub-column 2: Portrait Photo Card + Prev/Next Buttons */}
-                <div className="flex flex-col justify-between gap-2.5 h-full">
+                <div className="flex flex-col justify-between gap-1.5 h-full">
                   <div
                     onClick={() => current.portraitPhoto.img && setLightboxImage(current.portraitPhoto.img)}
                     style={{ backgroundColor: current.theme.cardBg }}
-                    className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[160px] flex items-center justify-center p-4 ${current.portraitPhoto.img ? 'cursor-pointer' : ''}`}
+                    className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[130px] flex items-center justify-center p-2.5 ${current.portraitPhoto.img ? 'cursor-pointer' : ''}`}
                   >
                     {current.portraitPhoto.img ? (
                       <>
                         <img
                           src={current.portraitPhoto.img}
                           alt={current.portraitPhoto.alt}
+                          style={{ objectPosition: current.portraitPhoto.objectPosition || 'center' }}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </>
                     ) : (
-                      <div className="text-center flex flex-col items-center gap-2">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
-                          <Camera className={`w-5 h-5 ${current.theme.badgeText}`} />
+                      <div className="text-center flex flex-col items-center gap-1.5">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
+                          <Camera className={`w-4 h-4 ${current.theme.badgeText}`} />
                         </div>
-                        <span className="text-xs font-semibold text-white/90">{current.portraitPhoto.title || "Community"}</span>
+                        <span className="text-[11px] font-semibold text-white/90">{current.portraitPhoto.title || "Community"}</span>
                       </div>
                     )}
                   </div>
 
-                  <div className="h-[42px] flex items-center gap-2 shrink-0">
+                  <div className="h-[34px] flex items-center gap-1.5 shrink-0">
                     <button
                       onClick={prevSlide}
                       aria-label="Previous Slide"
                       style={{ backgroundColor: current.theme.prevBtnBg }}
-                      className={`flex-1 h-full ${current.theme.prevBtnHover} text-white/80 hover:text-white font-bold text-xs uppercase tracking-widest rounded-xl border ${current.theme.prevBtnBorder} transition-all flex items-center justify-center cursor-pointer active:scale-98 shadow-sm`}
+                      className={`flex-1 h-full ${current.theme.prevBtnHover} text-white/80 hover:text-white font-bold text-[10px] uppercase tracking-wider rounded-xl border ${current.theme.prevBtnBorder} transition-all flex items-center justify-center cursor-pointer active:scale-98 shadow-sm`}
                     >
                       PREVIOUS
                     </button>
@@ -1738,7 +1773,7 @@ const PastEventsSection = () => {
                       onClick={nextSlide}
                       aria-label="Next Slide"
                       style={{ backgroundColor: current.theme.accent }}
-                      className="flex-1 h-full text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98"
+                      className="flex-1 h-full text-white font-bold text-[10px] uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center cursor-pointer hover:brightness-110 active:scale-98"
                     >
                       NEXT
                     </button>
@@ -1748,13 +1783,13 @@ const PastEventsSection = () => {
             </div>
 
             {/* ════════════════════════════════════════════════════════════
-                MIDDLE BLOCK (3 COLS): EXPLORE (84px) + STREET (276px) + STAY (84px) = 480px
+                MIDDLE BLOCK (3 COLS): KEYNOTES + STREET + NETWORKING
             ════════════════════════════════════════════════════════════ */}
-            <div className="lg:col-span-3 flex flex-col justify-between gap-3 h-full">
+            <div className="lg:col-span-3 flex flex-col justify-between gap-2 h-full">
               {/* Explore Text Card -> Replaced with generic tag #Keynotes */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[84px] rounded-2xl p-3.5 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
+                className={`h-[54px] rounded-2xl p-2 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
               >
                 <CuratedTag label="#Keynotes" tilt="rotate-2" />
               </div>
@@ -1763,23 +1798,24 @@ const PastEventsSection = () => {
               <div
                 onClick={() => current.streetPhoto.img && setLightboxImage(current.streetPhoto.img)}
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[220px] flex items-center justify-center p-4 ${current.streetPhoto.img ? 'cursor-pointer' : ''}`}
+                className={`flex-1 rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-lg min-h-[175px] flex items-center justify-center p-2.5 ${current.streetPhoto.img ? 'cursor-pointer' : ''}`}
               >
                 {current.streetPhoto.img ? (
                   <>
                     <img
                       src={current.streetPhoto.img}
                       alt={current.streetPhoto.alt}
+                      style={{ objectPosition: current.streetPhoto.objectPosition || 'center' }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </>
                 ) : (
-                  <div className="text-center flex flex-col items-center gap-2">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
-                      <ImageIcon className={`w-5 h-5 ${current.theme.badgeText}`} />
+                  <div className="text-center flex flex-col items-center gap-1.5">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
+                      <ImageIcon className={`w-4 h-4 ${current.theme.badgeText}`} />
                     </div>
-                    <span className="text-xs font-semibold text-white/90">{current.streetPhoto.title || "Keynotes & Labs"}</span>
+                    <span className="text-[11px] font-semibold text-white/90">{current.streetPhoto.title || "Keynotes & Labs"}</span>
                   </div>
                 )}
               </div>
@@ -1787,37 +1823,38 @@ const PastEventsSection = () => {
               {/* Stay Text Card -> Replaced with generic tag #Networking */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[84px] rounded-2xl p-3.5 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
+                className={`h-[54px] rounded-2xl p-2 border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 flex items-center justify-center shrink-0`}
               >
                 <CuratedTag label="#Networking" tilt="-rotate-2" />
               </div>
             </div>
 
             {/* ════════════════════════════════════════════════════════════
-                RIGHT BLOCK (3 COLS): BLOSSOM (246px) + CUISINE (222px) = 480px
+                RIGHT BLOCK (3 COLS): BLOSSOM + CUISINE
             ════════════════════════════════════════════════════════════ */}
-            <div className="lg:col-span-3 flex flex-col justify-between gap-3 h-full">
+            <div className="lg:col-span-3 flex flex-col justify-between gap-2 h-full">
               {/* Blossom Portrait Photo Card */}
               <div
                 onClick={() => current.blossomPhoto.img && setLightboxImage(current.blossomPhoto.img)}
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[246px] rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-xl shrink-0 flex items-center justify-center p-4 ${current.blossomPhoto.img ? 'cursor-pointer' : ''}`}
+                className={`h-[195px] rounded-2xl overflow-hidden relative group border ${current.theme.cardBorder} shadow-xl shrink-0 flex items-center justify-center p-2.5 ${current.blossomPhoto.img ? 'cursor-pointer' : ''}`}
               >
                 {current.blossomPhoto.img ? (
                   <>
                     <img
                       src={current.blossomPhoto.img}
                       alt={current.blossomPhoto.alt}
+                      style={{ objectPosition: current.blossomPhoto.objectPosition || 'center' }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </>
                 ) : (
-                  <div className="text-center flex flex-col items-center gap-2">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
-                      <Camera className={`w-5 h-5 ${current.theme.badgeText}`} />
+                  <div className="text-center flex flex-col items-center gap-1.5">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${current.theme.badgeBg} border ${current.theme.badgeBorder}`}>
+                      <Camera className={`w-4 h-4 ${current.theme.badgeText}`} />
                     </div>
-                    <span className="text-xs font-semibold text-white/90">{current.blossomPhoto.title || "Highlights"}</span>
+                    <span className="text-[11px] font-semibold text-white/90">{current.blossomPhoto.title || "Highlights"}</span>
                   </div>
                 )}
               </div>
@@ -1825,14 +1862,14 @@ const PastEventsSection = () => {
               {/* Cuisine Card with Text & Ceramic Food Photo */}
               <div
                 style={{ backgroundColor: current.theme.cardBg }}
-                className={`h-[222px] rounded-2xl p-3.5 flex flex-col justify-between border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 shrink-0`}
+                className={`h-[185px] rounded-2xl p-2.5 flex flex-col justify-between border ${current.theme.cardBorder} shadow-lg transition-colors duration-500 shrink-0`}
               >
-                <div className="flex items-center justify-center pt-1 pb-1">
+                <div className="flex items-center justify-center pt-0.5 pb-0.5">
                   <CuratedTag label="#SAPCommunity" tilt="rotate-1" size="small" />
                 </div>
                 <div
                   onClick={() => current.cuisine.img && setLightboxImage(current.cuisine.img)}
-                  className={`rounded-xl overflow-hidden relative group h-[135px] w-full border border-white/5 shadow-md shrink-0 flex items-center justify-center ${current.cuisine.img ? 'cursor-pointer' : 'bg-black/20'}`}
+                  className={`rounded-xl overflow-hidden relative group h-[115px] w-full border border-white/5 shadow-md shrink-0 flex items-center justify-center ${current.cuisine.img ? 'cursor-pointer' : 'bg-black/20'}`}
                 >
                   {current.cuisine.img ? (
                     <>
@@ -1844,9 +1881,9 @@ const PastEventsSection = () => {
                       <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
                     </>
                   ) : (
-                    <div className="text-center flex flex-col items-center gap-1.5 p-2">
-                      <Coffee className={`w-4 h-4 ${current.theme.badgeText}`} />
-                      <span className="text-[11px] font-medium text-stone-300">Hospitality & Chai</span>
+                    <div className="text-center flex flex-col items-center gap-1 p-2">
+                      <Coffee className={`w-3.5 h-3.5 ${current.theme.badgeText}`} />
+                      <span className="text-[10px] font-medium text-stone-300">Hospitality & Chai</span>
                     </div>
                   )}
                 </div>
@@ -2682,7 +2719,7 @@ const VenueSection = () => {
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/venue/snu-building.png",
       title: "Sister Nivedita University",
       tag: "Main Academic Campus",
       desc: "Contemporary green campus located in New Town Action Area I, Kolkata's major tech hub.",
@@ -2690,7 +2727,7 @@ const VenueSection = () => {
       icon: "🏛️"
     },
     {
-      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/venue/snu-auditorium.png",
       title: "Main Keynote Auditorium",
       tag: "500+ Seater Amphitheatre",
       desc: "State-of-the-art keynote hall with dual 4K laser projection & acoustic sound engineering.",
@@ -2698,15 +2735,7 @@ const VenueSection = () => {
       icon: "🎤"
     },
     {
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      title: "Networking & Exhibition Atrium",
-      tag: "Community Hub & Swag Desk",
-      desc: "Sky-lit central pavilion hosting sponsor kiosks, discussion pods, and Kolkata high tea breaks.",
-      badge: "Community Atrium",
-      icon: "☕"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      image: "/venue/snu-labs.png",
       title: "Hands-On BTP Tech Labs",
       tag: "Live Developer Pods",
       desc: "Air-conditioned computer labs pre-configured for live coding, GenAI, and SAP Build tracks.",
@@ -3386,6 +3415,48 @@ const SponsorsSection = () => {
             </Reveal>
           ))}
         </div>
+
+        {/* ── SPONSORSHIP INVITATION CTA ── */}
+        <Reveal direction="up" delay="delay-300" className="mt-12 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-gradient-to-br from-slate-900/95 via-[#0c1527]/95 to-slate-900/95 p-8 sm:p-10 shadow-2xl backdrop-blur-xl group hover:border-amber-400/60 transition-all duration-300">
+            {/* Ambient inner background glows */}
+            <div className="absolute -top-24 -right-24 w-52 h-52 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-52 h-52 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+              <div className="max-w-xl">
+                <div className="inline-flex items-center gap-1.5 mb-2.5 px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase text-amber-400 bg-amber-400/10 border border-amber-400/20">
+                  <Sparkles className="w-3 h-3 text-amber-400" />
+                  <span>PARTNERSHIP OPPORTUNITY</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                  Do you also want to be in this list?
+                </h3>
+                <p className="text-sm text-slate-300 mt-2 leading-relaxed font-normal">
+                  Elevate your brand presence among 500+ enterprise IT leaders, architects, developers, and SAP Champions in Kolkata. Let&apos;s build an impactful collaboration.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center md:items-end gap-2.5 shrink-0">
+                <a
+                  href="mailto:info@sitkolkata.org?subject=SIT%20KOLKATA%202026%20Sponsorship"
+                  className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-sm px-6 py-3.5 rounded-2xl shadow-[0_10px_25px_-5px_rgba(245,158,11,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
+                >
+                  <Mail className="w-4 h-4 text-slate-950 stroke-[2.2]" />
+                  <span>Become a Sponsor</span>
+                  <ArrowRight className="w-4 h-4 text-slate-950 transition-transform group-hover:translate-x-1" />
+                </a>
+                <a
+                  href="mailto:info@sitkolkata.org?subject=SIT%20KOLKATA%202026%20Sponsorship"
+                  className="text-xs font-mono font-bold text-amber-400/90 hover:text-amber-300 transition-colors flex items-center gap-1 hover:underline underline-offset-4"
+                >
+                  <Mail className="w-3 h-3" />
+                  <span>info@sitkolkata.org</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -3393,10 +3464,10 @@ const SponsorsSection = () => {
 
 const CommunityPartnersSection = () => {
   const partners = [
-    "Apex Circle", "GDG On Campus", "Digital Dominators",
-    "EDC", "HITian Inside", "Imperio Coders", "LNC Community",
-    "Postman Kolkata", "Samarth", "InnovateX", "Wiki Kolkata",
-    "AWS Usergroup", "Databricks Usergroup", "Kolkata WordPress"
+    "Debuggers United",
+    "Wiki Kolkata",
+    "AWS Usergroup Kolkata",
+    "Databricks Usergroup India",
   ];
 
   return (
