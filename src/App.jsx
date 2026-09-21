@@ -7,6 +7,7 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import { LampContainer } from './ui/lamp';
 import PixelSwap from './PixelSwap';
+import PreloaderDualHorizon from './components/PreloaderDualHorizon';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -4210,6 +4211,13 @@ const Footer = () => {
 };
 
 export default function App() {
+  // ── CINEMATIC PRELOADER (The Dual Horizon) ──
+  const [isPreloaderActive, setIsPreloaderActive] = useState(true);
+
+  const handlePreloaderComplete = useCallback(() => {
+    setIsPreloaderActive(false);
+  }, []);
+
   // Enforce starting at top Hero section on reload
   useEffect(() => {
     if ('scrollRestoration' in history) {
@@ -4402,6 +4410,11 @@ export default function App() {
         }
         html { scroll-behavior: smooth; }
       `}} />
+
+      {/* ── CINEMATIC PRELOADER (The Dual Horizon) ── */}
+      {isPreloaderActive && (
+        <PreloaderDualHorizon onComplete={handlePreloaderComplete} />
+      )}
 
       <CustomCursor />
       <ScrollProgress />
