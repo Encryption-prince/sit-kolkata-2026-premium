@@ -584,66 +584,13 @@ const Navbar = () => {
 
 const TicketsLiveBadge = () => {
   return (
-    <div className="relative inline-flex items-center justify-center my-3 sm:my-4 select-none">
-      {/* Left Action Marks (3 radiating strokes) */}
-      <div className="flex flex-col gap-1.5 mr-2.5 sm:mr-4 shrink-0">
-        <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-slate-950 stroke-[2.5] stroke-linecap-round">
-          <line x1="20" y1="6" x2="6" y2="2" />
-          <line x1="22" y1="16" x2="4" y2="16" />
-          <line x1="20" y1="26" x2="6" y2="30" />
-        </svg>
-      </div>
-
-      {/* Yellow Brushstroke Container */}
-      <div className="relative flex items-center justify-center px-7 sm:px-12 py-2 sm:py-2.5">
-        {/* SVG painterly brush background */}
-        <svg
-          viewBox="0 0 420 70"
-          preserveAspectRatio="none"
-          className="absolute inset-0 w-full h-full text-[#F5B800] drop-shadow-sm filter"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18,34 C12,32 5,28 10,21 C15,14 26,11 38,10 C85,6 150,5 215,6 C285,7 350,5 392,10 C406,12 414,18 412,25 C410,31 418,36 414,42 C409,50 398,53 382,55 C335,60 260,62 205,61 C140,60 75,62 34,58 C22,57 12,52 8,46 C4,40 10,36 18,34 Z"
-            fill="#F5B800"
-          />
-          {/* Upper brush texture bristles */}
-          <path
-            d="M32,12 C90,8 180,8 260,9 C320,10 370,8 395,12 C402,13 408,16 405,21 C390,20 330,17 260,17 C180,17 90,18 35,21 C28,19 25,14 32,12 Z"
-            fill="#FFC72C"
-            opacity="0.6"
-          />
-          {/* Lower brush texture bristles */}
-          <path
-            d="M25,48 C75,54 165,54 250,53 C320,52 380,51 398,46 C402,48 400,53 392,55 C345,58 270,59 195,58 C120,57 55,58 20,53 C18,50 20,49 25,48 Z"
-            fill="#E5A600"
-            opacity="0.4"
-          />
-          {/* Edge bristle marks */}
-          <path d="M5,24 L14,26 M3,32 L12,33 M6,40 L16,38 M415,22 L405,24 M418,30 L406,31 M413,38 L404,36" stroke="#F5B800" strokeWidth="2.5" strokeLinecap="round" />
-        </svg>
-
-        {/* Text inside */}
-        <span
-          className="relative z-10 text-slate-950 text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-black italic tracking-wide uppercase leading-none"
-          style={{
-            fontFamily: '"Permanent Marker", "Caveat", "Plus Jakarta Sans", cursive, sans-serif',
-            transform: 'rotate(-1deg)',
-            textShadow: '0 1px 0 rgba(255,255,255,0.4)',
-          }}
-        >
-          TICKETS ARE LIVE
-        </span>
-      </div>
-
-      {/* Right Action Marks (3 radiating strokes) */}
-      <div className="flex flex-col gap-1.5 ml-2.5 sm:ml-4 shrink-0">
-        <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="stroke-slate-950 stroke-[2.5] stroke-linecap-round">
-          <line x1="4" y1="6" x2="18" y2="2" />
-          <line x1="2" y1="16" x2="20" y2="16" />
-          <line x1="4" y1="26" x2="18" y2="30" />
-        </svg>
-      </div>
+    <div className="relative inline-flex items-center justify-center my-2 sm:my-3 select-none">
+      <img
+        src="/tickets-are-live.png"
+        alt="Tickets Are Live"
+        className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[460px] lg:max-w-[500px] h-auto object-contain select-none pointer-events-none drop-shadow-sm transition-transform duration-300 hover:scale-105"
+        loading="eager"
+      />
     </div>
   );
 };
@@ -1967,6 +1914,27 @@ const PastEventsSection = () => {
 const speakersData = [
   {
     id: 1,
+    name: "Debashis Majumder",
+    role: "Senior Director – SAP",
+    company: "Founder of My Children Foundation",
+    category: "Keynote Speaker & Panelist",
+    track: "Leadership & Social Impact",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "Keynote & Panel: Enterprise Leadership, SAP Ecosystem Innovations & Social Impact",
+    bio: "Senior Director at SAP and Founder of My Children Foundation. An executive technology leader driving global enterprise transformation, SAP cloud adoption, and purpose-driven community impact.",
+    takeaways: [
+      { title: "Strategic Enterprise Leadership", desc: "Guiding organizations through mission-critical digital & SAP cloud transformations." },
+      { title: "Technology with Purpose", desc: "Bridging corporate technology innovation with meaningful social impact through foundation initiatives." },
+      { title: "Executive Leadership Insights", desc: "Actionable perspectives on leading high-performing technology teams across SAP ecosystems." },
+    ],
+    tags: ["Keynote Speaker", "Panelist", "Senior Director SAP", "Leadership"],
+    accentColor: "#0070F2",
+    img: "/speakers/debashis-majumder-poster.jpg",
+    poster: "/speakers/debashis-majumder-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/debashismajumder/",
+  },
+  {
+    id: 2,
     name: "Sunil Chopra",
     role: "Director – SAP ALM Global Rollout",
     company: "SAP",
@@ -1987,7 +1955,91 @@ const speakersData = [
     linkedin: "https://www.linkedin.com/in/sunilchopra-apac-uae/",
   },
   {
-    id: 2,
+    id: 3,
+    name: "Sayantan Kar",
+    role: "Business & Strategy Principal Program Manager",
+    company: "SAP",
+    category: "Speaker",
+    track: "SAP Basis & Strategy",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "Business & Strategy Program Management: SAP Basis, HANA & Project Management",
+    bio: "Business & Strategy Principal Program Manager at SAP with deep expertise in SAP Basis & HANA platforms, large-scale program delivery, and strategic enterprise architecture.",
+    takeaways: [
+      { title: "HANA & Basis Architecture", desc: "Best practices for maintaining peak performance, high availability, and resilience in SAP HANA landscapes." },
+      { title: "Strategic Program Execution", desc: "Frameworks for managing complex, multi-stakeholder enterprise SAP rollouts and transitions." },
+      { title: "Modernization Roadmap", desc: "Navigating enterprise modernization paths for core SAP systems and cloud landscapes." },
+    ],
+    tags: ["Speaker", "SAP Basis & HANA", "Program Management", "Strategy"],
+    accentColor: "#F59E0B",
+    img: "/speakers/sayantan-kar-poster.jpg",
+    poster: "/speakers/sayantan-kar-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/sayantan-kar-897581a3/",
+  },
+  {
+    id: 4,
+    name: "Subimal Chakraborty",
+    role: "Director – Global IT Delivery Centers",
+    company: "Linde plc",
+    category: "Panelist",
+    track: "GCC Strategy & AI Panel",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "Panelist: GCC Strategy, Global IT Delivery Centers & AI-Driven Digital Transformation",
+    bio: "Director – Global IT Delivery Centers at Linde plc. Seasoned executive driving Global Capability Center (GCC) strategies, enterprise IT delivery scaling, and applied AI transformation.",
+    takeaways: [
+      { title: "GCC Strategy & Delivery at Scale", desc: "Building and scaling high-efficiency Global Capability Centers in India." },
+      { title: "AI & Digital Transformation", desc: "Deploying applied AI and automation across complex global IT and enterprise operations." },
+      { title: "Global Technology Leadership", desc: "Driving cross-functional execution and agility across multi-country enterprise landscapes." },
+    ],
+    tags: ["Panelist", "Linde plc", "GCC Strategy", "AI & Transformation"],
+    accentColor: "#8B5CF6",
+    img: "/speakers/subimal-chakraborty-poster.jpg",
+    poster: "/speakers/subimal-chakraborty-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/subimal/",
+  },
+  {
+    id: 5,
+    name: "Monimoy Kundu",
+    role: "Head – Industry CoE & AI | ERP & Middleware",
+    company: "22+ Years of Technology Leadership",
+    category: "Panelist",
+    track: "Industry CoE & AI Panel",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "Panelist: Industry CoE & AI, ERP & Middleware Architecture | 22+ Years Leadership",
+    bio: "Head – Industry CoE & AI with 22+ years of business and technology leadership spanning enterprise ERP systems, middleware architectures, and AI-enabled industry solutions.",
+    takeaways: [
+      { title: "Industry CoE Best Practices", desc: "Structuring Centers of Excellence to accelerate enterprise business value and AI innovation." },
+      { title: "ERP & Middleware Integration", desc: "Architecting seamless integration pipelines connecting modern SAP with middleware platforms." },
+      { title: "22+ Years Leadership Wisdom", desc: "Navigating paradigm shifts from legacy ERP to cloud-native, AI-augmented enterprise platforms." },
+    ],
+    tags: ["Panelist", "Industry CoE", "ERP & Middleware", "22+ Yrs Experience"],
+    accentColor: "#EC4899",
+    img: "/speakers/monimoy-kundu-poster.jpg",
+    poster: "/speakers/monimoy-kundu-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/debashismajumder/",
+  },
+  {
+    id: 6,
+    name: "Prasen Bose",
+    role: "Senior Manager – EY GDS",
+    company: "Ex-PwC • Ex-IBM",
+    category: "Speaker",
+    track: "SAP Data & Transformation",
+    time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
+    topic: "SAP Data & Transformation: 18+ Years in SAP Data, Analytics & Enterprise Delivery",
+    bio: "Senior Manager at EY GDS with previous leadership experience at PwC and IBM. Boasts 18+ years of expertise delivering large-scale SAP data migrations, analytics architecture, and complex enterprise transformations.",
+    takeaways: [
+      { title: "SAP Data Migration Mastery", desc: "Proven strategies for high-fidelity data migration, cleansing, and governance during S/4HANA transformations." },
+      { title: "Enterprise Transformation Playbook", desc: "Key insights from 18+ years managing Big 4 enterprise SAP implementations." },
+      { title: "Clean Data for Clean Core", desc: "Ensuring clean, harmonized data models to power AI workflows and modern analytical platforms." },
+    ],
+    tags: ["Speaker", "EY GDS", "SAP Data & AI", "18+ Yrs Experience"],
+    accentColor: "#10B981",
+    img: "/speakers/prasen-bose-poster.jpg",
+    poster: "/speakers/prasen-bose-poster.jpg",
+    linkedin: "https://www.linkedin.com/in/prasen-bose-340a2124/",
+  },
+  {
+    id: 7,
     name: "Srini Gottimukkula",
     role: "Vice President - Data & Analytics",
     company: "SAP Business Data Cloud",
@@ -2008,7 +2060,7 @@ const speakersData = [
     linkedin: "https://www.linkedin.com/in/srini-gottimukkula-85b15813/",
   },
   {
-    id: 3,
+    id: 8,
     name: "Arghadip Kar",
     role: "SAP S/4HANA Solution Architect",
     company: "SAP SDN Hall of Fame",
@@ -2023,7 +2075,7 @@ const speakersData = [
       { title: "SDN Hall of Fame Developer Mastery", desc: "Elevating community code standards, modern ABAP RESTful programming (RAP), and CDS." },
     ],
     tags: ["SAP S/4HANA", "Solution Architect", "SDN Hall of Fame", "20+ Yrs SAP"],
-    accentColor: "#10B981",
+    accentColor: "#06B6D4",
     img: "/speakers/arghadip-kar-poster.jpg",
     poster: "/speakers/arghadip-kar-poster.jpg",
     linkedin: "https://www.linkedin.com/in/arghadip-kar-23590532/",
@@ -2766,26 +2818,26 @@ const VenueSection = () => {
     {
       image: "/venue/snu-building.png",
       title: "Sister Nivedita University",
-      tag: "Main Academic Campus",
-      desc: "Contemporary green campus located in New Town Action Area I, Kolkata's major tech hub.",
-      badge: "SNU Campus",
+      tag: "Main Academic Tower",
+      desc: "Contemporary high-rise campus located in New Town Action Area I, Kolkata's major tech and innovation hub.",
+      badge: "Academic Tower",
       icon: "🏛️"
     },
     {
-      image: "/venue/snu-auditorium.png",
-      title: "Main Keynote Auditorium",
-      tag: "500+ Seater Amphitheatre",
-      desc: "State-of-the-art keynote hall with dual 4K laser projection & acoustic sound engineering.",
-      badge: "Keynote Stage",
-      icon: "🎤"
+      image: "/venue/snu-atrium.png",
+      title: "Main Entrance & Glass Atrium",
+      tag: "Reception & Registration Foyer",
+      desc: "World-class glass-facade reception lobby and welcome atrium featuring check-in desks and sponsor networking zones.",
+      badge: "Main Entrance",
+      icon: "✨"
     },
     {
-      image: "/venue/snu-labs.png",
-      title: "Hands-On BTP Tech Labs",
-      tag: "Live Developer Pods",
-      desc: "Air-conditioned computer labs pre-configured for live coding, GenAI, and SAP Build tracks.",
-      badge: "Tech Labs",
-      icon: "💻"
+      image: "/venue/snu-lawn.png",
+      title: "SNU Campus Grounds & Complex",
+      tag: "Main Campus & Event Grounds",
+      desc: "Expansive green grounds and state-of-the-art university infrastructure designed for high-impact tech gatherings.",
+      badge: "Campus Complex",
+      icon: "🌳"
     }
   ];
 
