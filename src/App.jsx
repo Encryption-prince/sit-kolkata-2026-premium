@@ -584,20 +584,24 @@ const Navbar = () => {
 
 const TicketsLiveBadge = () => {
   return (
-    <div className="relative inline-flex items-center justify-center my-2 sm:my-3 select-none">
+    <a
+      href="#tickets"
+      className="relative inline-flex items-center justify-center my-0.5 sm:my-1 select-none group focus:outline-none"
+      title="Tickets Are Live - Book Your Spot"
+    >
       <img
         src="/tickets-are-live.png"
         alt="Tickets Are Live"
-        className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[460px] lg:max-w-[500px] h-auto object-contain select-none pointer-events-none drop-shadow-sm transition-transform duration-300 hover:scale-105"
+        className="w-full max-w-[290px] sm:max-w-[360px] md:max-w-[410px] lg:max-w-[450px] h-auto object-contain select-none drop-shadow-[0_6px_18px_rgba(245,158,11,0.38)] group-hover:drop-shadow-[0_10px_26px_rgba(245,158,11,0.6)] -rotate-1 group-hover:rotate-0 transition-all duration-300 group-hover:scale-105 active:scale-95 cursor-pointer"
         loading="eager"
       />
-    </div>
+    </a>
   );
 };
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-[88vh] lg:min-h-[90vh] flex flex-col justify-center items-center overflow-hidden bg-[#FAF8F5] pt-24 pb-16 lg:pt-26 lg:pb-20 scroll-mt-20">
+    <section id="hero" className="relative min-h-[calc(100vh-2rem)] lg:min-h-screen flex flex-col justify-center items-center overflow-hidden bg-[#FAF8F5] pt-12 sm:pt-14 lg:pt-16 pb-4 sm:pb-6 scroll-mt-20">
       {/* Ambient warm canvas lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[35rem] bg-gradient-to-b from-yellow-200/20 via-blue-100/15 to-transparent rounded-full blur-[140px] pointer-events-none z-0" />
 
@@ -640,7 +644,7 @@ const HeroSection = () => {
       {/* ── CENTER CONTENT ── */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-2xl lg:max-w-3xl mx-auto w-full">
         {/* Category Overline */}
-        <p className="text-[11px] sm:text-xs font-bold tracking-[0.3em] text-slate-500 uppercase mb-3 sm:mb-4 select-none">
+        <p className="text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.3em] text-slate-500 uppercase -mt-3 sm:-mt-5 md:-mt-6 mb-1 sm:mb-1.5 select-none">
           COMMUNITY × KNOWLEDGE × OPPORTUNITY
         </p>
 
@@ -648,14 +652,14 @@ const HeroSection = () => {
         <TicketsLiveBadge />
 
         {/* Main Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-[-0.03em] leading-none text-slate-950 mt-2 sm:mt-3">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-[-0.03em] leading-none text-slate-950 mt-0.5 sm:mt-1">
           <span className="text-[#0070F2]">SAP</span> Inside Track
         </h1>
 
-        {/* ── TRAM TRANSIT CORRIDOR (EXPANDED GAP) ── */}
-        <div className="relative w-full max-w-[320px] sm:max-w-[440px] md:max-w-[560px] lg:max-w-[620px] mx-auto my-3 sm:my-4 md:my-5 h-12 sm:h-14 md:h-16 overflow-hidden select-none pointer-events-none">
+        {/* ── TRAM TRANSIT CORRIDOR ── */}
+        <div className="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] mx-auto my-2 sm:my-2.5 h-10 sm:h-11 md:h-12 overflow-hidden select-none pointer-events-none">
           {/* Overhead electric tram wire */}
-          <div className="absolute top-2 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
+          <div className="absolute top-1.5 sm:top-2 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
 
           {/* Steel tram rails */}
           <div className="absolute bottom-1 inset-x-0 flex flex-col gap-[2px]">
@@ -668,67 +672,67 @@ const HeroSection = () => {
           <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
 
           {/* Moving Tram */}
-          <div className="absolute bottom-1.5 animate-tram flex items-end z-0 shrink-0 min-w-max">
+          <div className="absolute bottom-1 sm:bottom-1.5 animate-tram flex items-end z-0 shrink-0 min-w-max">
             <img
               src="/tram.png"
               alt="Kolkata Tram"
-              className="h-10 sm:h-12 md:h-14 w-auto max-w-none shrink-0 object-contain drop-shadow-sm animate-tram-rumble"
+              className="h-8 sm:h-9 md:h-10 w-auto max-w-none shrink-0 object-contain drop-shadow-sm animate-tram-rumble"
             />
           </div>
         </div>
 
         {/* City Subtitle */}
-        <p className="text-xl sm:text-2xl md:text-3xl font-black tracking-[0.45em] text-slate-900 uppercase">
+        <p className="text-base sm:text-lg md:text-xl font-black tracking-[0.4em] text-slate-900 uppercase">
           K O L K A T A
         </p>
 
         {/* Community Tagline */}
-        <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-3">
+        <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-slate-500 uppercase mt-1">
           BY THE COMMUNITY, FOR THE COMMUNITY.
         </p>
 
         {/* Event Details Row */}
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 mt-7 md:mt-9">
+        <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 md:gap-9 mt-4 sm:mt-5">
           {/* Date */}
-          <div className="flex items-center gap-3 text-left">
-            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
+          <div className="flex items-center gap-2.5 text-left">
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 shrink-0 stroke-[2.2]" />
             <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">14 November 2026</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">8:00 AM – 5:00 PM IST</div>
+              <div className="font-extrabold text-slate-950 text-xs sm:text-sm leading-tight">14 November 2026</div>
+              <div className="text-slate-500 text-[11px] sm:text-xs font-medium mt-0.5">8:00 AM – 5:00 PM IST</div>
             </div>
           </div>
 
           {/* Location */}
-          <div className="flex items-center gap-3 text-left">
-            <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
+          <div className="flex items-center gap-2.5 text-left">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 shrink-0 stroke-[2.2]" />
             <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">Sister Nivedita University</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">Kolkata, India</div>
+              <div className="font-extrabold text-slate-950 text-xs sm:text-sm leading-tight">Sister Nivedita University</div>
+              <div className="text-slate-500 text-[11px] sm:text-xs font-medium mt-0.5">Kolkata, India</div>
             </div>
           </div>
 
           {/* Attendees */}
-          <div className="flex items-center gap-3 text-left">
-            <Users className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
+          <div className="flex items-center gap-2.5 text-left">
+            <Users className="w-4 h-4 sm:w-5 sm:h-5 text-slate-950 shrink-0 stroke-[2.2]" />
             <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">400+</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">Attendees</div>
+              <div className="font-extrabold text-slate-950 text-xs sm:text-sm leading-tight">400+</div>
+              <div className="text-slate-500 text-[11px] sm:text-xs font-medium mt-0.5">Attendees</div>
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 md:mt-10">
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 mt-5 sm:mt-6">
           <a
             href="#tickets"
-            className="bg-slate-950 hover:bg-slate-800 text-white px-8 py-3.5 rounded-full font-bold text-[15px] shadow-lg shadow-slate-950/15 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className="bg-slate-950 hover:bg-slate-800 text-white px-7 py-3 rounded-full font-bold text-sm sm:text-[15px] shadow-lg shadow-slate-950/15 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
           >
             <span>Get Your Tickets</span>
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
           </a>
           <a
             href="#about"
-            className="bg-white hover:bg-slate-50 text-slate-950 border border-slate-300 hover:border-slate-400 px-8 py-3.5 rounded-full font-bold text-[15px] shadow-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className="bg-white hover:bg-slate-50 text-slate-950 border border-slate-300 hover:border-slate-400 px-7 py-3 rounded-full font-bold text-sm sm:text-[15px] shadow-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
           >
             <span>Learn More</span>
             <svg className="w-4 h-4 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
