@@ -7,6 +7,7 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import { LampContainer } from './ui/lamp';
 import PixelSwap from './PixelSwap';
+import KolkataPreloader from './components/KolkataPreloader';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -476,9 +477,9 @@ const Navbar = () => {
           className="flex items-center gap-2.5 sm:gap-3 shrink-0 group"
         >
           <img
-            src="/sit-kolkata-logo.png"
+            src="/sap-logo-org.jpg"
             alt="SAP Inside Track Kolkata"
-            className="w-10 h-10 rounded-full object-cover shadow-sm transition-transform duration-300 group-hover:scale-105 border border-slate-200/80 shrink-0"
+            className="w-10 h-10 rounded-xl object-cover shadow-sm transition-transform duration-300 group-hover:scale-105 border border-slate-200/80 shrink-0"
           />
           <div className="leading-tight">
             <div className="text-[16px] sm:text-[17px] font-black tracking-tight text-slate-950 flex items-center gap-1.5">
@@ -4716,9 +4717,9 @@ const Footer = () => {
           {/* Logo & Brand — Center Column (Perfect Horizontal Centering) */}
           <div className="order-1 md:order-2 col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center">
             <img
-              src="/sit-kolkata-logo.png"
+              src="/sap-logo-org.jpg"
               alt="SAP Inside Track Kolkata Logo"
-              className="w-20 h-20 rounded-full object-contain border-2 border-[#FFD200]/40 shadow-[0_0_25px_rgba(255,210,0,0.3)] hover:scale-105 transition-transform duration-300 mb-3"
+              className="w-20 h-20 rounded-2xl object-contain border-2 border-[#FFD200]/40 shadow-[0_0_25px_rgba(255,210,0,0.3)] hover:scale-105 transition-transform duration-300 mb-3"
             />
             <div className="font-bebas text-2xl md:text-3xl tracking-widest text-white leading-tight">
               SAP INSIDE TRACK
@@ -4951,6 +4952,12 @@ const DeveloperEasterEgg = () => {
 };
 
 export default function App() {
+  const [isPreloaderActive, setIsPreloaderActive] = useState(true);
+
+  const handlePreloaderComplete = useCallback(() => {
+    setIsPreloaderActive(false);
+  }, []);
+
   // Enforce starting at top Hero section on reload
   useEffect(() => {
     if ('scrollRestoration' in history) {
@@ -5143,6 +5150,11 @@ export default function App() {
         }
         html { scroll-behavior: smooth; }
       `}} />
+
+      {/* ── CINEMATIC PRELOADER: "KOLKATA" ── */}
+      {isPreloaderActive && (
+        <KolkataPreloader onComplete={handlePreloaderComplete} />
+      )}
 
       <CustomCursor />
       <ScrollProgress />
