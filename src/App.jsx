@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail, Copy, Check } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
@@ -584,11 +584,11 @@ const Navbar = () => {
 
 const TicketsLiveBadge = () => {
   return (
-    <div className="relative inline-flex items-center justify-center my-2 sm:my-3 select-none">
+    <div className="relative inline-flex items-center justify-center my-1.5 sm:my-2.5 md:my-3 select-none">
       <img
         src="/tickets-are-live.png"
         alt="Tickets Are Live"
-        className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[460px] lg:max-w-[500px] h-auto object-contain select-none pointer-events-none drop-shadow-sm transition-transform duration-300 hover:scale-105"
+        className="w-full max-w-[240px] xs:max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] h-auto object-contain select-none pointer-events-none drop-shadow-sm transition-transform duration-300 hover:scale-105"
         loading="eager"
       />
     </div>
@@ -597,12 +597,12 @@ const TicketsLiveBadge = () => {
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative min-h-[88vh] lg:min-h-[90vh] flex flex-col justify-center items-center overflow-hidden bg-[#FAF8F5] pt-24 pb-16 lg:pt-26 lg:pb-20 scroll-mt-20">
+    <section id="hero" className="relative min-h-[calc(100svh-4rem)] md:min-h-[calc(100vh-4.5rem)] flex flex-col justify-center items-center overflow-hidden bg-[#FAF8F5] pt-20 sm:pt-24 md:pt-28 pb-10 sm:pb-14 md:pb-16 scroll-mt-20">
       {/* Ambient warm canvas lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[35rem] bg-gradient-to-b from-yellow-200/20 via-blue-100/15 to-transparent rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] sm:w-[60rem] h-[25rem] sm:h-[35rem] bg-gradient-to-b from-yellow-200/20 via-blue-100/15 to-transparent rounded-full blur-[100px] sm:blur-[140px] pointer-events-none z-0" />
 
       {/* ── LEFT SIDE ILLUSTRATION (Howrah Bridge with splashes & reflection) ── */}
-      <div className="hidden lg:block absolute left-0 bottom-0 z-10 w-[33vw] max-w-[500px] min-w-[280px] pointer-events-none select-none">
+      <div className="hidden lg:block absolute left-0 bottom-0 z-10 w-[16vw] xl:w-[20vw] 2xl:w-[24vw] max-w-[440px] pointer-events-none select-none transition-all duration-300">
         <img
           src="/hero-left.png"
           alt="Howrah Bridge Kolkata"
@@ -610,8 +610,8 @@ const HeroSection = () => {
           loading="eager"
         />
       </div>
-      {/* Mobile/Tablet backdrop version */}
-      <div className="block lg:hidden absolute left-0 bottom-0 z-0 w-[45vw] max-w-[260px] opacity-25 pointer-events-none select-none">
+      {/* Mobile/Tablet backdrop watermark version (never encroaches on text) */}
+      <div className="block lg:hidden absolute left-0 bottom-0 z-0 w-[28vw] max-w-[140px] opacity-15 sm:opacity-20 pointer-events-none select-none">
         <img
           src="/hero-left.png"
           alt="Howrah Bridge Kolkata"
@@ -620,7 +620,7 @@ const HeroSection = () => {
       </div>
 
       {/* ── RIGHT SIDE ILLUSTRATION (Taxi, Victoria Memorial & Lamps) ── */}
-      <div className="hidden lg:block absolute right-0 bottom-0 z-10 w-[33vw] max-w-[500px] min-w-[280px] pointer-events-none select-none">
+      <div className="hidden lg:block absolute right-0 bottom-0 z-10 w-[16vw] xl:w-[20vw] 2xl:w-[24vw] max-w-[440px] pointer-events-none select-none transition-all duration-300">
         <img
           src="/hero-right.png"
           alt="Kolkata Yellow Taxi and Victoria Memorial"
@@ -628,8 +628,8 @@ const HeroSection = () => {
           loading="eager"
         />
       </div>
-      {/* Mobile/Tablet backdrop version */}
-      <div className="block lg:hidden absolute right-0 bottom-0 z-0 w-[45vw] max-w-[260px] opacity-25 pointer-events-none select-none">
+      {/* Mobile/Tablet backdrop watermark version (never encroaches on text) */}
+      <div className="block lg:hidden absolute right-0 bottom-0 z-0 w-[28vw] max-w-[140px] opacity-15 sm:opacity-20 pointer-events-none select-none">
         <img
           src="/hero-right.png"
           alt="Kolkata Yellow Taxi"
@@ -638,9 +638,9 @@ const HeroSection = () => {
       </div>
 
       {/* ── CENTER CONTENT ── */}
-      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-2xl lg:max-w-3xl mx-auto w-full">
+      <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto w-full">
         {/* Category Overline */}
-        <p className="text-[11px] sm:text-xs font-bold tracking-[0.3em] text-slate-500 uppercase mb-3 sm:mb-4 select-none">
+        <p className="text-[9px] xs:text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-slate-500 uppercase mb-2 sm:mb-3 select-none">
           COMMUNITY × KNOWLEDGE × OPPORTUNITY
         </p>
 
@@ -648,12 +648,12 @@ const HeroSection = () => {
         <TicketsLiveBadge />
 
         {/* Main Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-[-0.03em] leading-none text-slate-950 mt-2 sm:mt-3">
+        <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[80px] font-black tracking-[-0.03em] leading-tight text-slate-950 mt-1 sm:mt-2">
           <span className="text-[#0070F2]">SAP</span> Inside Track
         </h1>
 
-        {/* ── TRAM TRANSIT CORRIDOR (EXPANDED GAP) ── */}
-        <div className="relative w-full max-w-[320px] sm:max-w-[440px] md:max-w-[560px] lg:max-w-[620px] mx-auto my-3 sm:my-4 md:my-5 h-12 sm:h-14 md:h-16 overflow-hidden select-none pointer-events-none">
+        {/* ── TRAM TRANSIT CORRIDOR (DYNAMIC RESIZING) ── */}
+        <div className="relative w-full max-w-[260px] xs:max-w-[320px] sm:max-w-[440px] md:max-w-[560px] lg:max-w-[620px] mx-auto my-2.5 sm:my-3.5 md:my-4 h-10 xs:h-12 sm:h-14 md:h-16 overflow-hidden select-none pointer-events-none">
           {/* Overhead electric tram wire */}
           <div className="absolute top-2 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
 
@@ -664,71 +664,77 @@ const HeroSection = () => {
           </div>
 
           {/* Left and right edge soft fade vignettes */}
-          <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-8 sm:w-12 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-8 sm:w-12 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10 pointer-events-none" />
 
           {/* Moving Tram */}
-          <div className="absolute bottom-1.5 animate-tram flex items-end z-0 shrink-0 min-w-max">
+          <div className="absolute bottom-1 sm:bottom-1.5 animate-tram flex items-end z-0 shrink-0 min-w-max">
             <img
               src="/tram.png"
               alt="Kolkata Tram"
-              className="h-10 sm:h-12 md:h-14 w-auto max-w-none shrink-0 object-contain drop-shadow-sm animate-tram-rumble"
+              className="h-8 xs:h-10 sm:h-12 md:h-14 w-auto max-w-none shrink-0 object-contain drop-shadow-sm animate-tram-rumble"
             />
           </div>
         </div>
 
         {/* City Subtitle */}
-        <p className="text-xl sm:text-2xl md:text-3xl font-black tracking-[0.45em] text-slate-900 uppercase">
+        <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-black tracking-[0.35em] sm:tracking-[0.45em] text-slate-900 uppercase">
           K O L K A T A
         </p>
 
         {/* Community Tagline */}
-        <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase mt-3">
+        <p className="text-[9px] xs:text-[10px] sm:text-[11px] font-bold tracking-[0.18em] sm:tracking-[0.25em] text-slate-500 uppercase mt-2 sm:mt-2.5">
           BY THE COMMUNITY, FOR THE COMMUNITY.
         </p>
 
-        {/* Event Details Row */}
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10 mt-7 md:mt-9">
+        {/* Event Details (Responsive Grid / Row) */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-6 md:gap-8 mt-6 sm:mt-8 md:mt-9 w-full max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
           {/* Date */}
-          <div className="flex items-center gap-3 text-left">
-            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
-            <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">14 November 2026</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">8:00 AM – 5:00 PM IST</div>
+          <div className="flex items-center gap-2.5 sm:gap-3 text-left bg-white/70 sm:bg-transparent p-2 sm:p-0 rounded-xl sm:rounded-none border border-slate-200/60 sm:border-0 shadow-xs sm:shadow-none">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-slate-900/5 sm:bg-transparent flex items-center justify-center shrink-0">
+              <Calendar className="w-4 h-4 sm:w-6 sm:h-6 text-slate-950 stroke-[2.2]" />
+            </div>
+            <div className="min-w-0">
+              <div className="font-extrabold text-slate-950 text-xs sm:text-sm md:text-[15px] leading-tight truncate">14 November 2026</div>
+              <div className="text-slate-500 text-[11px] sm:text-xs font-medium mt-0.5 truncate">8:00 AM – 5:00 PM IST</div>
             </div>
           </div>
 
           {/* Location */}
-          <div className="flex items-center gap-3 text-left">
-            <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
-            <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">Sister Nivedita University</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">Kolkata, India</div>
+          <div className="flex items-center gap-2.5 sm:gap-3 text-left bg-white/70 sm:bg-transparent p-2 sm:p-0 rounded-xl sm:rounded-none border border-slate-200/60 sm:border-0 shadow-xs sm:shadow-none">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-slate-900/5 sm:bg-transparent flex items-center justify-center shrink-0">
+              <MapPin className="w-4 h-4 sm:w-6 sm:h-6 text-slate-950 stroke-[2.2]" />
+            </div>
+            <div className="min-w-0">
+              <div className="font-extrabold text-slate-950 text-xs sm:text-sm md:text-[15px] leading-tight truncate">Sister Nivedita University</div>
+              <div className="text-slate-500 text-[11px] sm:text-xs font-medium mt-0.5 truncate">Kolkata, India</div>
             </div>
           </div>
 
           {/* Attendees */}
-          <div className="flex items-center gap-3 text-left">
-            <Users className="w-5 h-5 sm:w-6 sm:h-6 text-slate-950 shrink-0 stroke-[2.2]" />
-            <div>
-              <div className="font-extrabold text-slate-950 text-sm sm:text-[15px] leading-tight">400+</div>
-              <div className="text-slate-500 text-xs font-medium mt-0.5">Attendees</div>
+          <div className="flex items-center gap-2.5 sm:gap-3 text-left bg-white/70 sm:bg-transparent p-2 sm:p-0 rounded-xl sm:rounded-none border border-slate-200/60 sm:border-0 shadow-xs sm:shadow-none">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-slate-900/5 sm:bg-transparent flex items-center justify-center shrink-0">
+              <Users className="w-4 h-4 sm:w-6 sm:h-6 text-slate-950 stroke-[2.2]" />
+            </div>
+            <div className="min-w-0">
+              <div className="font-extrabold text-slate-950 text-xs sm:text-sm md:text-[15px] leading-tight truncate">400+ Practitioners</div>
+              <div className="text-slate-500 text-[11px] sm:text-xs font-medium mt-0.5 truncate">Attendees & Leaders</div>
             </div>
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 md:mt-10">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:mt-10 w-full sm:w-auto">
           <a
             href="#tickets"
-            className="bg-slate-950 hover:bg-slate-800 text-white px-8 py-3.5 rounded-full font-bold text-[15px] shadow-lg shadow-slate-950/15 flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className="bg-slate-950 hover:bg-slate-800 text-white px-7 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-[15px] shadow-lg shadow-slate-950/15 flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
           >
             <span>Get Your Tickets</span>
             <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
           </a>
           <a
             href="#about"
-            className="bg-white hover:bg-slate-50 text-slate-950 border border-slate-300 hover:border-slate-400 px-8 py-3.5 rounded-full font-bold text-[15px] shadow-sm flex items-center gap-2 transition-all hover:scale-105 active:scale-95"
+            className="bg-white hover:bg-slate-50 text-slate-950 border border-slate-300 hover:border-slate-400 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full font-bold text-sm sm:text-[15px] shadow-sm flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
           >
             <span>Learn More</span>
             <svg className="w-4 h-4 stroke-[2.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -826,7 +832,6 @@ const AgendaSection = () => {
         <Reveal direction="up" className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400">
           <span className="inline-flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-yellow-400" /> 50+ speakers</span>
           <span className="inline-flex items-center gap-2"><CircleDot className="h-5 w-5 text-cyan-400" /> Multiple tracks</span>
-          <span className="inline-flex items-center gap-2"><Ticket className="h-5 w-5 text-violet-400" /> Admission is free with RSVP</span>
         </Reveal>
       </div>
     </section>
@@ -2253,6 +2258,17 @@ const SpeakersSection = () => {
 
           {/* Speaker Navigation & Dynamic Track Pill */}
           <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="https://forms.gle/NramHWLEo98EeV4H7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs px-4 py-2 rounded-full transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <Mic className="w-3.5 h-3.5 stroke-[2.4]" />
+              <span>Call for Speakers</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
+
             <div className="inline-flex items-center gap-2.5 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-full text-xs font-medium text-slate-300 backdrop-blur-md shadow-sm">
               <span
                 className="w-2 h-2 rounded-full transition-colors duration-500 shrink-0"
@@ -2772,6 +2788,40 @@ const SpeakersSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Call for Speakers Banner */}
+        <Reveal direction="up" className="mt-12">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-gradient-to-br from-slate-900/90 via-[#0b1426]/90 to-slate-900/90 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl backdrop-blur-md">
+            <div className="flex items-center gap-4 text-center md:text-left">
+              <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center shrink-0 text-amber-400">
+                <Mic className="w-6 h-6 stroke-[2.2]" />
+              </div>
+              <div>
+                <div className="inline-flex items-center gap-1 text-[10px] font-mono font-bold tracking-wider uppercase text-amber-400 mb-1">
+                  <Sparkles className="w-3 h-3" />
+                  SPEAKER PROPOSALS OPEN
+                </div>
+                <h4 className="text-xl sm:text-2xl font-black text-white">
+                  Want to share your expertise on stage?
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
+                  Submit your talk or panel session proposal for SAP Inside Track Kolkata 2026. All SAP practitioners, architects, and community leaders are welcome!
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="https://forms.gle/NramHWLEo98EeV4H7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3 rounded-2xl shadow-lg shadow-amber-400/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <Mic className="w-4 h-4 stroke-[2.2]" />
+              <span>Apply to Speak (Google Form)</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </Reveal>
       </div>
 
       {/* Official Poster Lightbox Modal */}
@@ -2815,6 +2865,22 @@ const VenueSection = () => {
   const [copied, setCopied] = useState(false);
 
   const slides = [
+    {
+      image: "/venue/snu-auditorium-stage.jpg",
+      title: "SNU Keynote Auditorium Stage",
+      tag: "Main Stage & Presentation LED Screen",
+      desc: "Wide-format keynote stage featuring high-resolution presentation screen, digital sound consoles, and acoustic ceiling baffles.",
+      badge: "Keynote Stage",
+      icon: "🎙️"
+    },
+    {
+      image: "/venue/snu-auditorium.jpg",
+      title: "SNU Grand Auditorium Hall",
+      tag: "Main Keynote & Track Auditorium",
+      desc: "State-of-the-art multi-tier auditorium featuring acoustic wall panelling, premium tiered seating, and full HD stage presentation systems.",
+      badge: "Auditorium Hall",
+      icon: "🎭"
+    },
     {
       image: "/venue/snu-building.png",
       title: "Sister Nivedita University",
@@ -2929,10 +2995,24 @@ const VenueSection = () => {
 
               {/* Bottom Caption & Carousel Dots */}
               <div className="relative z-20 p-6 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
-                <div className="bg-yellow-400 text-slate-900 font-black px-3.5 py-1 rounded-lg inline-flex items-center gap-1.5 mb-2.5 shadow-lg text-xs uppercase tracking-wider">
-                  <span>{slides[currentSlide].icon}</span>
-                  <span>{slides[currentSlide].badge}</span>
+                {/* Facility Selector Pills */}
+                <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
+                  {slides.map((slide, sIdx) => (
+                    <button
+                      key={sIdx}
+                      onClick={() => setCurrentSlide(sIdx)}
+                      className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer ${
+                        currentSlide === sIdx
+                          ? 'bg-yellow-400 text-slate-950 shadow-md scale-105'
+                          : 'bg-white/10 hover:bg-white/20 text-slate-300'
+                      }`}
+                    >
+                      <span className="mr-1">{slide.icon}</span>
+                      {slide.badge}
+                    </button>
+                  ))}
                 </div>
+
                 <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight mb-1">
                   {slides[currentSlide].title}
                 </h3>
@@ -3010,6 +3090,16 @@ const VenueSection = () => {
                 DG Block(Newtown), Action Area I, 1/2, Newtown, Chakpachuria, West Bengal 700156
               </p>
 
+              {/* Auditorium & Facility Highlight Strip */}
+              <div className="bg-slate-950 text-white rounded-xl p-2.5 mb-3 border border-slate-900 shadow-sm flex items-center justify-between text-[11px] font-bold">
+                <span className="flex items-center gap-1.5 text-yellow-400">
+                  <span>🎭</span> Grand Multi-Tier Auditorium
+                </span>
+                <span className="text-slate-300 font-mono text-[10px] bg-white/10 px-2 py-0.5 rounded">
+                  500+ Seating Capacity
+                </span>
+              </div>
+
               {/* Commute Chips in Neo-brutalist pop style */}
               <div className="grid grid-cols-3 gap-2 mb-4">
                 <div className="bg-white/95 border-2 border-slate-950 shadow-[2px_2px_0px_#020617] rounded-xl p-2 text-center">
@@ -3025,7 +3115,7 @@ const VenueSection = () => {
                 <div className="bg-white/95 border-2 border-slate-950 shadow-[2px_2px_0px_#020617] rounded-xl p-2 text-center">
                   <div className="text-base">🚗</div>
                   <div className="text-[11px] font-black text-slate-950">Free Parking</div>
-                  <div className="text-[9px] font-bold text-slate-700">200+ Slots</div>
+                  <div className="text-[9px] font-bold text-slate-700">Available</div>
                 </div>
               </div>
 
@@ -3428,7 +3518,313 @@ const TicketsSection = () => {
   );
 };
 
+const SponsorshipModal = ({ isOpen, onClose }) => {
+  const [copiedKey, setCopiedKey] = useState(null);
+
+  const SPONSOR_EMAIL = "info@sitkolkata.org";
+  const SPONSOR_SUBJECT = "SIT KOLKATA 2026 Sponsorship Enquiry";
+  const SPONSOR_BODY = `Hi SIT Kolkata 2026 Team,
+
+We are interested in exploring sponsorship opportunities for SAP Inside Track Kolkata 2026 (14 Nov 2026, Sister Nivedita University).
+
+Please share the official sponsorship deck, tier details, and partner deliverables.
+
+Organization / Company: 
+Contact Person: 
+Designation: 
+Phone / WhatsApp: 
+Website: 
+
+Looking forward to connecting!`;
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  const copyToClipboard = async (text, key) => {
+    let ok = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        ok = true;
+      } catch (err) {
+        ok = false;
+      }
+    }
+    if (!ok) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        ta.style.top = '-9999px';
+        ta.setAttribute('readonly', '');
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch (e) {
+        ok = false;
+      }
+    }
+    if (ok) {
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(null), 2500);
+    }
+  };
+
+  const mailtoLink = `mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent(SPONSOR_SUBJECT)}&body=${encodeURIComponent(SPONSOR_BODY)}`;
+  const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(SPONSOR_EMAIL)}&su=${encodeURIComponent(SPONSOR_SUBJECT)}&body=${encodeURIComponent(SPONSOR_BODY)}`;
+  const outlookLink = `https://outlook.office.com/mail/deeplink/compose?to=${encodeURIComponent(SPONSOR_EMAIL)}&subject=${encodeURIComponent(SPONSOR_SUBJECT)}&body=${encodeURIComponent(SPONSOR_BODY)}`;
+  const yahooLink = `https://compose.mail.yahoo.com/?to=${encodeURIComponent(SPONSOR_EMAIL)}&subj=${encodeURIComponent(SPONSOR_SUBJECT)}&body=${encodeURIComponent(SPONSOR_BODY)}`;
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md transition-all duration-200"
+      onClick={onClose}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-[#0a1020] border-2 border-amber-400/40 rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_-15px_rgba(245,158,11,0.3)] text-white"
+      >
+        {/* Close Button */}
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-slate-300 hover:text-white transition-all cursor-pointer"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Top Header */}
+        <div className="pr-8">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase bg-amber-400/10 border border-amber-400/30 text-amber-400 mb-3">
+            <Sparkles className="w-3 h-3 text-amber-400" />
+            DIRECT SPONSORSHIP DESK
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            Connect with Organizers
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-300 mt-1.5 font-normal leading-relaxed">
+            Reach out via your preferred email service or copy the direct contact and draft below.
+          </p>
+        </div>
+
+        {/* Primary Email Address Banner */}
+        <div className="mt-6 bg-slate-900/90 border border-amber-400/25 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-inner">
+          <div>
+            <div className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Official Partnership Email</div>
+            <div className="text-base sm:text-lg font-mono font-bold text-amber-300 select-all">
+              {SPONSOR_EMAIL}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => copyToClipboard(SPONSOR_EMAIL, 'email')}
+            className="self-start sm:self-auto inline-flex items-center gap-1.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-4 py-2 rounded-xl transition-all cursor-pointer shadow-md active:scale-95"
+          >
+            {copiedKey === 'email' ? (
+              <>
+                <Check className="w-4 h-4 text-slate-950 stroke-[2.5]" />
+                <span>Copied Email!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4 text-slate-950" />
+                <span>Copy Email Address</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* 1-Click Launchers Grid */}
+        <div className="mt-5">
+          <div className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+            Choose Your Email Provider:
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {/* Gmail */}
+            <a
+              href={gmailLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-red-400/40 transition-all group cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
+                  <path fill="#FBBC05" d="M20 4l-8 7.5L4 4"/>
+                  <path fill="#34A853" d="M4 6v12h4V10z"/>
+                  <path fill="#4285F4" d="M20 6v12h-4V10z"/>
+                  <path fill="#EA4335" d="M12 11.5L4 4h16z"/>
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-white group-hover:text-red-300 transition-colors flex items-center gap-1">
+                  <span>Gmail (Web / App)</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </div>
+                <div className="text-[10px] text-slate-400">Pre-fills draft in new tab</div>
+              </div>
+            </a>
+
+            {/* Outlook */}
+            <a
+              href={outlookLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-400/40 transition-all group cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center shrink-0">
+                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                  <path fill="#0078D4" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"/>
+                  <path fill="#28A8EA" d="M14 2v6h6z"/>
+                  <path fill="#002050" d="M10 11.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/>
+                </svg>
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-white group-hover:text-blue-300 transition-colors flex items-center gap-1">
+                  <span>Outlook / 365</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </div>
+                <div className="text-[10px] text-slate-400">Pre-fills draft in new tab</div>
+              </div>
+            </a>
+
+            {/* Default Mail Client (Apple Mail / System) */}
+            <a
+              href={mailtoLink}
+              target="_self"
+              className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/40 transition-all group cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center shrink-0">
+                <Mail className="w-5 h-5 text-amber-400" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-white group-hover:text-amber-300 transition-colors flex items-center gap-1">
+                  <span>Default Mail Client</span>
+                  <ArrowRight className="w-3 h-3 opacity-60" />
+                </div>
+                <div className="text-[10px] text-slate-400">Apple Mail, Windows, etc.</div>
+              </div>
+            </a>
+
+            {/* Yahoo Mail */}
+            <a
+              href={yahooLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-400/40 transition-all group cursor-pointer"
+            >
+              <div className="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center shrink-0">
+                <span className="text-sm font-black text-purple-400 font-mono">Y!</span>
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1">
+                  <span>Yahoo Mail</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </div>
+                <div className="text-[10px] text-slate-400">Pre-fills draft in new tab</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* Pre-Drafted Template Section */}
+        <div className="mt-5 bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[11px] font-mono font-bold text-slate-300 uppercase tracking-wider">
+              Ready-to-Send Template
+            </span>
+            <button
+              type="button"
+              onClick={() => copyToClipboard(SPONSOR_BODY, 'template')}
+              className="inline-flex items-center gap-1 text-[11px] font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors cursor-pointer"
+            >
+              {copiedKey === 'template' ? (
+                <>
+                  <Check className="w-3 h-3 text-emerald-400" />
+                  <span className="text-emerald-400">Template Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3 h-3" />
+                  <span>Copy Template</span>
+                </>
+              )}
+            </button>
+          </div>
+          <div className="text-[11px] font-mono text-slate-300 bg-black/40 rounded-xl p-3 border border-white/5 leading-relaxed max-h-32 overflow-y-auto whitespace-pre-wrap select-all">
+            {SPONSOR_BODY}
+          </div>
+        </div>
+
+        {/* Compatibility reassurance footnote */}
+        <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-2 text-[10px] font-medium text-slate-400">
+          <span className="text-amber-400">✓</span>
+          <span>
+            Works on iOS & macOS without requiring Apple Mail configuration. You can also directly open Gmail or copy the address.
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const SponsorsSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = () => setIsModalOpen(true);
+    window.addEventListener('open-sponsor-modal', handleOpen);
+    return () => window.removeEventListener('open-sponsor-modal', handleOpen);
+  }, []);
+
+  const handleCopyEmail = async () => {
+    let ok = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText('info@sitkolkata.org');
+        ok = true;
+      } catch (err) {}
+    }
+    if (!ok) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = 'info@sitkolkata.org';
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        ta.style.top = '-9999px';
+        ta.setAttribute('readonly', '');
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        ok = document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch (e) {}
+    }
+    if (ok) {
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2200);
+    }
+  };
+
   const partnersList = [
     {
       role: "Venue Partner",
@@ -3534,27 +3930,53 @@ const SponsorsSection = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center md:items-end gap-2.5 shrink-0">
-                <a
-                  href="mailto:info@sitkolkata.org?subject=SIT%20KOLKATA%202026%20Sponsorship"
+              <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
                   className="inline-flex items-center gap-2.5 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-sm px-6 py-3.5 rounded-2xl shadow-[0_10px_25px_-5px_rgba(245,158,11,0.4)] transition-all duration-300 hover:scale-105 active:scale-95 group cursor-pointer"
                 >
                   <Mail className="w-4 h-4 text-slate-950 stroke-[2.2]" />
                   <span>Become a Sponsor</span>
                   <ArrowRight className="w-4 h-4 text-slate-950 transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href="mailto:info@sitkolkata.org?subject=SIT%20KOLKATA%202026%20Sponsorship"
-                  className="text-xs font-mono font-bold text-amber-400/90 hover:text-amber-300 transition-colors flex items-center gap-1 hover:underline underline-offset-4"
-                >
-                  <Mail className="w-3 h-3" />
-                  <span>info@sitkolkata.org</span>
-                </a>
+                </button>
+                
+                <div className="flex flex-wrap items-center justify-center md:justify-end gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsModalOpen(true)}
+                    className="text-xs font-mono font-bold text-amber-400/90 hover:text-amber-300 transition-colors flex items-center gap-1 hover:underline underline-offset-4 cursor-pointer"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>info@sitkolkata.org</span>
+                  </button>
+                  <span className="text-slate-600 hidden sm:inline">•</span>
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="text-[11px] font-mono font-bold text-slate-300 hover:text-white bg-white/10 hover:bg-white/15 px-2.5 py-1 rounded-lg border border-white/10 flex items-center gap-1.5 transition-all cursor-pointer"
+                    title="Copy Email Address"
+                  >
+                    {copiedEmail ? (
+                      <>
+                        <Check className="w-3 h-3 text-emerald-400" />
+                        <span className="text-emerald-400">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3 text-amber-400" />
+                        <span>Copy Email</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </Reveal>
       </div>
+
+      <SponsorshipModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
@@ -4108,8 +4530,12 @@ const FAQSection = () => {
               <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-slate-500 font-medium">
                 <span>Have an unanswered question?</span>
                 <a
-                  href="mailto:info@sitkolkata.org"
-                  className="font-bold text-[#0070F2] hover:underline"
+                  href="#sponsors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.dispatchEvent(new CustomEvent('open-sponsor-modal'));
+                  }}
+                  className="font-bold text-[#0070F2] hover:underline cursor-pointer"
                 >
                   Email Team ➔
                 </a>
@@ -4263,15 +4689,22 @@ const Footer = () => {
                 },
                 {
                   label: 'Call for Speakers',
+                  href: 'https://forms.gle/NramHWLEo98EeV4H7',
                   icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75 M9 7a4 4 0 100 8 4 4 0 000-8z',
                 },
               ].map(({ label, href, icon }) => (
                 <li key={label} className="list-none">
                   <a
                     href={href || '#'}
+                    onClick={(e) => {
+                      if (label === 'Sponsor Us' || label === 'info@sitkolkata.org') {
+                        e.preventDefault();
+                        window.dispatchEvent(new CustomEvent('open-sponsor-modal'));
+                      }
+                    }}
                     target={href?.startsWith('mailto') ? '_self' : '_blank'}
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-xs md:text-sm text-white/50 hover:text-[#FFD200] transition-colors duration-300"
+                    className="flex items-center gap-2 text-xs md:text-sm text-white/50 hover:text-[#FFD200] transition-colors duration-300 cursor-pointer"
                   >
                     <svg
                       className="w-3 h-3 md:w-4 md:h-4 shrink-0"
