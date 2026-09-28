@@ -606,7 +606,7 @@ const HeroSection = () => {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] sm:w-[60rem] h-[25rem] sm:h-[35rem] bg-gradient-to-b from-yellow-200/20 via-blue-100/15 to-transparent rounded-full blur-[100px] sm:blur-[140px] pointer-events-none z-0" />
 
       {/* ── LEFT SIDE ILLUSTRATION (Howrah Bridge with splashes & reflection) ── */}
-      <div className="hidden lg:block absolute left-0 bottom-0 z-10 w-[16vw] xl:w-[20vw] 2xl:w-[24vw] max-w-[440px] pointer-events-none select-none transition-all duration-300">
+      <div className="hidden lg:block absolute left-0 bottom-0 z-10 w-[28vw] xl:w-[31vw] 2xl:w-[33vw] max-w-[500px] min-w-[280px] pointer-events-none select-none transition-all duration-300">
         <img
           src="/hero-left.png"
           alt="Howrah Bridge Kolkata"
@@ -614,8 +614,8 @@ const HeroSection = () => {
           loading="eager"
         />
       </div>
-      {/* Mobile/Tablet backdrop watermark version (never encroaches on text) */}
-      <div className="block lg:hidden absolute left-0 bottom-0 z-0 w-[28vw] max-w-[140px] opacity-15 sm:opacity-20 pointer-events-none select-none">
+      {/* Mobile/Tablet backdrop watermark version */}
+      <div className="block lg:hidden absolute left-0 bottom-0 z-0 w-[40vw] sm:w-[32vw] max-w-[220px] opacity-25 sm:opacity-30 pointer-events-none select-none">
         <img
           src="/hero-left.png"
           alt="Howrah Bridge Kolkata"
@@ -624,7 +624,7 @@ const HeroSection = () => {
       </div>
 
       {/* ── RIGHT SIDE ILLUSTRATION (Taxi, Victoria Memorial & Lamps) ── */}
-      <div className="hidden lg:block absolute right-0 bottom-0 z-10 w-[16vw] xl:w-[20vw] 2xl:w-[24vw] max-w-[440px] pointer-events-none select-none transition-all duration-300">
+      <div className="hidden lg:block absolute right-0 bottom-0 z-10 w-[28vw] xl:w-[31vw] 2xl:w-[33vw] max-w-[500px] min-w-[280px] pointer-events-none select-none transition-all duration-300">
         <img
           src="/hero-right.png"
           alt="Kolkata Yellow Taxi and Victoria Memorial"
@@ -632,8 +632,8 @@ const HeroSection = () => {
           loading="eager"
         />
       </div>
-      {/* Mobile/Tablet backdrop watermark version (never encroaches on text) */}
-      <div className="block lg:hidden absolute right-0 bottom-0 z-0 w-[28vw] max-w-[140px] opacity-15 sm:opacity-20 pointer-events-none select-none">
+      {/* Mobile/Tablet backdrop watermark version */}
+      <div className="block lg:hidden absolute right-0 bottom-0 z-0 w-[40vw] sm:w-[32vw] max-w-[220px] opacity-25 sm:opacity-30 pointer-events-none select-none">
         <img
           src="/hero-right.png"
           alt="Kolkata Yellow Taxi"
@@ -4650,27 +4650,9 @@ const Footer = () => {
         ref={footerContentRef}
         className="relative z-10 max-w-6xl mx-auto px-6 w-full text-white mb-12 md:mb-16 opacity-0"
       >
-        {/* Mobile: logo top-center. Desktop: hidden (logo is in the middle of the row) */}
-        <div className="flex flex-col items-center gap-3 mb-8 md:hidden">
-          <img
-            src="/sit-kolkata-logo.png"
-            alt="SAP Inside Track Kolkata Logo"
-            className="w-16 h-16 rounded-full object-contain border border-[#FFD200]/40 shadow-[0_0_20px_rgba(255,210,0,0.3)]"
-          />
-          <div className="text-center">
-            <div className="font-bebas text-2xl tracking-wider text-white">
-              SAP INSIDE TRACK
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-[#FFD200] font-mono">
-              KOLKATA · 2026
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: contact left + socials right. Desktop: contact | logo | socials */}
-        <div className="flex flex-row justify-between md:flex-row md:items-start md:justify-between gap-6 md:gap-12">
-          {/* Contact */}
-          <div className="flex flex-col gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 items-start w-full">
+          {/* Contact — Left Column */}
+          <div className="order-2 md:order-1 col-span-1 flex flex-col gap-3 md:gap-4 text-left">
             <h4 className="font-bebas text-[#FFD200] tracking-[0.2em] text-lg">
               CONTACT
             </h4>
@@ -4731,29 +4713,27 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Logo — center, desktop only */}
-          <div className="hidden md:flex flex-col items-center gap-3 mx-auto mt-4">
+          {/* Logo & Brand — Center Column (Perfect Horizontal Centering) */}
+          <div className="order-1 md:order-2 col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center">
             <img
               src="/sit-kolkata-logo.png"
               alt="SAP Inside Track Kolkata Logo"
-              className="w-20 h-20 rounded-full object-contain border-2 border-[#FFD200]/40 shadow-[0_0_25px_rgba(255,210,0,0.3)] hover:scale-105 transition-transform duration-300"
+              className="w-20 h-20 rounded-full object-contain border-2 border-[#FFD200]/40 shadow-[0_0_25px_rgba(255,210,0,0.3)] hover:scale-105 transition-transform duration-300 mb-3"
             />
-            <div className="text-center">
-              <div className="font-bebas text-3xl tracking-widest text-white">
-                SAP INSIDE TRACK
-              </div>
-              <div className="text-xs uppercase tracking-[0.35em] text-[#FFD200] font-mono mt-0.5">
-                KOLKATA · 2026 EDITION
-              </div>
+            <div className="font-bebas text-2xl md:text-3xl tracking-widest text-white leading-tight">
+              SAP INSIDE TRACK
+            </div>
+            <div className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#FFD200] font-mono mt-1">
+              KOLKATA · 2026 EDITION
             </div>
           </div>
 
-          {/* Socials */}
-          <div className="flex flex-col gap-3 md:gap-4">
+          {/* Socials — Right Column */}
+          <div className="order-3 md:order-3 col-span-1 flex flex-col gap-3 md:gap-4 items-end md:items-end text-right">
             <h4 className="font-bebas text-[#FFD200] tracking-[0.2em] text-lg">
               SOCIALS
             </h4>
-            <ul className="flex flex-col gap-2 md:gap-3">
+            <ul className="flex flex-col gap-2 md:gap-3 items-end">
               {[
                 {
                   label: 'LinkedIn',
@@ -4786,7 +4766,7 @@ const Footer = () => {
                         d={icon}
                       />
                     </svg>
-                    {label}
+                    <span>{label}</span>
                   </a>
                 </li>
               ))}
@@ -4805,6 +4785,168 @@ const Footer = () => {
         </h1>
       </div>
     </footer>
+  );
+};
+
+const DeveloperEasterEgg = () => {
+  const [isActive, setIsActive] = useState(false);
+  const clickTimesRef = useRef([]);
+
+  useEffect(() => {
+    const handleGlobalClick = (e) => {
+      // Only track primary left click (button 0) or touch tap
+      if (e.button !== undefined && e.button !== 0) return;
+
+      const now = Date.now();
+      // Keep clicks within the last 2000ms window
+      clickTimesRef.current = clickTimesRef.current.filter((t) => now - t < 2000);
+      clickTimesRef.current.push(now);
+
+      if (clickTimesRef.current.length >= 5) {
+        clickTimesRef.current = [];
+        setIsActive(true);
+      }
+    };
+
+    window.addEventListener('click', handleGlobalClick);
+    return () => window.removeEventListener('click', handleGlobalClick);
+  }, []);
+
+  useEffect(() => {
+    if (!isActive) return;
+
+    // Lock body scroll while overlay is active
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    // Auto-dismiss after 7.5 seconds
+    const timer = setTimeout(() => {
+      setIsActive(false);
+    }, 7500);
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsActive(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      clearTimeout(timer);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isActive]);
+
+  return (
+    <AnimatePresence>
+      {isActive && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { duration: 0.6 } }}
+          className="fixed inset-0 z-[99999] bg-black/95 backdrop-blur-2xl flex flex-col justify-between items-center p-4 sm:p-6 md:p-8 select-none overflow-hidden"
+          style={{ perspective: 1200 }}
+        >
+          {/* Ambient Lighting Behind Photo */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-amber-400/10 rounded-full blur-[140px] pointer-events-none" />
+
+          {/* Top Header: Meet The Developer */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
+            className="w-full max-w-5xl flex items-center justify-between z-20"
+          >
+            <a
+              href="https://github.com/Encryption-prince"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 hover:border-yellow-400/40 text-xs font-mono font-semibold text-white/90 hover:text-yellow-400 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer shadow-sm group"
+              title="GitHub Profile"
+            >
+              <svg className="w-4 h-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24">
+                <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              <span>GitHub</span>
+            </a>
+
+            <div className="text-center">
+              <h3 className="text-sm sm:text-base md:text-xl font-mono font-extrabold tracking-[0.3em] uppercase text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                ✦ MEET THE DEVELOPER ✦
+              </h3>
+            </div>
+
+            <button
+              onClick={() => setIsActive(false)}
+              className="text-white/50 hover:text-white transition-colors text-[11px] font-mono px-3 py-1 rounded-full border border-white/10 hover:border-white/30 cursor-pointer"
+            >
+              ESC / CLOSE
+            </button>
+          </motion.div>
+
+          {/* Center: MacBook Tab / Genie Style Rising Photo Covering Screen */}
+          <div className="relative w-full flex-1 flex items-center justify-center my-3 sm:my-4 z-10 max-h-[75vh] md:max-h-[78vh]">
+            <motion.div
+              initial={{
+                y: "110%",
+                scale: 0.3,
+                rotateX: 45,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                scale: 1,
+                rotateX: 0,
+                opacity: 1,
+              }}
+              exit={{
+                y: "90%",
+                scale: 0.45,
+                rotateX: 30,
+                opacity: 0,
+                transition: { duration: 0.5, ease: "easeInOut" }
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 16,
+                mass: 0.85,
+                delay: 0.3,
+              }}
+              style={{
+                transformOrigin: "bottom center",
+                transformStyle: "preserve-3d",
+              }}
+              className="relative w-full h-full max-w-5xl flex items-center justify-center rounded-2xl md:rounded-3xl overflow-hidden border-2 border-yellow-400/40 shadow-[0_0_60px_rgba(250,204,21,0.3)] bg-slate-950"
+            >
+              <picture className="w-full h-full flex items-center justify-center">
+                <source media="(min-width: 768px)" srcSet="/laptop_img.png" />
+                <img
+                  src="/phone_img.png"
+                  alt="Subham - Developer"
+                  className="w-full h-full object-cover object-center"
+                />
+              </picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none" />
+            </motion.div>
+          </div>
+
+          {/* Bottom Area: Subham Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65, duration: 0.6, ease: "easeOut" }}
+            className="text-center z-20 flex flex-col items-center"
+          >
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 drop-shadow-[0_0_30px_rgba(250,204,21,0.65)]">
+              SUBHAM
+            </h2>
+            <p className="text-[10px] sm:text-xs font-mono font-medium tracking-[0.25em] text-slate-400 uppercase mt-1">
+              BUILDING FOR THE SAP COMMUNITY • KOLKATA 2026
+            </p>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -5005,18 +5147,21 @@ export default function App() {
       <CustomCursor />
       <ScrollProgress />
       <Navbar />
-      <HeroSection />
-      <EventEssentials />
-      <AboutSection />
-      <VenueSection />
-      <AgendaSection />
-      <PastEventsSection />
-      <SpeakersSection />
-      <TicketsSection />
-      <SponsorsSection />
-      <CommunityPartnersSection />
-      <FAQSection />
+      <main id="main-content">
+        <HeroSection />
+        <EventEssentials />
+        <AboutSection />
+        <VenueSection />
+        <AgendaSection />
+        <PastEventsSection />
+        <SpeakersSection />
+        <TicketsSection />
+        <SponsorsSection />
+        <CommunityPartnersSection />
+        <FAQSection />
+      </main>
       <Footer />
+      <DeveloperEasterEgg />
     </div>
   );
 }
