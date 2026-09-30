@@ -1333,7 +1333,7 @@ const PastEventsSection = () => {
     },
     {
       id: "sit-kol-2025-part2",
-      label: "SIT KOL 2025 (Part 2)",
+      label: "SIT KOL 2025",
       theme: {
         name: "Oceanic Azure",
         sectionBg: "#04121d",
@@ -1353,7 +1353,7 @@ const PastEventsSection = () => {
         gradientText: "from-cyan-300 via-sky-300 to-teal-200",
       },
       hero: {
-        title: "SIT KOL 2025 • Part II",
+        title: "SIT KOL 2025",
         subtitle: "Cultural Performances",
         img: "/gallery/sit_kol_2025_09.jpeg",
       },
@@ -1364,8 +1364,8 @@ const PastEventsSection = () => {
       },
       portraitPhoto: {
         img: "/gallery/sit_kol_2025_08.jpeg",
-        alt: "Beautiful Moments",
-        title: "Beautiful Moments",
+        alt: "Moments with our Speakers",
+        title: "Moments with our Speakers",
         objectPosition: "center 22%",
       },
       explore: {
