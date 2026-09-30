@@ -225,12 +225,12 @@ const CustomCursor = () => {
         }}
         transition={{ duration: 0.12, ease: 'easeOut' }}
         className={`fixed top-0 left-0 w-8 h-8 rounded-full border flex items-center justify-center pointer-events-none transition-[border-color,background-color,box-shadow] duration-150 ${isDarkArea
-            ? isHovered
-              ? 'border-white bg-white/20 shadow-[0_0_16px_rgba(255,255,255,0.4)]'
-              : 'border-white/80 bg-transparent'
-            : isHovered
-              ? 'border-slate-950 bg-slate-950/15 shadow-[0_0_16px_rgba(0,0,0,0.18)]'
-              : 'border-slate-950/80 bg-transparent'
+          ? isHovered
+            ? 'border-white bg-white/20 shadow-[0_0_16px_rgba(255,255,255,0.4)]'
+            : 'border-white/80 bg-transparent'
+          : isHovered
+            ? 'border-slate-950 bg-slate-950/15 shadow-[0_0_16px_rgba(0,0,0,0.18)]'
+            : 'border-slate-950/80 bg-transparent'
           }`}
       />
 
@@ -248,8 +248,8 @@ const CustomCursor = () => {
         }}
         transition={{ duration: 0.08 }}
         className={`fixed top-0 left-0 w-2 h-2 rounded-full transition-colors duration-200 ${isDarkArea
-            ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]'
-            : 'bg-slate-950 shadow-[0_0_4px_rgba(0,0,0,0.4)]'
+          ? 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)]'
+          : 'bg-slate-950 shadow-[0_0_4px_rgba(0,0,0,0.4)]'
           }`}
       />
     </div>
@@ -465,8 +465,8 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm py-2.5 border-b border-stone-200/70'
-          : 'bg-[#FAF8F5] py-3.5'
+        ? 'bg-[#FAF8F5]/95 backdrop-blur-md shadow-sm py-2.5 border-b border-stone-200/70'
+        : 'bg-[#FAF8F5] py-3.5'
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-10 flex justify-between items-center">
@@ -566,8 +566,8 @@ const Navbar = () => {
                       setMobileMenuOpen(false);
                     }}
                     className={`flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold transition-colors ${isActive
-                        ? 'bg-blue-50 text-[#0070F2] font-bold'
-                        : 'text-slate-700 hover:bg-stone-100 hover:text-slate-950'
+                      ? 'bg-blue-50 text-[#0070F2] font-bold'
+                      : 'text-slate-700 hover:bg-stone-100 hover:text-slate-950'
                       }`}
                   >
                     <span>{item.label}</span>
@@ -1136,8 +1136,8 @@ const InteractivePhotoStack = () => {
                   key={p.id}
                   onClick={() => bringToFront(photos.findIndex(item => item.id === p.id))}
                   className={`transition-all duration-300 rounded-full ${isActive
-                      ? 'w-5 h-2 bg-[#0070F2]'
-                      : 'w-2 h-2 bg-stone-300 hover:bg-stone-400'
+                    ? 'w-5 h-2 bg-[#0070F2]'
+                    : 'w-2 h-2 bg-stone-300 hover:bg-stone-400'
                     }`}
                   title={p.label}
                 />
@@ -1328,6 +1328,68 @@ const PastEventsSection = () => {
         title: "Media Coverage",
         desc: "Press interviews and broadcast media coverage",
         img: "/gallery/sit_kol_2025_05.jpg",
+        alt: "Press & TV Media Interview",
+      },
+    },
+    {
+      id: "sit-kol-2025-part2",
+      label: "SIT KOL 2025 (Part 2)",
+      theme: {
+        name: "Oceanic Azure",
+        sectionBg: "#04121d",
+        cardBg: "#0a2336",
+        cardBorder: "border-[#10486e]/50 hover:border-[#06b6d4]/70",
+        accent: "#0891b2",
+        accentHover: "#06b6d4",
+        badgeBg: "bg-[#0891b2]/15",
+        badgeBorder: "border-[#0891b2]/40",
+        badgeText: "text-[#67e8f9]",
+        glow1: "bg-[#0891b2]/25",
+        glow2: "bg-[#22d3ee]/15",
+        prevBtnBg: "#0a2336",
+        prevBtnHover: "hover:bg-[#10344f]",
+        prevBtnBorder: "border-cyan-400/20",
+        textMuted: "text-[#cffafe]",
+        gradientText: "from-cyan-300 via-sky-300 to-teal-200",
+      },
+      hero: {
+        title: "SIT KOL 2025 • Part II",
+        subtitle: "Cultural Performances",
+        img: "/gallery/sit_kol_2025_09.jpeg",
+      },
+      story: {
+        title: "The Energy Continues",
+        desc: "More captivating moments from our 2025 edition — deep hallway dialogues, stage demonstrations, and vibrant fellowship across Kolkata.",
+        cta: "EXPLORE PART II",
+      },
+      portraitPhoto: {
+        img: "/gallery/sit_kol_2025_08.jpeg",
+        alt: "Beautiful Moments",
+        title: "Beautiful Moments",
+        objectPosition: "center 22%",
+      },
+      explore: {
+        title: "Keynotes",
+        desc: "Masterclasses on SAP BTP, Clean Core & SAP Business AI.",
+      },
+      streetPhoto: {
+        img: "/gallery/sit_kol_2025_07.jpeg",
+        alt: "Moments from Registration Desk",
+        title: "Moments from Registration Desk",
+      },
+      stay: {
+        title: "Camaraderie",
+        desc: "Hallway conversations, mentor links, and community connections.",
+      },
+      blossomPhoto: {
+        img: "/gallery/sit_kol_2025_06.jpeg",
+        alt: "Moments with our Sponsors",
+        title: "Moments with our Sponsors",
+      },
+      cuisine: {
+        title: "Media Coverage",
+        desc: "Press interviews and broadcast media coverage",
+        img: "/gallery/sit_kol_2025_10.jpeg",
         alt: "Press & TV Media Interview",
       },
     },
@@ -1589,8 +1651,8 @@ const PastEventsSection = () => {
                     backgroundColor: idx === currentSlide ? current.theme.accent : 'transparent',
                   }}
                   className={`px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${idx === currentSlide
-                      ? 'text-white shadow-md'
-                      : 'text-stone-400 hover:text-white hover:bg-white/5'
+                    ? 'text-white shadow-md'
+                    : 'text-stone-400 hover:text-white hover:bg-white/5'
                     }`}
                 >
                   {s.label}
@@ -1657,7 +1719,7 @@ const PastEventsSection = () => {
                       {current.hero.subtitle}
                     </p>
                   </div>
-                  <CuratedTag label="#SITKOL_26" tilt="-rotate-2" size="small" />
+                  <CuratedTag label="#SITKOL" tilt="-rotate-2" size="small" />
                 </div>
               </div>
 
@@ -2293,8 +2355,8 @@ const SpeakersSection = () => {
                     onClick={() => goToSpeaker(i)}
                     title={`View ${s.name} (${s.track})`}
                     className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${i === activeIndex
-                        ? 'w-4 bg-gradient-to-r from-[#0070F2] to-amber-400 shadow-[0_0_6px_rgba(245,158,11,0.5)]'
-                        : 'w-1.5 bg-slate-700 hover:bg-slate-500'
+                      ? 'w-4 bg-gradient-to-r from-[#0070F2] to-amber-400 shadow-[0_0_6px_rgba(245,158,11,0.5)]'
+                      : 'w-1.5 bg-slate-700 hover:bg-slate-500'
                       }`}
                   />
                 ))}
@@ -2398,8 +2460,8 @@ const SpeakersSection = () => {
                       zIndex,
                     }}
                     className={`absolute left-3 sm:left-8 w-[280px] sm:w-[330px] h-[82px] sm:h-[88px] rounded-2xl p-3 sm:p-3.5 transition-all duration-150 cursor-pointer flex items-center gap-3.5 backdrop-blur-xl border ${isActive
-                        ? 'bg-gradient-to-r from-slate-900/95 via-blue-950/90 to-slate-900/95 border-[#0070F2] ring-2 ring-amber-400/40 shadow-[0_15px_35px_-5px_rgba(0,112,242,0.45),0_0_20px_rgba(245,158,11,0.25)]'
-                        : 'bg-slate-900/80 hover:bg-slate-800 border-slate-800/80 hover:border-slate-700 shadow-md'
+                      ? 'bg-gradient-to-r from-slate-900/95 via-blue-950/90 to-slate-900/95 border-[#0070F2] ring-2 ring-amber-400/40 shadow-[0_15px_35px_-5px_rgba(0,112,242,0.45),0_0_20px_rgba(245,158,11,0.25)]'
+                      : 'bg-slate-900/80 hover:bg-slate-800 border-slate-800/80 hover:border-slate-700 shadow-md'
                       }`}
                   >
                     {/* Speaker Circular Avatar */}
@@ -2408,8 +2470,8 @@ const SpeakersSection = () => {
                         src={speaker.img}
                         alt={speaker.name}
                         className={`w-13 h-13 sm:w-14 sm:h-14 rounded-full object-cover border-2 transition-all ${isActive
-                            ? 'border-amber-400 ring-2 ring-blue-500/50 shadow-md'
-                            : 'border-slate-700'
+                          ? 'border-amber-400 ring-2 ring-blue-500/50 shadow-md'
+                          : 'border-slate-700'
                           }`}
                       />
                       {isActive && (
@@ -2421,8 +2483,8 @@ const SpeakersSection = () => {
                     <div className="flex-1 min-w-0 pr-1">
                       <div className="flex items-center gap-2 mb-0.5">
                         <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md ${isActive
-                            ? 'bg-amber-400/15 text-amber-300 border border-amber-400/30'
-                            : 'bg-slate-800 text-slate-400'
+                          ? 'bg-amber-400/15 text-amber-300 border border-amber-400/30'
+                          : 'bg-slate-800 text-slate-400'
                           }`}>
                           {speaker.track.split(' ')[0]}
                         </span>
@@ -2555,8 +2617,8 @@ const SpeakersSection = () => {
                     <button
                       onClick={() => toggleBookmark(activeSpeaker.id)}
                       className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${bookmarked[activeSpeaker.id]
-                          ? 'bg-amber-400 text-slate-950 shadow-md font-black'
-                          : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 border border-slate-700'
+                        ? 'bg-amber-400 text-slate-950 shadow-md font-black'
+                        : 'bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 border border-slate-700'
                         }`}
                     >
                       <Bookmark className="w-4 h-4" />
@@ -2609,8 +2671,8 @@ const SpeakersSection = () => {
                   key={s.id}
                   onClick={() => goToSpeaker(idx)}
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-full shrink-0 transition-all border ${isActive
-                      ? 'bg-slate-800/90 border-[#0070F2] ring-2 ring-amber-400/50 shadow-md text-white'
-                      : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200'
+                    ? 'bg-slate-800/90 border-[#0070F2] ring-2 ring-amber-400/50 shadow-md text-white'
+                    : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200'
                     }`}
                 >
                   <img
@@ -2734,8 +2796,8 @@ const SpeakersSection = () => {
                   <button
                     onClick={() => toggleBookmark(activeSpeaker.id)}
                     className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all ${bookmarked[activeSpeaker.id]
-                        ? 'bg-amber-400 text-slate-950 font-black'
-                        : 'bg-slate-800 text-slate-300 border border-slate-700'
+                      ? 'bg-amber-400 text-slate-950 font-black'
+                      : 'bg-slate-800 text-slate-300 border border-slate-700'
                       }`}
                   >
                     <Bookmark className="w-3.5 h-3.5" />
@@ -3000,11 +3062,10 @@ const VenueSection = () => {
                     <button
                       key={sIdx}
                       onClick={() => setCurrentSlide(sIdx)}
-                      className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer ${
-                        currentSlide === sIdx
-                          ? 'bg-yellow-400 text-slate-950 shadow-md scale-105'
-                          : 'bg-white/10 hover:bg-white/20 text-slate-300'
-                      }`}
+                      className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold transition-all cursor-pointer ${currentSlide === sIdx
+                        ? 'bg-yellow-400 text-slate-950 shadow-md scale-105'
+                        : 'bg-white/10 hover:bg-white/20 text-slate-300'
+                        }`}
                     >
                       <span className="mr-1">{slide.icon}</span>
                       {slide.badge}
@@ -3027,8 +3088,8 @@ const VenueSection = () => {
                       onClick={() => setCurrentSlide(dotIdx)}
                       aria-label={`Go to slide ${dotIdx + 1}`}
                       className={`h-1.5 rounded-full transition-all cursor-pointer ${currentSlide === dotIdx
-                          ? 'w-8 bg-yellow-400'
-                          : 'w-2 bg-white/30 hover:bg-white/60'
+                        ? 'w-8 bg-yellow-400'
+                        : 'w-2 bg-white/30 hover:bg-white/60'
                         }`}
                     />
                   ))}
@@ -3666,11 +3727,11 @@ Looking forward to connecting!`;
             >
               <div className="w-9 h-9 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
-                  <path fill="#EA4335" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/>
-                  <path fill="#FBBC05" d="M20 4l-8 7.5L4 4"/>
-                  <path fill="#34A853" d="M4 6v12h4V10z"/>
-                  <path fill="#4285F4" d="M20 6v12h-4V10z"/>
-                  <path fill="#EA4335" d="M12 11.5L4 4h16z"/>
+                  <path fill="#EA4335" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z" />
+                  <path fill="#FBBC05" d="M20 4l-8 7.5L4 4" />
+                  <path fill="#34A853" d="M4 6v12h4V10z" />
+                  <path fill="#4285F4" d="M20 6v12h-4V10z" />
+                  <path fill="#EA4335" d="M12 11.5L4 4h16z" />
                 </svg>
               </div>
               <div className="min-w-0">
@@ -3691,9 +3752,9 @@ Looking forward to connecting!`;
             >
               <div className="w-9 h-9 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center shrink-0">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
-                  <path fill="#0078D4" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z"/>
-                  <path fill="#28A8EA" d="M14 2v6h6z"/>
-                  <path fill="#002050" d="M10 11.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/>
+                  <path fill="#0078D4" d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z" />
+                  <path fill="#28A8EA" d="M14 2v6h6z" />
+                  <path fill="#002050" d="M10 11.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" />
                 </svg>
               </div>
               <div className="min-w-0">
@@ -3801,7 +3862,7 @@ const SponsorsSection = () => {
       try {
         await navigator.clipboard.writeText('info@sitkolkata.org');
         ok = true;
-      } catch (err) {}
+      } catch (err) { }
     }
     if (!ok) {
       try {
@@ -3816,7 +3877,7 @@ const SponsorsSection = () => {
         ta.select();
         ok = document.execCommand('copy');
         document.body.removeChild(ta);
-      } catch (e) {}
+      } catch (e) { }
     }
     if (ok) {
       setCopiedEmail(true);
@@ -3939,7 +4000,7 @@ const SponsorsSection = () => {
                   <span>Become a Sponsor</span>
                   <ArrowRight className="w-4 h-4 text-slate-950 transition-transform group-hover:translate-x-1" />
                 </button>
-                
+
                 <div className="flex flex-wrap items-center justify-center md:justify-end gap-2">
                   <button
                     type="button"
@@ -4781,7 +4842,8 @@ const Footer = () => {
         ref={footerWatermarkRef}
         className="relative w-full overflow-hidden flex justify-center items-end pointer-events-none select-none"
       >
-        <h1 className="font-koyoto text-[12vw] md:text-[15vw] text-transparent bg-clip-text bg-gradient-to-b from-[#FFD200]/10 to-[#FFD200]/0 leading-[0.85] tracking-[0.05em] whitespace-nowrap">
+        <h1 className="font-koyoto text-[12vw] md:text-[15vw] text-transparent bg-clip-text bg-gradient-to-b from-[#FFD200]/10 to-[#FFD200]/0 leading-[0.85] tracking-[0.05em] whitespace-nowrap translate-x-[2vw] md:translate-x-[3vw]">
+
           SIT KOLKATA
         </h1>
       </div>
