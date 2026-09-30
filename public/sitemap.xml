@@ -2,21 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://sitkolkata.org/</loc>
-    <lastmod>2026-09-28</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.sitkolkata.in/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://sitkolkata.org/tickets-are-live.png</image:loc>
-      <image:title>SAP Inside Track Kolkata 2026 - Tickets Are Live</image:title>
+      <image:loc>https://www.sitkolkata.in/tickets-are-live.png</image:loc>
+      <image:title>SIT Kolkata 2026 - SAP Inside Track Kolkata Tickets Are Live</image:title>
+      <image:caption>Official Tickets and Registration Pass for SIT Kolkata 2026 at Sister Nivedita University</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://sitkolkata.org/venue/snu-building.png</image:loc>
+      <image:loc>https://www.sitkolkata.in/sit-kolkata-logo.png</image:loc>
+      <image:title>SIT Kolkata Official Community Logo</image:title>
+      <image:caption>SIT Kolkata 2026 - SAP Inside Track Kolkata Community Logo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.sitkolkata.in/venue/snu-building.png</image:loc>
       <image:title>Sister Nivedita University Campus - SIT Kolkata 2026 Venue</image:title>
+      <image:caption>Sister Nivedita University (SNU) Kolkata Campus - Official Venue for SIT Kolkata 2026</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://sitkolkata.org/venue/snu-auditorium.jpg</image:loc>
-      <image:title>Sister Nivedita University Auditorium - Keynote Hall</image:title>
+      <image:loc>https://www.sitkolkata.in/venue/snu-auditorium.jpg</image:loc>
+      <image:title>Sister Nivedita University Auditorium - SIT Kolkata Keynote Hall</image:title>
+      <image:caption>Main Keynote Hall at Sister Nivedita University for SIT Kolkata 2026</image:caption>
     </image:image>
   </url>
 </urlset>

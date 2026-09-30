@@ -475,19 +475,20 @@ const Navbar = () => {
           href="#hero"
           onClick={() => setActiveSection('hero')}
           className="flex items-center gap-2.5 sm:gap-3 shrink-0 group"
+          title="SIT Kolkata 2026 - SAP Inside Track Kolkata Official Website"
         >
           <img
             src="/sap-logo-org.jpg"
-            alt="SAP Inside Track Kolkata"
+            alt="SIT Kolkata 2026 Logo - SAP Inside Track Kolkata"
             className="w-10 h-10 rounded-xl object-cover shadow-sm transition-transform duration-300 group-hover:scale-105 border border-slate-200/80 shrink-0"
           />
           <div className="leading-tight">
             <div className="text-[16px] sm:text-[17px] font-black tracking-tight text-slate-950 flex items-center gap-1.5">
-              <span className="text-[#0070F2]">SAP</span>
-              <span>Inside Track</span>
+              <span className="text-[#0070F2]">SIT</span>
+              <span>Kolkata 2026</span>
             </div>
-            <div className="text-[9px] sm:text-[9.5px] font-extrabold text-slate-900 tracking-[0.28em] uppercase mt-0.5">
-              KOLKATA
+            <div className="text-[9px] sm:text-[9.5px] font-extrabold text-slate-600 tracking-[0.2em] uppercase mt-0.5">
+              SAP INSIDE TRACK
             </div>
           </div>
         </a>
@@ -645,16 +646,20 @@ const HeroSection = () => {
       {/* ── CENTER CONTENT ── */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto w-full">
         {/* Category Overline */}
-        <p className="text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.3em] text-slate-500 uppercase -mt-3 sm:-mt-5 md:-mt-6 mb-1 sm:mb-1.5 select-none">
-          COMMUNITY × KNOWLEDGE × OPPORTUNITY
-        </p>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/70 text-[#0070F2] text-[10px] sm:text-[11px] font-bold tracking-wider uppercase -mt-3 sm:-mt-5 md:-mt-6 mb-2 select-none">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>OFFICIAL SITE · SIT KOLKATA 2026</span>
+        </div>
 
         {/* Tickets Live Brush Badge */}
         <TicketsLiveBadge />
 
         {/* Main Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-black tracking-[-0.03em] leading-none text-slate-950 mt-0.5 sm:mt-1">
-          <span className="text-[#0070F2]">SAP</span> Inside Track
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-black tracking-[-0.03em] leading-[1.06] text-slate-950 mt-1">
+          <span className="text-[#0070F2]">SIT</span> Kolkata <span className="text-slate-950">2026</span>
+          <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-slate-700 tracking-tight mt-1 sm:mt-1.5 font-sans">
+            SAP Inside Track Kolkata
+          </span>
         </h1>
 
         {/* ── TRAM TRANSIT CORRIDOR ── */}
@@ -1190,7 +1195,7 @@ const AboutSection = () => {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Meets Culture.</span>
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                SAP Inside Track Kolkata 2026 is Eastern India’s flagship community tech conference, bringing together developers, architects, consultants, and enterprise leaders to explore the transformational power of <strong className="text-slate-900 font-extrabold">SAP Business AI</strong> in the vibrant City of Joy.
+                <strong className="text-slate-950 font-black">SIT Kolkata (SAP Inside Track Kolkata 2026)</strong> is Eastern India’s flagship community tech conference, bringing together developers, architects, consultants, and enterprise leaders to explore the transformational power of <strong className="text-slate-900 font-extrabold">SAP Business AI</strong> in the vibrant City of Joy.
               </p>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 Experience a high-energy fusion of enterprise innovation and legendary Kolkata hospitality. Dive deep into real-world AI use cases, Joule copilots, and Clean Core architectures while networking with industry pioneers.
@@ -4079,8 +4084,8 @@ const faqData = [
   {
     id: 1,
     number: "01",
-    question: "What is SAP Inside Track Kolkata?",
-    answer: "SAP Inside Track Kolkata is a community-driven event where SAP professionals, experts, and enthusiasts come together to share knowledge, insights, and real-world experiences around SAP technologies.",
+    question: "What is SIT Kolkata (SAP Inside Track Kolkata)?",
+    answer: "SIT Kolkata (SAP Inside Track Kolkata 2026) is Eastern India's flagship community-driven event where SAP professionals, experts, and enthusiasts come together to share knowledge, insights, and real-world experiences around SAP technologies and SAP Business AI.",
     tag: "Event Overview",
     perk: "Community-Driven · Knowledge Sharing · Networking"
   },
@@ -4147,6 +4152,14 @@ const faqData = [
     answer: "You can reach out to the organizers through the contact section on the website or via the official email info@sitkolkata.org and social media channels.",
     tag: "Contact & Support",
     perk: "info@sitkolkata.org · Social Channels · Direct Support"
+  },
+  {
+    id: 10,
+    number: "10",
+    question: "What is the official website for SIT Kolkata 2026?",
+    answer: "The official website for SIT Kolkata 2026 is https://www.sitkolkata.in/ (sitkolkata.in). All announcements, registration tickets, speaker updates, and agenda schedules are published directly here.",
+    tag: "Official Portal",
+    perk: "sitkolkata.in · Official Site · Direct Updates"
   }
 ];
 
@@ -4779,14 +4792,14 @@ const Footer = () => {
           <div className="order-1 md:order-2 col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center">
             <img
               src="/sap-logo-org.jpg"
-              alt="SAP Inside Track Kolkata Logo"
+              alt="SIT Kolkata 2026 Logo - SAP Inside Track Kolkata"
               className="w-20 h-20 rounded-2xl object-contain border-2 border-[#FFD200]/40 shadow-[0_0_25px_rgba(255,210,0,0.3)] hover:scale-105 transition-transform duration-300 mb-3"
             />
             <div className="font-bebas text-2xl md:text-3xl tracking-widest text-white leading-tight">
-              SAP INSIDE TRACK
+              SIT KOLKATA 2026
             </div>
             <div className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#FFD200] font-mono mt-1">
-              KOLKATA · 2026 EDITION
+              SAP INSIDE TRACK · OFFICIAL SITE
             </div>
           </div>
 

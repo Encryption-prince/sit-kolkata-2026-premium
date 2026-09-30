@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sitkolkata.org/sitemap.xml
+Sitemap: https://www.sitkolkata.in/sitemap.xml
+Host: https://www.sitkolkata.in
