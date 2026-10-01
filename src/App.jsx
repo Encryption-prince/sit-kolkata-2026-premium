@@ -8,6 +8,7 @@ import 'lenis/dist/lenis.css';
 import { LampContainer } from './ui/lamp';
 import PixelSwap from './PixelSwap';
 import KolkataPreloader from './components/KolkataPreloader';
+import FlexPassPage from './components/FlexPassPage';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -401,7 +402,7 @@ const HowrahBridgeLogo = ({ className = "w-11 h-7 text-[#0070F2]" }) => (
   </svg>
 );
 
-const Navbar = () => {
+const Navbar = ({ onNavigateToFlexPass }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -414,6 +415,7 @@ const Navbar = () => {
     { label: 'Memory Wall', href: '#memory-wall' },
     { label: 'Speakers', href: '#speakers' },
     { label: 'Tickets', href: '#tickets' },
+    { label: 'Flex Pass', href: '/flex-pass', isFlexPass: true },
     { label: 'Sponsors', href: '#sponsors' },
     { label: 'FAQ', href: '#faq' },
   ];
@@ -494,8 +496,28 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-6 text-[12.5px] xl:text-[13.5px] font-semibold text-slate-700">
+        <div className="hidden lg:flex items-center gap-3.5 xl:gap-4 2xl:gap-5 text-[12.5px] xl:text-[13px] font-semibold text-slate-700">
           {navItems.map((item) => {
+            if (item.isFlexPass) {
+              return (
+                <div key={item.label} className="relative py-1">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateToFlexPass?.();
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-yellow-500/15 hover:from-amber-500/25 hover:to-yellow-500/25 text-amber-950 border border-amber-400/60 text-[12px] xl:text-[12.5px] font-black transition-all hover:scale-105 active:scale-95 shadow-xs"
+                    title="Claim and Download Your SIT Kolkata Social Flex Ticket"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+                    <span>Flex Pass</span>
+                    <span className="text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-full bg-amber-500 text-white leading-none">
+                      HOT
+                    </span>
+                  </button>
+                </div>
+              );
+            }
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
             return (
@@ -556,6 +578,26 @@ const Navbar = () => {
           >
             <div className="px-5 py-3 flex flex-col gap-1">
               {navItems.map((item) => {
+                if (item.isFlexPass) {
+                  return (
+                    <button
+                      key={item.label}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onNavigateToFlexPass?.();
+                      }}
+                      className="flex items-center justify-between py-2.5 px-3 rounded-xl text-sm font-bold bg-amber-50 text-amber-950 border border-amber-300/80 shadow-xs text-left"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-amber-600" />
+                        <span>Claim &amp; Flex Pass</span>
+                      </span>
+                      <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500 text-white">
+                        NEW
+                      </span>
+                    </button>
+                  );
+                }
                 const sectionId = item.href.replace('#', '');
                 const isActive = activeSection === sectionId;
                 return (
@@ -3266,7 +3308,7 @@ const Barcode = ({ className = "h-8 w-full text-slate-800" }) => (
   </svg>
 );
 
-const TicketsSection = () => {
+const TicketsSection = ({ onNavigateToFlexPass }) => {
   return (
     <section id="tickets" className="relative py-12 md:py-16 bg-[#FAF8F5] border-t border-stone-200/80 overflow-hidden scroll-mt-16">
       {/* Subtle ambient lighting */}
@@ -3577,6 +3619,26 @@ const TicketsSection = () => {
         <div className="mt-4 text-center text-xs font-semibold text-slate-500 flex items-center justify-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-yellow-500" />
           <span>Hover over the ticket to flip between Admission Pass and Swag Kit</span>
+        </div>
+
+        {/* Already Registered Flex Pass Callout */}
+        <div className="mt-8 max-w-4xl mx-auto p-5 rounded-3xl bg-gradient-to-r from-amber-500/10 via-yellow-500/10 to-orange-500/10 border-2 border-amber-300/80 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 text-center sm:text-left">
+            <div className="w-11 h-11 rounded-2xl bg-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="text-sm sm:text-base font-black text-slate-950">Already Registered for SIT Kolkata 2026?</div>
+              <div className="text-xs text-slate-600 mt-0.5">Search your name on our live registration Google Sheet and download your official customized Flex Ticket to flex on LinkedIn &amp; X!</div>
+            </div>
+          </div>
+          <button
+            onClick={() => onNavigateToFlexPass?.()}
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-slate-950 hover:bg-[#0070F2] text-white text-xs sm:text-sm font-extrabold shadow-sm transition-all hover:scale-105 active:scale-95 shrink-0"
+          >
+            <span>Claim Your Flex Pass</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>
@@ -4632,7 +4694,7 @@ const FAQSection = () => {
   );
 };
 
-const Footer = () => {
+const Footer = ({ onNavigateToFlexPass }) => {
   const footerRef = useRef(null);
   const footerContentRef = useRef(null);
   const footerWatermarkRef = useRef(null);
@@ -4734,6 +4796,11 @@ const Footer = () => {
             <ul className="flex flex-col gap-2 md:gap-3">
               {[
                 {
+                  label: 'Claim Flex Pass',
+                  isFlexPass: true,
+                  icon: 'M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z',
+                },
+                {
                   label: 'info@sitkolkata.org',
                   href: 'mailto:info@sitkolkata.org',
                   icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6',
@@ -4747,11 +4814,16 @@ const Footer = () => {
                   href: 'https://forms.gle/NramHWLEo98EeV4H7',
                   icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75 M9 7a4 4 0 100 8 4 4 0 000-8z',
                 },
-              ].map(({ label, href, icon }) => (
+              ].map(({ label, href, icon, isFlexPass }) => (
                 <li key={label} className="list-none">
                   <a
                     href={href || '#'}
                     onClick={(e) => {
+                      if (isFlexPass) {
+                        e.preventDefault();
+                        onNavigateToFlexPass?.();
+                        return;
+                      }
                       if (label === 'Sponsor Us' || label === 'info@sitkolkata.org') {
                         e.preventDefault();
                         window.dispatchEvent(new CustomEvent('open-sponsor-modal'));
@@ -5028,9 +5100,61 @@ const DeveloperEasterEgg = () => {
 
 export default function App() {
   const [isPreloaderActive, setIsPreloaderActive] = useState(true);
+  const [currentPage, setCurrentPage] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const p = window.location.pathname.toLowerCase();
+      const h = window.location.hash.toLowerCase();
+      if (p === '/flex-pass' || p === '/flex-ticket' || h === '#flex-pass' || h === '#flex-ticket') {
+        return 'flex-pass';
+      }
+    }
+    return 'home';
+  });
 
   const handlePreloaderComplete = useCallback(() => {
     setIsPreloaderActive(false);
+  }, []);
+
+  const navigateToFlexPass = () => {
+    window.history.pushState(null, '', '/flex-pass');
+    setCurrentPage('flex-pass');
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
+  };
+
+  const navigateToHome = (targetHash = '#hero') => {
+    window.history.pushState(null, '', '/');
+    setCurrentPage('home');
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
+    if (targetHash && targetHash !== '#hero') {
+      setTimeout(() => {
+        const el = document.getElementById(targetHash.replace('#', ''));
+        if (el && window.lenis) {
+          window.lenis.scrollTo(el, { offset: -70 });
+        }
+      }, 100);
+    }
+  };
+
+  // Listen to browser Back / Forward navigation
+  useEffect(() => {
+    const handlePopState = () => {
+      const p = window.location.pathname.toLowerCase();
+      const h = window.location.hash.toLowerCase();
+      if (p === '/flex-pass' || p === '/flex-ticket' || h === '#flex-pass' || h === '#flex-ticket') {
+        setCurrentPage('flex-pass');
+      } else {
+        setCurrentPage('home');
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   // Enforce starting at top Hero section on reload
@@ -5038,9 +5162,13 @@ export default function App() {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    if (window.location.hash && window.location.hash !== '#hero') {
-      window.history.replaceState(null, '', window.location.pathname);
+    const p = window.location.pathname.toLowerCase();
+    const h = window.location.hash.toLowerCase();
+    if (p !== '/flex-pass' && p !== '/flex-ticket' && h !== '#flex-pass' && h !== '#flex-ticket') {
+      if (window.location.hash && window.location.hash !== '#hero') {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
   }, []);
 
@@ -5233,21 +5361,28 @@ export default function App() {
 
       <CustomCursor />
       <ScrollProgress />
-      <Navbar />
-      <main id="main-content">
-        <HeroSection />
-        <EventEssentials />
-        <AboutSection />
-        <VenueSection />
-        <AgendaSection />
-        <PastEventsSection />
-        <SpeakersSection />
-        <TicketsSection />
-        <SponsorsSection />
-        <CommunityPartnersSection />
-        <FAQSection />
-      </main>
-      <Footer />
+      
+      {currentPage === 'flex-pass' ? (
+        <FlexPassPage onNavigateHome={() => navigateToHome('#hero')} />
+      ) : (
+        <>
+          <Navbar onNavigateToFlexPass={navigateToFlexPass} />
+          <main id="main-content">
+            <HeroSection />
+            <EventEssentials />
+            <AboutSection />
+            <VenueSection />
+            <AgendaSection />
+            <PastEventsSection />
+            <SpeakersSection />
+            <TicketsSection onNavigateToFlexPass={navigateToFlexPass} />
+            <SponsorsSection />
+            <CommunityPartnersSection />
+            <FAQSection />
+          </main>
+          <Footer onNavigateToFlexPass={navigateToFlexPass} />
+        </>
+      )}
       <DeveloperEasterEgg />
     </div>
   );

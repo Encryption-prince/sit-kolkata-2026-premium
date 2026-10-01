@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.sitkolkata.in/</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -25,6 +25,17 @@
       <image:loc>https://www.sitkolkata.in/venue/snu-auditorium.jpg</image:loc>
       <image:title>Sister Nivedita University Auditorium - SIT Kolkata Keynote Hall</image:title>
       <image:caption>Main Keynote Hall at Sister Nivedita University for SIT Kolkata 2026</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.sitkolkata.in/flex-pass</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.sitkolkata.in/flex-ticket-template-hd.png</image:loc>
+      <image:title>SIT Kolkata 2026 Social Flex Ticket Boarding Pass</image:title>
+      <image:caption>Official Social Media Flex Ticket Pass for SIT Kolkata 2026</image:caption>
     </image:image>
   </url>
 </urlset>
