@@ -284,34 +284,6 @@ export default function FlexPassPage({ onNavigateHome }) {
               </span>
             </div>
           </div>
-
-          {/* Automatic Live Sync Badge (No refresh button click needed) */}
-          <div className="flex items-center gap-2">
-            <div
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${
-                hasConfiguredSheet
-                  ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                  : 'bg-stone-100 text-slate-600 border border-stone-200'
-              }`}
-              title={
-                hasConfiguredSheet
-                  ? `Google Sheet auto-sync active (${attendeesList.length} registered attendees loaded). Auto-refreshes every 30s.`
-                  : 'Google Sheet link can be added in src/config/flexPassConfig.js'
-              }
-            >
-              <span
-                className={`w-2 h-2 rounded-full ${
-                  hasConfiguredSheet ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'
-                }`}
-              />
-              <span>
-                {hasConfiguredSheet ? 'Live Sync Active' : 'Connecting to Sheet...'}
-              </span>
-              {hasConfiguredSheet && attendeesList.length > 0 && (
-                <span className="text-emerald-700 font-mono">({attendeesList.length})</span>
-              )}
-            </div>
-          </div>
         </div>
       </header>
 

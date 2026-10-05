@@ -122,8 +122,14 @@ export function formatName(name) {
   if (!name) return '';
   return name
     .trim()
+    .replace(/[.]+$/, '')
     .split(/\s+/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .map((word) => {
+      const cleanWord = word.replace(/^[.,\-]+|[.,\-]+$/g, '');
+      if (!cleanWord) return '';
+      return cleanWord.charAt(0).toUpperCase() + cleanWord.slice(1).toLowerCase();
+    })
+    .filter(Boolean)
     .join(' ');
 }
 
@@ -158,8 +164,10 @@ export async function fetchRegisteredAttendees() {
     ? `&sheet=${encodeURIComponent(FLEX_PASS_CONFIG.sheetName)}`
     : '';
 
-  // Google Visualization API URL: works seamlessly with CORS and returns live data
-  const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv${sheetParam}&t=${Date.now()}`;
+  // Google Visualization API URL: works seamlessly with CORS and returns live data.
+  // Explicitly passing headers=1 forces Google Sheets to treat row 1 as the single header row,
+  // preventing it from mistakenly grouping attendee rows with only names into a multi-line header.
+  const csvUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&headers=1${sheetParam}&t=${Date.now()}`;
 
   try {
     const response = await fetch(csvUrl, {
@@ -197,7 +205,19 @@ export async function fetchRegisteredAttendees() {
     // Loop through data rows (skip header)
     for (let i = 1; i < rows.length; i++) {
       const row = rows[i];
-      const rawName = row[nameColIdx];
+      let rawName = row[nameColIdx];
+
+      // Fallback for partially filled rows where name might be in an adjacent cell
+      if (!rawName || !rawName.trim()) {
+        for (let c = 0; c < row.length; c++) {
+          const val = (row[c] || '').trim();
+          if (val && !val.includes('@') && isNaN(Number(val)) && !val.match(/^\d{1,2}\/\d{1,2}\/\d{2,4}/)) {
+            rawName = val;
+            break;
+          }
+        }
+      }
+
       if (!rawName) continue;
 
       const cleanName = formatName(rawName);
@@ -211,7 +231,7 @@ export async function fetchRegisteredAttendees() {
         id: `att-${i}`,
         name: cleanName,
         email: emailColIdx !== -1 && row[emailColIdx] ? row[emailColIdx].trim() : '',
-        ticketType: ticketColIdx !== -1 && row[ticketColIdx] ? row[ticketColIdx].trim() : 'Confirmed Pass',
+        ticketType: ticketColIdx !== -1 && row[ticketColIdx] && row[ticketColIdx].trim() ? row[ticketColIdx].trim() : 'Confirmed Pass',
       });
     }
 

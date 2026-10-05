@@ -23,5 +23,5 @@ export const FLEX_PASS_CONFIG = {
 
   // Social Share Pre-crafted Template
   socialShareText: (name) =>
-    `Excited to announce that I'm attending SAP Inside Track Kolkata 2026 (SIT Kolkata) on 14 Nov 2026 at Sister Nivedita University!\n\nLooking forward to diving into SAP Business AI, SAP BTP, and networking with Eastern India's top enterprise tech community.\n\nGrab your ticket & generate your flex pass at sitkolkata.in! 👇\n#SITKolkata2026 #SAPInsideTrack #SAPCommunity #KolkataTech #SAPBTP #GenAI`,
+    `Excited to announce that I'm attending SAP Inside Track Kolkata 2026 on 14 Nov 2026 at Sister Nivedita University!\n\nLooking forward to diving into SAP Business AI, SAP BTP, and networking with Eastern India's top enterprise tech community.\n\nGrab your ticket & generate your flex pass at sitkolkata.in! 👇\n#SITKolkata2026 #SAPInsideTrack #SAPCommunity #KolkataTech #SAPBTP #GenAI`,
 };

@@ -687,30 +687,21 @@ const HeroSection = () => {
 
       {/* ── CENTER CONTENT ── */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto w-full">
-        {/* Category Overline */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/70 text-[#0070F2] text-[10px] sm:text-[11px] font-bold tracking-wider uppercase -mt-3 sm:-mt-5 md:-mt-6 mb-2 select-none">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>OFFICIAL SITE · SIT KOLKATA 2026</span>
-        </div>
-
         {/* Tickets Live Brush Badge */}
         <TicketsLiveBadge />
 
         {/* Main Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-black tracking-[-0.03em] leading-[1.06] text-slate-950 mt-1">
-          <span className="text-[#0070F2]">SIT</span> Kolkata <span className="text-slate-950">2026</span>
-          <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-slate-700 tracking-tight mt-1 sm:mt-1.5 font-sans">
-            SAP Inside Track Kolkata
-          </span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] font-black tracking-[-0.02em] leading-[1.08] text-slate-950 mt-1 sm:mt-2">
+          <span className="text-[#0070F2]">SAP</span> INSIDE TRACK
         </h1>
 
         {/* ── TRAM TRANSIT CORRIDOR ── */}
-        <div className="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[560px] mx-auto my-2 sm:my-2.5 h-10 sm:h-11 md:h-12 overflow-hidden select-none pointer-events-none">
+        <div className="relative w-full max-w-[340px] sm:max-w-[460px] md:max-w-[560px] lg:max-w-[640px] mx-auto my-3 sm:my-4 md:my-5 h-14 sm:h-16 md:h-20 overflow-hidden select-none pointer-events-none">
           {/* Overhead electric tram wire */}
-          <div className="absolute top-1.5 sm:top-2 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
+          <div className="absolute top-2 sm:top-2.5 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
 
           {/* Steel tram rails */}
-          <div className="absolute bottom-1 inset-x-0 flex flex-col gap-[2px]">
+          <div className="absolute bottom-1 sm:bottom-1.5 inset-x-0 flex flex-col gap-[2px]">
             <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-slate-400/80 to-transparent" />
             <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-slate-400/80 to-transparent" />
           </div>
@@ -724,7 +715,7 @@ const HeroSection = () => {
             <img
               src="/tram.png"
               alt="Kolkata Tram"
-              className="h-8 sm:h-9 md:h-10 w-auto max-w-none shrink-0 object-contain drop-shadow-sm animate-tram-rumble"
+              className="h-11 sm:h-13 md:h-16 lg:h-18 w-auto max-w-none shrink-0 object-contain drop-shadow-sm animate-tram-rumble"
             />
           </div>
         </div>
