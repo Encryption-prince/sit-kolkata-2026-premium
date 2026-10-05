@@ -8,7 +8,7 @@
 export const FLEX_PASS_CONFIG = {
   // PASTE YOUR GOOGLE SHEET URL OR SHEET ID HERE:
   // Example: "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit"
-  googleSheetUrl: '',
+  googleSheetUrl: 'https://docs.google.com/spreadsheets/d/1HBIhu2XgXSf8jm4lOvmd48YyEuQ556pNGczv6EVdB6Y/edit?gid=0#gid=0',
   googleSheetId: '',
 
   // Optional: Tab name if not using the first sheet (e.g. "Registrations" or "Sheet1")
@@ -22,6 +22,6 @@ export const FLEX_PASS_CONFIG = {
   autoSyncIntervalSeconds: 30,
 
   // Social Share Pre-crafted Template
-  socialShareText: (name) => 
-    `Excited to announce that I'm attending SAP Inside Track Kolkata 2026 (SIT Kolkata) on 14 Nov 2026 at Sister Nivedita University! 🚀\n\nLooking forward to diving into SAP Business AI, SAP BTP, and networking with Eastern India's top enterprise tech community.\n\nGrab your ticket & generate your flex pass at sitkolkata.in! 👇\n#SITKolkata2026 #SAPInsideTrack #SAPCommunity #KolkataTech #SAPBTP #GenAI`,
+  socialShareText: (name) =>
+    `Excited to announce that I'm attending SAP Inside Track Kolkata 2026 (SIT Kolkata) on 14 Nov 2026 at Sister Nivedita University!\n\nLooking forward to diving into SAP Business AI, SAP BTP, and networking with Eastern India's top enterprise tech community.\n\nGrab your ticket & generate your flex pass at sitkolkata.in! 👇\n#SITKolkata2026 #SAPInsideTrack #SAPCommunity #KolkataTech #SAPBTP #GenAI`,
 };
