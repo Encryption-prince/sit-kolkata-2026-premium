@@ -130,30 +130,33 @@ export default function FlexPassPage({ onNavigateHome }) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // HD Resolution: 1948 x 728
-    const TARGET_WIDTH = 1948;
-    const TARGET_HEIGHT = 728;
+    // Ultra-HD Master Resolution: 5529 x 1966
+    const TARGET_WIDTH = 5529;
+    const TARGET_HEIGHT = 1966;
 
     if (canvas.width !== TARGET_WIDTH) canvas.width = TARGET_WIDTH;
     if (canvas.height !== TARGET_HEIGHT) canvas.height = TARGET_HEIGHT;
 
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+
     const renderAttendeeOnImage = (img) => {
-      // 1. Draw base HD template
+      // 1. Draw base Ultra-HD template
       ctx.drawImage(img, 0, 0, TARGET_WIDTH, TARGET_HEIGHT);
 
       const attendeeName = selectedAttendee ? selectedAttendee.name : 'Your Name Here';
 
       // 2. Exact coordinate calibration for Attendee Name
-      const textX = 1580;
-      const textY = 214;
-      const maxTextWidth = 320;
+      const textX = 4522;
+      const textY = 595;
+      const maxTextWidth = 860;
 
       // 3. Dynamic font size calculation to guarantee perfect fit for any name length
-      let fontSize = 38;
+      let fontSize = 76;
       ctx.font = `700 ${fontSize}px "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
 
       let measuredWidth = ctx.measureText(attendeeName).width;
-      while (measuredWidth > maxTextWidth && fontSize > 20) {
+      while (measuredWidth > maxTextWidth && fontSize > 36) {
         fontSize -= 2;
         ctx.font = `700 ${fontSize}px "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
         measuredWidth = ctx.measureText(attendeeName).width;
@@ -174,7 +177,7 @@ export default function FlexPassPage({ onNavigateHome }) {
     } else {
       const img = new Image();
       img.crossOrigin = 'anonymous';
-      img.src = '/flex-ticket-template-hd.png';
+      img.src = '/SIT KOL 26 Boarding Pass-new.png';
       img.onload = () => {
         templateImgRef.current = img;
         renderAttendeeOnImage(img);
@@ -182,9 +185,14 @@ export default function FlexPassPage({ onNavigateHome }) {
     }
   }, [selectedAttendee]);
 
-  // Re-draw whenever selectedAttendee changes
+  // Re-draw whenever selectedAttendee changes and ensure custom fonts are loaded
   useEffect(() => {
     drawTicket();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        drawTicket();
+      });
+    }
   }, [drawTicket, selectedAttendee]);
 
   // Download Action
@@ -534,7 +542,7 @@ export default function FlexPassPage({ onNavigateHome }) {
             <canvas
               ref={canvasRef}
               className="w-full h-auto block select-none pointer-events-none"
-              style={{ aspectRatio: '1948 / 728' }}
+              style={{ aspectRatio: '5529 / 1966' }}
             />
 
             {!ticketRendered && (
