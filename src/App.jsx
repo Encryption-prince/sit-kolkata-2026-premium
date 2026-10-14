@@ -4134,6 +4134,34 @@ const SponsorsSection = () => {
 
   const partnersList = [
     {
+      role: "Official Sponsor",
+      name: "TNS Consulting Solutions Ltd",
+      logo: "/partners/sponsor-tns-consulting.jpg",
+      tag: "Enterprise IT & SAP Solutions",
+      description: "Delivering end-to-end enterprise IT transformation, strategic SAP consulting, and innovative business solutions."
+    },
+    {
+      role: "Official Sponsor",
+      name: "TuTeck Technologies",
+      logo: "/partners/sponsor-tuteck-light.png",
+      tag: "Digital Innovation, Driven by Intelligence",
+      description: "Pioneering enterprise AI, cloud engineering, and digital transformation architectures for modern enterprises."
+    },
+    {
+      role: "Official Sponsor",
+      name: "TagSkills EdTech Pvt Ltd",
+      logo: "/partners/sponsor-tagskills.jpg",
+      tag: "Enterprise EdTech & Skills Enablement",
+      description: "Empowering professionals and aspiring tech leaders with cutting-edge industry training and skill development."
+    },
+    {
+      role: "Official Sponsor",
+      name: "We",
+      logo: "/partners/sponsor-we.png",
+      tag: "Ecosystem & Community Sponsor",
+      description: "Supporting community tech initiatives and empowering developer engagement."
+    },
+    {
       role: "Venue Partner",
       name: "Sister Nivedita University & Techno India Group",
       logo: "/partners/venue-partner-snu.png",
@@ -4155,11 +4183,11 @@ const SponsorsSection = () => {
       description: "Kolkata's premier digital media network capturing and amplifying tech stories across the region."
     },
     {
-      role: "Official Sponsor",
-      name: "We",
-      logo: "/partners/sponsor-we.png",
-      tag: "Ecosystem & Community Sponsor",
-      description: "Supporting community tech initiatives and empowering developer engagement."
+      role: "Refreshment Partner",
+      name: "Tea Buddies",
+      logo: "/partners/refreshment-partner-tea-buddies.png",
+      tag: "Official Refreshment Partner",
+      description: "Handcrafted tea blends and artisanal refreshments keeping our community energized throughout the day."
     }
   ];
 
