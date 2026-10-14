@@ -9,6 +9,7 @@ import { LampContainer } from './ui/lamp';
 import PixelSwap from './PixelSwap';
 import KolkataPreloader from './components/KolkataPreloader';
 import FlexPassPage from './components/FlexPassPage';
+import TeamPage from './components/TeamPage';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -402,7 +403,7 @@ const HowrahBridgeLogo = ({ className = "w-11 h-7 text-[#0070F2]" }) => (
   </svg>
 );
 
-const Navbar = ({ onNavigateToFlexPass }) => {
+const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -414,6 +415,7 @@ const Navbar = ({ onNavigateToFlexPass }) => {
     { label: 'Agenda', href: '#agenda' },
     { label: 'Memory Wall', href: '#memory-wall' },
     { label: 'Speakers', href: '#speakers' },
+    { label: 'Team', href: '/team', isTeam: true },
     { label: 'Tickets', href: '#tickets' },
     { label: 'Flex Pass', href: '/flex-pass', isFlexPass: true },
     { label: 'Sponsors', href: '#sponsors' },
@@ -518,6 +520,21 @@ const Navbar = ({ onNavigateToFlexPass }) => {
                 </div>
               );
             }
+            if (item.isTeam) {
+              return (
+                <div key={item.label} className="relative py-1">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateToTeam?.();
+                    }}
+                    className="transition-colors hover:text-[#0070F2] text-slate-700 font-semibold cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
+                </div>
+              );
+            }
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
             return (
@@ -595,6 +612,20 @@ const Navbar = ({ onNavigateToFlexPass }) => {
                       <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500 text-white">
                         NEW
                       </span>
+                    </button>
+                  );
+                }
+                if (item.isTeam) {
+                  return (
+                    <button
+                      key={item.label}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        onNavigateToTeam?.();
+                      }}
+                      className="flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold text-slate-700 hover:bg-stone-100 hover:text-slate-950 text-left transition-colors"
+                    >
+                      <span>{item.label}</span>
                     </button>
                   );
                 }
@@ -4685,7 +4716,7 @@ const FAQSection = () => {
   );
 };
 
-const Footer = ({ onNavigateToFlexPass }) => {
+const Footer = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
   const footerRef = useRef(null);
   const footerContentRef = useRef(null);
   const footerWatermarkRef = useRef(null);
@@ -4801,11 +4832,17 @@ const Footer = ({ onNavigateToFlexPass }) => {
                   icon: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
                 },
                 {
+                  label: 'Organizing Team',
+                  href: '/team',
+                  isTeam: true,
+                  icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+                },
+                {
                   label: 'Call for Speakers',
                   href: 'https://forms.gle/NramHWLEo98EeV4H7',
                   icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2 M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75 M9 7a4 4 0 100 8 4 4 0 000-8z',
                 },
-              ].map(({ label, href, icon, isFlexPass }) => (
+              ].map(({ label, href, icon, isFlexPass, isTeam }) => (
                 <li key={label} className="list-none">
                   <a
                     href={href || '#'}
@@ -4815,12 +4852,17 @@ const Footer = ({ onNavigateToFlexPass }) => {
                         onNavigateToFlexPass?.();
                         return;
                       }
+                      if (isTeam) {
+                        e.preventDefault();
+                        onNavigateToTeam?.();
+                        return;
+                      }
                       if (label === 'Sponsor Us' || label === 'info@sitkolkata.org') {
                         e.preventDefault();
                         window.dispatchEvent(new CustomEvent('open-sponsor-modal'));
                       }
                     }}
-                    target={href?.startsWith('mailto') ? '_self' : '_blank'}
+                    target={href?.startsWith('mailto') ? '_self' : (isTeam || isFlexPass ? '_self' : '_blank')}
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-xs md:text-sm text-white/50 hover:text-[#FFD200] transition-colors duration-300 cursor-pointer"
                   >
@@ -5098,6 +5140,9 @@ export default function App() {
       if (p === '/flex-pass' || p === '/flex-ticket' || h === '#flex-pass' || h === '#flex-ticket') {
         return 'flex-pass';
       }
+      if (p === '/team' || p === '/organizers' || h === '#team' || h === '#organizers') {
+        return 'team';
+      }
     }
     return 'home';
   });
@@ -5109,6 +5154,15 @@ export default function App() {
   const navigateToFlexPass = () => {
     window.history.pushState(null, '', '/flex-pass');
     setCurrentPage('flex-pass');
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    }
+  };
+
+  const navigateToTeam = () => {
+    window.history.pushState(null, '', '/team');
+    setCurrentPage('team');
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (window.lenis) {
       window.lenis.scrollTo(0, { immediate: true });
@@ -5139,6 +5193,8 @@ export default function App() {
       const h = window.location.hash.toLowerCase();
       if (p === '/flex-pass' || p === '/flex-ticket' || h === '#flex-pass' || h === '#flex-ticket') {
         setCurrentPage('flex-pass');
+      } else if (p === '/team' || p === '/organizers' || h === '#team' || h === '#organizers') {
+        setCurrentPage('team');
       } else {
         setCurrentPage('home');
       }
@@ -5155,7 +5211,10 @@ export default function App() {
     }
     const p = window.location.pathname.toLowerCase();
     const h = window.location.hash.toLowerCase();
-    if (p !== '/flex-pass' && p !== '/flex-ticket' && h !== '#flex-pass' && h !== '#flex-ticket') {
+    if (
+      p !== '/flex-pass' && p !== '/flex-ticket' && h !== '#flex-pass' && h !== '#flex-ticket' &&
+      p !== '/team' && p !== '/organizers' && h !== '#team' && h !== '#organizers'
+    ) {
       if (window.location.hash && window.location.hash !== '#hero') {
         window.history.replaceState(null, '', window.location.pathname);
       }
@@ -5355,9 +5414,11 @@ export default function App() {
       
       {currentPage === 'flex-pass' ? (
         <FlexPassPage onNavigateHome={() => navigateToHome('#hero')} />
+      ) : currentPage === 'team' ? (
+        <TeamPage onNavigateHome={() => navigateToHome('#hero')} />
       ) : (
         <>
-          <Navbar onNavigateToFlexPass={navigateToFlexPass} />
+          <Navbar onNavigateToFlexPass={navigateToFlexPass} onNavigateToTeam={navigateToTeam} />
           <main id="main-content">
             <HeroSection />
             <EventEssentials />
@@ -5371,7 +5432,7 @@ export default function App() {
             <CommunityPartnersSection />
             <FAQSection />
           </main>
-          <Footer onNavigateToFlexPass={navigateToFlexPass} />
+          <Footer onNavigateToFlexPass={navigateToFlexPass} onNavigateToTeam={navigateToTeam} />
         </>
       )}
       <DeveloperEasterEgg />
