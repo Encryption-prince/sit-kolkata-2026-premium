@@ -4141,7 +4141,7 @@ const SponsorsSection = () => {
       description: "Delivering end-to-end enterprise IT transformation, strategic SAP consulting, and innovative business solutions."
     },
     {
-      role: "Official Sponsor",
+      role: "Business Value Partner",
       name: "TuTeck Technologies",
       logo: "/partners/sponsor-tuteck-light.png",
       tag: "Digital Innovation, Driven by Intelligence",
