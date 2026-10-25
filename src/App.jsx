@@ -473,7 +473,7 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
         : 'bg-[#FAF8F5] py-3.5'
         }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 md:px-10 flex justify-between items-center">
+      <div className="w-full max-w-[1760px] mx-auto px-4 sm:px-6 lg:px-4 xl:px-6 2xl:px-8 flex justify-between items-center gap-2 sm:gap-4">
         {/* Logo */}
         <a
           href="#hero"
@@ -498,17 +498,17 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
         </a>
 
         {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center gap-3.5 xl:gap-4 2xl:gap-5 text-[12.5px] xl:text-[13px] font-semibold text-slate-700">
+        <div className="hidden lg:flex items-center justify-center flex-1 mx-2 lg:mx-3 xl:mx-6 gap-2.5 lg:gap-3 xl:gap-3.5 2xl:gap-5 text-[12px] xl:text-[13px] font-semibold text-slate-700">
           {navItems.map((item) => {
             if (item.isFlexPass) {
               return (
-                <div key={item.label} className="relative py-1">
+                <div key={item.label} className="relative py-1 shrink-0">
                   <button
                     onClick={(e) => {
                       e.preventDefault();
                       onNavigateToFlexPass?.();
                     }}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-yellow-500/15 hover:from-amber-500/25 hover:to-yellow-500/25 text-amber-950 border border-amber-400/60 text-[12px] xl:text-[12.5px] font-black transition-all hover:scale-105 active:scale-95 shadow-xs"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-yellow-500/15 hover:from-amber-500/25 hover:to-yellow-500/25 text-amber-950 border border-amber-400/60 text-[12px] xl:text-[12.5px] font-black transition-all hover:scale-105 active:scale-95 shadow-xs whitespace-nowrap"
                     title="Claim and Download Your SIT Kolkata Social Flex Ticket"
                   >
                     <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
@@ -522,13 +522,13 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
             }
             if (item.isTeam) {
               return (
-                <div key={item.label} className="relative py-1">
+                <div key={item.label} className="relative py-1 shrink-0">
                   <button
                     onClick={(e) => {
                       e.preventDefault();
                       onNavigateToTeam?.();
                     }}
-                    className="transition-colors hover:text-[#0070F2] text-slate-700 font-semibold cursor-pointer"
+                    className="transition-colors hover:text-[#0070F2] text-slate-700 font-semibold cursor-pointer whitespace-nowrap"
                   >
                     {item.label}
                   </button>
@@ -538,11 +538,11 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
             const sectionId = item.href.replace('#', '');
             const isActive = activeSection === sectionId;
             return (
-              <div key={item.label} className="relative py-1">
+              <div key={item.label} className="relative py-1 shrink-0">
                 <a
                   href={item.href}
                   onClick={() => setActiveSection(sectionId)}
-                  className={`transition-colors relative z-10 ${isActive ? 'text-[#0070F2] font-black' : 'hover:text-[#0070F2]'
+                  className={`transition-colors relative z-10 whitespace-nowrap ${isActive ? 'text-[#0070F2] font-black' : 'hover:text-[#0070F2]'
                     }`}
                 >
                   {item.label}
@@ -560,12 +560,12 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
         </div>
 
         {/* Right CTA + Mobile Toggle */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <a
             href="https://konfhub.com/sap-inside-track-kolkata-2026"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-slate-950 hover:bg-[#0070F2] text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full font-bold text-[12px] xl:text-[13px] transition-all shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 shrink-0"
+            className="bg-slate-950 hover:bg-[#0070F2] text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full font-bold text-[12px] xl:text-[13px] transition-all shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 shrink-0 whitespace-nowrap"
           >
             <span>Get Tickets · ₹499</span>
             <ArrowUpRight className="w-3.5 h-3.5 xl:w-4 xl:h-4 stroke-[2.5]" />
