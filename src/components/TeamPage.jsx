@@ -15,10 +15,10 @@ export const TEAM_MEMBERS = [
   {
     id: 'pritam-paul',
     name: 'Pritam Paul',
-    role: 'SAP Integration Team',
+    role: 'SAP CPI Team @ Visteon',
     accentColor: '#D97706',
     photo: '/team/pritam-paul.png',
-    organization: 'Visteon Corporation',
+    organization: 'Making SIT Kolkata 2026 Happen',
     socials: {
       linkedin: 'https://www.linkedin.com/in/pritam-paul/',
       twitter: 'https://twitter.com/sitkolkata',
@@ -148,7 +148,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'koustav-singh',
     name: 'Koustav Singh',
-    role: 'Social Media Team',
+    role: 'Volunteer',
     accentColor: '#2563EB',
     photo: '/team/koustav-singh.png',
     organization: 'SAP Inside Track Kolkata',
@@ -215,7 +215,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'indranil-guria',
     name: 'Indranil Guria',
-    role: 'Organising Team SAP INSIDE TRACK KOLKATA',
+    role: 'Volunteer',
     accentColor: '#16A34A',
     photo: '/team/indranil-guria.png',
     organization: 'SAP Inside Track Kolkata',
@@ -228,7 +228,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'bitan',
     name: 'Bitan',
-    role: 'Organising Team SAP INSIDE TRACK KOLKATA',
+    role: 'Associate Technical Architect Incture',
     accentColor: '#D97706',
     photo: '/team/bitan.png',
     organization: 'SAP Inside Track Kolkata',
