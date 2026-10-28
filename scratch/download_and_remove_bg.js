@@ -8,8 +8,14 @@ const teamDir = 'd:/sit-kolkata-2026-premium/public/team';
 
 // Team members from the Google Sheet (row data cleaned up)
 const newMembers = [
-  { name: 'Pritam Paul',  slug: 'pritam-paul',  driveId: '1Av7ykp_ZXlp_J8Yhdh4CmO_cM7FNXbco' },
-  { name: 'Subham Maity', slug: 'subham-maity',  driveId: '1UUjeLLCtQJWG-GemAg49P8GtuKPoJRl2' },
+  { name: 'Vishnu Maddheshiya',  slug: 'vishnu-maddheshiya',  driveId: '12z42-m8VxMgDG3HMKAKcPludAqa_W2r4' },
+  { name: 'Prasansa Gupta',      slug: 'prasansa-gupta',      driveId: '1fil5Fuih8sIpJdC6ZxW42xdSKq2h8w56' },
+  { name: 'Moumita Saha',        slug: 'moumita-saha',        driveId: '1L4bbeUgIrahw3KkB_ewIEYHR67u_HkHg' },
+  { name: 'Amitt Dubey',         slug: 'amitt-dubey',         driveId: '1Mvl4mRCF1trO0YZ0NpbOUzaH9mnr0GY5' },
+  { name: 'Pritam Kumar Mani',   slug: 'pritam-kumar-mani',   driveId: '1j1bxpilApeCtSxgLtkfrdtfFhdM3RVWu' },
+  { name: 'Abhisikta Mukherjee', slug: 'abhisikta-mukherjee', driveId: '1Ze2DWaDcCeirQr2X4IkK_-wvYwRBpTCM' },
+  { name: 'Pritam Paul',         slug: 'pritam-paul',         driveId: '1Av7ykp_ZXlp_J8Yhdh4CmO_cM7FNXbco' },
+  { name: 'Subham Maity',        slug: 'subham-maity',        driveId: '1UUjeLLCtQJWG-GemAg49P8GtuKPoJRl2' },
   { name: 'Tanuja Chowdhury',    slug: 'tanuja-chowdhury',    driveId: '1kbm7q_akaWiLPtZGMbCV0GhYUDyEuPWF' },
   { name: 'Srijoyee Ghosh',      slug: 'srijoyee-ghosh',      driveId: '1q8zQ5hbwLyeuyEkqCkdEmmMAqb1afaCQ' },
   { name: 'Rupam Mandal',        slug: 'rupam-mandal',        driveId: '15VsxCn09rATkjYFEy-_llKCBDs_Ayp78' },
