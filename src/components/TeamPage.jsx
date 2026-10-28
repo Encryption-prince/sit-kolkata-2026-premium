@@ -747,23 +747,7 @@ export default function TeamPage({ onNavigateHome }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <AnimatePresence mode="wait">
-              {gameActive ? (
-                <motion.button key="exit"
-                  initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
-                  onClick={() => setGameActive(false)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 text-xs sm:text-sm font-bold transition-all hover:scale-105 cursor-pointer">
-                  <X className="w-4 h-4" /> Exit Game
-                </motion.button>
-              ) : (
-                <motion.button key="play"
-                  initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
-                  onClick={() => setGameActive(true)}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FFD200] hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-black shadow-sm transition-all hover:scale-105 active:scale-95 cursor-pointer">
-                  <Gamepad2 className="w-4 h-4" /> Play Who&apos;s Who?
-                </motion.button>
-              )}
-            </AnimatePresence>
+            {/* Game button hidden for now */}
             <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-blue-50 text-[#0070F2] border border-blue-200/70">
               <Sparkles className="w-3.5 h-3.5" /> ORGANIZING SQUAD
             </span>
@@ -819,14 +803,7 @@ export default function TeamPage({ onNavigateHome }) {
                 Meet the community leaders, architects, and creators powering Eastern India's flagship
                 SAP conference on November 14, 2026 at Sister Nivedita University.
               </motion.p>
-              <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }}
-                className="mt-6">
-                <button onClick={() => setGameActive(true)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFD200] hover:bg-amber-400 text-slate-950 text-sm font-black shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer">
-                  <Gamepad2 className="w-4 h-4" />
-                  Think you know them all? Play Who&apos;s Who?
-                </button>
-              </motion.div>
+              {/* Game nudge button hidden for now */}
             </section>
 
             {/* Grid */}
