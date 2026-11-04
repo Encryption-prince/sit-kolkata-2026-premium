@@ -567,7 +567,7 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
             rel="noopener noreferrer"
             className="bg-slate-950 hover:bg-[#0070F2] text-white px-4 py-2 xl:px-5 xl:py-2.5 rounded-full font-bold text-[12px] xl:text-[13px] transition-all shadow-sm flex items-center gap-1.5 hover:scale-105 active:scale-95 shrink-0 whitespace-nowrap"
           >
-            <span>Get Tickets · ₹499</span>
+            <span>Get Tickets</span>
             <ArrowUpRight className="w-3.5 h-3.5 xl:w-4 xl:h-4 stroke-[2.5]" />
           </a>
 
@@ -3581,10 +3581,10 @@ const TicketsSection = ({ onNavigateToFlexPass }) => {
                     <div className="mt-3">
                       <div className="flex flex-wrap items-center gap-2 mb-1.5">
                         <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 text-[11px] font-extrabold uppercase tracking-wider">
-                          Regular Ticket · ₹499 (Live)
+                          Regular Ticket (Live)
                         </span>
                         <span className="px-2.5 py-0.5 rounded-full bg-stone-100 border border-stone-200 text-stone-400 text-[11px] font-medium line-through">
-                          Early Bird · ₹350 (Sold Out)
+                          Early Bird (Sold Out)
                         </span>
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -3612,7 +3612,7 @@ const TicketsSection = ({ onNavigateToFlexPass }) => {
                     </div>
                     <div>
                       <div className="text-[10px] font-black text-slate-400 uppercase tracking-wider">FEE</div>
-                      <div className="text-xs sm:text-sm font-black text-[#0070F2] mt-0.5">₹499 (INR)</div>
+                      <div className="text-xs sm:text-sm font-black text-[#0070F2] mt-0.5">See KonfHub</div>
                     </div>
                   </div>
 
@@ -3635,7 +3635,7 @@ const TicketsSection = ({ onNavigateToFlexPass }) => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 bg-[#0070F2] hover:bg-blue-600 text-white px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-md hover:scale-105 shrink-0"
                     >
-                      <span>Book on KonfHub — ₹499</span>
+                      <span>Book on KonfHub</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
@@ -3712,7 +3712,7 @@ const TicketsSection = ({ onNavigateToFlexPass }) => {
                         </span>
                       </div>
                       <span className="font-mono text-[11px] font-bold text-emerald-400">
-                        INCLUDED WITH ₹499 TICKET
+                        INCLUDED WITH TICKET
                       </span>
                     </div>
 
@@ -3763,7 +3763,7 @@ const TicketsSection = ({ onNavigateToFlexPass }) => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-slate-950 px-6 py-2.5 rounded-xl font-black text-sm transition-all shadow-md hover:scale-105 shrink-0"
                     >
-                      <span>Claim Spot &amp; Kit — ₹499</span>
+                      <span>Claim Spot &amp; Kit</span>
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
