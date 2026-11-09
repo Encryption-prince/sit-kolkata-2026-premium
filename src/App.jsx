@@ -4163,48 +4163,87 @@ const SponsorsSection = () => {
     }
   };
 
+  const getTierBadgeStyle = (role) => {
+    if (role.includes("Gold")) {
+      return "text-amber-300 bg-amber-400/15 border-amber-400/40 shadow-[0_0_15px_rgba(251,191,36,0.15)]";
+    }
+    if (role.includes("Silver")) {
+      return "text-slate-100 bg-slate-300/20 border-slate-300/40 shadow-[0_0_15px_rgba(226,232,240,0.15)]";
+    }
+    if (role.includes("Bronze")) {
+      return "text-orange-300 bg-orange-400/15 border-orange-400/40 shadow-[0_0_15px_rgba(251,146,60,0.15)]";
+    }
+    if (role.includes("Venue")) {
+      return "text-purple-300 bg-purple-400/15 border-purple-400/40 shadow-[0_0_15px_rgba(192,132,252,0.15)]";
+    }
+    if (role.includes("Business Value")) {
+      return "text-cyan-300 bg-cyan-400/15 border-cyan-400/40";
+    }
+    if (role.includes("Hospitality") || role.includes("Refreshment")) {
+      return "text-emerald-300 bg-emerald-400/15 border-emerald-400/40";
+    }
+    if (role.includes("Media")) {
+      return "text-rose-300 bg-rose-400/15 border-rose-400/40";
+    }
+    return "text-blue-300 bg-blue-400/15 border-blue-400/40";
+  };
+
   const partnersList = [
     {
-      role: "Official Sponsor",
-      name: "TNS Consulting Solutions Ltd",
-      logo: "/partners/sponsor-tns-consulting.jpg",
-      tag: "Enterprise IT & SAP Solutions",
-      description: "Delivering end-to-end enterprise IT transformation, strategic SAP consulting, and innovative business solutions."
+      role: "Venue Partner",
+      name: "Sister Nivedita University",
+      logo: "/partners/venue-partner-snu.png",
+      tag: "Academic & Campus Host",
+      description: "Host campus providing world-class auditorium, tech labs, and academic infrastructure for SIT Kolkata 2026."
     },
     {
-      role: "Business Value Partner",
+      role: "Gold Sponsor",
+      name: "Infocus Technologies Pvt ltd",
+      logo: "/partners/sponsor-infocus.png",
+      tag: "Enterprise IT & SAP Solutions",
+      description: "Delivering specialized SAP consulting, enterprise system integration, and end-to-end digital transformation."
+    },
+    {
+      role: "Silver Sponsor",
+      name: "Westernacher Consulting",
+      logo: "/partners/sponsor-westernacher.png",
+      tag: "Global Supply Chain & SAP Strategy",
+      description: "Global leaders in SAP supply chain management, logistics transformation, and innovative consulting."
+    },
+    {
+      role: "Silver Sponsor & Business Value Partner",
       name: "TuTeck Technologies",
       logo: "/partners/sponsor-tuteck-light.png",
       tag: "Digital Innovation, Driven by Intelligence",
       description: "Pioneering enterprise AI, cloud engineering, and digital transformation architectures for modern enterprises."
     },
     {
-      role: "Official Sponsor",
-      name: "TagSkills EdTech Pvt Ltd",
+      role: "Bronze Sponsor",
+      name: "TagSkills® EdTech Private Limited",
       logo: "/partners/sponsor-tagskills.jpg",
       tag: "Enterprise EdTech & Skills Enablement",
       description: "Empowering professionals and aspiring tech leaders with cutting-edge industry training and skill development."
     },
     {
-      role: "Official Sponsor",
-      name: "We",
-      logo: "/partners/sponsor-we.png",
-      tag: "Ecosystem & Community Sponsor",
-      description: "Supporting community tech initiatives and empowering developer engagement."
+      role: "Bronze Sponsor",
+      name: "TNS Consulting Solutions Ltd",
+      logo: "/partners/sponsor-tns-consulting.jpg",
+      tag: "Enterprise IT & SAP Solutions",
+      description: "Delivering end-to-end enterprise IT transformation, strategic SAP consulting, and innovative business solutions."
     },
     {
-      role: "Venue Partner",
-      name: "Sister Nivedita University & Techno India Group",
-      logo: "/partners/venue-partner-snu.png",
-      tag: "Academic & Campus Host",
-      description: "Host campus providing world-class auditorium, tech labs, and academic infrastructure for SIT Kolkata 2026."
+      role: "Hospitality Partner",
+      name: "DesiJourney",
+      logo: "/partners/partner-desijourney.png",
+      tag: "Official Hospitality Partner",
+      description: "Providing authentic catering hospitality and curated culinary experiences for conference delegates."
     },
     {
-      role: "SAP Partner",
-      name: "SAP PRESS",
-      logo: "/partners/sap-press-logo.png",
-      tag: "Official SAP Publishing Partner",
-      description: "Leading technical publisher providing authoritative SAP books, e-books, and developer reference guides."
+      role: "Refreshment Partner",
+      name: "Tea Buddies",
+      logo: "/partners/refreshment-partner-tea-buddies.png",
+      tag: "Official Refreshment Partner",
+      description: "Handcrafted tea blends and artisanal refreshments keeping our community energized throughout the day."
     },
     {
       role: "Media Partner",
@@ -4214,11 +4253,11 @@ const SponsorsSection = () => {
       description: "Kolkata's premier digital media network capturing and amplifying tech stories across the region."
     },
     {
-      role: "Refreshment Partner",
-      name: "Tea Buddies",
-      logo: "/partners/refreshment-partner-tea-buddies.png",
-      tag: "Official Refreshment Partner",
-      description: "Handcrafted tea blends and artisanal refreshments keeping our community energized throughout the day."
+      role: "SAP Publishing Partner",
+      name: "SAP PRESS",
+      logo: "/partners/sap-press-logo.png",
+      tag: "Official SAP Publishing Partner",
+      description: "Leading technical publisher providing authoritative SAP books, e-books, and developer reference guides."
     }
   ];
 
@@ -4242,22 +4281,35 @@ const SponsorsSection = () => {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {partnersList.map((partner, idx) => (
             <Reveal key={idx} direction="up" delay={`delay-${idx * 100}`} className="h-full">
               <div className="h-full bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-amber-400/60 transition-all duration-300 shadow-xl hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-md">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20 mb-4">
+                  <div className={`inline-flex items-center gap-1.5 text-[11px] font-mono font-bold px-3 py-1 rounded-full border mb-4 ${getTierBadgeStyle(partner.role)}`}>
                     {partner.role}
                   </div>
 
                   {/* Clean Logo Box with light container for crisp vector contrast */}
-                  <div className="w-full h-36 bg-white rounded-2xl p-4 flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform">
+                  <div className="w-full h-36 bg-white rounded-2xl p-4 flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform relative overflow-hidden">
                     <img
                       src={partner.logo}
                       alt={partner.name}
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const fallback = e.currentTarget.parentElement?.querySelector('.logo-fallback');
+                        if (fallback) fallback.classList.remove('hidden');
+                      }}
                       className="max-h-24 max-w-full object-contain"
                     />
+                    <div className="logo-fallback hidden text-center px-2 py-1">
+                      <div className="font-bebas text-xl sm:text-2xl tracking-wider text-slate-800 leading-tight">
+                        {partner.name}
+                      </div>
+                      <div className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#0070F2] mt-1">
+                        {partner.role}
+                      </div>
+                    </div>
                   </div>
 
                   <h3 className="text-lg font-black text-white leading-snug mb-1 group-hover:text-amber-300 transition-colors">
@@ -4348,31 +4400,128 @@ const SponsorsSection = () => {
 };
 
 const CommunityPartnersSection = () => {
-  const partners = [
+  const communityTiers = [
+    {
+      tier: "IT Community Partner",
+      badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
+      items: [
+        {
+          name: "Kolkata IT Hub",
+          role: "IT Community Partner",
+          tag: "Premier Regional IT Network"
+        }
+      ]
+    },
+    {
+      tier: "Community Partners",
+      badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
+      items: [
+        {
+          name: "AWS Users Group, Kolkata (India)",
+          role: "Community Partner",
+          tag: "Cloud Developer Community"
+        },
+        {
+          name: "Databricks User Group INDIA",
+          role: "Community Partner",
+          tag: "Data & AI Community"
+        }
+      ]
+    },
+    {
+      tier: "Student Community Partners",
+      badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
+      items: [
+        {
+          name: "Debuggers United",
+          role: "Student Community Partner",
+          tag: "Student Developer Network"
+        },
+        {
+          name: "GDG on Campus FIEM",
+          fullName: "Future Institute of Engineering and Management",
+          role: "Student Community Partner",
+          tag: "Google Developer Group"
+        },
+        {
+          name: "GDG on Campus MSIT",
+          fullName: "Meghnad Saha Institute of Technology",
+          role: "Student Community Partner",
+          tag: "Google Developer Group"
+        }
+      ]
+    }
+  ];
+
+  const marqueePartners = [
+    "Kolkata IT Hub",
+    "AWS Users Group, Kolkata (India)",
+    "Databricks User Group INDIA",
     "Debuggers United",
-    "Wiki Kolkata",
-    "AWS Usergroup Kolkata",
-    "Databricks Usergroup India",
+    "GDG on Campus Future Institute of Engineering and Management",
+    "Google Developer Group on Campus MSIT",
   ];
 
   return (
-    <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
-      <div className="container mx-auto px-6 relative z-10 mb-10 text-center">
-        <h3 className="text-2xl font-black text-slate-800 uppercase tracking-wide">
-          Our <span className="text-blue-600">Community Partners</span>
+    <section id="community-partners" className="py-20 bg-stone-50 overflow-hidden relative border-t border-slate-200">
+      <div className="container mx-auto px-6 relative z-10 mb-12 text-center max-w-5xl">
+        <div className="inline-flex items-center gap-2 mb-3 bg-blue-100/80 border border-blue-200 text-blue-900 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider">
+          <Users className="w-3.5 h-3.5 text-[#0070F2]" />
+          COMMUNITY ECOSYSTEM
+        </div>
+        <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] to-amber-500">Community Partners</span>
         </h3>
-        <div className="w-16 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+        <p className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto mt-2">
+          Empowering developer growth, open-source innovation, and student engineering talent across Eastern India.
+        </p>
       </div>
 
+      {/* Tiered Categorized Grid */}
+      <div className="container mx-auto px-6 max-w-6xl relative z-10 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {communityTiers.map((tierGroup, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-mono font-bold border mb-4 ${tierGroup.badgeColor}`}>
+                  {tierGroup.tier}
+                </span>
+
+                <div className="space-y-3.5">
+                  {tierGroup.items.map((item, pIdx) => (
+                    <div key={pIdx} className="p-3.5 rounded-2xl bg-stone-50/80 border border-stone-200/70 hover:border-blue-300 transition-colors">
+                      <div className="text-sm font-black text-slate-900 leading-snug">
+                        {item.name}
+                      </div>
+                      {item.fullName && (
+                        <div className="text-[11px] text-slate-500 font-medium mt-0.5">
+                          {item.fullName}
+                        </div>
+                      )}
+                      <div className="text-[11px] font-mono font-semibold text-[#0070F2] mt-1">
+                        {item.tag}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Marquee Track */}
       <div className="relative flex flex-col gap-6 w-full max-w-[100vw] overflow-hidden">
-        {/* Marquee Track */}
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
-          {[...partners, ...partners, ...partners].map((partner, idx) => (
-            <div key={idx} className="mx-8 flex items-center group cursor-pointer">
-              <span className="text-2xl md:text-3xl font-black uppercase tracking-widest text-slate-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-yellow-500 transition-all duration-300">
+          {[...marqueePartners, ...marqueePartners, ...marqueePartners].map((partner, idx) => (
+            <div key={idx} className="mx-6 flex items-center group cursor-pointer">
+              <span className="text-xl md:text-2xl font-black uppercase tracking-wider text-slate-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-amber-500 transition-all duration-300">
                 {partner}
               </span>
-              <span className="mx-8 text-yellow-400 font-black text-2xl opacity-50">•</span>
+              <span className="mx-6 text-amber-400 font-black text-xl opacity-60">•</span>
             </div>
           ))}
         </div>
