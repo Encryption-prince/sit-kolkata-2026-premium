@@ -4163,174 +4163,269 @@ const SponsorsSection = () => {
     }
   };
 
-  const getTierBadgeStyle = (role) => {
-    if (role.includes("Gold")) {
-      return "text-amber-300 bg-amber-400/15 border-amber-400/40 shadow-[0_0_15px_rgba(251,191,36,0.15)]";
-    }
-    if (role.includes("Silver")) {
-      return "text-slate-100 bg-slate-300/20 border-slate-300/40 shadow-[0_0_15px_rgba(226,232,240,0.15)]";
-    }
-    if (role.includes("Bronze")) {
-      return "text-orange-300 bg-orange-400/15 border-orange-400/40 shadow-[0_0_15px_rgba(251,146,60,0.15)]";
-    }
-    if (role.includes("Venue")) {
-      return "text-purple-300 bg-purple-400/15 border-purple-400/40 shadow-[0_0_15px_rgba(192,132,252,0.15)]";
-    }
-    if (role.includes("Business Value")) {
-      return "text-cyan-300 bg-cyan-400/15 border-cyan-400/40";
-    }
-    if (role.includes("Hospitality") || role.includes("Refreshment")) {
-      return "text-emerald-300 bg-emerald-400/15 border-emerald-400/40";
-    }
-    if (role.includes("Media")) {
-      return "text-rose-300 bg-rose-400/15 border-rose-400/40";
-    }
-    return "text-blue-300 bg-blue-400/15 border-blue-400/40";
-  };
-
-  const partnersList = [
-    {
-      role: "Venue Partner",
-      name: "Sister Nivedita University",
-      logo: "/partners/venue-partner-snu.png",
-      tag: "Academic & Campus Host",
-      description: "Host campus providing world-class auditorium, tech labs, and academic infrastructure for SIT Kolkata 2026."
-    },
-    {
-      role: "Gold Sponsor",
-      name: "Infocus Technologies Pvt ltd",
-      logo: "/partners/sponsor-infocus.png",
-      tag: "Enterprise IT & SAP Solutions",
-      description: "Delivering specialized SAP consulting, enterprise system integration, and end-to-end digital transformation."
-    },
-    {
-      role: "Silver Sponsor",
-      name: "Westernacher Consulting",
-      logo: "/partners/sponsor-westernacher.png",
-      tag: "Global Supply Chain & SAP Strategy",
-      description: "Global leaders in SAP supply chain management, logistics transformation, and innovative consulting."
-    },
-    {
-      role: "Silver Sponsor & Business Value Partner",
-      name: "TuTeck Technologies",
-      logo: "/partners/sponsor-tuteck-light.png",
-      tag: "Digital Innovation, Driven by Intelligence",
-      description: "Pioneering enterprise AI, cloud engineering, and digital transformation architectures for modern enterprises."
-    },
-    {
-      role: "Bronze Sponsor",
-      name: "TagSkills® EdTech Private Limited",
-      logo: "/partners/sponsor-tagskills.jpg",
-      tag: "Enterprise EdTech & Skills Enablement",
-      description: "Empowering professionals and aspiring tech leaders with cutting-edge industry training and skill development."
-    },
-    {
-      role: "Bronze Sponsor",
-      name: "TNS Consulting Solutions Ltd",
-      logo: "/partners/sponsor-tns-consulting.jpg",
-      tag: "Enterprise IT & SAP Solutions",
-      description: "Delivering end-to-end enterprise IT transformation, strategic SAP consulting, and innovative business solutions."
-    },
-    {
-      role: "Hospitality Partner",
-      name: "DesiJourney",
-      logo: "/partners/partner-desijourney.png",
-      tag: "Official Hospitality Partner",
-      description: "Providing authentic catering hospitality and curated culinary experiences for conference delegates."
-    },
-    {
-      role: "Refreshment Partner",
-      name: "Tea Buddies",
-      logo: "/partners/refreshment-partner-tea-buddies.png",
-      tag: "Official Refreshment Partner",
-      description: "Handcrafted tea blends and artisanal refreshments keeping our community energized throughout the day."
-    },
-    {
-      role: "Media Partner",
-      name: "Wiki Kolkata",
-      logo: "/partners/media-partner-wikikolkata.png",
-      tag: "Official Digital Media Partner",
-      description: "Kolkata's premier digital media network capturing and amplifying tech stories across the region."
-    },
-    {
-      role: "SAP Publishing Partner",
-      name: "SAP PRESS",
-      logo: "/partners/sap-press-logo.png",
-      tag: "Official SAP Publishing Partner",
-      description: "Leading technical publisher providing authoritative SAP books, e-books, and developer reference guides."
-    }
-  ];
-
   return (
-    <section id="sponsors" className="py-24 bg-[#080d1a] text-white relative border-t border-slate-800 scroll-mt-16 overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="sponsors" className="py-24 bg-[#FAF8F5] text-slate-900 relative border-t border-stone-200/80 scroll-mt-16 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-100/60 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-100/60 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <Reveal direction="up" className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-3 bg-amber-400/10 border border-amber-400/30 text-amber-400 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 max-w-6xl">
+        <Reveal direction="up" className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-3 bg-blue-100/80 border border-blue-200 text-blue-900 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-widest shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#0070F2]" />
             EVENT SUPPORTERS & ECOSYSTEM
           </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Official <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] via-blue-400 to-amber-400">Partners & Sponsors</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight">
+            Official <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] via-blue-600 to-amber-500">Partners & Sponsors</span>
           </h2>
-          <p className="text-slate-400 font-medium max-w-2xl mx-auto mt-3 text-base sm:text-lg">
+          <p className="text-slate-600 font-medium max-w-2xl mx-auto mt-2 text-sm sm:text-base">
             Heartfelt gratitude to the visionary partners and sponsors making SAP Inside Track Kolkata 2026 possible.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {partnersList.map((partner, idx) => (
-            <Reveal key={idx} direction="up" delay={`delay-${idx * 100}`} className="h-full">
-              <div className="h-full bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-amber-400/60 transition-all duration-300 shadow-xl hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-md">
-                <div>
-                  <div className={`inline-flex items-center gap-1.5 text-[11px] font-mono font-bold px-3 py-1 rounded-full border mb-4 ${getTierBadgeStyle(partner.role)}`}>
-                    {partner.role}
-                  </div>
+        {/* ── TIERED MOCKUP LAYOUT CONTAINER ── */}
+        <div className="flex flex-col gap-6 sm:gap-7">
+          
+          {/* 1. VENUE PARTNER (Full Width) */}
+          <Reveal direction="up" delay="delay-100">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#0d2347] text-white border border-[#0d2347] shadow-xs">
+                  VENUE PARTNER
+                </span>
+              </div>
+              <div className="flex items-center justify-center py-2 min-h-[90px]">
+                <img
+                  src="/partners/venue-partner-snu.png"
+                  alt="Sister Nivedita University & Techno India Group"
+                  className="h-16 sm:h-20 max-w-full object-contain"
+                />
+              </div>
+            </div>
+          </Reveal>
 
-                  {/* Clean Logo Box with light container for crisp vector contrast */}
-                  <div className={`w-full h-36 bg-white rounded-2xl flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform relative overflow-hidden ${partner.name === 'DesiJourney' ? 'p-1' : 'p-4'}`}>
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                        const fallback = e.currentTarget.parentElement?.querySelector('.logo-fallback');
-                        if (fallback) fallback.classList.remove('hidden');
-                      }}
-                      className={`max-w-full object-contain transition-transform duration-300 ${partner.name === 'DesiJourney' ? 'max-h-32 scale-125' : 'max-h-24'}`}
-                    />
-                    <div className="logo-fallback hidden text-center px-2 py-1">
-                      <div className="font-bebas text-xl sm:text-2xl tracking-wider text-slate-800 leading-tight">
-                        {partner.name}
+          {/* 2. GOLD SPONSOR (Full Width) */}
+          <Reveal direction="up" delay="delay-150">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-gradient-to-b from-amber-50/25 via-white to-amber-50/25 rounded-3xl border border-amber-300/80 shadow-sm hover:shadow-md hover:border-amber-400 transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#c99539] text-white border border-[#b8852d] shadow-xs">
+                  GOLD SPONSOR
+                </span>
+              </div>
+              <div className="flex items-center justify-center py-2 min-h-[95px]">
+                <img
+                  src="/partners/sponsor-infocus.png"
+                  alt="Infocus Technologies Pvt ltd"
+                  className="h-20 sm:h-24 max-w-full object-contain"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 3. SILVER SPONSORS (2 Columns) */}
+          <Reveal direction="up" delay="delay-200">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#8494a5] text-white border border-[#768697] shadow-xs">
+                  SILVER SPONSORS
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-slate-100 py-2">
+                <div className="flex items-center justify-center gap-3.5 py-3">
+                  <img
+                    src="/partners/sponsor-westernacher.png"
+                    alt="Westernacher"
+                    className="h-12 w-12 sm:h-14 sm:w-14 rounded-lg object-contain shadow-xs"
+                  />
+                  <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0082c8] font-sans">
+                    Westernacher
+                  </span>
+                </div>
+                <div className="flex flex-col items-center justify-center gap-2 pt-4 md:pt-0 py-3">
+                  <img
+                    src="/partners/sponsor-tuteck-light.png"
+                    alt="TuTeck Technologies"
+                    className="h-12 sm:h-14 max-w-[210px] object-contain"
+                  />
+                  <span className="inline-block bg-[#eaf3fe] text-[#0070F2] text-[11px] sm:text-xs font-semibold px-3.5 py-0.5 rounded-full border border-[#d0e5fc]">
+                    Also our Business Value Partner
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 4. BRONZE SPONSORS (2 Columns) */}
+          <Reveal direction="up" delay="delay-250">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#a46033] text-white border border-[#915228] shadow-xs">
+                  BRONZE SPONSORS
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-slate-100 py-2">
+                <div className="flex items-center justify-center py-3">
+                  <img
+                    src="/partners/sponsor-tagskills.jpg"
+                    alt="TagSkills EdTech Pvt Ltd"
+                    className="h-14 sm:h-16 max-w-full object-contain"
+                  />
+                </div>
+                <div className="flex items-center justify-center pt-4 md:pt-0 py-3">
+                  <img
+                    src="/partners/sponsor-tns-consulting.jpg"
+                    alt="TNS Consulting Solutions Ltd"
+                    className="h-12 sm:h-14 max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 5. 4-COLUMN ROW (IT Community, Hospitality, Refreshment, Media) */}
+          <Reveal direction="up" delay="delay-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* IT Community Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    IT COMMUNITY PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/partner-kolkata-it-hub.png"
+                    alt="Kolkata IT Hub"
+                    className="max-h-24 max-w-full object-contain rounded-xl"
+                  />
+                </div>
+              </div>
+
+              {/* Hospitality Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    HOSPITALITY PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/partner-desijourney.png"
+                    alt="DesiJourney"
+                    className="max-h-28 max-w-full object-contain scale-115"
+                  />
+                </div>
+              </div>
+
+              {/* Refreshment Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    REFRESHMENT PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/refreshment-partner-tea-buddies.png"
+                    alt="Tea Buddies"
+                    className="max-h-20 max-w-full object-contain rounded-full shadow-2xs"
+                  />
+                </div>
+              </div>
+
+              {/* Media Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    MEDIA PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/media-partner-wikikolkata.png"
+                    alt="Wiki Kolkata"
+                    className="max-h-20 max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 6. BOTTOM ROW (Professional Community & Student Community Partners) */}
+          <Reveal direction="up" delay="delay-350">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Professional Community Partners (AWS & Databricks) */}
+              <div className="lg:col-span-5 relative pt-7 pb-5 px-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    PROFESSIONAL COMMUNITY PARTNERS
+                  </span>
+                </div>
+                <div className="h-32 flex items-center justify-around gap-4 px-2">
+                  <img
+                    src="/partners/partner-aws-kolkata.png"
+                    alt="AWS Users Group, Kolkata (India)"
+                    className="h-20 w-20 sm:h-22 sm:w-22 object-contain rounded-full shadow-xs hover:scale-105 transition-transform"
+                  />
+                  <img
+                    src="/partners/partner-databricks-india.png"
+                    alt="Databricks User Group INDIA"
+                    className="h-20 w-20 sm:h-22 sm:w-22 object-contain rounded-full shadow-xs hover:scale-105 transition-transform"
+                  />
+                </div>
+              </div>
+
+              {/* Student Community Partners (Debuggers United & GDGs) */}
+              <div className="lg:col-span-7 relative pt-7 pb-5 px-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    STUDENT COMMUNITY PARTNERS
+                  </span>
+                </div>
+                <div className="h-auto sm:h-32 flex flex-col sm:flex-row items-center justify-around gap-5 py-2">
+                  <img
+                    src="/partners/partner-debuggers-united.png"
+                    alt="Debuggers United"
+                    className="h-20 w-20 sm:h-22 sm:w-22 object-contain rounded-xl shadow-xs hover:scale-105 transition-transform shrink-0"
+                  />
+                  <div className="flex flex-col gap-2.5">
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-7 h-7 shrink-0" viewBox="0 0 40 40" fill="none">
+                        <path d="M12 10L4 18L12 26" stroke="#EA4335" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M4 18L12 26" stroke="#4285F4" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M28 10L36 18L28 26" stroke="#FBBC05" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M36 18L28 26" stroke="#34A853" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <div className="leading-tight">
+                        <div className="text-xs sm:text-sm font-bold text-slate-800">Google Developer Group</div>
+                        <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">On Campus · Future Institute of Engineering &amp; Management</div>
                       </div>
-                      <div className="text-[10px] uppercase font-mono font-bold tracking-widest text-[#0070F2] mt-1">
-                        {partner.role}
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-7 h-7 shrink-0" viewBox="0 0 40 40" fill="none">
+                        <path d="M12 10L4 18L12 26" stroke="#EA4335" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M4 18L12 26" stroke="#4285F4" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M28 10L36 18L28 26" stroke="#FBBC05" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M36 18L28 26" stroke="#34A853" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <div className="leading-tight">
+                        <div className="text-xs sm:text-sm font-bold text-slate-800">Google Developer Group</div>
+                        <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">On Campus · Meghnad Saha Institute Of Technology</div>
                       </div>
                     </div>
                   </div>
-
-                  <h3 className="text-lg font-black text-white leading-snug mb-1 group-hover:text-amber-300 transition-colors">
-                    {partner.name}
-                  </h3>
-                  <div className="text-xs font-mono font-semibold text-blue-400 mb-2">
-                    {partner.tag}
-                  </div>
-                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
-                    {partner.description}
-                  </p>
                 </div>
               </div>
-            </Reveal>
-          ))}
+
+            </div>
+          </Reveal>
+
         </div>
 
         {/* ── SPONSORSHIP INVITATION CTA ── */}
-        <Reveal direction="up" delay="delay-300" className="mt-12 max-w-4xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-gradient-to-br from-slate-900/95 via-[#0c1527]/95 to-slate-900/95 p-8 sm:p-10 shadow-2xl backdrop-blur-xl group hover:border-amber-400/60 transition-all duration-300">
-            {/* Ambient inner background glows */}
+        <Reveal direction="up" delay="delay-400" className="mt-14 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-400/40 bg-gradient-to-br from-slate-950 via-slate-900 to-[#0b162c] p-8 sm:p-10 shadow-xl text-white">
             <div className="absolute -top-24 -right-24 w-52 h-52 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-52 h-52 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -4400,106 +4495,29 @@ const SponsorsSection = () => {
 };
 
 const CommunityPartnersSection = () => {
-  const communityPartners = [
-    {
-      tier: "IT Community Partner",
-      name: "Kolkata IT Hub",
-      logo: "/partners/partner-kolkata-it-hub.png",
-      tag: "Premier Regional IT Network",
-      badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
-      description: "Driving Kolkata's IT growth, tech excellence, and community connectivity towards Tier-1 leadership."
-    },
-    {
-      tier: "Community Partner",
-      name: "AWS Users Group, Kolkata (India)",
-      logo: "/partners/partner-aws-kolkata.png",
-      tag: "Cloud Developer Community",
-      badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
-      description: "Fostering cloud skills, AWS architectures, and interactive builder workshops across Kolkata."
-    },
-    {
-      tier: "Community Partner",
-      name: "Databricks User Group INDIA",
-      logo: "/partners/partner-databricks-india.png",
-      tag: "Data & AI Community",
-      badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
-      description: "Uniting data practitioners, AI developers, and analytics engineers on lakehouse and generative AI technologies."
-    },
-    {
-      tier: "Student Community Partner",
-      name: "Debuggers United",
-      logo: "/partners/partner-debuggers-united.png",
-      tag: "Student Developer Network",
-      badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
-      description: "Empowering university students and emerging developers through open-source innovation, hackathons, and mentoring."
-    }
-  ];
-
   const marqueePartners = [
+    "Sister Nivedita University",
+    "Infocus Technologies",
+    "Westernacher Consulting",
+    "TuTeck Technologies",
+    "TagSkills EdTech",
+    "TNS Consulting",
     "Kolkata IT Hub",
-    "AWS Users Group, Kolkata (India)",
+    "DesiJourney",
+    "Tea Buddies",
+    "Wiki Kolkata",
+    "AWS Users Group, Kolkata",
     "Databricks User Group INDIA",
     "Debuggers United",
   ];
 
   return (
-    <section id="community-partners" className="py-20 bg-stone-50 overflow-hidden relative border-t border-slate-200">
-      <div className="container mx-auto px-6 relative z-10 mb-12 text-center max-w-5xl">
-        <div className="inline-flex items-center gap-2 mb-3 bg-blue-100/80 border border-blue-200 text-blue-900 px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider">
-          <Users className="w-3.5 h-3.5 text-[#0070F2]" />
-          COMMUNITY ECOSYSTEM
-        </div>
-        <h3 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] to-amber-500">Community Partners</span>
-        </h3>
-        <p className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto mt-2">
-          Empowering developer growth, cloud innovation, and student engineering talent across Eastern India.
-        </p>
-      </div>
-
-      {/* 4 Community Partner Cards with Official Logos */}
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 mb-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {communityPartners.map((partner, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
-            >
-              <div>
-                <span className={`inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold border mb-4 ${partner.badgeColor}`}>
-                  {partner.tier}
-                </span>
-
-                {/* Logo Box */}
-                <div className="w-full h-32 bg-slate-950 rounded-2xl p-3 flex items-center justify-center border border-slate-800 shadow-inner mb-4 group-hover:scale-[1.02] transition-transform overflow-hidden">
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-h-24 max-w-full object-contain rounded-xl"
-                  />
-                </div>
-
-                <div className="text-base font-black text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
-                  {partner.name}
-                </div>
-                <div className="text-[11px] font-mono font-semibold text-[#0070F2] mt-1 mb-2">
-                  {partner.tag}
-                </div>
-                <p className="text-xs text-slate-500 leading-relaxed font-normal">
-                  {partner.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Marquee Track */}
+    <section className="py-14 bg-white overflow-hidden relative border-t border-slate-200">
       <div className="relative flex flex-col gap-6 w-full max-w-[100vw] overflow-hidden">
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
           {[...marqueePartners, ...marqueePartners, ...marqueePartners].map((partner, idx) => (
             <div key={idx} className="mx-6 flex items-center group cursor-pointer">
-              <span className="text-xl md:text-2xl font-black uppercase tracking-wider text-slate-400 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-amber-500 transition-all duration-300">
+              <span className="text-xl md:text-2xl font-black uppercase tracking-wider text-slate-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-amber-500 transition-all duration-300">
                 {partner}
               </span>
               <span className="mx-6 text-amber-400 font-black text-xl opacity-60">•</span>
