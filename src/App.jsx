@@ -4291,7 +4291,7 @@ const SponsorsSection = () => {
                   </div>
 
                   {/* Clean Logo Box with light container for crisp vector contrast */}
-                  <div className="w-full h-36 bg-white rounded-2xl p-4 flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform relative overflow-hidden">
+                  <div className={`w-full h-36 bg-white rounded-2xl flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform relative overflow-hidden ${partner.name === 'DesiJourney' ? 'p-1' : 'p-4'}`}>
                     <img
                       src={partner.logo}
                       alt={partner.name}
@@ -4300,7 +4300,7 @@ const SponsorsSection = () => {
                         const fallback = e.currentTarget.parentElement?.querySelector('.logo-fallback');
                         if (fallback) fallback.classList.remove('hidden');
                       }}
-                      className="max-h-24 max-w-full object-contain"
+                      className={`max-w-full object-contain transition-transform duration-300 ${partner.name === 'DesiJourney' ? 'max-h-32 scale-125' : 'max-h-24'}`}
                     />
                     <div className="logo-fallback hidden text-center px-2 py-1">
                       <div className="font-bebas text-xl sm:text-2xl tracking-wider text-slate-800 leading-tight">
@@ -4400,56 +4400,38 @@ const SponsorsSection = () => {
 };
 
 const CommunityPartnersSection = () => {
-  const communityTiers = [
+  const communityPartners = [
     {
       tier: "IT Community Partner",
+      name: "Kolkata IT Hub",
+      logo: "/partners/partner-kolkata-it-hub.png",
+      tag: "Premier Regional IT Network",
       badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
-      items: [
-        {
-          name: "Kolkata IT Hub",
-          role: "IT Community Partner",
-          tag: "Premier Regional IT Network"
-        }
-      ]
+      description: "Driving Kolkata's IT growth, tech excellence, and community connectivity towards Tier-1 leadership."
     },
     {
-      tier: "Community Partners",
+      tier: "Community Partner",
+      name: "AWS Users Group, Kolkata (India)",
+      logo: "/partners/partner-aws-kolkata.png",
+      tag: "Cloud Developer Community",
       badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
-      items: [
-        {
-          name: "AWS Users Group, Kolkata (India)",
-          role: "Community Partner",
-          tag: "Cloud Developer Community"
-        },
-        {
-          name: "Databricks User Group INDIA",
-          role: "Community Partner",
-          tag: "Data & AI Community"
-        }
-      ]
+      description: "Fostering cloud skills, AWS architectures, and interactive builder workshops across Kolkata."
     },
     {
-      tier: "Student Community Partners",
+      tier: "Community Partner",
+      name: "Databricks User Group INDIA",
+      logo: "/partners/partner-databricks-india.png",
+      tag: "Data & AI Community",
+      badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
+      description: "Uniting data practitioners, AI developers, and analytics engineers on lakehouse and generative AI technologies."
+    },
+    {
+      tier: "Student Community Partner",
+      name: "Debuggers United",
+      logo: "/partners/partner-debuggers-united.png",
+      tag: "Student Developer Network",
       badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
-      items: [
-        {
-          name: "Debuggers United",
-          role: "Student Community Partner",
-          tag: "Student Developer Network"
-        },
-        {
-          name: "GDG on Campus FIEM",
-          fullName: "Future Institute of Engineering and Management",
-          role: "Student Community Partner",
-          tag: "Google Developer Group"
-        },
-        {
-          name: "GDG on Campus MSIT",
-          fullName: "Meghnad Saha Institute of Technology",
-          role: "Student Community Partner",
-          tag: "Google Developer Group"
-        }
-      ]
+      description: "Empowering university students and emerging developers through open-source innovation, hackathons, and mentoring."
     }
   ];
 
@@ -4458,8 +4440,6 @@ const CommunityPartnersSection = () => {
     "AWS Users Group, Kolkata (India)",
     "Databricks User Group INDIA",
     "Debuggers United",
-    "GDG on Campus Future Institute of Engineering and Management",
-    "Google Developer Group on Campus MSIT",
   ];
 
   return (
@@ -4473,40 +4453,41 @@ const CommunityPartnersSection = () => {
           Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] to-amber-500">Community Partners</span>
         </h3>
         <p className="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto mt-2">
-          Empowering developer growth, open-source innovation, and student engineering talent across Eastern India.
+          Empowering developer growth, cloud innovation, and student engineering talent across Eastern India.
         </p>
       </div>
 
-      {/* Tiered Categorized Grid */}
-      <div className="container mx-auto px-6 max-w-6xl relative z-10 mb-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {communityTiers.map((tierGroup, idx) => (
+      {/* 4 Community Partner Cards with Official Logos */}
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {communityPartners.map((partner, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
             >
               <div>
-                <span className={`inline-block px-3 py-1 rounded-full text-xs font-mono font-bold border mb-4 ${tierGroup.badgeColor}`}>
-                  {tierGroup.tier}
+                <span className={`inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold border mb-4 ${partner.badgeColor}`}>
+                  {partner.tier}
                 </span>
 
-                <div className="space-y-3.5">
-                  {tierGroup.items.map((item, pIdx) => (
-                    <div key={pIdx} className="p-3.5 rounded-2xl bg-stone-50/80 border border-stone-200/70 hover:border-blue-300 transition-colors">
-                      <div className="text-sm font-black text-slate-900 leading-snug">
-                        {item.name}
-                      </div>
-                      {item.fullName && (
-                        <div className="text-[11px] text-slate-500 font-medium mt-0.5">
-                          {item.fullName}
-                        </div>
-                      )}
-                      <div className="text-[11px] font-mono font-semibold text-[#0070F2] mt-1">
-                        {item.tag}
-                      </div>
-                    </div>
-                  ))}
+                {/* Logo Box */}
+                <div className="w-full h-32 bg-slate-950 rounded-2xl p-3 flex items-center justify-center border border-slate-800 shadow-inner mb-4 group-hover:scale-[1.02] transition-transform overflow-hidden">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-24 max-w-full object-contain rounded-xl"
+                  />
                 </div>
+
+                <div className="text-base font-black text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                  {partner.name}
+                </div>
+                <div className="text-[11px] font-mono font-semibold text-[#0070F2] mt-1 mb-2">
+                  {partner.tag}
+                </div>
+                <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                  {partner.description}
+                </p>
               </div>
             </div>
           ))}
