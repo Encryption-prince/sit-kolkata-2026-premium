@@ -2058,11 +2058,20 @@ const speakersData = [
     topic: "Keynote & Panel: Enterprise Leadership, SAP Ecosystem Innovations & Social Impact",
     bio: "Senior Director at SAP and Founder of My Children Foundation. An executive technology leader driving global enterprise transformation, SAP cloud adoption, and purpose-driven community impact.",
     takeaways: [
-      { title: "Strategic Enterprise Leadership", desc: "Guiding organizations through mission-critical digital & SAP cloud transformations." },
-      { title: "Technology with Purpose", desc: "Bridging corporate technology innovation with meaningful social impact through foundation initiatives." },
-      { title: "Executive Leadership Insights", desc: "Actionable perspectives on leading high-performing technology teams across SAP ecosystems." },
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["Keynote Speaker", "Panelist", "Senior Director SAP", "Leadership"],
+    tags: ["Keynote Speaker","Panelist","Senior Director SAP","Leadership"],
     accentColor: "#0070F2",
     img: "/speakers/debashis-majumder-poster.jpg",
     poster: "/speakers/debashis-majumder-poster.jpg",
@@ -2079,11 +2088,20 @@ const speakersData = [
     topic: "SAP Cloud ALM Roadshow: AI-Powered Digital Transformation | Cloud ALM | GTM & Adoption",
     bio: "Director – SAP ALM Global Rollout at SAP. Spearheading AI-Powered Digital Transformation, SAP Cloud ALM strategy, Go-To-Market (GTM) execution, and enterprise adoption globally.",
     takeaways: [
-      { title: "AI-Powered Digital Transformation", desc: "Unlocking operational excellence & proactive maintenance with SAP Cloud ALM." },
-      { title: "Cloud ALM & Clean Core Alignment", desc: "Strategies for managing modern hybrid SAP software lifecycles." },
-      { title: "GTM & Enterprise Adoption Frameworks", desc: "Scaling digital transformation methodologies across enterprise landscapes." },
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["SAP Cloud ALM", "AI Transformation", "Cloud ALM GTM", "Roadshow Keynote"],
+    tags: ["SAP Cloud ALM","AI Transformation","Cloud ALM GTM","Roadshow Keynote"],
     accentColor: "#0070F2",
     img: "/speakers/sunil-chopra-poster.jpg",
     poster: "/speakers/sunil-chopra-poster.jpg",
@@ -2100,11 +2118,20 @@ const speakersData = [
     topic: "Business & Strategy Program Management: SAP Basis, HANA & Project Management",
     bio: "Business & Strategy Principal Program Manager at SAP with deep expertise in SAP Basis & HANA platforms, large-scale program delivery, and strategic enterprise architecture.",
     takeaways: [
-      { title: "HANA & Basis Architecture", desc: "Best practices for maintaining peak performance, high availability, and resilience in SAP HANA landscapes." },
-      { title: "Strategic Program Execution", desc: "Frameworks for managing complex, multi-stakeholder enterprise SAP rollouts and transitions." },
-      { title: "Modernization Roadmap", desc: "Navigating enterprise modernization paths for core SAP systems and cloud landscapes." },
+          {
+                title: "HANA & Basis Architecture",
+                desc: "Best practices for maintaining peak performance, high availability, and resilience in SAP HANA landscapes."
+          },
+          {
+                title: "Strategic Program Execution",
+                desc: "Frameworks for managing complex, multi-stakeholder enterprise SAP rollouts and transitions."
+          },
+          {
+                title: "Modernization Roadmap",
+                desc: "Navigating enterprise modernization paths for core SAP systems and cloud landscapes."
+          }
     ],
-    tags: ["Speaker", "SAP Basis & HANA", "Program Management", "Strategy"],
+    tags: ["Speaker","SAP Basis & HANA","Program Management","Strategy"],
     accentColor: "#F59E0B",
     img: "/speakers/sayantan-kar-poster.jpg",
     poster: "/speakers/sayantan-kar-poster.jpg",
@@ -2121,11 +2148,20 @@ const speakersData = [
     topic: "Panelist: GCC Strategy, Global IT Delivery Centers & AI-Driven Digital Transformation",
     bio: "Director – Global IT Delivery Centers at Linde plc. Seasoned executive driving Global Capability Center (GCC) strategies, enterprise IT delivery scaling, and applied AI transformation.",
     takeaways: [
-      { title: "GCC Strategy & Delivery at Scale", desc: "Building and scaling high-efficiency Global Capability Centers in India." },
-      { title: "AI & Digital Transformation", desc: "Deploying applied AI and automation across complex global IT and enterprise operations." },
-      { title: "Global Technology Leadership", desc: "Driving cross-functional execution and agility across multi-country enterprise landscapes." },
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Panelist", "Linde plc", "GCC Strategy", "AI & Transformation"],
+    tags: ["Panelist","Linde plc","GCC Strategy","AI & Transformation"],
     accentColor: "#8B5CF6",
     img: "/speakers/subimal-chakraborty-poster.jpg",
     poster: "/speakers/subimal-chakraborty-poster.jpg",
@@ -2142,11 +2178,20 @@ const speakersData = [
     topic: "Panelist: Industry CoE & AI, ERP & Middleware Architecture | 22+ Years Leadership",
     bio: "Head – Industry CoE & AI with 22+ years of business and technology leadership spanning enterprise ERP systems, middleware architectures, and AI-enabled industry solutions.",
     takeaways: [
-      { title: "Industry CoE Best Practices", desc: "Structuring Centers of Excellence to accelerate enterprise business value and AI innovation." },
-      { title: "ERP & Middleware Integration", desc: "Architecting seamless integration pipelines connecting modern SAP with middleware platforms." },
-      { title: "22+ Years Leadership Wisdom", desc: "Navigating paradigm shifts from legacy ERP to cloud-native, AI-augmented enterprise platforms." },
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "Industry CoE", "ERP & Middleware", "22+ Yrs Experience"],
+    tags: ["Panelist","Industry CoE","ERP & Middleware","22+ Yrs Experience"],
     accentColor: "#EC4899",
     img: "/speakers/monimoy-kundu-poster.jpg",
     poster: "/speakers/monimoy-kundu-poster.jpg",
@@ -2163,11 +2208,20 @@ const speakersData = [
     topic: "SAP Data & Transformation: 18+ Years in SAP Data, Analytics & Enterprise Delivery",
     bio: "Senior Manager at EY GDS with previous leadership experience at PwC and IBM. Boasts 18+ years of expertise delivering large-scale SAP data migrations, analytics architecture, and complex enterprise transformations.",
     takeaways: [
-      { title: "SAP Data Migration Mastery", desc: "Proven strategies for high-fidelity data migration, cleansing, and governance during S/4HANA transformations." },
-      { title: "Enterprise Transformation Playbook", desc: "Key insights from 18+ years managing Big 4 enterprise SAP implementations." },
-      { title: "Clean Data for Clean Core", desc: "Ensuring clean, harmonized data models to power AI workflows and modern analytical platforms." },
+          {
+                title: "SAP Data Migration Mastery",
+                desc: "Proven strategies for high-fidelity data migration, cleansing, and governance during S/4HANA transformations."
+          },
+          {
+                title: "Enterprise Transformation Playbook",
+                desc: "Key insights from 18+ years managing Big 4 enterprise SAP implementations."
+          },
+          {
+                title: "Clean Data for Clean Core",
+                desc: "Ensuring clean, harmonized data models to power AI workflows and modern analytical platforms."
+          }
     ],
-    tags: ["Speaker", "EY GDS", "SAP Data & AI", "18+ Yrs Experience"],
+    tags: ["Speaker","EY GDS","SAP Data & AI","18+ Yrs Experience"],
     accentColor: "#10B981",
     img: "/speakers/prasen-bose-poster.jpg",
     poster: "/speakers/prasen-bose-poster.jpg",
@@ -2184,11 +2238,20 @@ const speakersData = [
     topic: "Executive Panelist: Data & Analytics Strategy, SAP Business Data Cloud & Product Management",
     bio: "Vice President - Data & Analytics at SAP Business Data Cloud. Leading product management, strategic data mesh architectures, and analytics innovation across the SAP ecosystem.",
     takeaways: [
-      { title: "SAP Business Data Cloud Strategy", desc: "Enterprise data context, business semantics, and cloud data integration." },
-      { title: "Product Management & Innovation", desc: "Future roadmap of SAP Datasphere & SAP Analytics Cloud capabilities." },
-      { title: "Interactive Executive Panel", desc: "Direct dialogue on enterprise analytics, governance, and AI data strategy." },
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Data & Analytics", "SAP Business Data Cloud", "Product Strategy", "Panelist"],
+    tags: ["Data & Analytics","SAP Business Data Cloud","Product Strategy","Panelist"],
     accentColor: "#F59E0B",
     img: "/speakers/srini-gottimukkula-poster.jpg",
     poster: "/speakers/srini-gottimukkula-poster.jpg",
@@ -2205,11 +2268,20 @@ const speakersData = [
     topic: "20+ Years in SAP: S/4HANA Solution Architecture & Clean Core Innovation",
     bio: "SAP Developer Network (SDN) Hall of Fame member with 20+ years of SAP expertise. Senior S/4HANA Solution Architect driving enterprise ERP transformations and modern clean code engineering.",
     takeaways: [
-      { title: "20+ Years SAP Engineering Insights", desc: "Battle-tested architectural wisdom from two decades of enterprise SAP implementations." },
-      { title: "S/4HANA Clean Core Architecture", desc: "Designing upgrade-safe extensions and decoupling custom business logic." },
-      { title: "SDN Hall of Fame Developer Mastery", desc: "Elevating community code standards, modern ABAP RESTful programming (RAP), and CDS." },
+          {
+                title: "20+ Years SAP Engineering Insights",
+                desc: "Battle-tested architectural wisdom from two decades of enterprise SAP implementations."
+          },
+          {
+                title: "S/4HANA Clean Core Architecture",
+                desc: "Designing upgrade-safe extensions and decoupling custom business logic."
+          },
+          {
+                title: "SDN Hall of Fame Developer Mastery",
+                desc: "Elevating community code standards, modern ABAP RESTful programming (RAP), and CDS."
+          }
     ],
-    tags: ["SAP S/4HANA", "Solution Architect", "SDN Hall of Fame", "20+ Yrs SAP"],
+    tags: ["SAP S/4HANA","Solution Architect","SDN Hall of Fame","20+ Yrs SAP"],
     accentColor: "#06B6D4",
     img: "/speakers/arghadip-kar-poster.jpg",
     poster: "/speakers/arghadip-kar-poster.jpg",
@@ -2219,18 +2291,27 @@ const speakersData = [
     id: 9,
     name: "Rajesh Ray",
     role: "Business Transformation & Sustainability Expert",
-    company: 'Author – "Sustainable Business Strategies" | 65+ Published Articles',
+    company: "Author – \"Sustainable Business Strategies\" | 65+ Published Articles",
     category: "Speaker",
     track: "Business Transformation & Sustainability",
     time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
     topic: "Sustainable Business Strategies: Integrating ESG, Circular Economy & Digital Enterprise Transformation",
     bio: "Business Transformation & Sustainability Expert with over 26 years of corporate leadership across SAP Consulting, IBM, and Innoverv. Author of McGraw Hill's 'Sustainable Business Strategies' with 65+ published articles, guiding global organizations on ESG integration and circular value chains.",
     takeaways: [
-      { title: "Sustainable Business Strategies", desc: "Integrating ESG principles and circular economy models into core business and enterprise architectures." },
-      { title: "65+ Published Articles & Insights", desc: "Actionable frameworks on digital supply chain decarbonization, carbon management, and process consulting." },
-      { title: "Enterprise Transformation", desc: "Proven strategies from 26+ years of consulting leadership to drive measurable environmental and business value." },
+          {
+                title: "Sustainable Business Strategies",
+                desc: "Integrating ESG principles and circular economy models into core business and enterprise architectures."
+          },
+          {
+                title: "65+ Published Articles & Insights",
+                desc: "Actionable frameworks on digital supply chain decarbonization, carbon management, and process consulting."
+          },
+          {
+                title: "Enterprise Transformation",
+                desc: "Proven strategies from 26+ years of consulting leadership to drive measurable environmental and business value."
+          }
     ],
-    tags: ["Speaker", "Sustainability Expert", "ESG & Circular Economy", "Author"],
+    tags: ["Speaker","Sustainability Expert","ESG & Circular Economy","Author"],
     accentColor: "#10B981",
     img: "/speakers/rajesh-ray-poster.jpg",
     poster: "/speakers/rajesh-ray-poster.jpg",
@@ -2247,11 +2328,20 @@ const speakersData = [
     topic: "Executive Panel: FutureNow Center Leadership, SAP Business AI & Next-Gen Enterprise Transformation",
     bio: "Partner & Executive – SAP Practice Leader at IBM FutureNow Center with 23+ years of consulting experience. Spearheading SAP AI innovation, enterprise digital transformations, and next-generation delivery frameworks for global clients.",
     takeaways: [
-      { title: "FutureNow Enterprise Architecture", desc: "Accelerating the journey to autonomous enterprise operations powered by Business AI and SAP." },
-      { title: "23+ Years Consulting Mastery", desc: "Battle-tested executive frameworks for large-scale enterprise delivery, migration strategy, and innovation." },
-      { title: "Executive Panel Insights", desc: "Strategic dialogue on the real-world convergence of SAP S/4HANA, AI orchestration, and cloud platforms." },
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Panelist", "IBM FutureNow Center", "SAP Practice Leader", "23+ Yrs Consulting"],
+    tags: ["Panelist","IBM FutureNow Center","SAP Practice Leader","23+ Yrs Consulting"],
     accentColor: "#0070F2",
     img: "/speakers/prasun-dutta-poster.jpg",
     poster: "/speakers/prasun-dutta-poster.jpg",
@@ -2268,11 +2358,20 @@ const speakersData = [
     topic: "Enterprise Solutions & Mobile Enablement: Modernizing Field Operations with SAP",
     bio: "SAP Software Specialist at Evora with 7+ years of specialized SAP experience. Expert in enterprise mobile enablement, Asset Management solutions, and empowering field workforces with intuitive digital interfaces.",
     takeaways: [
-      { title: "SAP Mobile Enablement", desc: "Bridging field operations and enterprise core systems through responsive, high-performance mobile architectures." },
-      { title: "Enterprise Solutions & Integration", desc: "Deploying secure, real-time enterprise applications integrated with modern SAP backends and cloud APIs." },
-      { title: "Operational Excellence", desc: "Maximizing workforce productivity and asset uptime using next-generation SAP mobility solutions." },
+          {
+                title: "SAP Mobile Enablement",
+                desc: "Bridging field operations and enterprise core systems through responsive, high-performance mobile architectures."
+          },
+          {
+                title: "Enterprise Solutions & Integration",
+                desc: "Deploying secure, real-time enterprise applications integrated with modern SAP backends and cloud APIs."
+          },
+          {
+                title: "Operational Excellence",
+                desc: "Maximizing workforce productivity and asset uptime using next-generation SAP mobility solutions."
+          }
     ],
-    tags: ["Speaker", "Evora", "Mobile Enablement", "Enterprise Solutions", "7+ Yrs SAP"],
+    tags: ["Speaker","Evora","Mobile Enablement","Enterprise Solutions","7+ Yrs SAP"],
     accentColor: "#F59E0B",
     img: "/speakers/abhishek-chatterjee-poster.jpg",
     poster: "/speakers/abhishek-chatterjee-poster.jpg",
@@ -2289,11 +2388,20 @@ const speakersData = [
     topic: "Architecting the Intelligent Enterprise: 20+ Years in SAP BTP, S/4HANA & Multi-Cloud Architecture",
     bio: "Director at Innoverv Global Solutions with 20+ years of SAP experience. TOGAF® certified SAP BTP & S/4HANA Solution Architect specializing in multi-cloud architecture, clean core principles, and enterprise modernization.",
     takeaways: [
-      { title: "SAP BTP & Multi-Cloud Strategy", desc: "Architecting cloud-native enterprise extensions and integrating hyperscaler capabilities with SAP BTP." },
-      { title: "TOGAF® Architecture Governance", desc: "Applying robust enterprise architecture frameworks to complex, global SAP S/4HANA implementations." },
-      { title: "20+ Years Architectural Wisdom", desc: "Designing upgrade-resilient clean-core architectures that decouple custom innovations from the core." },
+          {
+                title: "SAP BTP & Multi-Cloud Strategy",
+                desc: "Architecting cloud-native enterprise extensions and integrating hyperscaler capabilities with SAP BTP."
+          },
+          {
+                title: "TOGAF® Architecture Governance",
+                desc: "Applying robust enterprise architecture frameworks to complex, global SAP S/4HANA implementations."
+          },
+          {
+                title: "20+ Years Architectural Wisdom",
+                desc: "Designing upgrade-resilient clean-core architectures that decouple custom innovations from the core."
+          }
     ],
-    tags: ["Speaker", "Innoverv", "SAP BTP", "S/4HANA Architect", "TOGAF®", "20+ Yrs SAP"],
+    tags: ["Speaker","Innoverv","SAP BTP","S/4HANA Architect","TOGAF®","20+ Yrs SAP"],
     accentColor: "#6366F1",
     img: "/speakers/anupam-dutta-roy-poster.jpg",
     poster: "/speakers/anupam-dutta-roy-poster.jpg",
@@ -2310,11 +2418,20 @@ const speakersData = [
     topic: "SAP BTP & S/4HANA Architecture: Building Scalable Cloud Solutions & Clean Core Extensions",
     bio: "Associate Director at Innoverv with 12+ years of SAP expertise. Experienced SAP BTP & S/4HANA Solution Architect leading digital delivery, enterprise cloud architecture, and end-to-end transformation programs.",
     takeaways: [
-      { title: "SAP BTP Solution Architecture", desc: "Designing robust, scalable side-by-side extensions and modern integration suites on SAP BTP." },
-      { title: "12+ Years Enterprise Delivery", desc: "Best practices and key takeaways from leading mission-critical SAP S/4HANA enterprise engagements." },
-      { title: "Clean Core Innovation", desc: "Accelerating business modernization while ensuring lifecycle stability and clean-core compliance." },
+          {
+                title: "SAP BTP Solution Architecture",
+                desc: "Designing robust, scalable side-by-side extensions and modern integration suites on SAP BTP."
+          },
+          {
+                title: "12+ Years Enterprise Delivery",
+                desc: "Best practices and key takeaways from leading mission-critical SAP S/4HANA enterprise engagements."
+          },
+          {
+                title: "Clean Core Innovation",
+                desc: "Accelerating business modernization while ensuring lifecycle stability and clean-core compliance."
+          }
     ],
-    tags: ["Speaker", "Innoverv", "SAP BTP", "S/4HANA Architect", "12+ Yrs SAP"],
+    tags: ["Speaker","Innoverv","SAP BTP","S/4HANA Architect","12+ Yrs SAP"],
     accentColor: "#EC4899",
     img: "/speakers/paramita-sarkar-poster.jpg",
     poster: "/speakers/paramita-sarkar-poster.jpg",
@@ -2331,11 +2448,20 @@ const speakersData = [
     topic: "Executive Panel: Entrepreneurship, Enterprise Strategy & 24+ Years of SAP Solution Architecture",
     bio: "Founder of Arodek, Entrepreneur & Strategic Leader, and distinguished SAP Solution Architect with 24+ years of industry experience. Leading digital innovations, enterprise implementations, and technology advisory for global organizations.",
     takeaways: [
-      { title: "24+ Years Architectural Mastery", desc: "Proven architectural blueprints for large-scale enterprise SAP deployments and cloud modernizations." },
-      { title: "Entrepreneurship & Leadership", desc: "Key insights on founding, growing, and scaling a premier IT services and consulting enterprise." },
-      { title: "Executive Panel Perspectives", desc: "Engaging discussions on navigating digital transformation, agility, and business value creation." },
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "Founder Arodek", "SAP Solution Architect", "24+ Yrs Experience"],
+    tags: ["Panelist","Founder Arodek","SAP Solution Architect","24+ Yrs Experience"],
     accentColor: "#0EA5E9",
     img: "/speakers/dr-sugata-roy-poster.jpg",
     poster: "/speakers/dr-sugata-roy-poster.jpg",
@@ -2352,11 +2478,20 @@ const speakersData = [
     topic: "Enterprise Transformation & Community Empowerment: 13+ Years Scaling SAP Ecosystems",
     bio: "Founder & CEO of TagSkills Group with 13+ years of experience in SAP and enterprise transformation. Passionate edtech entrepreneur empowering the next generation of SAP talent and driving digital workforce excellence.",
     takeaways: [
-      { title: "13+ Years Transformation Experience", desc: "Navigating enterprise SAP lifecycles, project governance, and organizational transformation." },
-      { title: "Empowering the SAP Ecosystem", desc: "Bridging the talent gap with modern skill building, mentorship, and practical enterprise training." },
-      { title: "Next-Gen Enterprise Capability", desc: "Strategies for organizations to upskill teams on modern cloud SAP architectures." },
+          {
+                title: "13+ Years Transformation Experience",
+                desc: "Navigating enterprise SAP lifecycles, project governance, and organizational transformation."
+          },
+          {
+                title: "Empowering the SAP Ecosystem",
+                desc: "Bridging the talent gap with modern skill building, mentorship, and practical enterprise training."
+          },
+          {
+                title: "Next-Gen Enterprise Capability",
+                desc: "Strategies for organizations to upskill teams on modern cloud SAP architectures."
+          }
     ],
-    tags: ["Speaker", "TagSkills Group", "Founder & CEO", "13+ Yrs SAP"],
+    tags: ["Speaker","TagSkills Group","Founder & CEO","13+ Yrs SAP"],
     accentColor: "#F59E0B",
     img: "/speakers/prashun-shetty-poster.jpg",
     poster: "/speakers/prashun-shetty-poster.jpg",
@@ -2373,11 +2508,20 @@ const speakersData = [
     topic: "Executive Panel Host: CXO Transformation, Start-Up Innovation & Cloud Ecosystem Strategy",
     bio: "CXO Transformation Agent, Member of the CII ICT & Start-up Committee, with senior leadership background spanning AWS, IBM, HPE, and Wipro. High-impact enterprise leader facilitating strategic executive dialogues on cloud modernizations and startup acceleration.",
     takeaways: [
-      { title: "CXO Strategy & Transformation", desc: "Directing high-stakes executive leadership conversations on tech convergence, cloud, and ROI." },
-      { title: "Cross-Industry Wisdom", desc: "Invaluable insights gained from leadership across hyperscalers and tech giants like AWS, IBM, HPE & Wipro." },
-      { title: "Interactive Panel Facilitation", desc: "Guiding the executive panel to extract actionable takeaways for enterprise attendees." },
+          {
+                title: "Executive Panel Moderation",
+                desc: "Facilitating C-suite dialogue across enterprise leadership, startup ecosystems, and cloud modernizations."
+          },
+          {
+                title: "CXO Transformation Strategies",
+                desc: "Actionable frameworks for aligning technological innovation with strategic capital investment."
+          },
+          {
+                title: "Cloud & AI Ecosystem Synergy",
+                desc: "Harnessing multi-cloud partnerships to accelerate enterprise value realization."
+          }
     ],
-    tags: ["Panel Host", "CXO Transformation", "CII Committee", "AWS", "Ex-IBM"],
+    tags: ["Panel Host","CXO Transformation","CII Committee","AWS","Ex-IBM"],
     accentColor: "#8B5CF6",
     img: "/speakers/amitava-nag-poster.jpg",
     poster: "/speakers/amitava-nag-poster.jpg",
@@ -2394,11 +2538,20 @@ const speakersData = [
     topic: "Executive Panel: 20+ Years in SAP S/4HANA Transformation, Business Sales & Enterprise Delivery",
     bio: "Executive with 20+ years of proven expertise in SAP and enterprise transformation. Distinguished business sales and delivery leader steering complex SAP S/4HANA adoption, enterprise strategy, and customer value realization.",
     takeaways: [
-      { title: "20+ Years SAP Experience", desc: "Strategic wisdom from two decades of driving large-scale SAP sales cycles and delivery milestones." },
-      { title: "S/4HANA Transformation Playbook", desc: "Aligning business KPIs with IT modernization to ensure seamless S/4HANA migrations." },
-      { title: "Executive Panel Perspectives", desc: "Navigating client value, contract execution, and ecosystem partnerships in the SAP cloud era." },
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["Panelist", "SAP S/4HANA", "Sales & Delivery", "20+ Yrs SAP"],
+    tags: ["Panelist","SAP S/4HANA","Sales & Delivery","20+ Yrs SAP"],
     accentColor: "#EC4899",
     img: "/speakers/manzoor-hasan-poster.jpg",
     poster: "/speakers/manzoor-hasan-poster.jpg",
@@ -2415,11 +2568,20 @@ const speakersData = [
     topic: "Keynote: Scaling SAP Across Business & Intelligent Operations Transformation",
     bio: "Pankaj Lal is the Managing Partner at Westernacher India with extensive executive leadership in enterprise supply chain, digital transformation, and SAP consulting across global markets.",
     takeaways: [
-      "Keynote perspectives on scaling enterprise core systems for modern business velocity",
-      "Strategic alignment between SAP S/4HANA operations and AI-driven intelligence",
-      "Execution playbooks for resilient global supply chain architectures"
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Keynote", "Panelist", "Westernacher", "Managing Partner", "Supply Chain"],
+    tags: ["Keynote","Panelist","Westernacher","Managing Partner","Supply Chain"],
     accentColor: "#0082C8",
     img: "/speakers/pankaj-lal.jpg",
     poster: "/speakers/panel-poster-01.jpg",
@@ -2436,11 +2598,20 @@ const speakersData = [
     topic: "Panel Host: Enterprise Transformation, Strategic Architecture & SAP Intelligent Operations",
     bio: "Mrinal Kaantee Chanda is a Senior Enterprise Architect at SAP Labs India, orchestrating executive panel sessions on core transformation, clean core architecture, and cloud strategy.",
     takeaways: [
-      "Guiding cross-enterprise leadership through large-scale core migrations",
-      "Clean core methodologies for future-proof SAP S/4HANA extensibility",
-      "Connecting architectural design with measurable business outcomes"
+          {
+                title: "Panel 1 · Scaling Intelligent Operations",
+                desc: "Synthesizing executive strategies for scaling AI and trusted enterprise data foundations beyond the core."
+          },
+          {
+                title: "Panel 2 · Strategic Enterprise Leadership",
+                desc: "Leading executive dialogue on reimagining business strategy, S/4HANA transformation, and human-centric change."
+          },
+          {
+                title: "Executive Architectural Blueprint",
+                desc: "Bridging boardroom strategy with actionable technical execution across modern SAP ecosystems."
+          }
     ],
-    tags: ["Panel Host", "Moderator", "SAP Labs India", "Enterprise Architect", "Clean Core"],
+    tags: ["Panel Host","Moderator","SAP Labs India","Enterprise Architect","Clean Core"],
     accentColor: "#0070F2",
     img: "/speakers/mrinal-kaantee-chanda.jpg",
     poster: "/speakers/panel-poster-01.jpg",
@@ -2457,11 +2628,20 @@ const speakersData = [
     topic: "Beyond AI Adoption: Building Intelligent Enterprises & Creating Value in the AI Economy",
     bio: "Dr. Indranil Mitra is a Partner and Lead AI expert driving enterprise artificial intelligence architectures, generative AI scaling, and intelligent decision systems across Fortune 500 enterprises.",
     takeaways: [
-      "Scaling AI beyond pilots into foundational business processes",
-      "Value creation frameworks in the modern enterprise AI economy",
-      "Governance, trustworthiness, and ROI in large-scale AI adoption"
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "Partner & Lead AI", "Artificial Intelligence", "Generative AI"],
+    tags: ["Panelist","Partner & Lead AI","Artificial Intelligence","Generative AI"],
     accentColor: "#7C3AED",
     img: "/speakers/dr-indranil-mitra.jpg",
     poster: "/speakers/panel-poster-01.jpg",
@@ -2478,11 +2658,20 @@ const speakersData = [
     topic: "Enterprise Core to Intelligent Operations: Scaling SAP, Data & AI Across Business",
     bio: "Kaveri Biswas is Chief Manager – SAP Advisory at Parle Biscuits Pvt. Ltd., specializing in large-scale FMCG enterprise systems, business process advisory, and digital transformation.",
     takeaways: [
-      "FMCG enterprise SAP strategies for high-volume retail distribution",
-      "Operational agility and core modernization in consumer manufacturing",
-      "Data-driven supply chain resilience and automated operations"
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Panelist", "Parle Biscuits", "SAP Advisory", "FMCG", "Operations"],
+    tags: ["Panelist","Parle Biscuits","SAP Advisory","FMCG","Operations"],
     accentColor: "#E11D48",
     img: "/speakers/kaveri-biswas.jpg",
     poster: "/speakers/panel-poster-01.jpg",
@@ -2499,11 +2688,20 @@ const speakersData = [
     topic: "Building Intelligent Enterprises & Data Platforms in the AI Economy",
     bio: "Tilak Kumar Dhar leads Forward Deployed Engineering at Databricks, enabling enterprise data lakehouse architectures, real-time analytics, and enterprise GenAI systems.",
     takeaways: [
-      { title: "Lakehouse Architecture", desc: "Best practices for architecting mission-critical data platforms with Databricks." },
-      { title: "Forward Deployed Engineering", desc: "Deploying high-velocity engineering strategies to accelerate generative AI adoption." },
-      { title: "Unified Enterprise Governance", desc: "Unifying analytics, model serving, and governance across enterprise hybrid clouds." }
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "Databricks", "Forward Deployed Engineering", "Lakehouse", "AI"],
+    tags: ["Panelist","Databricks","Forward Deployed Engineering","Lakehouse","AI"],
     accentColor: "#FF3621",
     img: "/speakers/tilak-kumar-dhar.jpg",
     poster: "/speakers/panel-poster-01.jpg",
@@ -2520,11 +2718,20 @@ const speakersData = [
     topic: "Leading Through Transformation: Reimagining Enterprise Strategy, Technology & Future Business",
     bio: "Shib Shekhar Ghosh is VP – Digital & Technology at Diageo, leading global consumer goods digital engineering, technology transformation, and modern enterprise IT strategies.",
     takeaways: [
-      { title: "Global Digital Strategy", desc: "Executive perspectives on driving technology transformation across multinational brands." },
-      { title: "Consumer Experience Innovation", desc: "Reimagining consumer journeys through connected ERP and agile digital foundations." },
-      { title: "Agile Leadership Culture", desc: "Cultivating high-performing, cross-functional technology teams in global enterprises." }
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["Panelist", "Diageo", "VP Digital & Technology", "Enterprise Strategy", "Transformation"],
+    tags: ["Panelist","Diageo","VP Digital & Technology","Enterprise Strategy","Transformation"],
     accentColor: "#2563EB",
     img: "/speakers/shib-shekhar-ghosh.jpg",
     poster: "/speakers/panel-poster-01.jpg",
@@ -2541,11 +2748,20 @@ const speakersData = [
     topic: "Moderator: Beyond AI Adoption — Building Intelligent Enterprises and Creating Value in the AI Economy",
     bio: "Arindam Hari serves as CEO at Acceleron Solutions and Group CIO at Gainwell Group, driving C-suite technology vision, AI capitalization, and enterprise agility across industrial and infrastructure verticals.",
     takeaways: [
-      { title: "CXO Technology Vision", desc: "Aligning capital allocation, business outcomes, and emerging technology adoption." },
-      { title: "Enterprise AI Capitalization", desc: "Moving from proof-of-concept AI experiments to sustainable balance sheet value." },
-      { title: "Executive Governance", desc: "Fostering an enterprise culture that thrives in the rapidly evolving AI economy." }
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panel Host", "Moderator", "CEO & CIO", "Gainwell", "Acceleron", "AI Economy"],
+    tags: ["Panel Host","Moderator","CEO & CIO","Gainwell","Acceleron","AI Economy"],
     accentColor: "#D97706",
     img: "/speakers/arindam-hari.jpg",
     poster: "/speakers/poster-sharmistha-sanyal-solo.jpg",
@@ -2562,11 +2778,20 @@ const speakersData = [
     topic: "Beyond AI Adoption: Building Intelligent Enterprises & Strategic AI Value",
     bio: "Sabyasachi Biswas is the Founder Director at VarionHub and Global Strategy Advisor at TuTeck Technologies, advising enterprises on strategic innovation, AI business value, and digital growth.",
     takeaways: [
-      "Translating AI capabilities into sustainable enterprise P&L impact",
-      "Strategic ecosystem partnerships and innovation commercialization",
-      "Building resilient business models for the intelligent enterprise era"
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "VarionHub", "TuTeck Advisor", "Global Strategy", "AI Value"],
+    tags: ["Panelist","VarionHub","TuTeck Advisor","Global Strategy","AI Value"],
     accentColor: "#059669",
     img: "/speakers/sabyasachi-biswas.jpg",
     poster: "/speakers/panel-poster-02.jpg",
@@ -2583,11 +2808,20 @@ const speakersData = [
     topic: "Leading Through Transformation: Reimagining Enterprise Strategy, Technology & Future Business",
     bio: "Sharmistha Sanyal is Senior Director at Capgemini with extensive executive experience delivering large-scale global SAP transformations, strategic consulting, and enterprise modernization programs.",
     takeaways: [
-      { title: "Global SAP Transformation", desc: "Delivering complex, multi-country enterprise rollouts with Capgemini." },
-      { title: "Strategic Change Leadership", desc: "Human-centric change management ensuring long-term digital adoption success." },
-      { title: "Sustainable Architecture", desc: "Future-proofing enterprise systems against rapid technological obsolescence." }
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["Panelist", "Capgemini", "Senior Director", "Leadership", "Transformation"],
+    tags: ["Panelist","Capgemini","Senior Director","Leadership","Transformation"],
     accentColor: "#0284C7",
     img: "/speakers/sharmistha-sanyal.jpg",
     poster: "/speakers/panel-poster-02.jpg",
@@ -2604,11 +2838,20 @@ const speakersData = [
     topic: "IBM Intelligent Delivery: ICA Edge, Process Studio, Conext Studio",
     bio: "SAP Business AI Lead at IBM with 10+ years of enterprise experience specializing in business processes transformation, application consulting, and AI-enabled SAP implementations.",
     takeaways: [
-      { title: "IBM Intelligent Delivery", desc: "Harnessing cognitive workflows with ICA Edge, Process Studio, and Conext Studio." },
-      { title: "Business Process Transformation", desc: "Accelerating SAP implementation cycles with intelligent consulting assets." },
-      { title: "AI-Powered Consulting", desc: "Best practices for embedding enterprise AI directly into core business operations." }
+          {
+                title: "IBM Intelligent Delivery",
+                desc: "Harnessing cognitive workflows with ICA Edge, Process Studio, and Conext Studio."
+          },
+          {
+                title: "Business Process Transformation",
+                desc: "Accelerating SAP implementation cycles with intelligent consulting assets."
+          },
+          {
+                title: "AI-Powered Consulting",
+                desc: "Best practices for embedding enterprise AI directly into core business operations."
+          }
     ],
-    tags: ["Track 4", "IBM", "SAP Business AI", "Process Studio", "ICA Edge"],
+    tags: ["Track 4","IBM","SAP Business AI","Process Studio","ICA Edge"],
     accentColor: "#0070F2",
     img: "/speakers/aditi-chatterjee.jpg",
     poster: "/speakers/poster-aditi-souvik.jpg",
@@ -2625,11 +2868,20 @@ const speakersData = [
     topic: "IBM Intelligent Delivery: ICA Edge, Process Studio, Conext Studio",
     bio: "SAP Package Consultant at IBM with 15+ years of extensive experience leading SAP enterprise transformation, team leadership, solution delivery, and intelligent package consulting.",
     takeaways: [
-      { title: "Solution Delivery Acceleration", desc: "Deploying next-gen delivery automation across enterprise client engagements." },
-      { title: "Conext Studio Integration", desc: "Streamlining end-to-end integration and delivery pipelines with IBM Conext Studio." },
-      { title: "Team Leadership in Transformation", desc: "Managing multi-functional delivery teams across complex SAP deployments." }
+          {
+                title: "Solution Delivery Acceleration",
+                desc: "Deploying next-gen delivery automation across enterprise client engagements."
+          },
+          {
+                title: "Conext Studio Integration",
+                desc: "Streamlining end-to-end integration and delivery pipelines with IBM Conext Studio."
+          },
+          {
+                title: "Team Leadership in Transformation",
+                desc: "Managing multi-functional delivery teams across complex SAP deployments."
+          }
     ],
-    tags: ["Track 4", "IBM", "Package Consultant", "Solution Delivery", "Enterprise Transformation"],
+    tags: ["Track 4","IBM","Package Consultant","Solution Delivery","Enterprise Transformation"],
     accentColor: "#0284C7",
     img: "/speakers/souvik-bhattacharya.jpg",
     poster: "/speakers/poster-aditi-souvik.jpg",
@@ -2646,11 +2898,20 @@ const speakersData = [
     topic: "Using the SAP BTP Platform to Drive Measurable Supply Chain Outcomes",
     bio: "SAP Solution Architect – Logistics at IBM with 31+ years of veteran industry experience across supply chain, logistics, track & trace, SAP S/4HANA EWM, and ATTP.",
     takeaways: [
-      { title: "BTP Supply Chain Optimization", desc: "Driving measurable business ROI and operational resilience across logistics networks." },
-      { title: "Track & Trace / ATTP", desc: "Deploying mission-critical supply chain traceability and compliance frameworks." },
-      { title: "S/4HANA EWM Architecture", desc: "Architecting modern warehouse management and connected fulfillment solutions." }
+          {
+                title: "BTP Supply Chain Optimization",
+                desc: "Driving measurable business ROI and operational resilience across logistics networks."
+          },
+          {
+                title: "Track & Trace / ATTP",
+                desc: "Deploying mission-critical supply chain traceability and compliance frameworks."
+          },
+          {
+                title: "S/4HANA EWM Architecture",
+                desc: "Architecting modern warehouse management and connected fulfillment solutions."
+          }
     ],
-    tags: ["Track 4", "IBM", "Supply Chain", "SAP BTP", "S/4HANA EWM", "ATTP"],
+    tags: ["Track 4","IBM","Supply Chain","SAP BTP","S/4HANA EWM","ATTP"],
     accentColor: "#F59E0B",
     img: "/speakers/sangeeta-majumdar.jpg",
     poster: "/speakers/poster-sangeeta-sudipta.jpg",
@@ -2667,11 +2928,20 @@ const speakersData = [
     topic: "Using the SAP BTP Platform to Drive Measurable Supply Chain Outcomes",
     bio: "SAP Application Architect at IBM and renowned SAP PRESS Author with 20+ years of deep expertise across SAP Manufacturing, SAP MII, SAP DM, SAP Business AI, and SAP Integration Suite.",
     takeaways: [
-      { title: "Smart Manufacturing Architecture", desc: "Architecting connected factory floors with SAP DM, SAP MII, and BTP integration." },
-      { title: "SAP Business AI in Operations", desc: "Embedding predictive AI and automation into digital manufacturing processes." },
-      { title: "Insights from SAP PRESS Author", desc: "Deep architectural principles and proven patterns for enterprise integration." }
+          {
+                title: "Smart Manufacturing Architecture",
+                desc: "Architecting connected factory floors with SAP DM, SAP MII, and BTP integration."
+          },
+          {
+                title: "SAP Business AI in Operations",
+                desc: "Embedding predictive AI and automation into digital manufacturing processes."
+          },
+          {
+                title: "Insights from SAP PRESS Author",
+                desc: "Deep architectural principles and proven patterns for enterprise integration."
+          }
     ],
-    tags: ["Track 4", "IBM", "SAP PRESS Author", "Digital Manufacturing", "SAP DM", "SAP BTP"],
+    tags: ["Track 4","IBM","SAP PRESS Author","Digital Manufacturing","SAP DM","SAP BTP"],
     accentColor: "#8B5CF6",
     img: "/speakers/sudipta-mukherjee.jpg",
     poster: "/speakers/poster-sangeeta-sudipta.jpg",
@@ -2688,11 +2958,20 @@ const speakersData = [
     topic: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
     bio: "SAP Architect at IBM Consulting with 25+ years of distinguished experience specializing in S/4HANA Clean Core architectures, custom code modernisation, and smart business solution engineering on BTP.",
     takeaways: [
-      { title: "Clean Core Strategy", desc: "Decoupling custom code extensions using SAP BTP to preserve a clean ERP core." },
-      { title: "Smart Business Solutions", desc: "Real-world customer blueprints for building high-impact BTP side-by-side apps." },
-      { title: "Modernization Roadmap", desc: "Accelerated pathways from legacy ERP codebases to cloud-ready architecture." }
+          {
+                title: "Clean Core Strategy",
+                desc: "Decoupling custom code extensions using SAP BTP to preserve a clean ERP core."
+          },
+          {
+                title: "Smart Business Solutions",
+                desc: "Real-world customer blueprints for building high-impact BTP side-by-side apps."
+          },
+          {
+                title: "Modernization Roadmap",
+                desc: "Accelerated pathways from legacy ERP codebases to cloud-ready architecture."
+          }
     ],
-    tags: ["Track 4", "IBM Consulting", "Clean Core", "SAP BTP", "S/4HANA", "Architecture"],
+    tags: ["Track 4","IBM Consulting","Clean Core","SAP BTP","S/4HANA","Architecture"],
     accentColor: "#6366F1",
     img: "/speakers/kousik-goon.jpg",
     poster: "/speakers/poster-kousik-debajyoti-ankan.jpg",
@@ -2709,11 +2988,20 @@ const speakersData = [
     topic: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
     bio: "SAP Package Consultant at IBM with 17+ years of experience as an S/4HANA Migration Expert and Functional Architect in SD/Sales, focusing on cloud adoption and smart enterprise extensions.",
     takeaways: [
-      { title: "S/4HANA Migration Best Practices", desc: "Proven strategies for seamless Sales & Distribution functional cutovers." },
-      { title: "BTP Business Case Realization", desc: "How leading customers unlock agility by extending core sales workflows on BTP." },
-      { title: "Functional Architecture Blueprint", desc: "Designing robust, scalable order-to-cash business processes for the cloud." }
+          {
+                title: "S/4HANA Migration Best Practices",
+                desc: "Proven strategies for seamless Sales & Distribution functional cutovers."
+          },
+          {
+                title: "BTP Business Case Realization",
+                desc: "How leading customers unlock agility by extending core sales workflows on BTP."
+          },
+          {
+                title: "Functional Architecture Blueprint",
+                desc: "Designing robust, scalable order-to-cash business processes for the cloud."
+          }
     ],
-    tags: ["Track 4", "IBM", "Migration Expert", "SAP SD", "Sales & Distribution", "SAP BTP"],
+    tags: ["Track 4","IBM","Migration Expert","SAP SD","Sales & Distribution","SAP BTP"],
     accentColor: "#0EA5E9",
     img: "/speakers/debajyoti-sen-gupta.jpg",
     poster: "/speakers/poster-kousik-debajyoti-ankan.jpg",
@@ -2730,11 +3018,20 @@ const speakersData = [
     topic: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
     bio: "SAP Package Consultant at IBM with 22+ years of veteran expertise as an enterprise migration specialist and functional architect across SD/Sales and smart digital ERP workflows.",
     takeaways: [
-      { title: "Enterprise Migration Engineering", desc: "Mitigating risks and minimizing operational downtime during complex migrations." },
-      { title: "Intelligent Sales Operations", desc: "Leveraging BTP capabilities to enhance customer engagement and sales fulfillment." },
-      { title: "Cross-Functional Integration", desc: "Harmonizing SD, Finance, and logistics within smart cloud architectures." }
+          {
+                title: "Enterprise Migration Engineering",
+                desc: "Mitigating risks and minimizing operational downtime during complex migrations."
+          },
+          {
+                title: "Intelligent Sales Operations",
+                desc: "Leveraging BTP capabilities to enhance customer engagement and sales fulfillment."
+          },
+          {
+                title: "Cross-Functional Integration",
+                desc: "Harmonizing SD, Finance, and logistics within smart cloud architectures."
+          }
     ],
-    tags: ["Track 4", "IBM", "Migration Expert", "Functional Architect", "SAP BTP", "SD/Sales"],
+    tags: ["Track 4","IBM","Migration Expert","Functional Architect","SAP BTP","SD/Sales"],
     accentColor: "#14B8A6",
     img: "/speakers/ankan-dhar.jpg",
     poster: "/speakers/poster-kousik-debajyoti-ankan.jpg",
@@ -2751,11 +3048,20 @@ const speakersData = [
     topic: "Maximizing the Business Value of SAP BDC: An IBM-Led Adoption Journey",
     bio: "SAP Architect – SAP Data & Analytics at IBM with 27+ years of deep enterprise experience leading data architecture, enterprise solutions, and SAP Business Data Cloud (BDC) transformations.",
     takeaways: [
-      { title: "SAP BDC Value Realization", desc: "Maximizing business ROI through structured Business Data Cloud adoption frameworks." },
-      { title: "Enterprise Data Fabric", desc: "Architecting governed, high-throughput data foundations for modern analytics." },
-      { title: "Data-Driven Decisioning", desc: "Connecting enterprise transactional data with real-time operational insights." }
+          {
+                title: "SAP BDC Value Realization",
+                desc: "Maximizing business ROI through structured Business Data Cloud adoption frameworks."
+          },
+          {
+                title: "Enterprise Data Fabric",
+                desc: "Architecting governed, high-throughput data foundations for modern analytics."
+          },
+          {
+                title: "Data-Driven Decisioning",
+                desc: "Connecting enterprise transactional data with real-time operational insights."
+          }
     ],
-    tags: ["Track 4", "IBM", "SAP BDC", "Data & Analytics", "Enterprise Solutions", "Data Fabric"],
+    tags: ["Track 4","IBM","SAP BDC","Data & Analytics","Enterprise Solutions","Data Fabric"],
     accentColor: "#0284C7",
     img: "/speakers/sriprakash-swain.jpg",
     poster: "/speakers/poster-sriprakash-anjana.jpg",
@@ -2772,11 +3078,20 @@ const speakersData = [
     topic: "Maximizing the Business Value of SAP BDC: An IBM-Led Adoption Journey",
     bio: "SAP Application Architect at IBM with 19+ years of experience specializing in SAP Analytics, enterprise data insights, and collaborative adoption journeys across SAP BDC.",
     takeaways: [
-      { title: "Actionable Data Insights", desc: "Transforming complex enterprise data into predictive business intelligence." },
-      { title: "SAP BDC Adoption Journey", desc: "Practical lessons and blueprints from enterprise customer rollouts." },
-      { title: "Modern Analytics Engineering", desc: "Accelerating report generation and analytical modeling with cloud data services." }
+          {
+                title: "Actionable Data Insights",
+                desc: "Transforming complex enterprise data into predictive business intelligence."
+          },
+          {
+                title: "SAP BDC Adoption Journey",
+                desc: "Practical lessons and blueprints from enterprise customer rollouts."
+          },
+          {
+                title: "Modern Analytics Engineering",
+                desc: "Accelerating report generation and analytical modeling with cloud data services."
+          }
     ],
-    tags: ["Track 4", "IBM", "Application Architect", "SAP Analytics", "Data Insights", "SAP BDC"],
+    tags: ["Track 4","IBM","Application Architect","SAP Analytics","Data Insights","SAP BDC"],
     accentColor: "#EC4899",
     img: "/speakers/anjana-ghatak.jpg",
     poster: "/speakers/poster-sriprakash-anjana.jpg",
@@ -2793,11 +3108,20 @@ const speakersData = [
     topic: "The Connected SAP Enterprise: Unlocking Innovation and Value with Trusted Data & AI",
     bio: "Senior Director & Head of SAP Practice at TuTeck Technologies with 31+ years of veteran enterprise experience in end-to-end SAP implementations, Application Management Services (AMS), and enterprise transformation.",
     takeaways: [
-      { title: "Connected Enterprise Strategy", desc: "Unlocking innovation and strategic value across business units with SAP and TuTeck." },
-      { title: "Trusted Enterprise Data & AI", desc: "Establishing trusted data baselines to power GenAI applications safely." },
-      { title: "Modern AMS & Practice Excellence", desc: "Transforming enterprise IT maintenance into an agile value driver." }
+          {
+                title: "Connected Enterprise Strategy",
+                desc: "Unlocking innovation and strategic value across business units with SAP and TuTeck."
+          },
+          {
+                title: "Trusted Enterprise Data & AI",
+                desc: "Establishing trusted data baselines to power GenAI applications safely."
+          },
+          {
+                title: "Modern AMS & Practice Excellence",
+                desc: "Transforming enterprise IT maintenance into an agile value driver."
+          }
     ],
-    tags: ["Track 1", "TuTeck", "Senior Director", "Connected Enterprise", "Trusted Data", "AMS"],
+    tags: ["Track 1","TuTeck","Senior Director","Connected Enterprise","Trusted Data","AMS"],
     accentColor: "#F97316",
     img: "/speakers/rana-bhattacharjee.jpg",
     poster: "/speakers/poster-rana-dipta.jpg",
@@ -2814,11 +3138,20 @@ const speakersData = [
     topic: "The Connected SAP Enterprise: Unlocking Innovation and Value with Trusted Data & AI",
     bio: "Head of Delivery & Partner at TuTeck Technologies with 22+ years of experience driving operational excellence, AI-accelerated SDLC, SAP Datasphere architectures, and trusted enterprise data solutions.",
     takeaways: [
-      { title: "AI-Accelerated SDLC", desc: "Embedding AI into software development lifecycles to accelerate SAP delivery." },
-      { title: "SAP Datasphere Architecture", desc: "Unifying structured and unstructured data into a trusted foundation for AI." },
-      { title: "Operational Delivery Excellence", desc: "TuTeck methodologies for consistent, high-velocity project outcomes." }
+          {
+                title: "AI-Accelerated SDLC",
+                desc: "Embedding AI into software development lifecycles to accelerate SAP delivery."
+          },
+          {
+                title: "SAP Datasphere Architecture",
+                desc: "Unifying structured and unstructured data into a trusted foundation for AI."
+          },
+          {
+                title: "Operational Delivery Excellence",
+                desc: "TuTeck methodologies for consistent, high-velocity project outcomes."
+          }
     ],
-    tags: ["Track 1", "TuTeck", "Head of Delivery", "SAP Datasphere", "AI-Accelerated SDLC", "Trusted Data"],
+    tags: ["Track 1","TuTeck","Head of Delivery","SAP Datasphere","AI-Accelerated SDLC","Trusted Data"],
     accentColor: "#2563EB",
     img: "/speakers/dipta-pratim-banerjee.jpg",
     poster: "/speakers/poster-rana-dipta.jpg",
@@ -2835,11 +3168,20 @@ const speakersData = [
     topic: "SAP Autonomous and Sustainable Enterprise",
     bio: "Program Manager – Energy Resource Utilities at TCS with 11+ years of experience leading sustainability strategy, decarbonization roadmaps, and autonomous enterprise systems across energy resource utilities domains.",
     takeaways: [
-      { title: "Sustainability Strategy & Decarbonization", desc: "Crafting actionable enterprise decarbonization roadmaps aligned with regulatory mandates." },
-      { title: "Autonomous & Sustainable Enterprise", desc: "Leveraging intelligent SAP solutions to automate sustainability reporting and tracking." },
-      { title: "Energy & Utilities Domain Insights", desc: "Best practices for deploying sustainable enterprise architectures in energy and resource sectors." }
+          {
+                title: "Sustainability Strategy & Decarbonization",
+                desc: "Crafting actionable enterprise decarbonization roadmaps aligned with regulatory mandates."
+          },
+          {
+                title: "Autonomous & Sustainable Enterprise",
+                desc: "Leveraging intelligent SAP solutions to automate sustainability reporting and tracking."
+          },
+          {
+                title: "Energy & Utilities Domain Insights",
+                desc: "Best practices for deploying sustainable enterprise architectures in energy and resource sectors."
+          }
     ],
-    tags: ["Track 3", "TCS", "Sustainability", "Decarbonization", "Energy Resource Utilities"],
+    tags: ["Track 3","TCS","Sustainability","Decarbonization","Energy Resource Utilities"],
     accentColor: "#10B981",
     img: "/speakers/moumita-saha.jpg",
     poster: "/speakers/poster-moumita-vishwa.jpg",
@@ -2856,11 +3198,20 @@ const speakersData = [
     topic: "SAP Autonomous and Sustainable Enterprise",
     bio: "Enterprise Architect & Senior Solution Advisor at TCS with 19+ years of experience across SAP Business Data Cloud, SAP Datasphere, SAP Analytics Cloud (SAC), and Autonomous & Sustainable Enterprise architectures.",
     takeaways: [
-      { title: "SAP Datasphere & BDC Architecture", desc: "Unifying mission-critical transactional and analytical data into an actionable foundation." },
-      { title: "SAP Analytics Cloud (SAC) Strategy", desc: "Designing real-time sustainability dashboards and executive intelligence Cockpits." },
-      { title: "Autonomous Enterprise Blueprints", desc: "Orchestrating end-to-end autonomous business workflows with SAP Business AI." }
+          {
+                title: "SAP Datasphere & BDC Architecture",
+                desc: "Unifying mission-critical transactional and analytical data into an actionable foundation."
+          },
+          {
+                title: "SAP Analytics Cloud (SAC) Strategy",
+                desc: "Designing real-time sustainability dashboards and executive intelligence Cockpits."
+          },
+          {
+                title: "Autonomous Enterprise Blueprints",
+                desc: "Orchestrating end-to-end autonomous business workflows with SAP Business AI."
+          }
     ],
-    tags: ["Track 3", "TCS", "Enterprise Architect", "SAP Datasphere", "SAC", "Sustainable Enterprise"],
+    tags: ["Track 3","TCS","Enterprise Architect","SAP Datasphere","SAC","Sustainable Enterprise"],
     accentColor: "#3B82F6",
     img: "/speakers/vishwa-vivek-anand.jpg",
     poster: "/speakers/poster-moumita-vishwa.jpg",
@@ -2877,11 +3228,20 @@ const speakersData = [
     topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
     bio: "Director, Platforms Centre of Excellence & India Digital Centre at Twinings, leading global enterprise platforms, SAP landscape modernization, automation, and AI enablement initiatives.",
     takeaways: [
-      { title: "Enterprise Platforms CoE Leadership", desc: "Strategic governance and operating model for global SAP platforms at Twinings." },
-      { title: "SAP Cloud ALM Adoption", desc: "Streamlining application lifecycle management and continuous deployment across hybrid clouds." },
-      { title: "Automation & AI Enablement", desc: "Infusing practical AI and hyperautomation to enhance enterprise platform reliability." }
+          {
+                title: "Enterprise Platforms CoE Leadership",
+                desc: "Strategic governance and operating model for global SAP platforms at Twinings."
+          },
+          {
+                title: "SAP Cloud ALM Adoption",
+                desc: "Streamlining application lifecycle management and continuous deployment across hybrid clouds."
+          },
+          {
+                title: "Automation & AI Enablement",
+                desc: "Infusing practical AI and hyperautomation to enhance enterprise platform reliability."
+          }
     ],
-    tags: ["Track 3", "Twinings", "Director CoE", "Cloud ALM", "Automation", "AI Enablement"],
+    tags: ["Track 3","Twinings","Director CoE","Cloud ALM","Automation","AI Enablement"],
     accentColor: "#0284C7",
     img: "/speakers/praveen-vinjamuri.jpg",
     poster: "/speakers/poster-twinings-itc.jpg",
@@ -2898,11 +3258,20 @@ const speakersData = [
     topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
     bio: "SAP Basis & Environments Lead at Twinings specializing in SAP Basis administration, S/4HANA migrations, SAP BTP environment orchestration, and robust cloud operations.",
     takeaways: [
-      { title: "SAP Basis & Landscape Operations", desc: "Maintaining mission-critical uptime and high-performance SAP environment lifecycles." },
-      { title: "S/4HANA & BTP Infrastructure", desc: "Architecting cloud infrastructure foundations for decoupled enterprise extensions." },
-      { title: "Proactive Cloud ALM Monitoring", desc: "Leveraging SAP Cloud ALM operations to automate system health monitoring and alerts." }
+          {
+                title: "SAP Basis & Landscape Operations",
+                desc: "Maintaining mission-critical uptime and high-performance SAP environment lifecycles."
+          },
+          {
+                title: "S/4HANA & BTP Infrastructure",
+                desc: "Architecting cloud infrastructure foundations for decoupled enterprise extensions."
+          },
+          {
+                title: "Proactive Cloud ALM Monitoring",
+                desc: "Leveraging SAP Cloud ALM operations to automate system health monitoring and alerts."
+          }
     ],
-    tags: ["Track 3", "Twinings", "SAP Basis", "S/4HANA", "SAP BTP", "Cloud Operations"],
+    tags: ["Track 3","Twinings","SAP Basis","S/4HANA","SAP BTP","Cloud Operations"],
     accentColor: "#0EA5E9",
     img: "/speakers/prameel-kumar-vanapalli.jpg",
     poster: "/speakers/poster-twinings-itc.jpg",
@@ -2919,11 +3288,20 @@ const speakersData = [
     topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
     bio: "Technology Practice Head – SAP at ITC Infotech, driving enterprise S/4HANA transformations, AI infusion strategies, and modern SAP consulting practice delivery.",
     takeaways: [
-      { title: "S/4HANA Transformation Strategies", desc: "Strategic frameworks for large-scale enterprise ERP modernization and cloud transitions." },
-      { title: "AI Infusion in Core Practices", desc: "Embedding AI agents and automation directly into client delivery models." },
-      { title: "Partnership & Delivery Synergy", desc: "Collaborative case studies between ITC Infotech and Twinings on digital modernization." }
+          {
+                title: "S/4HANA Transformation Strategies",
+                desc: "Strategic frameworks for large-scale enterprise ERP modernization and cloud transitions."
+          },
+          {
+                title: "AI Infusion in Core Practices",
+                desc: "Embedding AI agents and automation directly into client delivery models."
+          },
+          {
+                title: "Partnership & Delivery Synergy",
+                desc: "Collaborative case studies between ITC Infotech and Twinings on digital modernization."
+          }
     ],
-    tags: ["Track 3", "ITC Infotech", "Practice Head", "S/4HANA Transformation", "AI Infusion"],
+    tags: ["Track 3","ITC Infotech","Practice Head","S/4HANA Transformation","AI Infusion"],
     accentColor: "#F59E0B",
     img: "/speakers/jayabrata-maitra.jpg",
     poster: "/speakers/poster-twinings-itc.jpg",
@@ -2940,11 +3318,20 @@ const speakersData = [
     topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
     bio: "SAP Enterprise Architect at ITC Infotech with deep technical expertise in SAP BTP architecture, RISE with SAP execution, ERP modernization, and generative AI on SAP.",
     takeaways: [
-      { title: "SAP BTP Architectural Blueprints", desc: "Designing multi-tier, clean core extensions to enhance standard ERP functionality." },
-      { title: "RISE with SAP Navigation", desc: "Best practices for cloud adoption and modernizing legacy enterprise estates." },
-      { title: "AI on SAP Architecture", desc: "Bridging SAP Business AI models with real-world enterprise transactional flows." }
+          {
+                title: "SAP BTP Architectural Blueprints",
+                desc: "Designing multi-tier, clean core extensions to enhance standard ERP functionality."
+          },
+          {
+                title: "RISE with SAP Navigation",
+                desc: "Best practices for cloud adoption and modernizing legacy enterprise estates."
+          },
+          {
+                title: "AI on SAP Architecture",
+                desc: "Bridging SAP Business AI models with real-world enterprise transactional flows."
+          }
     ],
-    tags: ["Track 3", "ITC Infotech", "Enterprise Architect", "SAP BTP", "RISE with SAP", "AI on SAP"],
+    tags: ["Track 3","ITC Infotech","Enterprise Architect","SAP BTP","RISE with SAP","AI on SAP"],
     accentColor: "#8B5CF6",
     img: "/speakers/ananda-chakraborty.jpg",
     poster: "/speakers/poster-twinings-itc.jpg",
@@ -2961,11 +3348,20 @@ const speakersData = [
     topic: "Data in Motion, Intelligence in Action: An End-to-End Demo",
     bio: "Staff Forward Deployed Engineer at Databricks specializing in enterprise data engineering, distributed streaming pipelines, and large-scale artificial intelligence implementations.",
     takeaways: [
-      { title: "Data in Motion & Stream Processing", desc: "Architecting real-time event streaming and ingestion architectures with Databricks." },
-      { title: "Intelligence in Action Demo", desc: "End-to-end practical live walkthrough connecting real-time data to intelligent models." },
-      { title: "Lakehouse Engineering Patterns", desc: "Optimizing delta tables and lakehouse performance for mission-critical enterprise workloads." }
+          {
+                title: "Data in Motion & Stream Processing",
+                desc: "Architecting real-time event streaming and ingestion architectures with Databricks."
+          },
+          {
+                title: "Intelligence in Action Demo",
+                desc: "End-to-end practical live walkthrough connecting real-time data to intelligent models."
+          },
+          {
+                title: "Lakehouse Engineering Patterns",
+                desc: "Optimizing delta tables and lakehouse performance for mission-critical enterprise workloads."
+          }
     ],
-    tags: ["Track 2", "Databricks", "Staff FDE", "Data Engineering", "Artificial Intelligence", "Lakehouse"],
+    tags: ["Track 2","Databricks","Staff FDE","Data Engineering","Artificial Intelligence","Lakehouse"],
     accentColor: "#FF3621",
     img: "/speakers/pritam-paul.jpg",
     poster: "/speakers/poster-pritam-paul.jpg",
@@ -2982,11 +3378,20 @@ const speakersData = [
     topic: "MCP Integration with Joule Studio",
     bio: "SAP Application Architect & Autonomous Enterprise Expert at IBM with 21+ years of experience. SAP PRESS Author leading SAP AI Core & Joule adoption and energy & utilities modernization.",
     takeaways: [
-      { title: "MCP Integration Architecture", desc: "Connecting Model Context Protocol (MCP) servers directly to SAP Joule Studio." },
-      { title: "Autonomous Enterprise Systems", desc: "Architecting autonomous agents capable of performing cross-application actions." },
-      { title: "SAP AI Core & Joule Best Practices", desc: "Practical guidance from an SAP PRESS author on enterprise generative AI deployment." }
+          {
+                title: "MCP Integration Architecture",
+                desc: "Connecting Model Context Protocol (MCP) servers directly to SAP Joule Studio."
+          },
+          {
+                title: "Autonomous Enterprise Systems",
+                desc: "Architecting autonomous agents capable of performing cross-application actions."
+          },
+          {
+                title: "SAP AI Core & Joule Best Practices",
+                desc: "Practical guidance from an SAP PRESS author on enterprise generative AI deployment."
+          }
     ],
-    tags: ["Track 2", "IBM", "SAP PRESS Author", "MCP", "Joule Studio", "SAP AI Core"],
+    tags: ["Track 2","IBM","SAP PRESS Author","MCP","Joule Studio","SAP AI Core"],
     accentColor: "#0070F2",
     img: "/speakers/avijit-dhar.jpg",
     poster: "/speakers/poster-avijit-riddhiman.jpg",
@@ -3003,18 +3408,175 @@ const speakersData = [
     topic: "MCP Integration with Joule Studio",
     bio: "SAP Package Consultant & Analytics Cloud Developer at IBM with 20+ years of deep expertise across SAP GenAIHub, SAP Joule Studio, Machine Learning, SAP Datasphere, SAP Analytics Cloud (SAC), and HANA.",
     takeaways: [
-      { title: "SAP GenAIHub & Joule Studio Integration", desc: "Building custom skills and extensions using SAP GenAIHub and Joule Studio." },
-      { title: "SAP Datasphere & SAC Synergy", desc: "Connecting enterprise machine learning models with real-time analytical reporting." },
-      { title: "Model Context Protocol Hands-On", desc: "Hands-on implementation details for running MCP tools in production SAP landscapes." }
+          {
+                title: "SAP GenAIHub & Joule Studio Integration",
+                desc: "Building custom skills and extensions using SAP GenAIHub and Joule Studio."
+          },
+          {
+                title: "SAP Datasphere & SAC Synergy",
+                desc: "Connecting enterprise machine learning models with real-time analytical reporting."
+          },
+          {
+                title: "Model Context Protocol Hands-On",
+                desc: "Hands-on implementation details for running MCP tools in production SAP landscapes."
+          }
     ],
-    tags: ["Track 2", "IBM", "Package Consultant", "SAP GenAIHub", "Joule Studio", "Machine Learning"],
+    tags: ["Track 2","IBM","Package Consultant","SAP GenAIHub","Joule Studio","Machine Learning"],
     accentColor: "#6366F1",
     img: "/speakers/riddhiman-basu.jpg",
     poster: "/speakers/poster-avijit-riddhiman.jpg",
     linkedin: "https://www.linkedin.com/search/results/all/?keywords=Riddhiman%20Basu%20IBM",
   },
-
-
+  {
+    id: 47,
+    name: "Partha Pratim Sengupta",
+    role: "Chief Revenue Officer (CRO)",
+    company: "Infocus Technologies Pvt Ltd",
+    category: "Track 1 Featured Speaker",
+    track: "Track 1 · Auditorium 1",
+    time: "3:45 PM – 4:15 PM",
+    topic: "“Grounded AI” in the Digital Core: Reimagining ERP Beyond the Hallucination",
+    bio: "CRO at Infocus Technologies with 20+ years of enterprise technology leadership specializing in SAP S/4HANA transformations, SAP Joule integration, and grounded agentic workflows.",
+    takeaways: [
+          {
+                title: "Grounded AI in the Digital Core",
+                desc: "Eliminating generative AI hallucinations by anchoring models to deterministic ERP business context."
+          },
+          {
+                title: "SAP Joule & Agentic Workflows",
+                desc: "Orchestrating multi-agent systems and SAP Joule copilots across core business processes."
+          },
+          {
+                title: "Enterprise Leadership & ROI",
+                desc: "Maximizing tangible revenue and operational efficiency through AI-empowered digital cores."
+          }
+    ],
+    tags: ["Track 1","Infocus Technologies","CRO","Grounded AI","SAP Joule","Agentic Workflows"],
+    accentColor: "#EF4444",
+    img: "/speakers/partha-pratim-sengupta.jpg",
+    poster: "/speakers/poster-partha-pratim-sengupta.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Partha%20Pratim%20Sengupta%20Infocus",
+  },
+  {
+    id: 48,
+    name: "Mohammad Afsar Imam",
+    role: "Forward Deployed Engineer – Data & AI",
+    company: "Databricks",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Tech Track Lab",
+    time: "12:50 PM – 1:15 PM",
+    topic: "Databricks Intro and Lakebase",
+    bio: "Forward Deployed Engineer – Data and AI at Databricks with 8.5+ years of experience architecting modern enterprise lakehouse solutions, lakebase architectures, and scalable analytics.",
+    takeaways: [
+          {
+                title: "Databricks Lakebase Foundations",
+                desc: "Understanding core lakebase architecture and unified data storage for enterprise data stacks."
+          },
+          {
+                title: "Unifying Data & AI Workloads",
+                desc: "Seamlessly bridging structured enterprise transactional data with advanced machine learning."
+          },
+          {
+                title: "Forward Deployed Implementation Patterns",
+                desc: "Practical lessons from real-world enterprise deployments of Databricks platforms."
+          }
+    ],
+    tags: ["Track 2","Databricks","Data & AI","Lakehouse","Lakebase","FDE"],
+    accentColor: "#FF3621",
+    img: "/speakers/mohammad-afsar-imam.jpg",
+    poster: "/speakers/poster-mohammad-afsar-imam.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Mohammad%20Afsar%20Imam%20Databricks",
+  },
+  {
+    id: 49,
+    name: "Pradipto Kumar Saha",
+    role: "Deputy Manager – SAP ABAP on HANA",
+    company: "Deputy Manager & SAP Career Mentor",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Auditorium 2",
+    time: "3:55 PM – 4:15 PM",
+    topic: "How to Build a Career in SAP",
+    bio: "Deputy Manager specializing in SAP ABAP on HANA with 12+ years of enterprise IT experience. Accomplished SAP technical lead, community champion, and dedicated career mentor.",
+    takeaways: [
+          {
+                title: "Building an Enduring SAP Career",
+                desc: "Navigating modern career pathways from ABAP on HANA to cloud-native development."
+          },
+          {
+                title: "Technical Skill Evolution",
+                desc: "Mastering modern frameworks (RAP, CAP, BTP) to stay indispensable in the AI era."
+          },
+          {
+                title: "Mentorship & Community Growth",
+                desc: "Actionable advice on continuous learning, certifications, and enterprise leadership."
+          }
+    ],
+    tags: ["Track 3","Career Mentorship","ABAP on HANA","SAP Technical Lead","Community"],
+    accentColor: "#0284C7",
+    img: "/speakers/pradipto-kumar-saha.jpg",
+    poster: "/speakers/poster-pradipto-kumar-saha.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Pradipto%20Kumar%20Saha%20SAP",
+  },
+  {
+    id: 50,
+    name: "Sayantan Ghosh",
+    role: "AI Engineer",
+    company: "Databricks",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Tech Track Lab",
+    time: "1:20 PM – 1:45 PM",
+    topic: "Talk to Your Data: Building Intelligent Text-to-SQL Systems",
+    bio: "AI Engineer at Databricks specializing in generative AI, machine learning, LLM evaluation, prompt engineering, and building enterprise text-to-SQL data conversational agents.",
+    takeaways: [
+          {
+                title: "Intelligent Text-to-SQL Systems",
+                desc: "Architecting generative AI pipelines that allow non-technical business users to converse with SQL data."
+          },
+          {
+                title: "Rigorous LLM Evaluation",
+                desc: "Establishing deterministic benchmarks, prompt engineering, and guardrails for query accuracy."
+          },
+          {
+                title: "Databricks GenAI Stack",
+                desc: "Leveraging Databricks foundation model serving and vector search for enterprise knowledge graphs."
+          }
+    ],
+    tags: ["Track 2","Databricks","AI Engineer","Generative AI","Text-to-SQL","LLM Evaluation"],
+    accentColor: "#FF3621",
+    img: "/speakers/sayantan-ghosh.jpg",
+    poster: "/speakers/poster-sayantan-ghosh.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sayantan%20Ghosh%20Databricks",
+  },
+  {
+    id: 51,
+    name: "Somnath Pal",
+    role: "SAP Technical Architect",
+    company: "TCS",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Tech Track Lab",
+    time: "3:15 PM – 3:45 PM",
+    topic: "ABAP Meets AI: Beyond the Prompt",
+    bio: "SAP Technical Architect at TCS with 20+ years of experience leading modern application architectures across SAP BTP, ABAP RESTful Application Programming (RAP), Cloud Application Programming (CAP), and Clean Core.",
+    takeaways: [
+          {
+                title: "ABAP Meets AI: Beyond the Prompt",
+                desc: "Going beyond superficial prompt engineering into deep programmatic AI integration within ABAP."
+          },
+          {
+                title: "Modern RAP & CAP Blueprints",
+                desc: "Building robust cloud-native enterprise services on SAP BTP following Clean Core guidelines."
+          },
+          {
+                title: "Developer Productivity in S/4HANA",
+                desc: "Practical strategies for developers to dramatically accelerate development with embedded AI."
+          }
+    ],
+    tags: ["Track 2","TCS","Technical Architect","ABAP Meets AI","RAP","CAP","Clean Core"],
+    accentColor: "#2563EB",
+    img: "/speakers/somnath-pal.jpg",
+    poster: "/speakers/poster-somnath-pal.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Somnath%20Pal%20TCS",
+  },
 ];
 
 const SpeakersSection = () => {
