@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail, Copy, Check } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail, Copy, Check, Search, Download, Layers } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
@@ -815,7 +815,664 @@ const HeroSection = () => {
   );
 };
 
+const fullAgendaData = {
+  milestones: [
+    { time: "8:00 AM", label: "Breakfast & Registration", icon: "☕" },
+    { time: "8:30 AM", label: "Opening & Keynotes", icon: "🎤" },
+    { time: "9:45 AM", label: "Executive Panels", icon: "💬" },
+    { time: "11:50 AM", label: "4 Parallel Tracks", icon: "⚡" },
+    { time: "1:55 PM", label: "Networking Lunch", icon: "🍽️" },
+    { time: "2:45 PM", label: "Tracks Resume", icon: "🚀" },
+    { time: "4:20 PM", label: "Closing Ceremony", icon: "🏆" },
+    { time: "5:00 PM", label: "Event Close", icon: "✨" },
+  ],
+  tracks: [
+    { id: "all", name: "All Sessions", badge: "Overview" },
+    { id: "keynote", name: "Keynotes & Panels", badge: "Auditorium 1", color: "#F59E0B" },
+    { id: "track1", name: "Track 1", badge: "Auditorium 1", color: "#3B82F6" },
+    { id: "track2", name: "Track 2 · Tech Lab", badge: "Lab Floor", color: "#FF3621" },
+    { id: "track3", name: "Track 3", badge: "Auditorium 2", color: "#10B981" },
+    { id: "track4", name: "Track 4", badge: "4th Floor", color: "#8B5CF6" },
+  ],
+  sessions: [
+    // --- MORNING INAUGURATION & KEYNOTES ---
+    {
+      id: "s-1",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "8:00 – 8:30 AM",
+      title: "Breakfast & Attendee Registration",
+      desc: "Morning refreshments, attendee kit collection, badge scan, and opening networking.",
+      type: "event",
+      badgeColor: "#64748B",
+    },
+    {
+      id: "s-2",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "8:30 – 8:50 AM",
+      title: "Cultural Programme",
+      desc: "Welcome performance celebrating the rich cultural heritage and technology spirit of Kolkata.",
+      type: "event",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "s-3",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "8:50 – 9:00 AM",
+      title: "Lighting of the Lamp & Auspicious Opening",
+      desc: "Ceremonial commencement of SAP Inside Track Kolkata 2026 by event dignitaries.",
+      type: "event",
+      badgeColor: "#F59E0B",
+    },
+    {
+      id: "s-4",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "9:00 – 9:10 AM",
+      title: "Keynote Address: Welcome to Sister Nivedita University",
+      speakerText: "Dr. Anupam Basu",
+      speakerRole: "Vice Chancellor",
+      company: "Sister Nivedita University",
+      badgeColor: "#F59E0B",
+    },
+    {
+      id: "s-5",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "9:10 – 9:20 AM",
+      title: "Keynote Address: Leading Enterprise Innovation & Social Impact",
+      speakerText: "Debashis Majumder",
+      speakerRole: "Senior Director",
+      company: "SAP",
+      badgeColor: "#F59E0B",
+    },
+    {
+      id: "s-6",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "9:20 – 9:30 AM",
+      title: "Keynote Address: SAP Business Data Cloud & The Agentic AI Era",
+      speakerText: "Srini Gottimukkula",
+      speakerRole: "Vice President – Data & Analytics",
+      company: "SAP Labs India",
+      badgeColor: "#F59E0B",
+    },
+    {
+      id: "s-7",
+      category: "keynote",
+      trackLabel: "Inauguration & Keynotes",
+      hall: "Auditorium 1",
+      time: "9:30 – 9:40 AM",
+      title: "Keynote Address: Scaling SAP Across Business & Intelligent Operations",
+      speakerText: "Pankaj Lal",
+      speakerRole: "Managing Partner",
+      company: "Westernacher India",
+      badgeColor: "#F59E0B",
+    },
+
+    // --- EXECUTIVE PANELS ---
+    {
+      id: "p-1",
+      category: "keynote",
+      trackLabel: "Executive Panel 1",
+      hall: "Auditorium 1",
+      time: "9:45 – 10:20 AM",
+      title: "Panel 1 · From Enterprise Core to Intelligent Operations: Scaling SAP, Data & AI Across Business",
+      moderator: {
+        name: "Mrinal Kaantee Chanda",
+        role: "Senior Enterprise Architect, SAP Labs India",
+      },
+      panelists: [
+        { name: "Pankaj Lal", company: "Westernacher India" },
+        { name: "Srini Gottimukkula", company: "SAP Labs" },
+        { name: "Prasun Dutta", company: "IBM" },
+        { name: "Subimal Chakraborty", company: "Linde" },
+        { name: "Kaveri Biswas", company: "Parle Biscuits" },
+      ],
+      takeaways: [
+        { title: "Scaling AI Beyond the Core", desc: "Decoupling AI innovation from the digital core using SAP BTP and Clean Core principles to prevent technical debt." },
+        { title: "Enterprise Data Foundation", desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models." },
+        { title: "Intelligent Operations & ROI", desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain." }
+      ],
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "p-1-break",
+      category: "keynote",
+      trackLabel: "Transition Break",
+      hall: "Auditorium 1",
+      time: "10:20 – 10:25 AM",
+      title: "5-Minute Panel Switch & Networking Break",
+      desc: "Brief transition break between Executive Panels 1 and 2.",
+      type: "event",
+      badgeColor: "#64748B",
+    },
+    {
+      id: "p-2",
+      category: "keynote",
+      trackLabel: "Executive Panel 2",
+      hall: "Auditorium 1",
+      time: "10:25 – 11:00 AM",
+      title: "Panel 2 · Leading Through Transformation: Reimagining Enterprise Strategy, Technology & the Future of Business",
+      moderator: {
+        name: "Mrinal Kaantee Chanda",
+        role: "Senior Enterprise Architect, SAP Labs India",
+      },
+      panelists: [
+        { name: "Sharmistha Sanyal", company: "Capgemini" },
+        { name: "Manzoor Hasan", company: "TNS Consulting Solutions" },
+        { name: "Debashis Majumder", company: "SAP" },
+        { name: "Shib Shekhar Ghosh", company: "Diageo" },
+        { name: "Sunil Chopra", company: "SAP" },
+      ],
+      takeaways: [
+        { title: "Strategic Enterprise Leadership", desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation." },
+        { title: "Reimagining Strategy & Architecture", desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance." },
+        { title: "Human-Centric Change Management", desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption." }
+      ],
+      badgeColor: "#3B82F6",
+    },
+    {
+      id: "p-2-break",
+      category: "keynote",
+      trackLabel: "Transition Break",
+      hall: "Auditorium 1",
+      time: "11:00 – 11:05 AM",
+      title: "5-Minute Panel Switch & Networking Break",
+      desc: "Brief transition break between Executive Panels 2 and 3.",
+      type: "event",
+      badgeColor: "#64748B",
+    },
+    {
+      id: "p-3",
+      category: "keynote",
+      trackLabel: "Executive Panel 3",
+      hall: "Auditorium 1",
+      time: "11:05 – 11:40 AM",
+      title: "Panel 3 · Beyond AI Adoption: Building Intelligent Enterprises and Creating Value in the AI Economy",
+      moderator: {
+        name: "Arindam Hari",
+        role: "CEO, Acceleron Solutions; CIO, Gainwell Group",
+      },
+      panelists: [
+        { name: "Sabyasachi Biswas", company: "VarionHub / TuTeck" },
+        { name: "Tilak Kumar Dhar", company: "Databricks" },
+        { name: "Dr. Indranil Mitra", company: "Global Consulting Firm" },
+        { name: "Dr. Sugata Roy", company: "ARODEK" },
+        { name: "Monimoy Kundu", company: "TCS" },
+      ],
+      takeaways: [
+        { title: "Value Creation in the AI Economy", desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value." },
+        { title: "Cognitive Enterprise Architecture", desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures." },
+        { title: "AI Governance, Trust & Scale", desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling." }
+      ],
+      badgeColor: "#10B981",
+    },
+    {
+      id: "track-transition",
+      category: "keynote",
+      trackLabel: "Track Migration",
+      hall: "Auditorium 1 & Corridors",
+      time: "11:40 – 11:50 AM",
+      title: "Move to Chosen Parallel Tracks",
+      desc: "Attendees transition to their designated breakout venues (Auditorium 1, Technical Track Lab, Auditorium 2, 4th Floor).",
+      type: "event",
+      badgeColor: "#F59E0B",
+    },
+
+    // --- TRACK 1: AUDITORIUM 1 ---
+    {
+      id: "t1-1",
+      category: "track1",
+      trackLabel: "Track 1",
+      hall: "Auditorium 1",
+      time: "11:50 AM – 12:35 PM",
+      title: "SAP Cloud ALM Agentic Platform & AI-Based Migration",
+      speakerText: "Sunil Chopra",
+      speakerRole: "Director, SAP ALM Global Rollout",
+      company: "SAP",
+      badgeColor: "#3B82F6",
+    },
+    {
+      id: "t1-2",
+      category: "track1",
+      trackLabel: "Track 1",
+      hall: "Auditorium 1",
+      time: "12:40 – 1:15 PM",
+      title: "SAP Business Data Cloud: Unify and Govern Your Data with a Trusted Data Foundation for Agentic AI",
+      speakerText: "Jitendra Ghanta & Srini Gottimukkula",
+      speakerRole: "VP & Senior Enterprise Leaders",
+      company: "SAP",
+      badgeColor: "#3B82F6",
+    },
+    {
+      id: "t1-3",
+      category: "track1",
+      trackLabel: "Track 1",
+      hall: "Auditorium 1",
+      time: "1:20 – 1:50 PM",
+      title: "Building a Career in SAP S/4HANA: From Domain Knowledge to Enterprise Technology",
+      speakerText: "Prashun Shetty",
+      speakerRole: "Founder & CEO",
+      company: "TagSkills Group",
+      badgeColor: "#3B82F6",
+    },
+    {
+      id: "t1-lunch",
+      category: "track1",
+      trackLabel: "Lunch Break",
+      hall: "Dining Arena",
+      time: "1:55 – 2:45 PM",
+      title: "Grand Networking Lunch & Peer Meetup",
+      desc: "Full networking lunch catered by DesiJourney and beverage partners.",
+      type: "event",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t1-4",
+      category: "track1",
+      trackLabel: "Track 1",
+      hall: "Auditorium 1",
+      time: "2:45 – 3:15 PM",
+      title: "SAP OCM in S/4HANA: Lessons from the Front Line & AI Impact",
+      speakerText: "Prajita Chaudhury",
+      speakerRole: "SAP ERP Practice – People & Performance Lead",
+      company: "Westernacher",
+      badgeColor: "#3B82F6",
+    },
+    {
+      id: "t1-5",
+      category: "track1",
+      trackLabel: "Track 1",
+      hall: "Auditorium 1",
+      time: "3:15 – 3:45 PM",
+      title: "The Connected SAP Enterprise: Unlocking Innovation and Value with Trusted Data & AI",
+      speakerText: "Rana Bhattacharjee & Dipta Pratim Banerjee",
+      speakerRole: "Senior Director & Head of Delivery",
+      company: "TuTeck Technologies",
+      badgeColor: "#3B82F6",
+    },
+    {
+      id: "t1-6",
+      category: "track1",
+      trackLabel: "Track 1",
+      hall: "Auditorium 1",
+      time: "3:45 – 4:15 PM",
+      title: "“Grounded AI” in the Digital Core: Reimagining ERP Beyond the Hallucination",
+      speakerText: "Partha Pratim Sengupta",
+      speakerRole: "CRO",
+      company: "Infocus Technologies",
+      badgeColor: "#3B82F6",
+    },
+
+    // --- TRACK 2: TECHNICAL TRACK · LAB ---
+    {
+      id: "t2-1",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "11:50 AM – 12:15 PM",
+      title: "Data in Motion, Intelligence in Action: An End-to-End Demo",
+      speakerText: "Pritam Paul",
+      speakerRole: "Staff Forward Deployed Engineer",
+      company: "Databricks",
+      badgeColor: "#FF3621",
+    },
+    {
+      id: "t2-2",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "12:20 – 12:45 PM",
+      title: "Unity AI Gateway",
+      speakerText: "Krishnendu Hazra",
+      speakerRole: "Senior Forward Deployed Engineer",
+      company: "Databricks",
+      badgeColor: "#FF3621",
+    },
+    {
+      id: "t2-3",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "12:50 – 1:15 PM",
+      title: "Databricks Intro and Lakebase",
+      speakerText: "Mohammad Afsar Imam",
+      speakerRole: "Forward Deployed Engineer – Data & AI",
+      company: "Databricks",
+      badgeColor: "#FF3621",
+    },
+    {
+      id: "t2-4",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "1:20 – 1:45 PM",
+      title: "Talk to Your Data: Building Intelligent Text-to-SQL Systems",
+      speakerText: "Sayantan Ghosh",
+      speakerRole: "AI Engineer",
+      company: "Databricks",
+      badgeColor: "#FF3621",
+    },
+    {
+      id: "t2-lunch",
+      category: "track2",
+      trackLabel: "Lunch Break",
+      hall: "Dining Arena",
+      time: "1:55 – 2:45 PM",
+      title: "Grand Networking Lunch & Peer Meetup",
+      desc: "Full networking lunch catered by DesiJourney and beverage partners.",
+      type: "event",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t2-5",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "2:45 – 3:15 PM",
+      title: "IoT and AI Adoption in SAP",
+      speakerText: "Sumanta Basu",
+      speakerRole: "AI Technical Architect",
+      company: "ITC Infotech",
+      badgeColor: "#FF3621",
+    },
+    {
+      id: "t2-6",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "3:15 – 3:45 PM",
+      title: "ABAP Meets AI: Beyond the Prompt",
+      speakerText: "Somnath Pal",
+      speakerRole: "SAP Technical Architect",
+      company: "TCS",
+      badgeColor: "#FF3621",
+    },
+    {
+      id: "t2-7",
+      category: "track2",
+      trackLabel: "Track 2 · Tech Lab",
+      hall: "Technical Track Lab",
+      time: "3:45 – 4:15 PM",
+      title: "MCP Integration with Joule Studio",
+      speakerText: "Avijit Dhar & Riddhiman Basu",
+      speakerRole: "SAP Application Architect & Package Consultant",
+      company: "IBM",
+      badgeColor: "#FF3621",
+    },
+
+    // --- TRACK 3: AUDITORIUM 2 ---
+    {
+      id: "t3-1",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "11:50 AM – 12:25 PM",
+      title: "SAP Cloud ALM (Four-Speaker Joint Session)",
+      speakerText: "Praveen Vinjamuri & Prameel Kumar Vanapalli (Twinings) · Jayabrata Maitra & Ananda Chakraborty (ITC Infotech)",
+      speakerRole: "Director, Lead & Enterprise Architects",
+      company: "Twinings × ITC Infotech",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-2",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "12:30 – 1:00 PM",
+      title: "SAP Business Network Roadshow: Supplier Portal for SAP Cloud ERP Private",
+      speakerText: "Arit Basu",
+      speakerRole: "Principal Business Process Consultant",
+      company: "SAP",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-3",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "1:05 – 1:30 PM",
+      title: "Beyond ERP: Building the Intelligent, Connected & AI-Ready Manufacturing Enterprise",
+      speakerText: "Kumar Saha",
+      speakerRole: "Executive Director",
+      company: "PwC",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-4",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "1:35 – 2:00 PM",
+      title: "Autonomous Supply Chain with Agentic AI",
+      speakerText: "Rajesh Ray",
+      speakerRole: "Managing Director",
+      company: "Innoverv",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-lunch",
+      category: "track3",
+      trackLabel: "Lunch Break",
+      hall: "Dining Arena",
+      time: "2:00 – 2:45 PM",
+      title: "Grand Networking Lunch & Peer Meetup",
+      desc: "Full networking lunch catered by DesiJourney and beverage partners.",
+      type: "event",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-5",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "2:45 – 3:10 PM",
+      title: "Artificial Intelligence Use Cases in SAP Transportation Management",
+      speakerText: "Debanjan Mukherjee",
+      speakerRole: "Associate Principal Consultant",
+      company: "Westernacher Consulting",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-6",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "3:10 – 3:35 PM",
+      title: "Beyond Technology Implementation: Turning SAP Investments into Business Value",
+      speakerText: "Sayantan Kar",
+      speakerRole: "Business and Strategy Principal Program Manager",
+      company: "SAP",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-7",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "3:35 – 3:55 PM",
+      title: "SAP Autonomous and Sustainable Enterprise",
+      speakerText: "Vishwa Vivek Anand & Moumita Saha",
+      speakerRole: "Enterprise Architect & Program Manager",
+      company: "TCS",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t3-8",
+      category: "track3",
+      trackLabel: "Track 3",
+      hall: "Auditorium 2",
+      time: "3:55 – 4:15 PM",
+      title: "How to Build a Career in SAP",
+      speakerText: "Pradipto Kumar Saha",
+      speakerRole: "Deputy Manager – SAP ABAP on HANA",
+      company: "Deputy Manager & SAP Career Mentor",
+      badgeColor: "#10B981",
+    },
+
+    // --- TRACK 4: 4TH FLOOR ---
+    {
+      id: "t4-1",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "11:50 AM – 12:20 PM",
+      title: "15 Steps for a Successful S/4HANA Go-Live",
+      speakerText: "Arghadip Kar",
+      speakerRole: "Director – SAP VIM & ABAP Architect",
+      company: "Deloitte",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "t4-2",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "12:20 – 12:50 PM",
+      title: "Using the SAP BTP Platform to Drive Measurable Supply Chain Outcomes",
+      speakerText: "Sangeeta Majumdar & Sudipta Mukherjee",
+      speakerRole: "Logistics Solution Architect & Application Architect",
+      company: "IBM",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "t4-3",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "12:50 – 1:20 PM",
+      title: "IBM Intelligent Delivery: ICA Edge, Process Studio, Conext Studio",
+      speakerText: "Aditi Chatterjee & Souvik Bhattacharya",
+      speakerRole: "SAP Business AI Lead & Package Consultant",
+      company: "IBM",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "t4-4",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "1:20 – 1:50 PM",
+      title: "Maximizing the Business Value of SAP BDC: An IBM-Led Adoption Journey",
+      speakerText: "Sriprakash Swain & Anjana Ghatak",
+      speakerRole: "Data & Analytics Architect & Application Architect",
+      company: "IBM",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "t4-lunch",
+      category: "track4",
+      trackLabel: "Lunch Break",
+      hall: "Dining Arena",
+      time: "1:55 – 2:45 PM",
+      title: "Grand Networking Lunch & Peer Meetup",
+      desc: "Full networking lunch catered by DesiJourney and beverage partners.",
+      type: "event",
+      badgeColor: "#10B981",
+    },
+    {
+      id: "t4-5",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "2:45 – 3:15 PM",
+      title: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
+      speakerText: "Kousik Goon, Ankan Dhar & Debajyoti Sengupta",
+      speakerRole: "Clean Core Architect & Package Consultants",
+      company: "IBM",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "t4-6",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "3:15 – 3:45 PM",
+      title: "SAP and AI: A Practical Tour Across the SAP Ecosystem",
+      speakerText: "Anupam Dutta & Paramita Sarkar",
+      speakerRole: "Director & Assistant Director",
+      company: "Innoverv",
+      badgeColor: "#8B5CF6",
+    },
+    {
+      id: "t4-7",
+      category: "track4",
+      trackLabel: "Track 4",
+      hall: "4th Floor",
+      time: "3:45 – 4:15 PM",
+      title: "When Machines Break: How SAP Mobile Apps and AI Keep the World Running",
+      speakerText: "Abhishek Chatterjee",
+      speakerRole: "SAP Software Specialist",
+      company: "Evora",
+      badgeColor: "#8B5CF6",
+    },
+
+    // --- CLOSING ---
+    {
+      id: "close-1",
+      category: "keynote",
+      trackLabel: "Closing",
+      hall: "Auditorium 1",
+      time: "4:15 – 4:20 PM",
+      title: "All Tracks Reassemble at Auditorium 1",
+      desc: "Participants move back to Auditorium 1 for the grand closing ceremony.",
+      type: "event",
+      badgeColor: "#64748B",
+    },
+    {
+      id: "close-2",
+      category: "keynote",
+      trackLabel: "Closing",
+      hall: "Auditorium 1",
+      time: "4:20 – 4:40 PM",
+      title: "Grand Closing Ceremony & Felicitations",
+      desc: "Organizing committee address, partner appreciations, volunteer felicitations, and group photograph.",
+      type: "event",
+      badgeColor: "#F59E0B",
+    },
+    {
+      id: "close-3",
+      category: "keynote",
+      trackLabel: "Closing",
+      hall: "Auditorium 1",
+      time: "5:00 PM",
+      title: "Event Close & Networking Farewell",
+      desc: "Thank you for participating in SAP Inside Track Kolkata 2026!",
+      type: "event",
+      badgeColor: "#F59E0B",
+    },
+  ],
+};
+
 const AgendaSection = () => {
+  const [activeTab, setActiveTab] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredSessions = fullAgendaData.sessions.filter((session) => {
+    const matchesTab = activeTab === "all" || session.category === activeTab;
+    if (!matchesTab) return false;
+
+    if (!searchQuery.trim()) return true;
+    const query = searchQuery.toLowerCase();
+    const matchTitle = session.title?.toLowerCase().includes(query);
+    const matchSpeaker = session.speakerText?.toLowerCase().includes(query);
+    const matchCompany = session.company?.toLowerCase().includes(query);
+    const matchHall = session.hall?.toLowerCase().includes(query);
+    const matchMod = session.moderator?.name?.toLowerCase().includes(query);
+    const matchPanelists = session.panelists?.some((p) => p.name.toLowerCase().includes(query) || p.company.toLowerCase().includes(query));
+
+    return matchTitle || matchSpeaker || matchCompany || matchHall || matchMod || matchPanelists;
+  });
+
   return (
     <section id="agenda" className="relative overflow-hidden bg-slate-950 py-24 text-white scroll-mt-16">
       <div id="schedule" className="absolute -top-20" />
@@ -823,88 +1480,225 @@ const AgendaSection = () => {
       <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px]" />
       <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-yellow-400/15 blur-[120px]" />
 
-      <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <Reveal direction="up" className="mb-12 text-center max-w-2xl mx-auto">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-12">
+        {/* Header Header */}
+        <Reveal direction="up" className="mb-10 text-center max-w-3xl mx-auto">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-yellow-300">
-            <Clock3 className="h-4 w-4" /> ONE HIGH-ENERGY DAY
+            <Clock3 className="h-4 w-4" /> OFFICIAL EVENT AGENDA
           </div>
-          <h2 className="text-4xl font-black tracking-tight md:text-5xl">
-            A programme with <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-yellow-300">real momentum.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+            A Programme with <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-300 to-cyan-300">Real Momentum</span>
           </h2>
-          <p className="mt-3 text-base sm:text-lg font-medium leading-relaxed text-slate-400">
-            No filler. Just useful ideas, generous people, and enough space for the conversations between sessions.
+          <p className="mt-3 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-slate-400">
+            Saturday, 14 November 2026 • 8:00 AM – 5:00 PM IST • Sister Nivedita University, New Town, Kolkata
           </p>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="/agenda-sit-kolkata-2026.pdf"
+              download="SIT_Kolkata_2026_Official_Agenda.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-yellow-400 hover:text-slate-950 text-white border border-white/15 transition-all shadow-lg"
+            >
+              <Download className="w-4 h-4 text-yellow-400 group-hover:text-slate-950" />
+              Download Official PDF Agenda
+            </a>
+          </div>
         </Reveal>
 
-        {/* ── EXACT AGENDA COMING SOON CARD ── */}
-        <Reveal direction="up" className="relative mx-auto max-w-4xl">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-slate-900/80 p-8 sm:p-12 md:p-14 text-center backdrop-blur-xl shadow-2xl group hover:border-yellow-400/40 transition-all duration-500">
-            {/* Ambient internal glows */}
-            <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-yellow-400/15 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
-              {/* Glowing Clock Icon Badge */}
-              <div className="mb-6 relative">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-yellow-300 shadow-[0_0_30px_rgba(250,204,21,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                  <Clock3 className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 animate-pulse" />
+        {/* Milestone Ribbon */}
+        <Reveal direction="up" className="mb-10">
+          <div className="relative overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-slate-800">
+            <div className="flex items-center justify-between min-w-[760px] gap-2 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md">
+              {fullAgendaData.milestones.map((m, idx) => (
+                <div key={idx} className="flex-1 flex flex-col items-center text-center px-2 py-1.5 rounded-xl hover:bg-slate-800/60 transition-colors">
+                  <span className="text-base sm:text-lg mb-1">{m.icon}</span>
+                  <div className="text-[11px] font-mono font-bold text-yellow-400">{m.time}</div>
+                  <div className="text-[10px] font-semibold text-slate-300 truncate max-w-[110px]">{m.label}</div>
                 </div>
-                <span className="absolute -top-1 -right-1 flex h-4 w-4">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
-                </span>
-              </div>
-
-              {/* Date pill */}
-              <div className="inline-flex items-center gap-2 mb-3 bg-yellow-400/10 border border-yellow-400/30 text-yellow-300 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
-                14 NOVEMBER 2026 • 8:00 AM – 5:00 PM IST
-              </div>
-
-              {/* Exact Tagline requested */}
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-                Exact agenda <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-300 to-cyan-300">coming soon</span>
-              </h3>
-
-              <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-xl mb-8">
-                The comprehensive session timetable, keynote schedules, breakout tracks, and hands-on BTP labs are currently being finalized.
-              </p>
-
-              {/* Highlights sneak peek */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-6 border-t border-white/10">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">🎤</span>
-                  <div className="text-xs font-black text-white">Keynote Sessions</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">SAP Champions & Leaders</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">⚡</span>
-                  <div className="text-xs font-black text-white">Deep-Dive Tracks</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">AI, BTP, Clean Core</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">☕</span>
-                  <div className="text-xs font-black text-white">Peer Networking</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">High Tea & Lunch</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">🎁</span>
-                  <div className="text-xs font-black text-white">Community Swags</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">Official 2026 Kits</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </Reveal>
 
+        {/* Controls: Search and Tabs */}
+        <Reveal direction="up" className="mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Tabs */}
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-slate-900/90 border border-slate-800 w-full md:w-auto">
+            {fullAgendaData.tracks.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setActiveTab(t.id)}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+                  activeTab === t.id
+                    ? "bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 shadow-md font-black"
+                    : "text-slate-400 hover:text-white hover:bg-slate-800/50"
+                }`}
+              >
+                <span>{t.name}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Search box */}
+          <div className="relative w-full md:w-72">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search speaker, session, topic..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-slate-900/80 border border-slate-800 focus:border-yellow-400/50 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-slate-500 focus:outline-none transition-colors"
+            />
+          </div>
+        </Reveal>
+
+        {/* Sessions Grid */}
+        <div className="space-y-4">
+          {filteredSessions.length === 0 ? (
+            <div className="p-12 text-center rounded-3xl bg-slate-900/40 border border-slate-800 text-slate-400">
+              <Clock3 className="w-8 h-8 text-slate-600 mx-auto mb-2 animate-bounce" />
+              <div className="text-sm font-bold text-white">No sessions found</div>
+              <div className="text-xs text-slate-500 mt-1">Try clearing your search query or switching tabs.</div>
+            </div>
+          ) : (
+            filteredSessions.map((s) => {
+              const isPanel = !!s.panelists;
+              const isEvent = s.type === "event";
+
+              return (
+                <Reveal key={s.id} direction="up" className="w-full">
+                  <div
+                    className={`relative overflow-hidden rounded-2xl border transition-all duration-300 p-5 md:p-6 ${
+                      isPanel
+                        ? "bg-gradient-to-br from-purple-950/40 via-slate-900/80 to-slate-950 border-purple-500/30 hover:border-purple-400/60 shadow-xl"
+                        : isEvent
+                        ? "bg-slate-900/40 border-slate-800/80 hover:border-slate-700"
+                        : "bg-slate-900/70 border-slate-800/90 hover:border-yellow-400/30 hover:bg-slate-900/90 shadow-lg"
+                    }`}
+                  >
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                      {/* Left: Time & Badges */}
+                      <div className="flex md:flex-col items-center md:items-start justify-between md:justify-start gap-2 shrink-0 md:w-52">
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-white/5 border border-white/10 text-yellow-300">
+                          <Clock3 className="w-3.5 h-3.5 text-yellow-400" />
+                          {s.time}
+                        </div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span
+                            className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md border"
+                            style={{
+                              borderColor: `${s.badgeColor || "#3B82F6"}40`,
+                              backgroundColor: `${s.badgeColor || "#3B82F6"}15`,
+                              color: s.badgeColor || "#3B82F6",
+                            }}
+                          >
+                            {s.trackLabel}
+                          </span>
+                          <span className="text-[10px] font-medium text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-700/50">
+                            {s.hall}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Middle: Title, Speakers, Details */}
+                      <div className="flex-1">
+                        <h4 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
+                          {s.title}
+                        </h4>
+
+                        {s.desc && (
+                          <p className="mt-1.5 text-xs text-slate-400 leading-relaxed max-w-2xl">
+                            {s.desc}
+                          </p>
+                        )}
+
+                        {/* Speaker details if present */}
+                        {s.speakerText && (
+                          <div className="mt-3 flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-yellow-300">
+                              {s.speakerText}
+                            </span>
+                            <span className="text-slate-600">•</span>
+                            <span className="text-xs text-slate-300">
+                              {s.speakerRole}
+                            </span>
+                            <span className="text-slate-600">•</span>
+                            <span className="text-[11px] font-mono font-semibold text-cyan-400 bg-cyan-950/40 border border-cyan-800/40 px-2 py-0.5 rounded-md">
+                              {s.company}
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Special Panel Card details */}
+                        {isPanel && (
+                          <div className="mt-4 pt-4 border-t border-purple-500/20 space-y-3">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-300 bg-purple-900/40 border border-purple-700/50 px-2.5 py-1 rounded-lg">
+                                Moderator: {s.moderator.name} ({s.moderator.role})
+                              </span>
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="text-xs font-bold text-slate-400">Panelists:</span>
+                              {s.panelists.map((p, pIdx) => (
+                                <span
+                                  key={pIdx}
+                                  className="text-xs bg-slate-800/80 border border-slate-700 text-slate-200 px-2.5 py-1 rounded-lg font-medium"
+                                >
+                                  <strong className="text-white">{p.name}</strong>{" "}
+                                  <span className="text-slate-400 text-[11px]">({p.company})</span>
+                                </span>
+                              ))}
+                            </div>
+
+                            {/* Panel Key Takeaways */}
+                            {s.takeaways && (
+                              <div className="pt-2">
+                                <div className="text-[11px] font-mono font-bold text-purple-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                                  <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+                                  GENERALIZED PANEL TAKEAWAYS:
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+                                  {s.takeaways.map((tItem, tIdx) => (
+                                    <div
+                                      key={tIdx}
+                                      className="p-2.5 rounded-xl bg-purple-950/30 border border-purple-500/20 text-xs"
+                                    >
+                                      <div className="font-bold text-yellow-300 flex items-center gap-1.5">
+                                        <CheckCircle className="w-3 h-3 text-cyan-400 shrink-0" />
+                                        {tItem.title}
+                                      </div>
+                                      <div className="text-[11px] text-slate-300 mt-1 leading-snug">
+                                        {tItem.desc}
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })
+          )}
+        </div>
+
+        {/* Footer badges */}
         <Reveal direction="up" className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400">
-          <span className="inline-flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-yellow-400" /> 50+ speakers</span>
-          <span className="inline-flex items-center gap-2"><CircleDot className="h-5 w-5 text-cyan-400" /> Multiple tracks</span>
+          <span className="inline-flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-yellow-400" /> 50+ Enterprise Speakers</span>
+          <span className="inline-flex items-center gap-2"><CircleDot className="h-5 w-5 text-cyan-400" /> 4 Parallel Tracks</span>
+          <span className="inline-flex items-center gap-2"><Sparkles className="h-5 w-5 text-purple-400" /> 3 Executive Panels</span>
         </Reveal>
       </div>
     </section>
   );
 };
+
 
 const InteractivePhotoStack = () => {
   const initialPhotos = [
