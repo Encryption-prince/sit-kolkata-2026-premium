@@ -816,14 +816,14 @@ const HeroSection = () => {
 };
 
 const highlightedMilestones = [
-  { time: "8:00 AM", title: "Breakfast & Registration", desc: "Attendee check-in, kit collection & morning refreshments", icon: "☕", badge: "Morning" },
-  { time: "8:30 AM", title: "Opening & Keynotes", desc: "Keynotes by Dr. Anupam Basu, Debashis Majumder, Srini Gottimukkula, Pankaj Lal", icon: "🎤", badge: "Auditorium 1" },
-  { time: "9:45 AM", title: "Executive Panels (1, 2 & 3)", desc: "Three 35-min panels on Scaling AI, Enterprise Leadership & AI Economy", icon: "💬", badge: "Auditorium 1" },
-  { time: "11:50 AM", title: "4 Parallel Breakout Tracks", desc: "Deep-dives across Auditorium 1, Tech Lab, Auditorium 2 & 4th Floor", icon: "⚡", badge: "All Tracks" },
-  { time: "1:55 PM", title: "Grand Networking Lunch", desc: "Peer networking lunch catered by DesiJourney & beverage partners", icon: "🍽️", badge: "Dining Arena" },
-  { time: "2:45 PM", title: "Parallel Tracks Resume", desc: "Hands-on architecture, code sessions, and practical enterprise demos", icon: "🚀", badge: "All Tracks" },
-  { time: "4:20 PM", title: "Closing Ceremony", desc: "Partner felicitations, community acknowledgments & grand group photo", icon: "🏆", badge: "Auditorium 1" },
-  { time: "5:00 PM", title: "Event Close", desc: "Farewell networking and community wrap-up", icon: "✨", badge: "Wrap-up" },
+  { step: "01", time: "8:00 AM", title: "Breakfast & Registration", desc: "Attendee check-in, kit collection & morning refreshments", badge: "Morning" },
+  { step: "02", time: "8:30 AM", title: "Opening & Keynotes", desc: "Keynotes by Dr. Anupam Basu, Debashis Majumder, Srini Gottimukkula, Pankaj Lal", badge: "Auditorium 1" },
+  { step: "03", time: "9:45 AM", title: "Executive Panels (1, 2 & 3)", desc: "Three 35-min panels on Scaling AI, Enterprise Leadership & AI Economy", badge: "Auditorium 1" },
+  { step: "04", time: "11:50 AM", title: "4 Parallel Breakout Tracks", desc: "Deep-dives across Auditorium 1, Tech Lab, Auditorium 2 & 4th Floor", badge: "All Tracks" },
+  { step: "05", time: "1:55 PM", title: "Grand Networking Lunch", desc: "Peer networking lunch catered by DesiJourney & beverage partners", badge: "Dining Arena" },
+  { step: "06", time: "2:45 PM", title: "Parallel Tracks Resume", desc: "Hands-on architecture, code sessions, and practical enterprise demos", badge: "All Tracks" },
+  { step: "07", time: "4:20 PM", title: "Closing Ceremony", desc: "Partner felicitations, community acknowledgments & grand group photo", badge: "Auditorium 1" },
+  { step: "08", time: "5:00 PM", title: "Event Close", desc: "Farewell networking and community wrap-up", badge: "Wrap-up" },
 ];
 
 const panelHighlights = [
@@ -990,7 +990,9 @@ const AgendaSection = () => {
                 <div className="h-full p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90 transition-all duration-300 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-2xl">{m.icon}</span>
+                      <span className="text-xs font-mono font-bold text-yellow-400 bg-yellow-400/10 border border-yellow-400/25 px-2 py-0.5 rounded-md tracking-wider">
+                        PHASE {m.step}
+                      </span>
                       <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-400">
                         {m.badge}
                       </span>
