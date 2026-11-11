@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail, Copy, Check } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, Ticket, Users, Mic, Zap, Star, Play, Pause, ChevronRight, ChevronLeft, Landmark, Train, Map, CheckCircle, Clock3, Sparkles, Coffee, BrainCircuit, Network, ArrowUpRight, BadgeCheck, CircleDot, Gift, RotateCcw, Pencil, HelpCircle, Eraser, Bookmark, ExternalLink, X, Menu, Image as ImageIcon, Camera, Mail, Copy, Check, Search, Download, Layers } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
@@ -815,7 +815,100 @@ const HeroSection = () => {
   );
 };
 
+const highlightedMilestones = [
+  { step: "01", time: "8:00 AM", title: "Breakfast & Registration", desc: "Attendee check-in, kit collection & morning refreshments", badge: "Dining Arena" },
+  { step: "02", time: "8:30 AM", title: "Opening & Keynotes", desc: "Keynotes by Dr. Anupam Basu, Debashis Majumder, Srini Gottimukkula, Pankaj Lal", badge: "Block B, 11th Fl" },
+  { step: "03", time: "9:45 AM", title: "Executive Panels (1, 2 & 3)", desc: "Three 35-min panels on Scaling AI, Enterprise Leadership & AI Economy", badge: "Block B, 11th Fl" },
+  { step: "04", time: "11:50 AM", title: "4 Parallel Breakout Tracks", desc: "Deep-dives across Block B (11th & 7th Fl) and Block A (2nd Fl)", badge: "All Tracks" },
+  { step: "05", time: "1:55 PM", title: "Grand Networking Lunch", desc: "Peer networking lunch catered by DesiJourney & beverage partners", badge: "Dining Arena" },
+  { step: "06", time: "2:45 PM", title: "Parallel Tracks Resume", desc: "Hands-on architecture, code sessions, and practical enterprise demos", badge: "All Tracks" },
+  { step: "07", time: "4:20 PM", title: "Closing Ceremony", desc: "Partner felicitations, community acknowledgments & grand group photo", badge: "Block B, 11th Fl" },
+  { step: "08", time: "5:00 PM", title: "Event Close", desc: "Farewell networking and community wrap-up", badge: "Wrap-up" },
+];
+
+const panelHighlights = [
+  {
+    num: "1",
+    time: "9:45 – 10:20 AM",
+    title: "From Enterprise Core to Intelligent Operations: Scaling SAP, Data & AI Across Business",
+    moderator: "Mrinal Kaantee Chanda (SAP Labs)",
+    panelists: "Pankaj Lal (Westernacher), Srini Gottimukkula (SAP Labs), Prasun Dutta (IBM), Subimal Chakraborty (Linde), Kaveri Biswas (Parle Biscuits), Partha Pratim Sengupta (Infocus)",
+    accent: "from-blue-500/20 to-purple-500/20",
+    border: "border-blue-500/30",
+    takeaways: [
+      { title: "Scaling AI Beyond Core", desc: "Decoupling AI innovation using SAP BTP clean core principles to avoid technical debt." },
+      { title: "Enterprise Data Foundation", desc: "Building trusted, real-time data pipelines (Datasphere & BDC) for AI context." },
+      { title: "Operational ROI", desc: "Transitioning from experimental POCs to measurable operational excellence at scale." },
+    ],
+  },
+  {
+    num: "2",
+    time: "10:25 – 11:00 AM",
+    title: "Leading Through Transformation: Reimagining Enterprise Strategy, Technology & the Future of Business",
+    moderator: "Mrinal Kaantee Chanda (SAP Labs)",
+    panelists: "Sharmistha Sanyal (Capgemini), Manzoor Hasan (TNS Consulting), Debashis Majumder (SAP), Shib Shekhar Ghosh (Diageo), Sunil Chopra (SAP)",
+    accent: "from-purple-500/20 to-pink-500/20",
+    border: "border-purple-500/30",
+    takeaways: [
+      { title: "Strategic Leadership", desc: "Guiding global enterprises through complex S/4HANA migrations and cloud lifecycles." },
+      { title: "Reimagining Strategy", desc: "Aligning boardroom priorities with agile delivery, Business AI, and Cloud ALM." },
+      { title: "Human-Centric Change", desc: "Upskilling enterprise talent and cultivating high-performance agile cultures." },
+    ],
+  },
+  {
+    num: "3",
+    time: "11:05 – 11:40 AM",
+    title: "Beyond AI Adoption: Building Intelligent Enterprises and Creating Value in the AI Economy",
+    moderator: "Arindam Hari (Acceleron Solutions / Gainwell Group)",
+    panelists: "Sabyasachi Biswas (VarionHub / TuTeck), Tilak Kumar Dhar (Databricks), Dr. Indranil Mitra (Global Consulting Firm), Dr. Sugata Roy (ARODEK), Monimoy Kundu (TCS)",
+    accent: "from-emerald-500/20 to-cyan-500/20",
+    border: "border-emerald-500/30",
+    takeaways: [
+      { title: "Value in the AI Economy", desc: "Moving beyond passive adoption into active monetization and balance-sheet value." },
+      { title: "Cognitive Architecture", desc: "Integrating foundation models, autonomous agents, and lakehouse data fabrics." },
+      { title: "Trust & Governance", desc: "Establishing enterprise-grade guardrails and ethical compliance for autonomous scale." },
+    ],
+  },
+];
+
+const parallelTracksSummary = [
+  {
+    track: "Track 1",
+    hall: "Block B, 11th Floor Auditorium",
+    theme: "Functional, Clean Core & AI",
+    color: "#3B82F6",
+    sessionsCount: "6 Sessions",
+    topics: ["SAP Cloud ALM Agentic Platform", "SAP Business Data Cloud (Jitendra Ghanta)", "S/4HANA Career Pathways", "SAP OCM & Change Management", "Connected SAP Enterprise (TuTeck)", "Grounded AI in Digital Core (Infocus)"],
+  },
+  {
+    track: "Track 2",
+    hall: "Block A, 2nd Floor Tech Lab",
+    theme: "Hands-on Code & Data Lab",
+    color: "#FF3621",
+    sessionsCount: "7 Sessions",
+    topics: ["Databricks Data in Motion Demo", "Unity AI Gateway", "Databricks Lakebase Foundations", "Text-to-SQL Intelligent Systems", "IoT & AI Adoption in SAP", "ABAP Meets AI: Beyond Prompt (TCS)", "MCP Integration with Joule Studio (IBM)"],
+  },
+  {
+    track: "Track 3",
+    hall: "Block A, 2nd Floor Seminar Hall",
+    theme: "Cloud ALM & Deep Dives",
+    color: "#10B981",
+    sessionsCount: "8 Sessions",
+    topics: ["SAP Business Network Supplier Portal (Arit Basu)", "Twinings × ITC Infotech Cloud ALM", "Manufacturing Enterprise (PwC)", "Autonomous Supply Chain (Innoverv)", "AI in Transportation (Westernacher)", "SAP Business Value (SAP)", "Autonomous Enterprise (TCS)", "Building a Career in SAP"],
+  },
+  {
+    track: "Track 4",
+    hall: "Block B, 7th Floor",
+    theme: "IBM & Cloud Modernization",
+    color: "#8B5CF6",
+    sessionsCount: "7 Sessions",
+    topics: ["15 Steps for S/4HANA Go-Live (Deloitte)", "SAP BTP Supply Chain Outcomes (IBM)", "IBM Intelligent Delivery & ICA Edge", "SAP BDC Adoption Journey (IBM)", "Smart Business Solutions on BTP (IBM)", "SAP & AI Practical Tour (Innoverv)", "Mobile Apps & AI in Action (Evora)"],
+  },
+];
+
 const AgendaSection = () => {
+  const [showPdfModal, setShowPdfModal] = useState(false);
+
   return (
     <section id="agenda" className="relative overflow-hidden bg-slate-950 py-24 text-white scroll-mt-16">
       <div id="schedule" className="absolute -top-20" />
@@ -823,88 +916,276 @@ const AgendaSection = () => {
       <div className="absolute -left-40 top-0 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px]" />
       <div className="absolute -right-32 bottom-0 h-80 w-80 rounded-full bg-yellow-400/15 blur-[120px]" />
 
-      <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <Reveal direction="up" className="mb-12 text-center max-w-2xl mx-auto">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-12">
+        {/* Section Header */}
+        <Reveal direction="up" className="mb-12 text-center max-w-3xl mx-auto">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-yellow-300">
-            <Clock3 className="h-4 w-4" /> ONE HIGH-ENERGY DAY
+            <Clock3 className="h-4 w-4" /> OFFICIAL EVENT AGENDA
           </div>
-          <h2 className="text-4xl font-black tracking-tight md:text-5xl">
-            A programme with <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-yellow-300">real momentum.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+            Schedule at a <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-300 to-cyan-300">Glance</span>
           </h2>
-          <p className="mt-3 text-base sm:text-lg font-medium leading-relaxed text-slate-400">
-            No filler. Just useful ideas, generous people, and enough space for the conversations between sessions.
+          <p className="mt-3 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-slate-400">
+            Saturday, 14 November 2026 • 8:00 AM – 5:00 PM IST • Sister Nivedita University, Kolkata
           </p>
         </Reveal>
 
-        {/* ── EXACT AGENDA COMING SOON CARD ── */}
-        <Reveal direction="up" className="relative mx-auto max-w-4xl">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] via-white/[0.03] to-slate-900/80 p-8 sm:p-12 md:p-14 text-center backdrop-blur-xl shadow-2xl group hover:border-yellow-400/40 transition-all duration-500">
-            {/* Ambient internal glows */}
-            <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-yellow-400/15 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
-              {/* Glowing Clock Icon Badge */}
-              <div className="mb-6 relative">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-yellow-300 shadow-[0_0_30px_rgba(250,204,21,0.2)] group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
-                  <Clock3 className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-400 animate-pulse" />
-                </div>
-                <span className="absolute -top-1 -right-1 flex h-4 w-4">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-4 w-4 bg-cyan-500"></span>
-                </span>
+        {/* ── PROMINENT PDF DOWNLOAD & PREVIEW BANNER ── */}
+        <Reveal direction="up" className="mb-14 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-yellow-400/30 bg-gradient-to-r from-slate-900 via-slate-900/90 to-blue-950/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 group hover:border-yellow-400/60 transition-all duration-300">
+            <div className="flex items-center gap-4 text-left">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center text-yellow-400 shrink-0 shadow-lg group-hover:scale-105 transition-transform">
+                <Download className="w-7 h-7 animate-bounce" />
               </div>
-
-              {/* Date pill */}
-              <div className="inline-flex items-center gap-2 mb-3 bg-yellow-400/10 border border-yellow-400/30 text-yellow-300 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
-                14 NOVEMBER 2026 • 8:00 AM – 5:00 PM IST
+              <div>
+                <div className="inline-flex items-center gap-2 mb-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-yellow-400/15 border border-yellow-400/30 text-yellow-300">
+                  <Sparkles className="w-3 h-3" /> OFFICIAL 4-PAGE SCHEDULE
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
+                  Download Full Complete Agenda (PDF)
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+                  Full timetable, all 4 parallel breakout tracks, keynote timings, and speaker rosters.
+                </p>
               </div>
+            </div>
 
-              {/* Exact Tagline requested */}
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-                Exact agenda <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-300 to-cyan-300">coming soon</span>
-              </h3>
-
-              <p className="text-base sm:text-lg text-slate-300 font-medium leading-relaxed max-w-xl mb-8">
-                The comprehensive session timetable, keynote schedules, breakout tracks, and hands-on BTP labs are currently being finalized.
-              </p>
-
-              {/* Highlights sneak peek */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full pt-6 border-t border-white/10">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">🎤</span>
-                  <div className="text-xs font-black text-white">Keynote Sessions</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">SAP Champions & Leaders</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">⚡</span>
-                  <div className="text-xs font-black text-white">Deep-Dive Tracks</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">AI, BTP, Clean Core</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">☕</span>
-                  <div className="text-xs font-black text-white">Peer Networking</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">High Tea & Lunch</div>
-                </div>
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex flex-col items-center text-center">
-                  <span className="text-xl mb-1.5">🎁</span>
-                  <div className="text-xs font-black text-white">Community Swags</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5">Official 2026 Kits</div>
-                </div>
-              </div>
+            <div className="flex items-center gap-3 w-full sm:w-auto shrink-0">
+              <button
+                onClick={() => setShowPdfModal(true)}
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all shadow-md"
+              >
+                <ExternalLink className="w-4 h-4 text-cyan-300" />
+                Preview PDF
+              </button>
+              <a
+                href="/agenda-sit-kolkata-2026.pdf"
+                download="SIT_Kolkata_2026_Official_Agenda.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 shadow-lg shadow-yellow-400/20 hover:scale-105 transition-all"
+              >
+                <Download className="w-4 h-4" />
+                Download PDF
+              </a>
             </div>
           </div>
         </Reveal>
 
-        <Reveal direction="up" className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400">
-          <span className="inline-flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-yellow-400" /> 50+ speakers</span>
-          <span className="inline-flex items-center gap-2"><CircleDot className="h-5 w-5 text-cyan-400" /> Multiple tracks</span>
+        {/* ── HIGHLIGHTED DAY TIMELINE ── */}
+        <div className="mb-16">
+          <Reveal direction="up" className="mb-6 flex items-center justify-between">
+            <h3 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+              <Clock3 className="w-5 h-5 text-yellow-400" />
+              Day Timeline at a Glance
+            </h3>
+            <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-widest hidden sm:inline-block">
+              8:00 AM — 5:00 PM IST
+            </span>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {highlightedMilestones.map((m, idx) => (
+              <Reveal key={idx} direction="up">
+                <div className="h-full p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs font-mono font-bold text-yellow-400 bg-yellow-400/10 border border-yellow-400/25 px-2 py-0.5 rounded-md tracking-wider">
+                        PHASE {m.step}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-slate-400">
+                        {m.badge}
+                      </span>
+                    </div>
+                    <div className="text-xs font-mono font-bold text-yellow-400 mb-1">
+                      {m.time}
+                    </div>
+                    <h4 className="text-sm font-bold text-white tracking-tight">
+                      {m.title}
+                    </h4>
+                    <p className="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                      {m.desc}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* ── HIGHLIGHTED EXECUTIVE PANELS ── */}
+        <div className="mb-16">
+          <Reveal direction="up" className="mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-purple-500/10 border border-purple-500/30 text-purple-300 mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
+              MAIN AUDITORIUM · BLOCK B, 11TH FL • 9:45 AM – 11:40 AM
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white">
+              Three Executive Panel Debates & Key Takeaways
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+              CXO-level discussions uniting enterprise architects, industry leaders, and ecosystem partners.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {panelHighlights.map((panel, idx) => (
+              <Reveal key={idx} direction="up">
+                <div className={`h-full rounded-2xl border ${panel.border} bg-gradient-to-b ${panel.accent} via-slate-900/80 to-slate-950 p-5 sm:p-6 backdrop-blur-md shadow-xl flex flex-col justify-between`}>
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-mono font-black uppercase tracking-wider px-2.5 py-1 rounded-lg bg-white/10 border border-white/15 text-yellow-300">
+                        Panel {panel.num}
+                      </span>
+                      <span className="text-xs font-mono font-bold text-slate-400">
+                        {panel.time}
+                      </span>
+                    </div>
+
+                    <h4 className="text-base font-bold text-white tracking-tight leading-snug mb-3">
+                      {panel.title}
+                    </h4>
+
+                    <div className="mb-4 text-xs text-slate-300 space-y-1 bg-slate-950/40 p-3 rounded-xl border border-white/5">
+                      <div><strong className="text-yellow-400 font-mono text-[11px]">MODERATOR:</strong> {panel.moderator}</div>
+                      <div><strong className="text-slate-400 font-mono text-[11px]">PANELISTS:</strong> {panel.panelists}</div>
+                    </div>
+
+                    <div className="space-y-2 pt-2 border-t border-white/10">
+                      <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                        GENERALIZED TAKEAWAYS:
+                      </div>
+                      {panel.takeaways.map((t, tIdx) => (
+                        <div key={tIdx} className="text-xs p-2 rounded-lg bg-slate-900/60 border border-slate-800">
+                          <div className="font-bold text-white flex items-center gap-1.5">
+                            <CheckCircle className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                            {t.title}
+                          </div>
+                          <div className="text-[11px] text-slate-400 mt-0.5 leading-snug">
+                            {t.desc}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* ── 4 PARALLEL TRACKS SUMMARY ── */}
+        <div className="mb-14">
+          <Reveal direction="up" className="mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-blue-500/10 border border-blue-500/30 text-blue-300 mb-2">
+              <Zap className="w-3.5 h-3.5 text-cyan-400" />
+              PARALLEL BREAKOUTS • 11:50 AM – 4:15 PM
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white">
+              Four Parallel Breakout Tracks
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1">
+              Choose your focus area across hands-on tech labs, executive architectures, and specialized partner sessions.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {parallelTracksSummary.map((trk, idx) => (
+              <Reveal key={idx} direction="up">
+                <div className="h-full p-5 rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span
+                        className="text-xs font-mono font-black uppercase px-2.5 py-0.5 rounded-md"
+                        style={{ backgroundColor: `${trk.color}20`, color: trk.color }}
+                      >
+                        {trk.track}
+                      </span>
+                      <span className="text-[10px] font-bold text-slate-400 bg-slate-800 px-2 py-0.5 rounded">
+                        {trk.sessionsCount}
+                      </span>
+                    </div>
+
+                    <div className="text-xs font-medium text-slate-400 mb-1">{trk.hall}</div>
+                    <h4 className="text-sm font-bold text-white mb-3">{trk.theme}</h4>
+
+                    <div className="space-y-1.5 pt-2 border-t border-slate-800 text-xs">
+                      {trk.topics.map((tpc, tIdx) => (
+                        <div key={tIdx} className="text-slate-300 text-[11px] flex items-start gap-1.5">
+                          <span className="text-slate-500 leading-none mt-1">•</span>
+                          <span>{tpc}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+
+        {/* ── FOOTER STATS & BADGES ── */}
+        <Reveal direction="up" className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400 pt-6 border-t border-white/10">
+          <span className="inline-flex items-center gap-2"><BadgeCheck className="h-5 w-5 text-yellow-400" /> 50+ Enterprise Speakers</span>
+          <span className="inline-flex items-center gap-2"><CircleDot className="h-5 w-5 text-cyan-400" /> 4 Parallel Breakout Tracks</span>
+          <span className="inline-flex items-center gap-2"><Sparkles className="h-5 w-5 text-purple-400" /> 3 Executive Panel Debates</span>
+          <a
+            href="/agenda-sit-kolkata-2026.pdf"
+            download="SIT_Kolkata_2026_Official_Agenda.pdf"
+            className="text-yellow-400 hover:underline flex items-center gap-1.5 text-xs font-mono font-bold"
+          >
+            <Download className="w-3.5 h-3.5" /> PDF Schedule Available
+          </a>
         </Reveal>
       </div>
+
+      {/* ── PDF PREVIEW MODAL ── */}
+      {showPdfModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 sm:p-6 animate-in fade-in duration-200">
+          <div className="relative w-full max-w-5xl h-[85vh] rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl flex flex-col overflow-hidden">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/80">
+              <div className="flex items-center gap-3">
+                <span className="text-yellow-400 font-bold text-sm sm:text-base flex items-center gap-2">
+                  <Clock3 className="w-4 h-4" /> Official Event Agenda · SIT Kolkata 2026
+                </span>
+                <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-slate-300 hidden sm:inline-block">
+                  4 Pages • PDF
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href="/agenda-sit-kolkata-2026.pdf"
+                  download="SIT_Kolkata_2026_Official_Agenda.pdf"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-yellow-400 text-slate-950 hover:bg-yellow-300 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  Download
+                </a>
+                <button
+                  onClick={() => setShowPdfModal(false)}
+                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body: Embedded PDF */}
+            <div className="flex-1 w-full bg-slate-950 p-1">
+              <iframe
+                src="/agenda-sit-kolkata-2026.pdf#toolbar=1&navpanes=0&scrollbar=1"
+                className="w-full h-full rounded-2xl border-0"
+                title="SIT Kolkata 2026 Agenda PDF Preview"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
+
 
 const InteractivePhotoStack = () => {
   const initialPhotos = [
@@ -2058,11 +2339,20 @@ const speakersData = [
     topic: "Keynote & Panel: Enterprise Leadership, SAP Ecosystem Innovations & Social Impact",
     bio: "Senior Director at SAP and Founder of My Children Foundation. An executive technology leader driving global enterprise transformation, SAP cloud adoption, and purpose-driven community impact.",
     takeaways: [
-      { title: "Strategic Enterprise Leadership", desc: "Guiding organizations through mission-critical digital & SAP cloud transformations." },
-      { title: "Technology with Purpose", desc: "Bridging corporate technology innovation with meaningful social impact through foundation initiatives." },
-      { title: "Executive Leadership Insights", desc: "Actionable perspectives on leading high-performing technology teams across SAP ecosystems." },
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["Keynote Speaker", "Panelist", "Senior Director SAP", "Leadership"],
+    tags: ["Keynote Speaker","Panelist","Senior Director SAP","Leadership"],
     accentColor: "#0070F2",
     img: "/speakers/debashis-majumder-poster.jpg",
     poster: "/speakers/debashis-majumder-poster.jpg",
@@ -2079,11 +2369,20 @@ const speakersData = [
     topic: "SAP Cloud ALM Roadshow: AI-Powered Digital Transformation | Cloud ALM | GTM & Adoption",
     bio: "Director – SAP ALM Global Rollout at SAP. Spearheading AI-Powered Digital Transformation, SAP Cloud ALM strategy, Go-To-Market (GTM) execution, and enterprise adoption globally.",
     takeaways: [
-      { title: "AI-Powered Digital Transformation", desc: "Unlocking operational excellence & proactive maintenance with SAP Cloud ALM." },
-      { title: "Cloud ALM & Clean Core Alignment", desc: "Strategies for managing modern hybrid SAP software lifecycles." },
-      { title: "GTM & Enterprise Adoption Frameworks", desc: "Scaling digital transformation methodologies across enterprise landscapes." },
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["SAP Cloud ALM", "AI Transformation", "Cloud ALM GTM", "Roadshow Keynote"],
+    tags: ["SAP Cloud ALM","AI Transformation","Cloud ALM GTM","Roadshow Keynote"],
     accentColor: "#0070F2",
     img: "/speakers/sunil-chopra-poster.jpg",
     poster: "/speakers/sunil-chopra-poster.jpg",
@@ -2100,11 +2399,20 @@ const speakersData = [
     topic: "Business & Strategy Program Management: SAP Basis, HANA & Project Management",
     bio: "Business & Strategy Principal Program Manager at SAP with deep expertise in SAP Basis & HANA platforms, large-scale program delivery, and strategic enterprise architecture.",
     takeaways: [
-      { title: "HANA & Basis Architecture", desc: "Best practices for maintaining peak performance, high availability, and resilience in SAP HANA landscapes." },
-      { title: "Strategic Program Execution", desc: "Frameworks for managing complex, multi-stakeholder enterprise SAP rollouts and transitions." },
-      { title: "Modernization Roadmap", desc: "Navigating enterprise modernization paths for core SAP systems and cloud landscapes." },
+          {
+                title: "HANA & Basis Architecture",
+                desc: "Best practices for maintaining peak performance, high availability, and resilience in SAP HANA landscapes."
+          },
+          {
+                title: "Strategic Program Execution",
+                desc: "Frameworks for managing complex, multi-stakeholder enterprise SAP rollouts and transitions."
+          },
+          {
+                title: "Modernization Roadmap",
+                desc: "Navigating enterprise modernization paths for core SAP systems and cloud landscapes."
+          }
     ],
-    tags: ["Speaker", "SAP Basis & HANA", "Program Management", "Strategy"],
+    tags: ["Speaker","SAP Basis & HANA","Program Management","Strategy"],
     accentColor: "#F59E0B",
     img: "/speakers/sayantan-kar-poster.jpg",
     poster: "/speakers/sayantan-kar-poster.jpg",
@@ -2121,11 +2429,20 @@ const speakersData = [
     topic: "Panelist: GCC Strategy, Global IT Delivery Centers & AI-Driven Digital Transformation",
     bio: "Director – Global IT Delivery Centers at Linde plc. Seasoned executive driving Global Capability Center (GCC) strategies, enterprise IT delivery scaling, and applied AI transformation.",
     takeaways: [
-      { title: "GCC Strategy & Delivery at Scale", desc: "Building and scaling high-efficiency Global Capability Centers in India." },
-      { title: "AI & Digital Transformation", desc: "Deploying applied AI and automation across complex global IT and enterprise operations." },
-      { title: "Global Technology Leadership", desc: "Driving cross-functional execution and agility across multi-country enterprise landscapes." },
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Panelist", "Linde plc", "GCC Strategy", "AI & Transformation"],
+    tags: ["Panelist","Linde plc","GCC Strategy","AI & Transformation"],
     accentColor: "#8B5CF6",
     img: "/speakers/subimal-chakraborty-poster.jpg",
     poster: "/speakers/subimal-chakraborty-poster.jpg",
@@ -2142,11 +2459,20 @@ const speakersData = [
     topic: "Panelist: Industry CoE & AI, ERP & Middleware Architecture | 22+ Years Leadership",
     bio: "Head – Industry CoE & AI with 22+ years of business and technology leadership spanning enterprise ERP systems, middleware architectures, and AI-enabled industry solutions.",
     takeaways: [
-      { title: "Industry CoE Best Practices", desc: "Structuring Centers of Excellence to accelerate enterprise business value and AI innovation." },
-      { title: "ERP & Middleware Integration", desc: "Architecting seamless integration pipelines connecting modern SAP with middleware platforms." },
-      { title: "22+ Years Leadership Wisdom", desc: "Navigating paradigm shifts from legacy ERP to cloud-native, AI-augmented enterprise platforms." },
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "Industry CoE", "ERP & Middleware", "22+ Yrs Experience"],
+    tags: ["Panelist","Industry CoE","ERP & Middleware","22+ Yrs Experience"],
     accentColor: "#EC4899",
     img: "/speakers/monimoy-kundu-poster.jpg",
     poster: "/speakers/monimoy-kundu-poster.jpg",
@@ -2163,11 +2489,20 @@ const speakersData = [
     topic: "SAP Data & Transformation: 18+ Years in SAP Data, Analytics & Enterprise Delivery",
     bio: "Senior Manager at EY GDS with previous leadership experience at PwC and IBM. Boasts 18+ years of expertise delivering large-scale SAP data migrations, analytics architecture, and complex enterprise transformations.",
     takeaways: [
-      { title: "SAP Data Migration Mastery", desc: "Proven strategies for high-fidelity data migration, cleansing, and governance during S/4HANA transformations." },
-      { title: "Enterprise Transformation Playbook", desc: "Key insights from 18+ years managing Big 4 enterprise SAP implementations." },
-      { title: "Clean Data for Clean Core", desc: "Ensuring clean, harmonized data models to power AI workflows and modern analytical platforms." },
+          {
+                title: "SAP Data Migration Mastery",
+                desc: "Proven strategies for high-fidelity data migration, cleansing, and governance during S/4HANA transformations."
+          },
+          {
+                title: "Enterprise Transformation Playbook",
+                desc: "Key insights from 18+ years managing Big 4 enterprise SAP implementations."
+          },
+          {
+                title: "Clean Data for Clean Core",
+                desc: "Ensuring clean, harmonized data models to power AI workflows and modern analytical platforms."
+          }
     ],
-    tags: ["Speaker", "EY GDS", "SAP Data & AI", "18+ Yrs Experience"],
+    tags: ["Speaker","EY GDS","SAP Data & AI","18+ Yrs Experience"],
     accentColor: "#10B981",
     img: "/speakers/prasen-bose-poster.jpg",
     poster: "/speakers/prasen-bose-poster.jpg",
@@ -2184,11 +2519,20 @@ const speakersData = [
     topic: "Executive Panelist: Data & Analytics Strategy, SAP Business Data Cloud & Product Management",
     bio: "Vice President - Data & Analytics at SAP Business Data Cloud. Leading product management, strategic data mesh architectures, and analytics innovation across the SAP ecosystem.",
     takeaways: [
-      { title: "SAP Business Data Cloud Strategy", desc: "Enterprise data context, business semantics, and cloud data integration." },
-      { title: "Product Management & Innovation", desc: "Future roadmap of SAP Datasphere & SAP Analytics Cloud capabilities." },
-      { title: "Interactive Executive Panel", desc: "Direct dialogue on enterprise analytics, governance, and AI data strategy." },
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Data & Analytics", "SAP Business Data Cloud", "Product Strategy", "Panelist"],
+    tags: ["Data & Analytics","SAP Business Data Cloud","Product Strategy","Panelist"],
     accentColor: "#F59E0B",
     img: "/speakers/srini-gottimukkula-poster.jpg",
     poster: "/speakers/srini-gottimukkula-poster.jpg",
@@ -2205,11 +2549,20 @@ const speakersData = [
     topic: "20+ Years in SAP: S/4HANA Solution Architecture & Clean Core Innovation",
     bio: "SAP Developer Network (SDN) Hall of Fame member with 20+ years of SAP expertise. Senior S/4HANA Solution Architect driving enterprise ERP transformations and modern clean code engineering.",
     takeaways: [
-      { title: "20+ Years SAP Engineering Insights", desc: "Battle-tested architectural wisdom from two decades of enterprise SAP implementations." },
-      { title: "S/4HANA Clean Core Architecture", desc: "Designing upgrade-safe extensions and decoupling custom business logic." },
-      { title: "SDN Hall of Fame Developer Mastery", desc: "Elevating community code standards, modern ABAP RESTful programming (RAP), and CDS." },
+          {
+                title: "20+ Years SAP Engineering Insights",
+                desc: "Battle-tested architectural wisdom from two decades of enterprise SAP implementations."
+          },
+          {
+                title: "S/4HANA Clean Core Architecture",
+                desc: "Designing upgrade-safe extensions and decoupling custom business logic."
+          },
+          {
+                title: "SDN Hall of Fame Developer Mastery",
+                desc: "Elevating community code standards, modern ABAP RESTful programming (RAP), and CDS."
+          }
     ],
-    tags: ["SAP S/4HANA", "Solution Architect", "SDN Hall of Fame", "20+ Yrs SAP"],
+    tags: ["SAP S/4HANA","Solution Architect","SDN Hall of Fame","20+ Yrs SAP"],
     accentColor: "#06B6D4",
     img: "/speakers/arghadip-kar-poster.jpg",
     poster: "/speakers/arghadip-kar-poster.jpg",
@@ -2219,18 +2572,27 @@ const speakersData = [
     id: 9,
     name: "Rajesh Ray",
     role: "Business Transformation & Sustainability Expert",
-    company: 'Author – "Sustainable Business Strategies" | 65+ Published Articles',
+    company: "Author – \"Sustainable Business Strategies\" | 65+ Published Articles",
     category: "Speaker",
     track: "Business Transformation & Sustainability",
     time: "14 NOV 2026 • 8:00 AM - 5:00 PM IST",
     topic: "Sustainable Business Strategies: Integrating ESG, Circular Economy & Digital Enterprise Transformation",
     bio: "Business Transformation & Sustainability Expert with over 26 years of corporate leadership across SAP Consulting, IBM, and Innoverv. Author of McGraw Hill's 'Sustainable Business Strategies' with 65+ published articles, guiding global organizations on ESG integration and circular value chains.",
     takeaways: [
-      { title: "Sustainable Business Strategies", desc: "Integrating ESG principles and circular economy models into core business and enterprise architectures." },
-      { title: "65+ Published Articles & Insights", desc: "Actionable frameworks on digital supply chain decarbonization, carbon management, and process consulting." },
-      { title: "Enterprise Transformation", desc: "Proven strategies from 26+ years of consulting leadership to drive measurable environmental and business value." },
+          {
+                title: "Sustainable Business Strategies",
+                desc: "Integrating ESG principles and circular economy models into core business and enterprise architectures."
+          },
+          {
+                title: "65+ Published Articles & Insights",
+                desc: "Actionable frameworks on digital supply chain decarbonization, carbon management, and process consulting."
+          },
+          {
+                title: "Enterprise Transformation",
+                desc: "Proven strategies from 26+ years of consulting leadership to drive measurable environmental and business value."
+          }
     ],
-    tags: ["Speaker", "Sustainability Expert", "ESG & Circular Economy", "Author"],
+    tags: ["Speaker","Sustainability Expert","ESG & Circular Economy","Author"],
     accentColor: "#10B981",
     img: "/speakers/rajesh-ray-poster.jpg",
     poster: "/speakers/rajesh-ray-poster.jpg",
@@ -2247,11 +2609,20 @@ const speakersData = [
     topic: "Executive Panel: FutureNow Center Leadership, SAP Business AI & Next-Gen Enterprise Transformation",
     bio: "Partner & Executive – SAP Practice Leader at IBM FutureNow Center with 23+ years of consulting experience. Spearheading SAP AI innovation, enterprise digital transformations, and next-generation delivery frameworks for global clients.",
     takeaways: [
-      { title: "FutureNow Enterprise Architecture", desc: "Accelerating the journey to autonomous enterprise operations powered by Business AI and SAP." },
-      { title: "23+ Years Consulting Mastery", desc: "Battle-tested executive frameworks for large-scale enterprise delivery, migration strategy, and innovation." },
-      { title: "Executive Panel Insights", desc: "Strategic dialogue on the real-world convergence of SAP S/4HANA, AI orchestration, and cloud platforms." },
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
     ],
-    tags: ["Panelist", "IBM FutureNow Center", "SAP Practice Leader", "23+ Yrs Consulting"],
+    tags: ["Panelist","IBM FutureNow Center","SAP Practice Leader","23+ Yrs Consulting"],
     accentColor: "#0070F2",
     img: "/speakers/prasun-dutta-poster.jpg",
     poster: "/speakers/prasun-dutta-poster.jpg",
@@ -2268,11 +2639,20 @@ const speakersData = [
     topic: "Enterprise Solutions & Mobile Enablement: Modernizing Field Operations with SAP",
     bio: "SAP Software Specialist at Evora with 7+ years of specialized SAP experience. Expert in enterprise mobile enablement, Asset Management solutions, and empowering field workforces with intuitive digital interfaces.",
     takeaways: [
-      { title: "SAP Mobile Enablement", desc: "Bridging field operations and enterprise core systems through responsive, high-performance mobile architectures." },
-      { title: "Enterprise Solutions & Integration", desc: "Deploying secure, real-time enterprise applications integrated with modern SAP backends and cloud APIs." },
-      { title: "Operational Excellence", desc: "Maximizing workforce productivity and asset uptime using next-generation SAP mobility solutions." },
+          {
+                title: "SAP Mobile Enablement",
+                desc: "Bridging field operations and enterprise core systems through responsive, high-performance mobile architectures."
+          },
+          {
+                title: "Enterprise Solutions & Integration",
+                desc: "Deploying secure, real-time enterprise applications integrated with modern SAP backends and cloud APIs."
+          },
+          {
+                title: "Operational Excellence",
+                desc: "Maximizing workforce productivity and asset uptime using next-generation SAP mobility solutions."
+          }
     ],
-    tags: ["Speaker", "Evora", "Mobile Enablement", "Enterprise Solutions", "7+ Yrs SAP"],
+    tags: ["Speaker","Evora","Mobile Enablement","Enterprise Solutions","7+ Yrs SAP"],
     accentColor: "#F59E0B",
     img: "/speakers/abhishek-chatterjee-poster.jpg",
     poster: "/speakers/abhishek-chatterjee-poster.jpg",
@@ -2289,11 +2669,20 @@ const speakersData = [
     topic: "Architecting the Intelligent Enterprise: 20+ Years in SAP BTP, S/4HANA & Multi-Cloud Architecture",
     bio: "Director at Innoverv Global Solutions with 20+ years of SAP experience. TOGAF® certified SAP BTP & S/4HANA Solution Architect specializing in multi-cloud architecture, clean core principles, and enterprise modernization.",
     takeaways: [
-      { title: "SAP BTP & Multi-Cloud Strategy", desc: "Architecting cloud-native enterprise extensions and integrating hyperscaler capabilities with SAP BTP." },
-      { title: "TOGAF® Architecture Governance", desc: "Applying robust enterprise architecture frameworks to complex, global SAP S/4HANA implementations." },
-      { title: "20+ Years Architectural Wisdom", desc: "Designing upgrade-resilient clean-core architectures that decouple custom innovations from the core." },
+          {
+                title: "SAP BTP & Multi-Cloud Strategy",
+                desc: "Architecting cloud-native enterprise extensions and integrating hyperscaler capabilities with SAP BTP."
+          },
+          {
+                title: "TOGAF® Architecture Governance",
+                desc: "Applying robust enterprise architecture frameworks to complex, global SAP S/4HANA implementations."
+          },
+          {
+                title: "20+ Years Architectural Wisdom",
+                desc: "Designing upgrade-resilient clean-core architectures that decouple custom innovations from the core."
+          }
     ],
-    tags: ["Speaker", "Innoverv", "SAP BTP", "S/4HANA Architect", "TOGAF®", "20+ Yrs SAP"],
+    tags: ["Speaker","Innoverv","SAP BTP","S/4HANA Architect","TOGAF®","20+ Yrs SAP"],
     accentColor: "#6366F1",
     img: "/speakers/anupam-dutta-roy-poster.jpg",
     poster: "/speakers/anupam-dutta-roy-poster.jpg",
@@ -2310,11 +2699,20 @@ const speakersData = [
     topic: "SAP BTP & S/4HANA Architecture: Building Scalable Cloud Solutions & Clean Core Extensions",
     bio: "Associate Director at Innoverv with 12+ years of SAP expertise. Experienced SAP BTP & S/4HANA Solution Architect leading digital delivery, enterprise cloud architecture, and end-to-end transformation programs.",
     takeaways: [
-      { title: "SAP BTP Solution Architecture", desc: "Designing robust, scalable side-by-side extensions and modern integration suites on SAP BTP." },
-      { title: "12+ Years Enterprise Delivery", desc: "Best practices and key takeaways from leading mission-critical SAP S/4HANA enterprise engagements." },
-      { title: "Clean Core Innovation", desc: "Accelerating business modernization while ensuring lifecycle stability and clean-core compliance." },
+          {
+                title: "SAP BTP Solution Architecture",
+                desc: "Designing robust, scalable side-by-side extensions and modern integration suites on SAP BTP."
+          },
+          {
+                title: "12+ Years Enterprise Delivery",
+                desc: "Best practices and key takeaways from leading mission-critical SAP S/4HANA enterprise engagements."
+          },
+          {
+                title: "Clean Core Innovation",
+                desc: "Accelerating business modernization while ensuring lifecycle stability and clean-core compliance."
+          }
     ],
-    tags: ["Speaker", "Innoverv", "SAP BTP", "S/4HANA Architect", "12+ Yrs SAP"],
+    tags: ["Speaker","Innoverv","SAP BTP","S/4HANA Architect","12+ Yrs SAP"],
     accentColor: "#EC4899",
     img: "/speakers/paramita-sarkar-poster.jpg",
     poster: "/speakers/paramita-sarkar-poster.jpg",
@@ -2331,11 +2729,20 @@ const speakersData = [
     topic: "Executive Panel: Entrepreneurship, Enterprise Strategy & 24+ Years of SAP Solution Architecture",
     bio: "Founder of Arodek, Entrepreneur & Strategic Leader, and distinguished SAP Solution Architect with 24+ years of industry experience. Leading digital innovations, enterprise implementations, and technology advisory for global organizations.",
     takeaways: [
-      { title: "24+ Years Architectural Mastery", desc: "Proven architectural blueprints for large-scale enterprise SAP deployments and cloud modernizations." },
-      { title: "Entrepreneurship & Leadership", desc: "Key insights on founding, growing, and scaling a premier IT services and consulting enterprise." },
-      { title: "Executive Panel Perspectives", desc: "Engaging discussions on navigating digital transformation, agility, and business value creation." },
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
     ],
-    tags: ["Panelist", "Founder Arodek", "SAP Solution Architect", "24+ Yrs Experience"],
+    tags: ["Panelist","Founder Arodek","SAP Solution Architect","24+ Yrs Experience"],
     accentColor: "#0EA5E9",
     img: "/speakers/dr-sugata-roy-poster.jpg",
     poster: "/speakers/dr-sugata-roy-poster.jpg",
@@ -2352,11 +2759,20 @@ const speakersData = [
     topic: "Enterprise Transformation & Community Empowerment: 13+ Years Scaling SAP Ecosystems",
     bio: "Founder & CEO of TagSkills Group with 13+ years of experience in SAP and enterprise transformation. Passionate edtech entrepreneur empowering the next generation of SAP talent and driving digital workforce excellence.",
     takeaways: [
-      { title: "13+ Years Transformation Experience", desc: "Navigating enterprise SAP lifecycles, project governance, and organizational transformation." },
-      { title: "Empowering the SAP Ecosystem", desc: "Bridging the talent gap with modern skill building, mentorship, and practical enterprise training." },
-      { title: "Next-Gen Enterprise Capability", desc: "Strategies for organizations to upskill teams on modern cloud SAP architectures." },
+          {
+                title: "13+ Years Transformation Experience",
+                desc: "Navigating enterprise SAP lifecycles, project governance, and organizational transformation."
+          },
+          {
+                title: "Empowering the SAP Ecosystem",
+                desc: "Bridging the talent gap with modern skill building, mentorship, and practical enterprise training."
+          },
+          {
+                title: "Next-Gen Enterprise Capability",
+                desc: "Strategies for organizations to upskill teams on modern cloud SAP architectures."
+          }
     ],
-    tags: ["Speaker", "TagSkills Group", "Founder & CEO", "13+ Yrs SAP"],
+    tags: ["Speaker","TagSkills Group","Founder & CEO","13+ Yrs SAP"],
     accentColor: "#F59E0B",
     img: "/speakers/prashun-shetty-poster.jpg",
     poster: "/speakers/prashun-shetty-poster.jpg",
@@ -2373,11 +2789,20 @@ const speakersData = [
     topic: "Executive Panel Host: CXO Transformation, Start-Up Innovation & Cloud Ecosystem Strategy",
     bio: "CXO Transformation Agent, Member of the CII ICT & Start-up Committee, with senior leadership background spanning AWS, IBM, HPE, and Wipro. High-impact enterprise leader facilitating strategic executive dialogues on cloud modernizations and startup acceleration.",
     takeaways: [
-      { title: "CXO Strategy & Transformation", desc: "Directing high-stakes executive leadership conversations on tech convergence, cloud, and ROI." },
-      { title: "Cross-Industry Wisdom", desc: "Invaluable insights gained from leadership across hyperscalers and tech giants like AWS, IBM, HPE & Wipro." },
-      { title: "Interactive Panel Facilitation", desc: "Guiding the executive panel to extract actionable takeaways for enterprise attendees." },
+          {
+                title: "Executive Panel Moderation",
+                desc: "Facilitating C-suite dialogue across enterprise leadership, startup ecosystems, and cloud modernizations."
+          },
+          {
+                title: "CXO Transformation Strategies",
+                desc: "Actionable frameworks for aligning technological innovation with strategic capital investment."
+          },
+          {
+                title: "Cloud & AI Ecosystem Synergy",
+                desc: "Harnessing multi-cloud partnerships to accelerate enterprise value realization."
+          }
     ],
-    tags: ["Panel Host", "CXO Transformation", "CII Committee", "AWS", "Ex-IBM"],
+    tags: ["Panel Host","CXO Transformation","CII Committee","AWS","Ex-IBM"],
     accentColor: "#8B5CF6",
     img: "/speakers/amitava-nag-poster.jpg",
     poster: "/speakers/amitava-nag-poster.jpg",
@@ -2394,15 +2819,1044 @@ const speakersData = [
     topic: "Executive Panel: 20+ Years in SAP S/4HANA Transformation, Business Sales & Enterprise Delivery",
     bio: "Executive with 20+ years of proven expertise in SAP and enterprise transformation. Distinguished business sales and delivery leader steering complex SAP S/4HANA adoption, enterprise strategy, and customer value realization.",
     takeaways: [
-      { title: "20+ Years SAP Experience", desc: "Strategic wisdom from two decades of driving large-scale SAP sales cycles and delivery milestones." },
-      { title: "S/4HANA Transformation Playbook", desc: "Aligning business KPIs with IT modernization to ensure seamless S/4HANA migrations." },
-      { title: "Executive Panel Perspectives", desc: "Navigating client value, contract execution, and ecosystem partnerships in the SAP cloud era." },
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
     ],
-    tags: ["Panelist", "SAP S/4HANA", "Sales & Delivery", "20+ Yrs SAP"],
+    tags: ["Panelist","SAP S/4HANA","Sales & Delivery","20+ Yrs SAP"],
     accentColor: "#EC4899",
     img: "/speakers/manzoor-hasan-poster.jpg",
     poster: "/speakers/manzoor-hasan-poster.jpg",
     linkedin: "https://www.linkedin.com/in/manzoorhasan/",
+  },
+  {
+    id: 18,
+    name: "Pankaj Lal",
+    role: "Managing Partner",
+    company: "Westernacher India (PMP)",
+    category: "Keynote Speaker & Panelist",
+    track: "Keynote & Panel 1",
+    time: "09:30 AM & 09:45 AM",
+    topic: "Keynote: Scaling SAP Across Business & Intelligent Operations Transformation",
+    bio: "Pankaj Lal is the Managing Partner at Westernacher India with extensive executive leadership in enterprise supply chain, digital transformation, and SAP consulting across global markets.",
+    takeaways: [
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
+    ],
+    tags: ["Keynote","Panelist","Westernacher","Managing Partner","Supply Chain"],
+    accentColor: "#0082C8",
+    img: "/speakers/pankaj-lal.jpg",
+    poster: "/speakers/panel-poster-01.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Pankaj%20Lal%20Westernacher",
+  },
+  {
+    id: 19,
+    name: "Mrinal Kaantee Chanda",
+    role: "Senior Enterprise Architect",
+    company: "SAP Labs India",
+    category: "Panel Host & Moderator",
+    track: "Panel 1 & Panel 2",
+    time: "09:45 AM – 11:00 AM",
+    topic: "Panel Host: Enterprise Transformation, Strategic Architecture & SAP Intelligent Operations",
+    bio: "Mrinal Kaantee Chanda is a Senior Enterprise Architect at SAP Labs India, orchestrating executive panel sessions on core transformation, clean core architecture, and cloud strategy.",
+    takeaways: [
+          {
+                title: "Panel 1 · Scaling Intelligent Operations",
+                desc: "Synthesizing executive strategies for scaling AI and trusted enterprise data foundations beyond the core."
+          },
+          {
+                title: "Panel 2 · Strategic Enterprise Leadership",
+                desc: "Leading executive dialogue on reimagining business strategy, S/4HANA transformation, and human-centric change."
+          },
+          {
+                title: "Executive Architectural Blueprint",
+                desc: "Bridging boardroom strategy with actionable technical execution across modern SAP ecosystems."
+          }
+    ],
+    tags: ["Panel Host","Moderator","SAP Labs India","Enterprise Architect","Clean Core"],
+    accentColor: "#0070F2",
+    img: "/speakers/mrinal-kaantee-chanda.jpg",
+    poster: "/speakers/panel-poster-01.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Mrinal%20Kaantee%20Chanda%20SAP",
+  },
+  {
+    id: 20,
+    name: "Dr. Indranil Mitra",
+    role: "Partner and Lead AI",
+    company: "Global Consulting firm",
+    category: "Executive Panelist",
+    track: "Panel 3",
+    time: "11:05 AM – 11:40 AM",
+    topic: "Beyond AI Adoption: Building Intelligent Enterprises & Creating Value in the AI Economy",
+    bio: "Dr. Indranil Mitra is a Partner and Lead AI expert driving enterprise artificial intelligence architectures, generative AI scaling, and intelligent decision systems across Fortune 500 enterprises.",
+    takeaways: [
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
+    ],
+    tags: ["Panelist","Partner & Lead AI","Artificial Intelligence","Generative AI"],
+    accentColor: "#7C3AED",
+    img: "/speakers/dr-indranil-mitra.jpg",
+    poster: "/speakers/panel-poster-01.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Dr%20Indranil%20Mitra%20AI",
+  },
+  {
+    id: 21,
+    name: "Kaveri Biswas",
+    role: "Chief Manager – SAP Advisory",
+    company: "Parle Biscuits Pvt. Ltd.",
+    category: "Executive Panelist",
+    track: "Panel 1",
+    time: "09:45 AM – 10:20 AM",
+    topic: "Enterprise Core to Intelligent Operations: Scaling SAP, Data & AI Across Business",
+    bio: "Kaveri Biswas is Chief Manager – SAP Advisory at Parle Biscuits Pvt. Ltd., specializing in large-scale FMCG enterprise systems, business process advisory, and digital transformation.",
+    takeaways: [
+          {
+                title: "Scaling AI Beyond the Core",
+                desc: "Decoupling AI innovation from the digital core using SAP BTP and clean core principles to avoid technical debt."
+          },
+          {
+                title: "Enterprise Data Foundation",
+                desc: "Establishing trusted, real-time data pipelines (SAP Datasphere & BDC) to feed deterministic business context to AI models."
+          },
+          {
+                title: "Intelligent Operations & ROI",
+                desc: "Transitioning from experimental POCs to measurable operational excellence across logistics, manufacturing, and supply chain."
+          }
+    ],
+    tags: ["Panelist","Parle Biscuits","SAP Advisory","FMCG","Operations"],
+    accentColor: "#E11D48",
+    img: "/speakers/kaveri-biswas.jpg",
+    poster: "/speakers/panel-poster-01.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Kaveri%20Biswas%20Parle",
+  },
+  {
+    id: 22,
+    name: "Tilak Kumar Dhar",
+    role: "Director – Forward Deployed Engineering",
+    company: "Databricks",
+    category: "Executive Panelist",
+    track: "Panel 3",
+    time: "11:05 AM – 11:40 AM",
+    topic: "Building Intelligent Enterprises & Data Platforms in the AI Economy",
+    bio: "Tilak Kumar Dhar leads Forward Deployed Engineering at Databricks, enabling enterprise data lakehouse architectures, real-time analytics, and enterprise GenAI systems.",
+    takeaways: [
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
+    ],
+    tags: ["Panelist","Databricks","Forward Deployed Engineering","Lakehouse","AI"],
+    accentColor: "#FF3621",
+    img: "/speakers/tilak-kumar-dhar.jpg",
+    poster: "/speakers/panel-poster-01.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Tilak%20Kumar%20Dhar%20Databricks",
+  },
+  {
+    id: 23,
+    name: "Shib Shekhar Ghosh",
+    role: "VP – Digital & Technology",
+    company: "Diageo",
+    category: "Executive Panelist",
+    track: "Panel 2",
+    time: "10:25 AM – 11:00 AM",
+    topic: "Leading Through Transformation: Reimagining Enterprise Strategy, Technology & Future Business",
+    bio: "Shib Shekhar Ghosh is VP – Digital & Technology at Diageo, leading global consumer goods digital engineering, technology transformation, and modern enterprise IT strategies.",
+    takeaways: [
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
+    ],
+    tags: ["Panelist","Diageo","VP Digital & Technology","Enterprise Strategy","Transformation"],
+    accentColor: "#2563EB",
+    img: "/speakers/shib-shekhar-ghosh.jpg",
+    poster: "/speakers/panel-poster-01.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Shib%20Shekhar%20Ghosh%20Diageo",
+  },
+  {
+    id: 24,
+    name: "Arindam Hari",
+    role: "CEO, Acceleron Solutions; CIO, Gainwell Group",
+    company: "Acceleron Solutions / Gainwell Group",
+    category: "Panel Host & Moderator",
+    track: "Panel 3",
+    time: "11:05 AM – 11:40 AM",
+    topic: "Moderator: Beyond AI Adoption — Building Intelligent Enterprises and Creating Value in the AI Economy",
+    bio: "Arindam Hari serves as CEO at Acceleron Solutions and Group CIO at Gainwell Group, driving C-suite technology vision, AI capitalization, and enterprise agility across industrial and infrastructure verticals.",
+    takeaways: [
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
+    ],
+    tags: ["Panel Host","Moderator","CEO & CIO","Gainwell","Acceleron","AI Economy"],
+    accentColor: "#D97706",
+    img: "/speakers/arindam-hari.jpg",
+    poster: "/speakers/poster-sharmistha-sanyal-solo.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Arindam%20Hari%20Gainwell",
+  },
+  {
+    id: 25,
+    name: "Sabyasachi Biswas",
+    role: "Founder Director, VarionHub; Global Strategy Advisor",
+    company: "VarionHub / TuTeck Technologies",
+    category: "Executive Panelist",
+    track: "Panel 3",
+    time: "11:05 AM – 11:40 AM",
+    topic: "Beyond AI Adoption: Building Intelligent Enterprises & Strategic AI Value",
+    bio: "Sabyasachi Biswas is the Founder Director at VarionHub and Global Strategy Advisor at TuTeck Technologies, advising enterprises on strategic innovation, AI business value, and digital growth.",
+    takeaways: [
+          {
+                title: "Value Creation in the AI Economy",
+                desc: "Moving beyond passive adoption into active enterprise monetization, capital efficiency, and sustainable balance-sheet value."
+          },
+          {
+                title: "Cognitive Enterprise Architecture",
+                desc: "Integrating foundational models, autonomous multi-agent workflows, and high-performance lakehouse data architectures."
+          },
+          {
+                title: "AI Governance, Trust & Scale",
+                desc: "Establishing enterprise-grade guardrails, ethical AI compliance, and resilient data fabrics for safe autonomous scaling."
+          }
+    ],
+    tags: ["Panelist","VarionHub","TuTeck Advisor","Global Strategy","AI Value"],
+    accentColor: "#059669",
+    img: "/speakers/sabyasachi-biswas.jpg",
+    poster: "/speakers/panel-poster-02.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sabyasachi%20Biswas%20VarionHub",
+  },
+  {
+    id: 26,
+    name: "Sharmistha Sanyal",
+    role: "Senior Director",
+    company: "Capgemini",
+    category: "Executive Panelist",
+    track: "Panel 2",
+    time: "10:25 AM – 11:00 AM",
+    topic: "Leading Through Transformation: Reimagining Enterprise Strategy, Technology & Future Business",
+    bio: "Sharmistha Sanyal is Senior Director at Capgemini with extensive executive experience delivering large-scale global SAP transformations, strategic consulting, and enterprise modernization programs.",
+    takeaways: [
+          {
+                title: "Strategic Enterprise Leadership",
+                desc: "Guiding global organizations through large-scale S/4HANA migrations, continuous cloud cycles, and digital transformation."
+          },
+          {
+                title: "Reimagining Strategy & Architecture",
+                desc: "Aligning boardroom growth priorities with agile technology delivery, Business AI, and Cloud ALM governance."
+          },
+          {
+                title: "Human-Centric Change Management",
+                desc: "Cultivating high-performance agile cultures, upskilling enterprise talent, and building organizational resilience amidst disruption."
+          }
+    ],
+    tags: ["Panelist","Capgemini","Senior Director","Leadership","Transformation"],
+    accentColor: "#0284C7",
+    img: "/speakers/sharmistha-sanyal.jpg",
+    poster: "/speakers/panel-poster-02.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sharmistha%20Sanyal%20Capgemini",
+  },
+  {
+    id: 27,
+    name: "Aditi Chatterjee",
+    role: "SAP Business AI Lead",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "12:50 PM – 1:20 PM",
+    topic: "IBM Intelligent Delivery: ICA Edge, Process Studio, Conext Studio",
+    bio: "SAP Business AI Lead at IBM with 10+ years of enterprise experience specializing in business processes transformation, application consulting, and AI-enabled SAP implementations.",
+    takeaways: [
+          {
+                title: "IBM Intelligent Delivery",
+                desc: "Harnessing cognitive workflows with ICA Edge, Process Studio, and Conext Studio."
+          },
+          {
+                title: "Business Process Transformation",
+                desc: "Accelerating SAP implementation cycles with intelligent consulting assets."
+          },
+          {
+                title: "AI-Powered Consulting",
+                desc: "Best practices for embedding enterprise AI directly into core business operations."
+          }
+    ],
+    tags: ["Track 4","IBM","SAP Business AI","Process Studio","ICA Edge"],
+    accentColor: "#0070F2",
+    img: "/speakers/aditi-chatterjee.jpg",
+    poster: "/speakers/poster-aditi-souvik.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Aditi%20Chatterjee%20IBM",
+  },
+  {
+    id: 28,
+    name: "Souvik Bhattacharya",
+    role: "SAP Package Consultant",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "12:50 PM – 1:20 PM",
+    topic: "IBM Intelligent Delivery: ICA Edge, Process Studio, Conext Studio",
+    bio: "SAP Package Consultant at IBM with 15+ years of extensive experience leading SAP enterprise transformation, team leadership, solution delivery, and intelligent package consulting.",
+    takeaways: [
+          {
+                title: "Solution Delivery Acceleration",
+                desc: "Deploying next-gen delivery automation across enterprise client engagements."
+          },
+          {
+                title: "Conext Studio Integration",
+                desc: "Streamlining end-to-end integration and delivery pipelines with IBM Conext Studio."
+          },
+          {
+                title: "Team Leadership in Transformation",
+                desc: "Managing multi-functional delivery teams across complex SAP deployments."
+          }
+    ],
+    tags: ["Track 4","IBM","Package Consultant","Solution Delivery","Enterprise Transformation"],
+    accentColor: "#0284C7",
+    img: "/speakers/souvik-bhattacharya.jpg",
+    poster: "/speakers/poster-aditi-souvik.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Souvik%20Bhattacharya%20IBM",
+  },
+  {
+    id: 29,
+    name: "Sangeeta Majumdar",
+    role: "SAP Solution Architect – Logistics",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "12:20 PM – 12:50 PM",
+    topic: "Using the SAP BTP Platform to Drive Measurable Supply Chain Outcomes",
+    bio: "SAP Solution Architect – Logistics at IBM with 31+ years of veteran industry experience across supply chain, logistics, track & trace, SAP S/4HANA EWM, and ATTP.",
+    takeaways: [
+          {
+                title: "BTP Supply Chain Optimization",
+                desc: "Driving measurable business ROI and operational resilience across logistics networks."
+          },
+          {
+                title: "Track & Trace / ATTP",
+                desc: "Deploying mission-critical supply chain traceability and compliance frameworks."
+          },
+          {
+                title: "S/4HANA EWM Architecture",
+                desc: "Architecting modern warehouse management and connected fulfillment solutions."
+          }
+    ],
+    tags: ["Track 4","IBM","Supply Chain","SAP BTP","S/4HANA EWM","ATTP"],
+    accentColor: "#F59E0B",
+    img: "/speakers/sangeeta-majumdar.jpg",
+    poster: "/speakers/poster-sangeeta-sudipta.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sangeeta%20Majumdar%20IBM",
+  },
+  {
+    id: 30,
+    name: "Sudipta Mukherjee",
+    role: "SAP Application Architect & SAP PRESS Author",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "12:20 PM – 12:50 PM",
+    topic: "Using the SAP BTP Platform to Drive Measurable Supply Chain Outcomes",
+    bio: "SAP Application Architect at IBM and renowned SAP PRESS Author with 20+ years of deep expertise across SAP Manufacturing, SAP MII, SAP DM, SAP Business AI, and SAP Integration Suite.",
+    takeaways: [
+          {
+                title: "Smart Manufacturing Architecture",
+                desc: "Architecting connected factory floors with SAP DM, SAP MII, and BTP integration."
+          },
+          {
+                title: "SAP Business AI in Operations",
+                desc: "Embedding predictive AI and automation into digital manufacturing processes."
+          },
+          {
+                title: "Insights from SAP PRESS Author",
+                desc: "Deep architectural principles and proven patterns for enterprise integration."
+          }
+    ],
+    tags: ["Track 4","IBM","SAP PRESS Author","Digital Manufacturing","SAP DM","SAP BTP"],
+    accentColor: "#8B5CF6",
+    img: "/speakers/sudipta-mukherjee.jpg",
+    poster: "/speakers/poster-sangeeta-sudipta.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sudipta%20Mukherjee%20IBM",
+  },
+  {
+    id: 31,
+    name: "Kousik Goon",
+    role: "SAP Architect – S/4HANA Clean Core",
+    company: "IBM Consulting",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "2:45 PM – 3:15 PM",
+    topic: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
+    bio: "SAP Architect at IBM Consulting with 25+ years of distinguished experience specializing in S/4HANA Clean Core architectures, custom code modernisation, and smart business solution engineering on BTP.",
+    takeaways: [
+          {
+                title: "Clean Core Strategy",
+                desc: "Decoupling custom code extensions using SAP BTP to preserve a clean ERP core."
+          },
+          {
+                title: "Smart Business Solutions",
+                desc: "Real-world customer blueprints for building high-impact BTP side-by-side apps."
+          },
+          {
+                title: "Modernization Roadmap",
+                desc: "Accelerated pathways from legacy ERP codebases to cloud-ready architecture."
+          }
+    ],
+    tags: ["Track 4","IBM Consulting","Clean Core","SAP BTP","S/4HANA","Architecture"],
+    accentColor: "#6366F1",
+    img: "/speakers/kousik-goon.jpg",
+    poster: "/speakers/poster-kousik-debajyoti-ankan.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Kousik%20Goon%20IBM",
+  },
+  {
+    id: 32,
+    name: "Debajyoti Sen Gupta",
+    role: "SAP Package Consultant & Migration Expert",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "2:45 PM – 3:15 PM",
+    topic: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
+    bio: "SAP Package Consultant at IBM with 17+ years of experience as an S/4HANA Migration Expert and Functional Architect in SD/Sales, focusing on cloud adoption and smart enterprise extensions.",
+    takeaways: [
+          {
+                title: "S/4HANA Migration Best Practices",
+                desc: "Proven strategies for seamless Sales & Distribution functional cutovers."
+          },
+          {
+                title: "BTP Business Case Realization",
+                desc: "How leading customers unlock agility by extending core sales workflows on BTP."
+          },
+          {
+                title: "Functional Architecture Blueprint",
+                desc: "Designing robust, scalable order-to-cash business processes for the cloud."
+          }
+    ],
+    tags: ["Track 4","IBM","Migration Expert","SAP SD","Sales & Distribution","SAP BTP"],
+    accentColor: "#0EA5E9",
+    img: "/speakers/debajyoti-sen-gupta.jpg",
+    poster: "/speakers/poster-kousik-debajyoti-ankan.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Debajyoti%20Sen%20Gupta%20IBM",
+  },
+  {
+    id: 33,
+    name: "Ankan Dhar",
+    role: "SAP Package Consultant & Migration Expert",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "2:45 PM – 3:15 PM",
+    topic: "How Customers Are Leveraging BTP to Build Smart Business Solutions",
+    bio: "SAP Package Consultant at IBM with 22+ years of veteran expertise as an enterprise migration specialist and functional architect across SD/Sales and smart digital ERP workflows.",
+    takeaways: [
+          {
+                title: "Enterprise Migration Engineering",
+                desc: "Mitigating risks and minimizing operational downtime during complex migrations."
+          },
+          {
+                title: "Intelligent Sales Operations",
+                desc: "Leveraging BTP capabilities to enhance customer engagement and sales fulfillment."
+          },
+          {
+                title: "Cross-Functional Integration",
+                desc: "Harmonizing SD, Finance, and logistics within smart cloud architectures."
+          }
+    ],
+    tags: ["Track 4","IBM","Migration Expert","Functional Architect","SAP BTP","SD/Sales"],
+    accentColor: "#14B8A6",
+    img: "/speakers/ankan-dhar.jpg",
+    poster: "/speakers/poster-kousik-debajyoti-ankan.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Ankan%20Dhar%20IBM",
+  },
+  {
+    id: 34,
+    name: "Sriprakash Swain",
+    role: "SAP Architect – SAP Data & Analytics",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "1:20 PM – 1:50 PM",
+    topic: "Maximizing the Business Value of SAP BDC: An IBM-Led Adoption Journey",
+    bio: "SAP Architect – SAP Data & Analytics at IBM with 27+ years of deep enterprise experience leading data architecture, enterprise solutions, and SAP Business Data Cloud (BDC) transformations.",
+    takeaways: [
+          {
+                title: "SAP BDC Value Realization",
+                desc: "Maximizing business ROI through structured Business Data Cloud adoption frameworks."
+          },
+          {
+                title: "Enterprise Data Fabric",
+                desc: "Architecting governed, high-throughput data foundations for modern analytics."
+          },
+          {
+                title: "Data-Driven Decisioning",
+                desc: "Connecting enterprise transactional data with real-time operational insights."
+          }
+    ],
+    tags: ["Track 4","IBM","SAP BDC","Data & Analytics","Enterprise Solutions","Data Fabric"],
+    accentColor: "#0284C7",
+    img: "/speakers/sriprakash-swain.jpg",
+    poster: "/speakers/poster-sriprakash-anjana.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sriprakash%20Swain%20IBM",
+  },
+  {
+    id: 35,
+    name: "Anjana Ghatak",
+    role: "SAP Application Architect",
+    company: "IBM",
+    category: "Track 4 Featured Speaker",
+    track: "Track 4 · Block B, 7th Floor",
+    time: "1:20 PM – 1:50 PM",
+    topic: "Maximizing the Business Value of SAP BDC: An IBM-Led Adoption Journey",
+    bio: "SAP Application Architect at IBM with 19+ years of experience specializing in SAP Analytics, enterprise data insights, and collaborative adoption journeys across SAP BDC.",
+    takeaways: [
+          {
+                title: "Actionable Data Insights",
+                desc: "Transforming complex enterprise data into predictive business intelligence."
+          },
+          {
+                title: "SAP BDC Adoption Journey",
+                desc: "Practical lessons and blueprints from enterprise customer rollouts."
+          },
+          {
+                title: "Modern Analytics Engineering",
+                desc: "Accelerating report generation and analytical modeling with cloud data services."
+          }
+    ],
+    tags: ["Track 4","IBM","Application Architect","SAP Analytics","Data Insights","SAP BDC"],
+    accentColor: "#EC4899",
+    img: "/speakers/anjana-ghatak.jpg",
+    poster: "/speakers/poster-sriprakash-anjana.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Anjana%20Ghatak%20IBM",
+  },
+  {
+    id: 36,
+    name: "Rana Bhattacharjee",
+    role: "Senior Director & Head of SAP Practice",
+    company: "TuTeck Technologies",
+    category: "Track 1 Featured Speaker",
+    track: "Track 1 · Block B, 11th Fl Auditorium",
+    time: "3:15 PM – 3:45 PM",
+    topic: "The Connected SAP Enterprise: Unlocking Innovation and Value with Trusted Data & AI",
+    bio: "Senior Director & Head of SAP Practice at TuTeck Technologies with 31+ years of veteran enterprise experience in end-to-end SAP implementations, Application Management Services (AMS), and enterprise transformation.",
+    takeaways: [
+          {
+                title: "Connected Enterprise Strategy",
+                desc: "Unlocking innovation and strategic value across business units with SAP and TuTeck."
+          },
+          {
+                title: "Trusted Enterprise Data & AI",
+                desc: "Establishing trusted data baselines to power GenAI applications safely."
+          },
+          {
+                title: "Modern AMS & Practice Excellence",
+                desc: "Transforming enterprise IT maintenance into an agile value driver."
+          }
+    ],
+    tags: ["Track 1","TuTeck","Senior Director","Connected Enterprise","Trusted Data","AMS"],
+    accentColor: "#F97316",
+    img: "/speakers/rana-bhattacharjee.jpg",
+    poster: "/speakers/poster-rana-dipta.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Rana%20Bhattacharjee%20TuTeck",
+  },
+  {
+    id: 37,
+    name: "Dipta Pratim Banerjee",
+    role: "Head of Delivery & Partner",
+    company: "TuTeck Technologies",
+    category: "Track 1 Featured Speaker",
+    track: "Track 1 · Block B, 11th Fl Auditorium",
+    time: "3:15 PM – 3:45 PM",
+    topic: "The Connected SAP Enterprise: Unlocking Innovation and Value with Trusted Data & AI",
+    bio: "Head of Delivery & Partner at TuTeck Technologies with 22+ years of experience driving operational excellence, AI-accelerated SDLC, SAP Datasphere architectures, and trusted enterprise data solutions.",
+    takeaways: [
+          {
+                title: "AI-Accelerated SDLC",
+                desc: "Embedding AI into software development lifecycles to accelerate SAP delivery."
+          },
+          {
+                title: "SAP Datasphere Architecture",
+                desc: "Unifying structured and unstructured data into a trusted foundation for AI."
+          },
+          {
+                title: "Operational Delivery Excellence",
+                desc: "TuTeck methodologies for consistent, high-velocity project outcomes."
+          }
+    ],
+    tags: ["Track 1","TuTeck","Head of Delivery","SAP Datasphere","AI-Accelerated SDLC","Trusted Data"],
+    accentColor: "#2563EB",
+    img: "/speakers/dipta-pratim-banerjee.jpg",
+    poster: "/speakers/poster-rana-dipta.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Dipta%20Pratim%20Banerjee%20TuTeck",
+  },
+  {
+    id: 38,
+    name: "Moumita Saha",
+    role: "Program Manager – Energy Resource Utilities",
+    company: "TCS",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "3:35 PM – 3:55 PM",
+    topic: "SAP Autonomous and Sustainable Enterprise",
+    bio: "Program Manager – Energy Resource Utilities at TCS with 11+ years of experience leading sustainability strategy, decarbonization roadmaps, and autonomous enterprise systems across energy resource utilities domains.",
+    takeaways: [
+          {
+                title: "Sustainability Strategy & Decarbonization",
+                desc: "Crafting actionable enterprise decarbonization roadmaps aligned with regulatory mandates."
+          },
+          {
+                title: "Autonomous & Sustainable Enterprise",
+                desc: "Leveraging intelligent SAP solutions to automate sustainability reporting and tracking."
+          },
+          {
+                title: "Energy & Utilities Domain Insights",
+                desc: "Best practices for deploying sustainable enterprise architectures in energy and resource sectors."
+          }
+    ],
+    tags: ["Track 3","TCS","Sustainability","Decarbonization","Energy Resource Utilities"],
+    accentColor: "#10B981",
+    img: "/speakers/moumita-saha.jpg",
+    poster: "/speakers/poster-moumita-vishwa.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Moumita%20Saha%20TCS",
+  },
+  {
+    id: 39,
+    name: "Vishwa Vivek Anand",
+    role: "Enterprise Architect & Senior Solution Advisor",
+    company: "TCS",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "3:35 PM – 3:55 PM",
+    topic: "SAP Autonomous and Sustainable Enterprise",
+    bio: "Enterprise Architect & Senior Solution Advisor at TCS with 19+ years of experience across SAP Business Data Cloud, SAP Datasphere, SAP Analytics Cloud (SAC), and Autonomous & Sustainable Enterprise architectures.",
+    takeaways: [
+          {
+                title: "SAP Datasphere & BDC Architecture",
+                desc: "Unifying mission-critical transactional and analytical data into an actionable foundation."
+          },
+          {
+                title: "SAP Analytics Cloud (SAC) Strategy",
+                desc: "Designing real-time sustainability dashboards and executive intelligence Cockpits."
+          },
+          {
+                title: "Autonomous Enterprise Blueprints",
+                desc: "Orchestrating end-to-end autonomous business workflows with SAP Business AI."
+          }
+    ],
+    tags: ["Track 3","TCS","Enterprise Architect","SAP Datasphere","SAC","Sustainable Enterprise"],
+    accentColor: "#3B82F6",
+    img: "/speakers/vishwa-vivek-anand.jpg",
+    poster: "/speakers/poster-moumita-vishwa.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Vishwa%20Vivek%20Anand%20TCS",
+  },
+  {
+    id: 40,
+    name: "Praveen Vinjamuri",
+    role: "Director, Platforms Centre of Excellence & India Digital Centre",
+    company: "Twinings",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "12:30 PM – 1:00 PM",
+    topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
+    bio: "Director, Platforms Centre of Excellence & India Digital Centre at Twinings, leading global enterprise platforms, SAP landscape modernization, automation, and AI enablement initiatives.",
+    takeaways: [
+          {
+                title: "Enterprise Platforms CoE Leadership",
+                desc: "Strategic governance and operating model for global SAP platforms at Twinings."
+          },
+          {
+                title: "SAP Cloud ALM Adoption",
+                desc: "Streamlining application lifecycle management and continuous deployment across hybrid clouds."
+          },
+          {
+                title: "Automation & AI Enablement",
+                desc: "Infusing practical AI and hyperautomation to enhance enterprise platform reliability."
+          }
+    ],
+    tags: ["Track 3","Twinings","Director CoE","Cloud ALM","Automation","AI Enablement"],
+    accentColor: "#0284C7",
+    img: "/speakers/praveen-vinjamuri.jpg",
+    poster: "/speakers/poster-twinings-itc.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Praveen%20Vinjamuri%20Twinings",
+  },
+  {
+    id: 41,
+    name: "Prameel Kumar Vanapalli",
+    role: "SAP Basis & Environments Lead",
+    company: "Twinings",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "12:30 PM – 1:00 PM",
+    topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
+    bio: "SAP Basis & Environments Lead at Twinings specializing in SAP Basis administration, S/4HANA migrations, SAP BTP environment orchestration, and robust cloud operations.",
+    takeaways: [
+          {
+                title: "SAP Basis & Landscape Operations",
+                desc: "Maintaining mission-critical uptime and high-performance SAP environment lifecycles."
+          },
+          {
+                title: "S/4HANA & BTP Infrastructure",
+                desc: "Architecting cloud infrastructure foundations for decoupled enterprise extensions."
+          },
+          {
+                title: "Proactive Cloud ALM Monitoring",
+                desc: "Leveraging SAP Cloud ALM operations to automate system health monitoring and alerts."
+          }
+    ],
+    tags: ["Track 3","Twinings","SAP Basis","S/4HANA","SAP BTP","Cloud Operations"],
+    accentColor: "#0EA5E9",
+    img: "/speakers/prameel-kumar-vanapalli.jpg",
+    poster: "/speakers/poster-twinings-itc.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Prameel%20Kumar%20Vanapalli%20Twinings",
+  },
+  {
+    id: 42,
+    name: "Jayabrata Maitra",
+    role: "Technology Practice Head – SAP",
+    company: "ITC Infotech",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "12:30 PM – 1:00 PM",
+    topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
+    bio: "Technology Practice Head – SAP at ITC Infotech, driving enterprise S/4HANA transformations, AI infusion strategies, and modern SAP consulting practice delivery.",
+    takeaways: [
+          {
+                title: "S/4HANA Transformation Strategies",
+                desc: "Strategic frameworks for large-scale enterprise ERP modernization and cloud transitions."
+          },
+          {
+                title: "AI Infusion in Core Practices",
+                desc: "Embedding AI agents and automation directly into client delivery models."
+          },
+          {
+                title: "Partnership & Delivery Synergy",
+                desc: "Collaborative case studies between ITC Infotech and Twinings on digital modernization."
+          }
+    ],
+    tags: ["Track 3","ITC Infotech","Practice Head","S/4HANA Transformation","AI Infusion"],
+    accentColor: "#F59E0B",
+    img: "/speakers/jayabrata-maitra.jpg",
+    poster: "/speakers/poster-twinings-itc.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Jayabrata%20Maitra%20ITC%20Infotech",
+  },
+  {
+    id: 43,
+    name: "Ananda Chakraborty",
+    role: "SAP Enterprise Architect",
+    company: "ITC Infotech",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "12:30 PM – 1:00 PM",
+    topic: "SAP Cloud ALM: Intelligent ERP, Automation & AI Enablement",
+    bio: "SAP Enterprise Architect at ITC Infotech with deep technical expertise in SAP BTP architecture, RISE with SAP execution, ERP modernization, and generative AI on SAP.",
+    takeaways: [
+          {
+                title: "SAP BTP Architectural Blueprints",
+                desc: "Designing multi-tier, clean core extensions to enhance standard ERP functionality."
+          },
+          {
+                title: "RISE with SAP Navigation",
+                desc: "Best practices for cloud adoption and modernizing legacy enterprise estates."
+          },
+          {
+                title: "AI on SAP Architecture",
+                desc: "Bridging SAP Business AI models with real-world enterprise transactional flows."
+          }
+    ],
+    tags: ["Track 3","ITC Infotech","Enterprise Architect","SAP BTP","RISE with SAP","AI on SAP"],
+    accentColor: "#8B5CF6",
+    img: "/speakers/ananda-chakraborty.jpg",
+    poster: "/speakers/poster-twinings-itc.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Ananda%20Chakraborty%20ITC%20Infotech",
+  },
+  {
+    id: 44,
+    name: "Pritam Paul",
+    role: "Staff Forward Deployed Engineer",
+    company: "Databricks",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Block A, 2nd Fl Tech Lab",
+    time: "11:50 AM – 12:15 PM",
+    topic: "Data in Motion, Intelligence in Action: An End-to-End Demo",
+    bio: "Staff Forward Deployed Engineer at Databricks specializing in enterprise data engineering, distributed streaming pipelines, and large-scale artificial intelligence implementations.",
+    takeaways: [
+          {
+                title: "Data in Motion & Stream Processing",
+                desc: "Architecting real-time event streaming and ingestion architectures with Databricks."
+          },
+          {
+                title: "Intelligence in Action Demo",
+                desc: "End-to-end practical live walkthrough connecting real-time data to intelligent models."
+          },
+          {
+                title: "Lakehouse Engineering Patterns",
+                desc: "Optimizing delta tables and lakehouse performance for mission-critical enterprise workloads."
+          }
+    ],
+    tags: ["Track 2","Databricks","Staff FDE","Data Engineering","Artificial Intelligence","Lakehouse"],
+    accentColor: "#FF3621",
+    img: "/speakers/pritam-paul.jpg",
+    poster: "/speakers/poster-pritam-paul.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Pritam%20Paul%20Databricks",
+  },
+  {
+    id: 45,
+    name: "Avijit Dhar",
+    role: "SAP Application Architect & SAP PRESS Author",
+    company: "IBM",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Block A, 2nd Fl Tech Lab",
+    time: "3:45 PM – 4:15 PM",
+    topic: "MCP Integration with Joule Studio",
+    bio: "SAP Application Architect & Autonomous Enterprise Expert at IBM with 21+ years of experience. SAP PRESS Author leading SAP AI Core & Joule adoption and energy & utilities modernization.",
+    takeaways: [
+          {
+                title: "MCP Integration Architecture",
+                desc: "Connecting Model Context Protocol (MCP) servers directly to SAP Joule Studio."
+          },
+          {
+                title: "Autonomous Enterprise Systems",
+                desc: "Architecting autonomous agents capable of performing cross-application actions."
+          },
+          {
+                title: "SAP AI Core & Joule Best Practices",
+                desc: "Practical guidance from an SAP PRESS author on enterprise generative AI deployment."
+          }
+    ],
+    tags: ["Track 2","IBM","SAP PRESS Author","MCP","Joule Studio","SAP AI Core"],
+    accentColor: "#0070F2",
+    img: "/speakers/avijit-dhar.jpg",
+    poster: "/speakers/poster-avijit-riddhiman.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Avijit%20Dhar%20IBM",
+  },
+  {
+    id: 46,
+    name: "Riddhiman Basu",
+    role: "SAP Package Consultant & Analytics Cloud Developer",
+    company: "IBM",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Block A, 2nd Fl Tech Lab",
+    time: "3:45 PM – 4:15 PM",
+    topic: "MCP Integration with Joule Studio",
+    bio: "SAP Package Consultant & Analytics Cloud Developer at IBM with 20+ years of deep expertise across SAP GenAIHub, SAP Joule Studio, Machine Learning, SAP Datasphere, SAP Analytics Cloud (SAC), and HANA.",
+    takeaways: [
+          {
+                title: "SAP GenAIHub & Joule Studio Integration",
+                desc: "Building custom skills and extensions using SAP GenAIHub and Joule Studio."
+          },
+          {
+                title: "SAP Datasphere & SAC Synergy",
+                desc: "Connecting enterprise machine learning models with real-time analytical reporting."
+          },
+          {
+                title: "Model Context Protocol Hands-On",
+                desc: "Hands-on implementation details for running MCP tools in production SAP landscapes."
+          }
+    ],
+    tags: ["Track 2","IBM","Package Consultant","SAP GenAIHub","Joule Studio","Machine Learning"],
+    accentColor: "#6366F1",
+    img: "/speakers/riddhiman-basu.jpg",
+    poster: "/speakers/poster-avijit-riddhiman.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Riddhiman%20Basu%20IBM",
+  },
+  {
+    id: 47,
+    name: "Partha Pratim Sengupta",
+    role: "Chief Revenue Officer (CRO)",
+    company: "Infocus Technologies Pvt Ltd",
+    category: "Panel 1 & Track 1 Speaker",
+    track: "Panel 1 & Track 1 · Block B, 11th Floor",
+    time: "9:45 AM (Panel 1) & 3:45 PM – 4:15 PM",
+    topic: "“Grounded AI” in the Digital Core: Reimagining ERP Beyond the Hallucination",
+    bio: "CRO at Infocus Technologies with 20+ years of enterprise technology leadership specializing in SAP S/4HANA transformations, SAP Joule integration, and grounded agentic workflows. Featured Panelist in Executive Panel 1.",
+    takeaways: [
+          {
+                title: "Grounded AI in the Digital Core",
+                desc: "Eliminating generative AI hallucinations by anchoring models to deterministic ERP business context."
+          },
+          {
+                title: "SAP Joule & Agentic Workflows",
+                desc: "Orchestrating multi-agent systems and SAP Joule copilots across core business processes."
+          },
+          {
+                title: "Enterprise Leadership & ROI",
+                desc: "Maximizing tangible revenue and operational efficiency through AI-empowered digital cores."
+          }
+    ],
+    tags: ["Track 1","Infocus Technologies","CRO","Grounded AI","SAP Joule","Agentic Workflows"],
+    accentColor: "#EF4444",
+    img: "/speakers/partha-pratim-sengupta.jpg",
+    poster: "/speakers/poster-partha-pratim-sengupta.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Partha%20Pratim%20Sengupta%20Infocus",
+  },
+  {
+    id: 48,
+    name: "Mohammad Afsar Imam",
+    role: "Forward Deployed Engineer – Data & AI",
+    company: "Databricks",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Block A, 2nd Fl Tech Lab",
+    time: "12:50 PM – 1:15 PM",
+    topic: "Databricks Intro and Lakebase",
+    bio: "Forward Deployed Engineer – Data and AI at Databricks with 8.5+ years of experience architecting modern enterprise lakehouse solutions, lakebase architectures, and scalable analytics.",
+    takeaways: [
+          {
+                title: "Databricks Lakebase Foundations",
+                desc: "Understanding core lakebase architecture and unified data storage for enterprise data stacks."
+          },
+          {
+                title: "Unifying Data & AI Workloads",
+                desc: "Seamlessly bridging structured enterprise transactional data with advanced machine learning."
+          },
+          {
+                title: "Forward Deployed Implementation Patterns",
+                desc: "Practical lessons from real-world enterprise deployments of Databricks platforms."
+          }
+    ],
+    tags: ["Track 2","Databricks","Data & AI","Lakehouse","Lakebase","FDE"],
+    accentColor: "#FF3621",
+    img: "/speakers/mohammad-afsar-imam.jpg",
+    poster: "/speakers/poster-mohammad-afsar-imam.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Mohammad%20Afsar%20Imam%20Databricks",
+  },
+  {
+    id: 49,
+    name: "Pradipto Kumar Saha",
+    role: "Deputy Manager – SAP ABAP on HANA",
+    company: "Deputy Manager & SAP Career Mentor",
+    category: "Track 3 Featured Speaker",
+    track: "Track 3 · Block A, 2nd Fl Seminar Hall",
+    time: "3:55 PM – 4:15 PM",
+    topic: "How to Build a Career in SAP",
+    bio: "Deputy Manager specializing in SAP ABAP on HANA with 12+ years of enterprise IT experience. Accomplished SAP technical lead, community champion, and dedicated career mentor.",
+    takeaways: [
+          {
+                title: "Building an Enduring SAP Career",
+                desc: "Navigating modern career pathways from ABAP on HANA to cloud-native development."
+          },
+          {
+                title: "Technical Skill Evolution",
+                desc: "Mastering modern frameworks (RAP, CAP, BTP) to stay indispensable in the AI era."
+          },
+          {
+                title: "Mentorship & Community Growth",
+                desc: "Actionable advice on continuous learning, certifications, and enterprise leadership."
+          }
+    ],
+    tags: ["Track 3","Career Mentorship","ABAP on HANA","SAP Technical Lead","Community"],
+    accentColor: "#0284C7",
+    img: "/speakers/pradipto-kumar-saha.jpg",
+    poster: "/speakers/poster-pradipto-kumar-saha.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Pradipto%20Kumar%20Saha%20SAP",
+  },
+  {
+    id: 50,
+    name: "Sayantan Ghosh",
+    role: "AI Engineer",
+    company: "Databricks",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Block A, 2nd Fl Tech Lab",
+    time: "1:20 PM – 1:45 PM",
+    topic: "Talk to Your Data: Building Intelligent Text-to-SQL Systems",
+    bio: "AI Engineer at Databricks specializing in generative AI, machine learning, LLM evaluation, prompt engineering, and building enterprise text-to-SQL data conversational agents.",
+    takeaways: [
+          {
+                title: "Intelligent Text-to-SQL Systems",
+                desc: "Architecting generative AI pipelines that allow non-technical business users to converse with SQL data."
+          },
+          {
+                title: "Rigorous LLM Evaluation",
+                desc: "Establishing deterministic benchmarks, prompt engineering, and guardrails for query accuracy."
+          },
+          {
+                title: "Databricks GenAI Stack",
+                desc: "Leveraging Databricks foundation model serving and vector search for enterprise knowledge graphs."
+          }
+    ],
+    tags: ["Track 2","Databricks","AI Engineer","Generative AI","Text-to-SQL","LLM Evaluation"],
+    accentColor: "#FF3621",
+    img: "/speakers/sayantan-ghosh.jpg",
+    poster: "/speakers/poster-sayantan-ghosh.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Sayantan%20Ghosh%20Databricks",
+  },
+  {
+    id: 51,
+    name: "Somnath Pal",
+    role: "SAP Technical Architect",
+    company: "TCS",
+    category: "Track 2 Featured Speaker",
+    track: "Track 2 · Block A, 2nd Fl Tech Lab",
+    time: "3:15 PM – 3:45 PM",
+    topic: "ABAP Meets AI: Beyond the Prompt",
+    bio: "SAP Technical Architect at TCS with 20+ years of experience leading modern application architectures across SAP BTP, ABAP RESTful Application Programming (RAP), Cloud Application Programming (CAP), and Clean Core.",
+    takeaways: [
+          {
+                title: "ABAP Meets AI: Beyond the Prompt",
+                desc: "Going beyond superficial prompt engineering into deep programmatic AI integration within ABAP."
+          },
+          {
+                title: "Modern RAP & CAP Blueprints",
+                desc: "Building robust cloud-native enterprise services on SAP BTP following Clean Core guidelines."
+          },
+          {
+                title: "Developer Productivity in S/4HANA",
+                desc: "Practical strategies for developers to dramatically accelerate development with embedded AI."
+          }
+    ],
+    tags: ["Track 2","TCS","Technical Architect","ABAP Meets AI","RAP","CAP","Clean Core"],
+    accentColor: "#2563EB",
+    img: "/speakers/somnath-pal.jpg",
+    poster: "/speakers/poster-somnath-pal.jpg",
+    linkedin: "https://www.linkedin.com/search/results/all/?keywords=Somnath%20Pal%20TCS",
   },
 ];
 
@@ -4163,122 +5617,269 @@ const SponsorsSection = () => {
     }
   };
 
-  const partnersList = [
-    {
-      role: "Official Sponsor",
-      name: "TNS Consulting Solutions Ltd",
-      logo: "/partners/sponsor-tns-consulting.jpg",
-      tag: "Enterprise IT & SAP Solutions",
-      description: "Delivering end-to-end enterprise IT transformation, strategic SAP consulting, and innovative business solutions."
-    },
-    {
-      role: "Business Value Partner",
-      name: "TuTeck Technologies",
-      logo: "/partners/sponsor-tuteck-light.png",
-      tag: "Digital Innovation, Driven by Intelligence",
-      description: "Pioneering enterprise AI, cloud engineering, and digital transformation architectures for modern enterprises."
-    },
-    {
-      role: "Official Sponsor",
-      name: "TagSkills EdTech Pvt Ltd",
-      logo: "/partners/sponsor-tagskills.jpg",
-      tag: "Enterprise EdTech & Skills Enablement",
-      description: "Empowering professionals and aspiring tech leaders with cutting-edge industry training and skill development."
-    },
-    {
-      role: "Official Sponsor",
-      name: "We",
-      logo: "/partners/sponsor-we.png",
-      tag: "Ecosystem & Community Sponsor",
-      description: "Supporting community tech initiatives and empowering developer engagement."
-    },
-    {
-      role: "Venue Partner",
-      name: "Sister Nivedita University & Techno India Group",
-      logo: "/partners/venue-partner-snu.png",
-      tag: "Academic & Campus Host",
-      description: "Host campus providing world-class auditorium, tech labs, and academic infrastructure for SIT Kolkata 2026."
-    },
-    {
-      role: "SAP Partner",
-      name: "SAP PRESS",
-      logo: "/partners/sap-press-logo.png",
-      tag: "Official SAP Publishing Partner",
-      description: "Leading technical publisher providing authoritative SAP books, e-books, and developer reference guides."
-    },
-    {
-      role: "Media Partner",
-      name: "Wiki Kolkata",
-      logo: "/partners/media-partner-wikikolkata.png",
-      tag: "Official Digital Media Partner",
-      description: "Kolkata's premier digital media network capturing and amplifying tech stories across the region."
-    },
-    {
-      role: "Refreshment Partner",
-      name: "Tea Buddies",
-      logo: "/partners/refreshment-partner-tea-buddies.png",
-      tag: "Official Refreshment Partner",
-      description: "Handcrafted tea blends and artisanal refreshments keeping our community energized throughout the day."
-    }
-  ];
-
   return (
-    <section id="sponsors" className="py-24 bg-[#080d1a] text-white relative border-t border-slate-800 scroll-mt-16 overflow-hidden">
-      {/* Background glow effects */}
-      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="sponsors" className="py-24 bg-[#FAF8F5] text-slate-900 relative border-t border-stone-200/80 scroll-mt-16 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/4 -left-32 w-80 h-80 bg-blue-100/60 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-amber-100/60 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <Reveal direction="up" className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-3 bg-amber-400/10 border border-amber-400/30 text-amber-400 px-4 py-1.5 rounded-full text-xs font-mono font-black uppercase tracking-widest">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 relative z-10 max-w-6xl">
+        <Reveal direction="up" className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-3 bg-blue-100/80 border border-blue-200 text-blue-900 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-widest shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#0070F2]" />
             EVENT SUPPORTERS & ECOSYSTEM
           </div>
-          <h2 className="text-4xl sm:text-5xl font-black text-white tracking-tight">
-            Official <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] via-blue-400 to-amber-400">Partners & Sponsors</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight">
+            Official <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0070F2] via-blue-600 to-amber-500">Partners & Sponsors</span>
           </h2>
-          <p className="text-slate-400 font-medium max-w-2xl mx-auto mt-3 text-base sm:text-lg">
+          <p className="text-slate-600 font-medium max-w-2xl mx-auto mt-2 text-sm sm:text-base">
             Heartfelt gratitude to the visionary partners and sponsors making SAP Inside Track Kolkata 2026 possible.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
-          {partnersList.map((partner, idx) => (
-            <Reveal key={idx} direction="up" delay={`delay-${idx * 100}`} className="h-full">
-              <div className="h-full bg-slate-900/90 rounded-3xl p-6 border border-slate-800 hover:border-amber-400/60 transition-all duration-300 shadow-xl hover:-translate-y-1.5 flex flex-col justify-between group backdrop-blur-md">
-                <div>
-                  <div className="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full border border-amber-400/20 mb-4">
-                    {partner.role}
-                  </div>
+        {/* ── TIERED MOCKUP LAYOUT CONTAINER ── */}
+        <div className="flex flex-col gap-6 sm:gap-7">
+          
+          {/* 1. VENUE PARTNER (Full Width) */}
+          <Reveal direction="up" delay="delay-100">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#0d2347] text-white border border-[#0d2347] shadow-xs">
+                  VENUE PARTNER
+                </span>
+              </div>
+              <div className="flex items-center justify-center py-2 min-h-[90px]">
+                <img
+                  src="/partners/venue-partner-snu.png"
+                  alt="Sister Nivedita University & Techno India Group"
+                  className="h-16 sm:h-20 max-w-full object-contain"
+                />
+              </div>
+            </div>
+          </Reveal>
 
-                  {/* Clean Logo Box with light container for crisp vector contrast */}
-                  <div className="w-full h-36 bg-white rounded-2xl p-4 flex items-center justify-center border border-slate-700/50 shadow-inner mb-5 group-hover:scale-[1.02] transition-transform">
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="max-h-24 max-w-full object-contain"
-                    />
-                  </div>
+          {/* 2. GOLD SPONSOR (Full Width) */}
+          <Reveal direction="up" delay="delay-150">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-gradient-to-b from-amber-50/25 via-white to-amber-50/25 rounded-3xl border border-amber-300/80 shadow-sm hover:shadow-md hover:border-amber-400 transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#c99539] text-white border border-[#b8852d] shadow-xs">
+                  GOLD SPONSOR
+                </span>
+              </div>
+              <div className="flex items-center justify-center py-2 min-h-[95px]">
+                <img
+                  src="/partners/sponsor-infocus.png"
+                  alt="Infocus Technologies Pvt ltd"
+                  className="h-20 sm:h-24 max-w-full object-contain"
+                />
+              </div>
+            </div>
+          </Reveal>
 
-                  <h3 className="text-lg font-black text-white leading-snug mb-1 group-hover:text-amber-300 transition-colors">
-                    {partner.name}
-                  </h3>
-                  <div className="text-xs font-mono font-semibold text-blue-400 mb-2">
-                    {partner.tag}
-                  </div>
-                  <p className="text-xs text-slate-400 leading-relaxed font-normal">
-                    {partner.description}
-                  </p>
+          {/* 3. SILVER SPONSORS (2 Columns) */}
+          <Reveal direction="up" delay="delay-200">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#8494a5] text-white border border-[#768697] shadow-xs">
+                  SILVER SPONSORS
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-slate-100 py-2">
+                <div className="flex items-center justify-center gap-3.5 py-3">
+                  <img
+                    src="/partners/sponsor-westernacher.png"
+                    alt="Westernacher"
+                    className="h-12 w-12 sm:h-14 sm:w-14 rounded-lg object-contain shadow-xs"
+                  />
+                  <span className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0082c8] font-sans">
+                    Westernacher
+                  </span>
+                </div>
+                <div className="flex flex-col items-center justify-center gap-2 pt-4 md:pt-0 py-3">
+                  <img
+                    src="/partners/sponsor-tuteck-light.png"
+                    alt="TuTeck Technologies"
+                    className="h-12 sm:h-14 max-w-[210px] object-contain"
+                  />
+                  <span className="inline-block bg-[#eaf3fe] text-[#0070F2] text-[11px] sm:text-xs font-semibold px-3.5 py-0.5 rounded-full border border-[#d0e5fc]">
+                    Also our Business Value Partner
+                  </span>
                 </div>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </Reveal>
+
+          {/* 4. BRONZE SPONSORS (2 Columns) */}
+          <Reveal direction="up" delay="delay-250">
+            <div className="relative pt-7 pb-6 px-6 sm:px-10 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span className="px-5 py-1 rounded-full text-xs font-black uppercase tracking-wider whitespace-nowrap bg-[#a46033] text-white border border-[#915228] shadow-xs">
+                  BRONZE SPONSORS
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-slate-100 py-2">
+                <div className="flex items-center justify-center py-3">
+                  <img
+                    src="/partners/sponsor-tagskills.jpg"
+                    alt="TagSkills EdTech Pvt Ltd"
+                    className="h-14 sm:h-16 max-w-full object-contain"
+                  />
+                </div>
+                <div className="flex items-center justify-center pt-4 md:pt-0 py-3">
+                  <img
+                    src="/partners/sponsor-tns-consulting.jpg"
+                    alt="TNS Consulting Solutions Ltd"
+                    className="h-12 sm:h-14 max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 5. 4-COLUMN ROW (IT Community, Hospitality, Refreshment, Media) */}
+          <Reveal direction="up" delay="delay-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* IT Community Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    IT COMMUNITY PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/partner-kolkata-it-hub.png"
+                    alt="Kolkata IT Hub"
+                    className="max-h-24 max-w-full object-contain rounded-xl"
+                  />
+                </div>
+              </div>
+
+              {/* Hospitality Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    HOSPITALITY PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/partner-desijourney.png"
+                    alt="DesiJourney"
+                    className="max-h-28 max-w-full object-contain scale-115"
+                  />
+                </div>
+              </div>
+
+              {/* Refreshment Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    REFRESHMENT PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/refreshment-partner-tea-buddies.png"
+                    alt="Tea Buddies"
+                    className="max-h-20 max-w-full object-contain rounded-full shadow-2xs"
+                  />
+                </div>
+              </div>
+
+              {/* Media Partner */}
+              <div className="relative pt-7 pb-5 px-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-3.5 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    MEDIA PARTNER
+                  </span>
+                </div>
+                <div className="h-28 flex items-center justify-center p-2">
+                  <img
+                    src="/partners/media-partner-wikikolkata.png"
+                    alt="Wiki Kolkata"
+                    className="max-h-20 max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* 6. BOTTOM ROW (Professional Community & Student Community Partners) */}
+          <Reveal direction="up" delay="delay-350">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Professional Community Partners (AWS & Databricks) */}
+              <div className="lg:col-span-5 relative pt-7 pb-5 px-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    PROFESSIONAL COMMUNITY PARTNERS
+                  </span>
+                </div>
+                <div className="h-32 flex items-center justify-around gap-4 px-2">
+                  <img
+                    src="/partners/partner-aws-kolkata.png"
+                    alt="AWS Users Group, Kolkata (India)"
+                    className="h-20 w-20 sm:h-22 sm:w-22 object-contain rounded-full shadow-xs hover:scale-105 transition-transform"
+                  />
+                  <img
+                    src="/partners/partner-databricks-india.png"
+                    alt="Databricks User Group INDIA"
+                    className="h-20 w-20 sm:h-22 sm:w-22 object-contain rounded-full shadow-xs hover:scale-105 transition-transform"
+                  />
+                </div>
+              </div>
+
+              {/* Student Community Partners (Debuggers United & GDGs) */}
+              <div className="lg:col-span-7 relative pt-7 pb-5 px-6 bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-black uppercase tracking-wider whitespace-nowrap bg-[#edf3fb] text-[#0d2347] border border-[#d6e3f5] shadow-2xs">
+                    STUDENT COMMUNITY PARTNERS
+                  </span>
+                </div>
+                <div className="h-auto sm:h-32 flex flex-col sm:flex-row items-center justify-around gap-5 py-2">
+                  <img
+                    src="/partners/partner-debuggers-united.png"
+                    alt="Debuggers United"
+                    className="h-20 w-20 sm:h-22 sm:w-22 object-contain rounded-xl shadow-xs hover:scale-105 transition-transform shrink-0"
+                  />
+                  <div className="flex flex-col gap-2.5">
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-7 h-7 shrink-0" viewBox="0 0 40 40" fill="none">
+                        <path d="M12 10L4 18L12 26" stroke="#EA4335" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M4 18L12 26" stroke="#4285F4" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M28 10L36 18L28 26" stroke="#FBBC05" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M36 18L28 26" stroke="#34A853" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <div className="leading-tight">
+                        <div className="text-xs sm:text-sm font-bold text-slate-800">Google Developer Group</div>
+                        <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">On Campus · Future Institute of Engineering &amp; Management</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                      <svg className="w-7 h-7 shrink-0" viewBox="0 0 40 40" fill="none">
+                        <path d="M12 10L4 18L12 26" stroke="#EA4335" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M4 18L12 26" stroke="#4285F4" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M28 10L36 18L28 26" stroke="#FBBC05" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M36 18L28 26" stroke="#34A853" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      <div className="leading-tight">
+                        <div className="text-xs sm:text-sm font-bold text-slate-800">Google Developer Group</div>
+                        <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium">On Campus · Meghnad Saha Institute Of Technology</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </Reveal>
+
         </div>
 
         {/* ── SPONSORSHIP INVITATION CTA ── */}
-        <Reveal direction="up" delay="delay-300" className="mt-12 max-w-4xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-amber-400/30 bg-gradient-to-br from-slate-900/95 via-[#0c1527]/95 to-slate-900/95 p-8 sm:p-10 shadow-2xl backdrop-blur-xl group hover:border-amber-400/60 transition-all duration-300">
-            {/* Ambient inner background glows */}
+        <Reveal direction="up" delay="delay-400" className="mt-14 max-w-4xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-amber-400/40 bg-gradient-to-br from-slate-950 via-slate-900 to-[#0b162c] p-8 sm:p-10 shadow-xl text-white">
             <div className="absolute -top-24 -right-24 w-52 h-52 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-52 h-52 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -4348,31 +5949,32 @@ const SponsorsSection = () => {
 };
 
 const CommunityPartnersSection = () => {
-  const partners = [
-    "Debuggers United",
+  const marqueePartners = [
+    "Sister Nivedita University",
+    "Infocus Technologies",
+    "Westernacher Consulting",
+    "TuTeck Technologies",
+    "TagSkills EdTech",
+    "TNS Consulting",
+    "Kolkata IT Hub",
+    "DesiJourney",
+    "Tea Buddies",
     "Wiki Kolkata",
-    "AWS Usergroup Kolkata",
-    "Databricks Usergroup India",
+    "AWS Users Group, Kolkata",
+    "Databricks User Group INDIA",
+    "Debuggers United",
   ];
 
   return (
-    <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
-      <div className="container mx-auto px-6 relative z-10 mb-10 text-center">
-        <h3 className="text-2xl font-black text-slate-800 uppercase tracking-wide">
-          Our <span className="text-blue-600">Community Partners</span>
-        </h3>
-        <div className="w-16 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
-      </div>
-
+    <section className="py-14 bg-white overflow-hidden relative border-t border-slate-200">
       <div className="relative flex flex-col gap-6 w-full max-w-[100vw] overflow-hidden">
-        {/* Marquee Track */}
         <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
-          {[...partners, ...partners, ...partners].map((partner, idx) => (
-            <div key={idx} className="mx-8 flex items-center group cursor-pointer">
-              <span className="text-2xl md:text-3xl font-black uppercase tracking-widest text-slate-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-yellow-500 transition-all duration-300">
+          {[...marqueePartners, ...marqueePartners, ...marqueePartners].map((partner, idx) => (
+            <div key={idx} className="mx-6 flex items-center group cursor-pointer">
+              <span className="text-xl md:text-2xl font-black uppercase tracking-wider text-slate-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-amber-500 transition-all duration-300">
                 {partner}
               </span>
-              <span className="mx-8 text-yellow-400 font-black text-2xl opacity-50">•</span>
+              <span className="mx-6 text-amber-400 font-black text-xl opacity-60">•</span>
             </div>
           ))}
         </div>
