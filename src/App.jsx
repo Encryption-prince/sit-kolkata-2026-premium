@@ -657,20 +657,128 @@ const Navbar = ({ onNavigateToFlexPass, onNavigateToTeam }) => {
   );
 };
 
-const TicketsLiveBadge = () => {
+const LiveStageBar = () => {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const liveHighlights = [
+    {
+      bold: "Welcome to SIT Kolkata 2026",
+      subtitle: "Sister Nivedita University Campus",
+      mobile: "Live at SNU Kolkata",
+      accent: "text-slate-950",
+    },
+    {
+      bold: "400+ Innovators Assembled",
+      subtitle: "Eastern India’s Premier SAP Gathering",
+      mobile: "400+ Tech Innovators",
+      accent: "text-[#0070F2]",
+    },
+    {
+      bold: "4 Parallel Breakout Tracks",
+      subtitle: "Keynotes, Architecture Labs & Panels",
+      mobile: "4 Tracks In Session",
+      accent: "text-emerald-700",
+    },
+    {
+      bold: "Live Schedule & Floor Guide",
+      subtitle: "Tap to view today's sessions & halls",
+      mobile: "Explore Live Agenda",
+      accent: "text-amber-600",
+    },
+  ];
+
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % liveHighlights.length);
+    }, 3800);
+    return () => clearInterval(timer);
+  }, [isHovered, liveHighlights.length]);
+
   return (
-    <a
-      href="#tickets"
-      className="relative inline-flex items-center justify-center my-0.5 sm:my-1 select-none group focus:outline-none"
-      title="Tickets Are Live - Book Your Spot"
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.15 }}
+      className="w-full max-w-xl sm:max-w-2xl mx-auto my-3.5 sm:my-4 select-none px-2"
     >
-      <img
-        src="/tickets-are-live.png"
-        alt="Tickets Are Live"
-        className="w-full max-w-[290px] sm:max-w-[360px] md:max-w-[410px] lg:max-w-[450px] h-auto object-contain select-none drop-shadow-[0_6px_18px_rgba(245,158,11,0.38)] group-hover:drop-shadow-[0_10px_26px_rgba(245,158,11,0.6)] -rotate-1 group-hover:rotate-0 transition-all duration-300 group-hover:scale-105 active:scale-95 cursor-pointer"
-        loading="eager"
-      />
-    </a>
+      <a
+        href="#agenda"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="group relative flex items-center justify-between gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-white/90 backdrop-blur-md border border-stone-200/90 hover:border-[#0070F2]/50 shadow-[0_4px_20px_-2px_rgba(15,23,42,0.06),0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_10px_30px_-4px_rgba(0,112,242,0.18)] transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+        title="Explore SIT Kolkata 2026 Live Agenda"
+      >
+        {/* Left: Live indicator */}
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-xs shadow-rose-600/30 text-[10px] sm:text-[11px] font-black tracking-wider uppercase">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-80" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+            </span>
+            <span>LIVE</span>
+            <span className="hidden sm:inline-flex items-end gap-[1.5px] h-2.5 ml-0.5">
+              <span className="w-[2px] h-full bg-white rounded-full animate-[pulse_0.8s_ease-in-out_infinite]" />
+              <span className="w-[2px] h-[55%] bg-white rounded-full animate-[pulse_1.1s_ease-in-out_infinite_150ms]" />
+              <span className="w-[2px] h-[80%] bg-white rounded-full animate-[pulse_0.9s_ease-in-out_infinite_300ms]" />
+            </span>
+          </span>
+          <span className="hidden sm:block h-3.5 w-px bg-stone-300/80" />
+        </div>
+
+        {/* Center: Dynamic highlights ticker */}
+        <div className="relative flex-1 h-5 sm:h-5.5 overflow-hidden flex items-center justify-center sm:justify-start">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIdx}
+              initial={{ opacity: 0, y: 7 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -7 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-[13px] tracking-tight whitespace-nowrap overflow-hidden text-ellipsis text-left"
+            >
+              <span className={`font-extrabold hidden sm:inline ${liveHighlights[activeIdx].accent}`}>
+                {liveHighlights[activeIdx].bold}
+              </span>
+              <span className="text-stone-300 font-normal hidden sm:inline">|</span>
+              <span className="text-slate-600 font-semibold hidden sm:inline">
+                {liveHighlights[activeIdx].subtitle}
+              </span>
+              <span className={`font-bold sm:hidden ${liveHighlights[activeIdx].accent}`}>
+                {liveHighlights[activeIdx].mobile}
+              </span>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Right: Micro slide indicators + CTA */}
+        <div className="flex items-center gap-2 shrink-0">
+          <div className="hidden md:flex items-center gap-1">
+            {liveHighlights.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActiveIdx(i);
+                }}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  activeIdx === i ? 'w-3 bg-[#0070F2]' : 'w-1 bg-stone-300 hover:bg-stone-400'
+                }`}
+                aria-label={`Highlight ${i + 1}`}
+              />
+            ))}
+          </div>
+          <span className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 rounded-full bg-stone-100 group-hover:bg-[#0070F2] text-slate-700 group-hover:text-white text-[11px] font-bold transition-all duration-200 shadow-2xs">
+            <span className="hidden xs:inline">Live Agenda</span>
+            <span className="xs:hidden">Agenda</span>
+            <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+          </span>
+        </div>
+      </a>
+    </motion.div>
   );
 };
 
@@ -718,9 +826,6 @@ const HeroSection = () => {
 
       {/* ── CENTER CONTENT ── */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-xl sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto w-full">
-        {/* Tickets Live Brush Badge */}
-        <TicketsLiveBadge />
-
         {/* Main Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] font-black tracking-[-0.02em] leading-[1.08] text-slate-950 mt-1 sm:mt-2">
           <span className="text-[#0070F2]">SAP</span> INSIDE TRACK
@@ -760,6 +865,9 @@ const HeroSection = () => {
         <p className="text-[10px] sm:text-[11px] font-bold tracking-[0.22em] text-slate-500 uppercase mt-1">
           BY THE COMMUNITY, FOR THE COMMUNITY.
         </p>
+
+        {/* Live Stage Broadcast Bar */}
+        <LiveStageBar />
 
         {/* Event Details Row */}
         <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-7 md:gap-9 mt-4 sm:mt-5">
