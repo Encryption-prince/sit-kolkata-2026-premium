@@ -5,6 +5,7 @@
  * Make sure the sheet is shared as "Anyone with the link can view".
  */
 
+
 export const FLEX_PASS_CONFIG = {
   // PASTE YOUR GOOGLE SHEET URL OR SHEET ID HERE:
   // Example: "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit"
